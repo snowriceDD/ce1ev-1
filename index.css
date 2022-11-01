@@ -1,0 +1,260 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  height: 150px;
+  background: #f4f4f4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.header #header_logo {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  gap: 10px;
+
+  font-family: "Imbue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 100px;
+  line-height: 120px;
+  color: #000000;
+}
+.search {
+  display: flex;
+}
+.search > li {
+  position: relative;
+  width: 1000px;
+}
+.search #header_search {
+  display: flex;
+  width: 100%;
+  height: 63px;
+  background: rgba(236, 236, 236, 1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border-radius: 125px;
+  overflow: hidden;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+}
+.search > li > button {
+  position: absolute;
+  display: flex;
+  right: 10px;
+  top: 20px;
+  border: none;
+  background: rgba(236, 236, 236, 1);
+}
+.search #header_search > img {
+  width: 24px;
+  height: 24px;
+}
+.header .header_right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
+
+  margin-right: 80px;
+  width: auto;
+  height: 52px;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #8c7b75;
+}
+.hidden {
+  display: none !important;
+}
+
+.bannerContainer {
+  width: 100%;
+  height: 650px;
+}
+.bannerContainer .bannerWrap .slideWrap .slideList li a img {
+  width: 100%;
+  height: 100%;
+}
+.bannerWrap .slideWrap {
+  overflow: hidden;
+}
+.slideWrap input {
+  display: none;
+}
+.bannerWrap .slideList {
+  white-space: nowrap;
+  font-size: 0;
+}
+.bannerWrap .slideList > li {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  transition: all 0.5s;
+}
+.bannerWrap .slideList > li > a {
+  display: block;
+  position: relative;
+}
+.bannerWrap .slideList label {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 50px;
+  cursor: pointer;
+}
+.bannerWrap .slideList .left {
+  left: 30px;
+  background: url(./img/left.png) center no-repeat;
+}
+
+.bannerWrap .slideList .right {
+  right: 30px;
+  background: url(./img/right.png) center no-repeat;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+body .secbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 60px;
+}
+
+.pd_block {
+  width: 300px;
+  height: 510px;
+
+  /* display: flex;
+      justify-content: center;
+      align-items: center; */
+}
+
+.pd_text {
+  padding-left: 5px;
+}
+
+.box {
+  /* position: absolute; */
+  /* width: 300px; */
+  height: 300px;
+
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.pd_brd {
+  /* position: absolute; */
+
+  font-family: "Gothic";
+  font-style: Bold;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height */
+
+  text-decoration-line: underline;
+
+  color: #000000;
+}
+
+.pd_name {
+  /* position: absolute; */
+
+  font-family: "Gothic A1";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #000000;
+
+  margin-top: 2px;
+}
+
+.tag_box {
+  margin-top: 15px;
+}
+
+.tag_category {
+  border: 4px;
+  padding: 5px;
+  border-radius: 4px;
+  color: #000000;
+  background: rgb(219, 219, 219);
+
+  font-family: "Gothic";
+  font-weight: 600;
+}
+
+.tag_name {
+  border: 4px;
+  padding: 5px;
+  border-radius: 4px;
+  color: #000000;
+  background: rgb(184, 211, 227);
+
+  font-family: "Gothic";
+  font-weight: 600;
+}
+
+.pd_price {
+  /* position: absolute; */
+  font-family: "Gothic";
+  /* font-style: Bold; */
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 21px;
+
+  margin: 15px 5px 0 0;
+
+  float: right;
+
+  color: #000000;
+}
+
+body .category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 987px;
+  height: 150px;
+  margin: auto;
+}
+
+body .category .category_btn {
+  height: 56px;
+  width: 56px;
+
+  border-radius: 10px;
+  background: #d9d9d9;
+
+  margin-bottom: 15px;
+}
+
+body .category .category_btn + p {
+  font-family: "Itim";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+
+  color: #000000;
+}
