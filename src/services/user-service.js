@@ -1,4 +1,4 @@
-import { userModel } from "../db";
+import { userModel } from "../models";
 
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -34,6 +34,9 @@ class UserService {
 
     return createdNewUser;
   }
+
+
+
 
   // 로그인
   async getUserToken(loginInfo) {
