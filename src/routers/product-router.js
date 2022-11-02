@@ -1,12 +1,13 @@
 import { Router } from "express";
 import {ProductModel} from "../models/product-model"
+import { productService } from "../services/product-service";
 
 const productRouter = Router();
 
-productRouter.get('/', async (req, res) => { 
-    const product = await this.ProductModel.findAll(); //[{..}, {..}, ..]
+productRouter.get('/products', async (req, res) => { 
+    const product = await productService.findProudct(); //[{..}, {..}, ..]
 
-    res.send(product)
+    res.json(product)
 });
 
 // productRouter.get('/:id', async (req, res)=> {
@@ -15,13 +16,31 @@ productRouter.get('/', async (req, res) => {
 //     res.json(product);
 // })
 
-// productRouter.get('/:category', async (req, res)=> {
-//     const category = req.params.category;
+productRouter.get('/products/:category', async (req, res)=> {
+    const category = req.params.category;
 
-//     const data = await Product.findByCategory({category}) // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
+    const data = await productService.findCategory(category) // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
     
-//     res.json(data)
-// });
+    res.json(data)
+});
+
+productRouter.get('/products/:brand', async (req, res)=> {
+    const brand = req.params.brand;
+    const data = await productService.findBrand(brand) // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
+
+    res.json(data)
+});
+
+productRouter.post('/products', async(req, res)=> {
+    const {brand, name, price, size, color, category, description, img} = req.body;
+
+    const newProduct = await productService.addProduct({
+        brand, name, price, size, color, category, description, img
+    })
+
+    res.json(newProduct);
+    
+})
 
 // productRouter.get('/?query=name', async (req, res)=> {
 //     const name = req.query.name;
@@ -31,10 +50,6 @@ productRouter.get('/', async (req, res) => {
 
 // productRouter.get('/addproduct', async(req, res)=> {
 //     res.redirect('/');
-// })
-
-// productRouter.post('/addproduct', async(req,res)=> {
-    
 // })
 
 export { productRouter };
