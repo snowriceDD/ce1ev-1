@@ -4,9 +4,10 @@ import { productService } from "../services/product-service";
 
 const productRouter = Router();
 
-productRouter.get('/products', async (req, res) => { 
+productRouter.get('/', async (req, res) => { 
     const product = await productService.findProudct(); //[{..}, {..}, ..]
 
+    // res.render('template/postProduct', {product})
     res.json(product)
 });
 
@@ -16,7 +17,7 @@ productRouter.get('/products', async (req, res) => {
 //     res.json(product);
 // })
 
-productRouter.get('/products/:category', async (req, res)=> {
+productRouter.get('/:category', async (req, res)=> {
     const category = req.params.category;
 
     const data = await productService.findCategory(category) // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
@@ -32,10 +33,18 @@ productRouter.get('/products/:brand', async (req, res)=> {
 });
 
 productRouter.post('/products', async(req, res)=> {
-    const {brand, name, price, size, color, category, description, img} = req.body;
+    const {num, brand, name, price, size, color, category, description, img} = req.body;
 
     const newProduct = await productService.addProduct({
-        brand, name, price, size, color, category, description, img
+        num,
+        brand, 
+        name, 
+        price, 
+        size, 
+        color, 
+        category, 
+        description, 
+        img
     })
 
     res.json(newProduct);

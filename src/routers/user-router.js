@@ -18,15 +18,20 @@ userRouter.post("/register", async (req, res, next) => {
     }
 
     // req (request)의 body 에서 데이터 가져오기
-    const fullName = req.body.fullName;
+    const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
+    const phoneNum = req.body.phoneNum;
+    const address = req.body.address;
+
 
     // 위 데이터를 유저 db에 추가하기
     const newUser = await userService.addUser({
-      fullName,
       email,
+      name,
       password,
+      phoneNum,
+      address,
     });
 
     // 추가된 유저의 db 데이터를 프론트에 다시 보내줌
@@ -97,7 +102,7 @@ userRouter.patch(
       const fullName = req.body.fullName;
       const password = req.body.password;
       const address = req.body.address;
-      const phoneNumber = req.body.phoneNumber;
+      const phoneNum = req.body.phoneNum;
       const role = req.body.role;
 
       // body data로부터, 확인용으로 사용할 현재 비밀번호를 추출함.
@@ -116,7 +121,7 @@ userRouter.patch(
         ...(fullName && { fullName }),
         ...(password && { password }),
         ...(address && { address }),
-        ...(phoneNumber && { phoneNumber }),
+        ...(phoneNum && { phoneNum }),
         ...(role && { role }),
       };
 

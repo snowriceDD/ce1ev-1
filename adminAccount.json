@@ -1,0 +1,47 @@
+[
+ {
+  "email": "jaehun@elice.com",
+  "password": 12345678,
+  "name": "박재훈",
+  "address": "경기도",
+  "phoneNum": "01026208738",
+  "role": "관리자",
+  "isMember": true
+ },
+ {
+  "email": "yunsu@elice.com",
+  "password": 23456789,
+  "name": "김윤수",
+  "address": "성남시",
+  "phoneNum": "01075740412",
+  "role": "관리자",
+  "isMember": true
+ },
+ {
+  "email": "dongha@elice.con",
+  "password": 34567890,
+  "name": "원동하",
+  "address": "분당구",
+  "phoneNum": "01089550704",
+  "role": "관리자",
+  "isMember": true
+ },
+ {
+  "email": "somin@elice.com",
+  "password": 45678901,
+  "name": "박소민",
+  "address": "분당내곡로",
+  "phoneNum": "01023143857",
+  "role": "관리자",
+  "isMember": true
+ },
+ {
+  "email": "juhye@elice.com",
+  "password": 56789012,
+  "name": "송주혜",
+  "address": "판교테크원",
+  "phoneNum": "01058018057",
+  "role": "관리자",
+  "isMember": true
+ }
+]

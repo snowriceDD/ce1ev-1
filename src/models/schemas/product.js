@@ -1,6 +1,12 @@
 const {Schema} = require('mongoose');
+// const autoIncrement = require('mongoose-auto-increment')
+
 
 const ProductSchema = new Schema({
+    num: {
+        type: Number,
+        required: true,
+    },
     brand: {
         type: String,
         required: true,
@@ -37,6 +43,13 @@ const ProductSchema = new Schema({
 }, {
     collection: "products",
     timestamps: true,
-})
+});
+
+// ProductSchema(autoIncrement.plugin,{
+//     model: 'products',
+//     field: 'num',
+//     startAt: 1,
+//     increment: 1
+// });
 
 export { ProductSchema };

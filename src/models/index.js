@@ -3,6 +3,9 @@ import dotenv  from "dotenv";
 import {UserSchema}  from "./schemas/user";
 import {ProductSchema} from "./schemas/product";
 import {OrderListSchema} from "./schemas/orderList";
+import {adminAccount}  from "../../adminAccount.json"
+const fs = require('fs')
+// import {autoIncrement} from 'mongoose-auto-increment';
 
 
 dotenv.config();
@@ -13,10 +16,25 @@ const DB_URL =
 
 mongoose.connect(DB_URL);
 const db = mongoose.connection;
+// autoIncrement.initialize(db);
+
+fs.readFile('adminAccount.json', (err, data)=> {
+  if(err){
+    console.log("file not found")
+  }
+
+  const user = JSON.parse(data);
+  for(let i = 0 ; i< user.length; i++) {
+    // db.users.insert(user[i]);
+    // console.log(user[i])
+  }
+})
 
 db.on("connected", () =>
   console.log("정상적으로 MongoDB 서버에 연결되었습니다.  " + DB_URL)
 );
+
+
 db.on("error", (error) =>
   console.error("\nMongoDB 연결에 실패하였습니다...\n" + DB_URL + "\n" + error)
 );

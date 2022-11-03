@@ -20,9 +20,9 @@ class ProductService {
     }
 
     async addProduct(productInfo) {
-        const {brand, name, price, size, color, category, description, img} = productInfo;
+        const {num, brand, name, price, size, color, category, description, img} = productInfo;
 
-        const newProductInfo =  {brand, name, price, size, color, category, description, img};
+        const newProductInfo =  {num, brand, name, price, size, color, category, description, img};
 
         // db에 저장
         const createdNewProduct = await productModel.create(newProductInfo);
