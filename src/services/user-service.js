@@ -1,12 +1,12 @@
-import { userModel } from "../db";
+import { userModel } from "../models";
 
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 class UserService {
   // 본 파일의 맨 아래에서, new UserService(userModel) 하면, 이 함수의 인자로 전달됨
-  constructor(userModel) {
-    this.userModel = userModel;
+  constructor(model) {
+    this.model = model;
   }
 
   // 회원가입
@@ -34,6 +34,9 @@ class UserService {
 
     return createdNewUser;
   }
+
+
+
 
   // 로그인
   async getUserToken(loginInfo) {
