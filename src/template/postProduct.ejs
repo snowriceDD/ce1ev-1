@@ -13,8 +13,8 @@
       href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="home.css" />
-    <link rel="stylesheet" type="text/css" href="../../../reset.css" />
+    <link rel="stylesheet" type="text/css" href="../views/home/home.css" />
+    <link rel="stylesheet" type="text/css" href="../../reset.css" />
   </head>
   <body class="body">
     <!--Header_Navigator-->
@@ -154,133 +154,13 @@
 
     <div class="section_box">
       <section class="pd_block">
-        <div class="box">
-          <img src="https://image.msscdn.net/images/goods_img/20220812/2715908/2715908_2_220.jpg">
-        </div>
-        <article class="pd_text">
-          <p class="pd_brd">5252 바이 오아이오아이</p>
-          <p class="pd_name">
-            SIGNATURE HOODIE
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">79,000 원</p>
-        </article>
-      </section>
-
-      <section class="pd_block">
-        <div class="box">
-          <img src="https://image.msscdn.net/images/goods_img/20220817/2722868/2722868_6_220.jpg">
-        </div>
-        <article class="pd_text">
-          <p class="pd_brd">캘빈클라인 진</p>
-          <p class="pd_name">
-            블랙 아카이블 릴렉스핏 CK
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">제니</a>
-          </div>
-          <p class="pd_price">108,500 원</p>
-        </article>
-      </section>
-
-      <!--Main_Product_List-->
-      <section class="pd_block">
         <div class="box"></div>
         <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
-          <p class="pd_name">
-            Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
-            Blood - 22FW
+          <% for (const brd of product_list) {%>
+          <p class="pd_brd">
+            <%= brd.brand %>
           </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">390,000 원</p>
-        </article>
-      </section>
-
-      <section class="pd_block">
-        <div class="box"></div>
-        <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
-          <p class="pd_name">
-            Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
-            Blood - 22FW
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">390,000 원</p>
-        </article>
-      </section>
-    </div>
-
-    <div class="section_box">
-      <section class="pd_block">
-        <div class="box"></div>
-        <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
-          <p class="pd_name">
-            Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
-            Blood - 22FW
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">390,000 원</p>
-        </article>
-      </section>
-
-      <section class="pd_block">
-        <div class="box"></div>
-        <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
-          <p class="pd_name">
-            Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
-            Blood - 22FW
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">390,000 원</p>
-        </article>
-      </section>
-
-      <section class="pd_block">
-        <div class="box"></div>
-        <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
-          <p class="pd_name">
-            Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
-            Blood - 22FW
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">390,000 원</p>
-        </article>
-      </section>
-
-      <section class="pd_block">
-        <div class="box"></div>
-        <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
+          <% } %>
           <p class="pd_name">
             Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
             Blood - 22FW
@@ -333,6 +213,5 @@
         </p>
       </address>
     </footer>
-
   </body>
 </html>

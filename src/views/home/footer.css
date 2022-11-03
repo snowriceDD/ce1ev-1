@@ -1,0 +1,53 @@
+/*             footer              */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+
+  height: 200px;
+  background: #f4f4f4;
+}
+
+.addressLink {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+
+  height: 35px;
+  line-height: 35px;
+}
+.addressLink > li > a {
+  color: black;
+  text-decoration: none;
+}
+.addressLink #footer_logo {
+  font-family: "Imbue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  letter-spacing: 0em;
+  line-height: 48px;
+  text-align: left;
+}
+.addressText {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.address_right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+}
