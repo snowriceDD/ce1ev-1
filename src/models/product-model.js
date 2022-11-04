@@ -1,12 +1,17 @@
 import { model } from "mongoose";
 import { ProductSchema } from "./schemas/product";
 
-const Product = model("product", ProductSchema);
+const Product = model("products", ProductSchema);
 
 export class ProductModel {
 
-  async findById(id){
-    const product = await Product.findOne({id});
+  async findByNum(num){
+    const product = await Product.findOne({num});
+    return product;
+  }
+
+  async findNewest() {
+    const product = await Product.find().sort({"num": -1})
     return product;
   }
 
@@ -41,12 +46,17 @@ export class ProductModel {
     return product;
   }
 
-  async update({ userId, update }) {
-    const filter = { _id: userId };
+  async update({ prodcutNum, update }) {
+    const filter = { num: prodcutNum };
     const option = { returnOriginal: false };
 
     const updatedProduct = await User.findOneAndUpdate(filter, update, option);
     return updatedProduct;
+  }
+
+  async delete(num) {
+    const product = await Product.deleteOne({num});
+    return product;
   }
 }
 

@@ -1,10 +1,11 @@
 import { Router } from "express";
-import {ProductModel} from "../models/product-model"
+import {ProductModel} from "../models"
 import { productService } from "../services/product-service";
+
 
 const productRouter = Router();
 
-productRouter.get('/', async (req, res) => { 
+productRouter.get('/products', async (req, res) => { 
     const product = await productService.findProudct(); //[{..}, {..}, ..]
 
     // res.render('template/postProduct', {product})
@@ -19,9 +20,8 @@ productRouter.get('/', async (req, res) => {
 
 productRouter.get('/:category', async (req, res)=> {
     const category = req.params.category;
-
     const data = await productService.findCategory(category) // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
-    
+
     res.json(data)
 });
 
@@ -33,10 +33,10 @@ productRouter.get('/products/:brand', async (req, res)=> {
 });
 
 productRouter.post('/products', async(req, res)=> {
-    const {num, brand, name, price, size, color, category, description, img} = req.body;
 
+    const {brand, name, price, size, color, category, description, img} = req.body;
     const newProduct = await productService.addProduct({
-        num,
+        brand,
         brand, 
         name, 
         price, 
@@ -46,8 +46,17 @@ productRouter.post('/products', async(req, res)=> {
         description, 
         img
     })
+    //console.log(newProduct);//num 안들어감
     res.json(newProduct);
+});
+
+
+productRouter.delete('/:num', async(req, res)=> {
+    const num = req.params.num;
+    const product = await productRouter.deleteProduct(num);
+    res.json(product);
 })
+
 
 // productRouter.get('/?query=name', async (req, res)=> {
 //     const name = req.query.name;
@@ -55,8 +64,6 @@ productRouter.post('/products', async(req, res)=> {
 //     res.json(data);
 // });
 
-// productRouter.get('/addproduct', async(req, res)=> {
-//     res.redirect('/');
-// })
+
 
 export { productRouter };

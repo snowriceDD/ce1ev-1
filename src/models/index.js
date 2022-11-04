@@ -4,12 +4,9 @@ import {UserSchema}  from "./schemas/user";
 import {ProductSchema} from "./schemas/product";
 import {OrderListSchema} from "./schemas/orderList";
 import { model } from "mongoose";
-import {adminAccount}  from "../../adminAccount.json"
-import { monitorEventLoopDelay } from "perf_hooks";
 const fs = require('fs')
 const User = model("users", UserSchema);
-
-// import {autoIncrement} from 'mongoose-auto-increment';
+const Product = model("products", ProductSchema);
 
 
 dotenv.config();
@@ -28,7 +25,6 @@ const db = mongoose.connection;
 // autoIncrement.initialize(db);
 
 async function main(){
-
   fs.readFile('adminAccount.json', (err, data)=> {
     if(err){
       console.log("file not found")
@@ -64,6 +60,6 @@ db.on("error", (error) =>
 export * from "./user-model";
 export * from "./product-model";
 
-exports.User = mongoose.model('User', UserSchema);
-exports.Product = mongoose.model("Product", ProductSchema);
+exports.Product = Product;
+exports.User = User;
 exports.OrderList = mongoose.model("OrderList", OrderListSchema);
