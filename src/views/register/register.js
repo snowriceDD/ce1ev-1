@@ -51,14 +51,14 @@ async function handleSubmit(e) {
     return alert("비밀번호가 일치하지 않습니다.");
   }
   if (!isAddressValid) {
-    return alert("주소 형식이 아닙니다.")
+    return alert("주소 형식이 아닙니다.");
   }
   if (!isNumberValid) {
-    return alert("전화번호 형식이 아닙니다.")
+    return alert("전화번호 형식이 아닙니다.");
   }
   // 회원가입 api 요청
   try {
-    const data = { name, email, password, phoneNum, address};
+    const data = { name, email, password, phoneNum, address };
     await Api.post("/api/register", data);
 
     alert(`정상적으로 회원가입되었습니다.`);

@@ -24,7 +24,6 @@ userRouter.post("/register", async (req, res, next) => {
     const phoneNum = req.body.phoneNum;
     const address = req.body.address;
 
-
     // 위 데이터를 유저 db에 추가하기
     const newUser = await userService.addUser({
       email,
@@ -143,6 +142,5 @@ userRouter.patch(
 //   res.cookie('token', null,{maxAge: 0});
 //   res.redirect('/');
 // });
-
 
 export { userRouter };

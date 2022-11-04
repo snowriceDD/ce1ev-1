@@ -5,7 +5,7 @@ import { productService } from "../services/product-service";
 
 const productRouter = Router();
 
-productRouter.get('/products', async (req, res) => { 
+productRouter.get('/showproducts', async (req, res) => { 
     const product = await productService.findProudct(); //[{..}, {..}, ..]
 
     // res.render('template/postProduct', {product})
@@ -36,7 +36,6 @@ productRouter.post('/products', async(req, res)=> {
 
     const {brand, name, price, size, color, category, description, img} = req.body;
     const newProduct = await productService.addProduct({
-        brand,
         brand, 
         name, 
         price, 
