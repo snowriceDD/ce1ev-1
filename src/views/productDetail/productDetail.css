@@ -3,12 +3,10 @@
   margin: 0px;
   border: 0px;
 }
-/* 
-body {
-} */
 
 .box {
-  border: 1px solid #181818;
+  /* border: 1px solid #181818; */
+  background-color: #efefef;
 }
 
 .pd_brd {
@@ -51,7 +49,7 @@ body {
 
 .color_block :hover {
   border: 5px solid #aaaaaa;
-  margin-top: 0px;
+  /* margin-top: 0px; */
 }
 
 .size_block {
@@ -114,17 +112,33 @@ body {
   height: 24px;
 }
 
-.bb6 {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 24px;
+.total_price_title {
+  text-align: right;
 }
 
-.totla_price_title {
+.total_price {
+  text-align: right;
+  justify-content: right;
+  font-weight: bold;
+}
+
+.button_buy {
+  width: 100%;
+  height: 65px;
   float: left;
+  color: #d9d9d9;
+  background: #000000;
+  border-radius: 5px;
+  font-weight: 900;
 }
-
-.totla_price {
+.button_cart {
+  width: 65px;
+  height: 65px;
   float: right;
+  color: #000000;
+  background: #d8d8d8;
+  border: 1px solid #7c7c7c;
+  border-radius: 5px;
 }
 
 .container {
@@ -166,7 +180,6 @@ body {
 .bb3 {
   grid-area: c;
   width: 100%;
-  height: 100px;
 }
 
 .bb4 {
@@ -182,34 +195,46 @@ body {
 .bb6 {
   grid-area: f;
   height: 180px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 24px;
 }
 
 .bb7 {
   grid-area: g;
   height: 50px;
+  /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+  display: flex;
+  justify-content: space-between;
 }
 
 .bb8 {
   grid-area: h;
   height: 80px;
+  display: grid;
+  grid-template-columns: 4fr 65px;
+  grid-gap: 10px;
 }
 
 .bb9 {
   grid-area: i;
   width: 100%;
-  height: 250px;
+  grid-auto-flow: column;
 }
 
 .bb10 {
   grid-area: j;
+  width: 100%;
 }
 
 .bb11 {
   grid-area: k;
+  width: 100%;
 }
 
 .bb12 {
   grid-area: l;
+  width: 100%;
 }
 
 .bb13 {
