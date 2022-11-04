@@ -9,6 +9,11 @@
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "rules": {},
-  "extends": ["prettier"]
+  "extends": ["prettier/prettier","plugin:prettier/recommended"],
+  "prettier/prettier": [
+    "error",
+    {
+      "endOfLine": "auto"
+    }
+  ]
 }

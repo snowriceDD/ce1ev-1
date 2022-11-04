@@ -31,6 +31,11 @@ async function handleSubmit(e) {
       const description = descriptionInput.value;
       const color = getColorArray(colorInput.value);
       const size = getSizeArray(sizeInput.value);
+      if (!category || !brand || !name || !price || !img || !description || !color || !size) {
+        return alert(
+          "입력하지 않은 값이 있습니다."
+        )
+      }
       const data = {
         category,
         brand,
