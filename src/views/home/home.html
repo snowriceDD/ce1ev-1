@@ -14,7 +14,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="home.css" />
+    <link rel="stylesheet" type="text/css" href="reset.css" />
     <script src="home.js" type="module" defer></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="categoryfilter.js"></script>
   </head>
   <body class="body">
     <!--Header_Navigator-->
@@ -126,179 +129,42 @@
 
         <!--Category_button-->
     <ul class="category">
+      <!-- 동적인 구성 필요 ! 빽에서 가져와서 후리기 ! -->
       <li>
-        <div class="category_btn"></div>
+        <div class="category_btn" id="hot"></div>
         <p>화제의인물</p>
       </li>
       <li>
-        <div class="category_btn"></div>
+        <div class="category_btn" id="idol"></div>
         <p>아이돌</p>
       </li>
       <li>
-        <div class="category_btn"></div>
+        <div class="category_btn" id="actor"></div>
         <p>배우</p>
       </li>
       <li>
-        <div class="category_btn"></div>
+        <div class="category_btn" id="sport"></div>
         <p>스포츠스타</p>
       </li>
       <li>
-        <div class="category_btn"></div>
+        <div class="category_btn" id="youtuber"></div>
         <p>유튜버</p>
       </li>
       <li>
-        <div class="category_btn"></div>
+        <div class="category_btn" id="etc"></div>
         <p>기타</p>
+      </li>
+      <li>
+        <div class="category_btn" id="all"></div>
+        <p>전체보기</p>
       </li>
     </ul>
 
-    <div class="section_box">
-      
-      <section class="pd_block">
-        <div class="box">
-          <img src="https://image.msscdn.net/images/goods_img/20220812/2715908/2715908_2_220.jpg">
-        </div>
-        <article class="pd_text">
-          <p class="pd_brd">5252 바이 오아이오아이</p>
-          <p class="pd_name">
-            SIGNATURE HOODIE
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">79,000 원</p>
-        </article>
-      </section>
-
-      <section class="pd_block">
-        <div class="box">
-          <img src="https://image.msscdn.net/images/goods_img/20220817/2722868/2722868_6_220.jpg">
-        </div>
-        <article class="pd_text">
-          <p class="pd_brd">캘빈클라인 진</p>
-          <p class="pd_name">
-            블랙 아카이블 릴렉스핏 CK
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">제니</a>
-          </div>
-          <p class="pd_price">108,500 원</p>
-        </article>
-      </section>
-
-      <!--Main_Product_List-->
-      <section class="pd_block">
-        <div class="box"></div>
-        <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
-          <p class="pd_name">
-            Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
-            Blood - 22FW
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">390,000 원</p>
-        </article>
-      </section>
-
-      <section class="pd_block">
-        <div class="box"></div>
-        <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
-          <p class="pd_name">
-            Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
-            Blood - 22FW
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">390,000 원</p>
-        </article>
-      </section>
+    <div class="section_box"> 
     </div>
-
-    <div class="section_box">
-      <section class="pd_block">
-        <div class="box"></div>
-        <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
-          <p class="pd_name">
-            Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
-            Blood - 22FW
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">390,000 원</p>
-        </article>
-      </section>
-
-      <section class="pd_block">
-        <div class="box"></div>
-        <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
-          <p class="pd_name">
-            Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
-            Blood - 22FW
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">390,000 원</p>
-        </article>
-      </section>
-
-      <section class="pd_block">
-        <div class="box"></div>
-        <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
-          <p class="pd_name">
-            Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
-            Blood - 22FW
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">390,000 원</p>
-        </article>
-      </section>
-
-      <section class="pd_block">
-        <div class="box"></div>
-        <article class="pd_text">
-          <p class="pd_brd">Undermycar</p>
-          <p class="pd_name">
-            Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox
-            Blood - 22FW
-          </p>
-
-          <div class="tag_box">
-            <a class="tag_category">아이돌</a>
-            <a class="tag_name">NewJeans</a>
-          </div>
-          <p class="pd_price">390,000 원</p>
-        </article>
-      </section>
-    </div>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-------- footer -------->
     <link rel="stylesheet" href="footer.css" />
-    <link rel="stylesheet" href="../../../reset.css" />
     <footer class="footer">
       <address class="address_left">
         <ul class="addressLink">

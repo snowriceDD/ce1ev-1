@@ -5,7 +5,7 @@ import { productService } from "../services/product-service";
 
 const productRouter = Router();
 
-productRouter.get('/showproducts', async (req, res) => { 
+productRouter.get('/products', async (req, res) => { 
     const product = await productService.findProudct(); //[{..}, {..}, ..]
 
     // res.render('template/postProduct', {product})
