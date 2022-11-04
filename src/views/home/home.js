@@ -2,7 +2,6 @@
 const productList = document.querySelector(".section_box");
 
 // 데이터를 받아 요소를 만든 후, html에 삽입
-// window.onload()
 insertProductElement();
 
 async function insertProductElement() {
