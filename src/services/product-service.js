@@ -29,8 +29,6 @@ class ProductService {
 
         return createdNewProduct;
     }
-
-    
 }
 
 const productService = new ProductService(productModel);
