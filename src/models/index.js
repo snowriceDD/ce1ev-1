@@ -35,6 +35,7 @@ async function main(){
     }
 
     const user = JSON.parse(data); //user = [{...}, {...}, {...}, ...]
+    
     // User.create(user)
 
     // for(let i = 0; i< user.length;i++){
