@@ -5,7 +5,7 @@ const {Schema} = require('mongoose');
 const ProductSchema = new Schema({
     num: {
         type: Number,
-        required: true,
+        required: false,
     },
     brand: {
         type: String,

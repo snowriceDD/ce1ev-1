@@ -46,9 +46,7 @@ productRouter.post('/products', async(req, res)=> {
         description, 
         img
     })
-
     res.json(newProduct);
-    
 })
 
 // productRouter.get('/?query=name', async (req, res)=> {

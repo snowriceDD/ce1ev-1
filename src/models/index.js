@@ -3,8 +3,12 @@ import dotenv  from "dotenv";
 import {UserSchema}  from "./schemas/user";
 import {ProductSchema} from "./schemas/product";
 import {OrderListSchema} from "./schemas/orderList";
+import { model } from "mongoose";
 import {adminAccount}  from "../../adminAccount.json"
+import { monitorEventLoopDelay } from "perf_hooks";
 const fs = require('fs')
+const User = model("users", UserSchema);
+
 // import {autoIncrement} from 'mongoose-auto-increment';
 
 
@@ -14,21 +18,34 @@ const DB_URL =
   process.env.MONGODB_URL ||
   "mongodb+srv://elice:W8RsZsSX2Xs1ydE4@cluster0.4gz9ij3.mongodb.net/?retryWrites=true&w=majority";
 
-mongoose.connect(DB_URL);
+mongoose.connect(DB_URL)
+  .then(()=> main())
+  .catch((err)=> {
+    console.error("오류가 발생했습니다.". err);
+  })
+;
 const db = mongoose.connection;
 // autoIncrement.initialize(db);
 
-fs.readFile('adminAccount.json', (err, data)=> {
-  if(err){
-    console.log("file not found")
-  }
+async function main(){
 
-  const user = JSON.parse(data);
-  for(let i = 0 ; i< user.length; i++) {
-    // db.users.insert(user[i]);
-    // console.log(user[i])
-  }
-})
+  fs.readFile('adminAccount.json', (err, data)=> {
+    if(err){
+      console.log("file not found")
+    }
+
+    const user = JSON.parse(data); //user = [{...}, {...}, {...}, ...]
+    // User.create(user)
+
+    // for(let i = 0; i< user.length;i++){
+    //   const admin = user[i].name //이름들
+    //   //  if(!User.exists({name: admin})) {
+    //   //     User.create(user[i])
+    //   //  }
+    //   console.log(!User.exists({name: admin}))
+    // }
+  })
+}
 
 db.on("connected", () =>
   console.log("정상적으로 MongoDB 서버에 연결되었습니다.  " + DB_URL)
