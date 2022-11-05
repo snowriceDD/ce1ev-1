@@ -9,6 +9,11 @@ class ProductService {
     return product;
   }
 
+  async findNum(num) {
+    const product = await productModel.findByNum(num);
+    return product;
+  }
+
   async findCategory(category) {
     const product = await productModel.findByCategory(category);
     return product;
@@ -19,6 +24,11 @@ class ProductService {
     return product;
   }
 
+  async findName(name) {
+    const product = await productModel.findByname(name);
+    return product;
+  }
+
   async addProduct(productInfo) {
     const curObj = await productModel.findNewest();
     const curNum = curObj[0].num;
@@ -26,15 +36,7 @@ class ProductService {
       productInfo;
     const num = curNum + 1;
     const newProductInfo = {
-      num,
-      brand,
-      name,
-      price,
-      size,
-      color,
-      category,
-      description,
-      img,
+      num,brand,name,price, size, color, category, description, img,
     };
     // console.log(newProductInfo)
 

@@ -25,7 +25,9 @@
   letter-spacing: 0em;
   text-align: left;
   margin: 10px;
-
+}
+.login-form-box .title a {
+  text-decoration: none;
 }
 
 .login-form-box .field {
