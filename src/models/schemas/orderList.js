@@ -5,7 +5,7 @@ const OrderListSchema = new Schema({
         type: Number, 
         required: true,
     },
-    orderLIst: {
+    orderList: {
         type: Schema.Types.ObjectId, // [UndermayCar Operation ~, ... ]
         required: true,
         ref: "products",

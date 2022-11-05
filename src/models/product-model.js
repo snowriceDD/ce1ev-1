@@ -4,14 +4,16 @@ import { ProductSchema } from "./schemas/product";
 const Product = model("products", ProductSchema);
 
 export class ProductModel {
-
-  async findByNum(num){
-    const product = await Product.findOne({num});
+  async findByNum(num) {
+    const product = await Product.findOne({ num });
     return product;
   }
-
+  async findById(productId) {
+    const product = await Product.findOne({ _id : productId });
+    return product;
+  }
   async findNewest() {
-    const product = await Product.find().sort({"num": -1})
+    const product = await Product.find().sort({ num: -1 });
     return product;
   }
 
@@ -35,7 +37,6 @@ export class ProductModel {
     return product;
   }
 
-
   async create(productInfo) {
     const createdNewProduct = await Product.create(productInfo);
     return createdNewProduct;
@@ -55,7 +56,7 @@ export class ProductModel {
   }
 
   async delete(num) {
-    const product = await Product.deleteOne({num});
+    const product = await Product.deleteOne({ num });
     return product;
   }
 }

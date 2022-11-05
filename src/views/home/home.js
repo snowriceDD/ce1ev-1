@@ -15,12 +15,13 @@ async function insertProductElement() {
     const img = product.img;
     const category = product.category;
     const description = product.description;
+    const num = product.num;
 
     productList.insertAdjacentHTML(
       "beforeend",
       `
     <section class="pd_block" id="${category}">
-    <img src="${img}"class="box"/>
+    <img src="${img}"class="box" id="${num}"/>
     <article class="pd_text">
       <p class="pd_brd">${brand}</p>
       <p class="pd_name">
@@ -36,5 +37,19 @@ async function insertProductElement() {
   </section>
     `
     );
-  });
+    const productItem = document.getElementById(`${num}`);
+
+  function a () {
+    // window.location.assign(`/productDetail/${num}`)
+    window.location.assign("/productDetail")
+  }
+
+  productItem.addEventListener(
+    "click", a
+
+    
+  );}
+
+  );
+
 }
