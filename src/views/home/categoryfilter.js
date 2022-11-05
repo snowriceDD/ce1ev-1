@@ -35,11 +35,11 @@ $(document).ready(function(){
     if(searchText == "") {
       $("section").show();
     }
-    // console.log(searchText);
+    console.log(searchText);
     var brand = $("section > article > .pd_brd:contains('"+ searchText +"')")[0].id
     console.log(brand) //nike 출력
     $(`#${brand}`).parents().show();
-    console.log( $(`#${brand}`).parents());
+    // console.log( $(`#${brand}`).parents());
   })
 })
 

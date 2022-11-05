@@ -4,6 +4,7 @@ const {Schema, default: mongoose} = require('mongoose');
 
 
 const ProductSchema = new Schema({
+    id: Schema.Types.ObjectId,
     num: {
         type: Number,
         requried: true,

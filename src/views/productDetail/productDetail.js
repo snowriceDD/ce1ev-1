@@ -1,96 +1,120 @@
-// import * as Api from "../api";
+import * as Api from "../../api.js";
 
-
+// 요소(element), input 혹은 상수
 const productImageTag = document.querySelector(".bb2");
-// const    brandTag : document.querySelector(".pd_brd"),
-    // nameTag : document.querySelector(".pd_name"),
-    // categoryTag : document.querySelector('.tag_category'),
-    // descriptionTag : document.querySelector('.tag_name')
+const brandTag = document.querySelector(".pd_brd");
+const nameTag = document.querySelector(".pd_name");
+const categoryTag = document.querySelector('.tag_category');
+const descriptionTag = document.querySelector('.tag_name');
 
-console.log(productImageTag)
-const productId = window.location.pathname.split('/')[2];
-let product = {};
-let selectSize = '';
 
-const initialize = async () => {
-    const res = await fetch(`/api/productDetail/${productId}`);
-    // product = await res.json();
-    console.log(res)
-};
-initialize()
-// initialize()
-//     .then(() => render())
-//     .then(() => setEvents());
+const productList = document.querySelector(".container");
 
-const drawProduct = () => {
-    ref.productImageTag = `<img src=${product.img}/>`;
-    ref.brandTag  =  `<p>${product.brand}</p>`;
-    ref.nameTag.innerText =  product.name;
-    ref.categoryTag.innerText =  product.category;
-    ref.descriptionTag.innerText =  product.description;
-};
-// const num = product.num;
-// drawProduct();
-// const render = () => {
-//     drawProduct();
-    // drawCartCount();
-    // drawModal();
-// };
+checkUrlParams("num");
+addAllElements();
+addAllEvents();
 
-// /////////
-// import * as Api from "../../api.js";
-// import {
-//     getUrlParams,
-//     addCommas,
-//     checkUrlParams,
-//     createNavbar,
-//   } from "../../useful-functions.js";
+// html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
+function addAllElements() {
+  createNavbar();
+  insertProductData();
+}
 
-// // 요소(element), input 혹은 상수
-// const productImageTag = document.querySelector(".bb2");
-// const brandTag = document.querySelector(".pd_brd");
-// const nameTag = document.querySelector(".pd_name");
-// const categoryTag = document.querySelector('.tag_category');
-// const descriptionTag =document.querySelector('.tag_name');
+// addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
+function addAllEvents() {}
 
-// checkUrlParams("num");
-// addAllElements();
-// addAllEvents();
+async function insertProductData() {
+  const { num } = getUrlParams();
+  const product = await Api.get(`/api/products/${num}`);
 
-// // html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
-// function addAllElements() {
-//   createNavbar();
-//   insertProductData();
-// }
+  // 객체 destructuring
+//   const {
+//     brand,
+//     name,
+//     price,
+//     size,
+//     color,
+//     category,
+//     description,
+//     img
+//   } = product;
 
-// // addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
-// function addAllEvents() {}
 
-// async function insertProductData() {
-//   const { num } = getUrlParams();
-//   const product = await Api.get(`/api/productDetail/${num}`);
-// console.log(product)
-//   // 객체 destructuring
-//   const brand = product.brand;
-//   const name = product.name;
-//   const price = product.price;
-//   const img = product.img;
-//   const category = product.category;
-//   const description = product.description;
-//   const number = product.num;
+//   productImageTag.src = imageUrl;
+//   titleTag.innerText = title;
+//   detailDescriptionTag.innerText = detailDescription;
+//   manufacturerTag.innerText = manufacturer;
+//   priceTag.innerText = `${addCommas(price)}원`;
 
-//   productImageTag.src = img;
-//   brandTag.innerText = brand;
-//   nameTag.innerText = name;
-//   categoryTag.innerText = category;
-//   descriptionTag.innerText = description;
-// }
-//   if (isRecommended) {
-//     titleTag.insertAdjacentHTML(
-//       "beforeend",
-//       '<span class="tag is-success is-rounded">추천</span>'
-//     );
-//   }
+
+    const brand = product.brand;
+    const name = product.name;
+    const price = product.price;
+    const img = product.img;
+    const category = product.category;
+    const description = product.description;
+    const number = product.num;
+
+    productList.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="box bb1"></div>
+      <div class="box bb2">
+        <img src=${img}>
+      </div>
+      <div class="box bb3">
+        <p class="pd_brd">${brand}</p>
+        <p class="pd_name">
+        ${name}
+        </p>
+      </div>
+      <div class="box bb4">
+        
+        <div class="tag_block">
+          <a class="tag_category">${category}</a>
+          <a class="tag_name">${description}</a>
+        </div>
+      </div>
+      <div class="box bb5">
+        <p>사이즈</p>
+        <div class="size_block">
+          <button id="content_box" class="size_s" type="button">S</button>
+          <button id="content_box" class="size_m" type="button">M</button>
+          <button id="content_box" class="size_l" type="button">L</button>
+          <button id="content_box" class="size_xl" type="button">XL</button>
+          <!-- <button id="content_box" class="size_xxl" type="button">XXL</button> -->
+        </div>
+      </div>
+      <div class="box bb6">
+        <span>{color/size}</span>
+        <span class="counter">
+          <button type="button" class="minus">-</button>
+          <span class="count_num">1</span>
+          <button type="button" class="plus">+</button>
+        </span>
+        <span class="price_li">11,111 원</span>
+        <button class="delete">X</button>
+      </div>
+      <div class="box bb7">
+        <span class="total_price_title">총가격</span>
+        <span class="total_price">111,111원</span>
+      </div>
+      <div class="box bb8">
+        <button class="button_buy" type="button">BUY NOW</button>
+        <button class="button_cart" type="button">cart</button>
+      </div>
+      <div class="box bb9">추천상품 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quae animi corrupti totam sint dolore facere ipsam adipisci voluptate optio, vero repellendus amet alias tempora aspernatur beatae, ut voluptatem autem?</div>
+      <div class="box bb10">추천상품2</div>
+      <div class="box bb11">추천상품3 lo</div>
+      <div class="box bb12">추천상품4</div>
+      <div class="box bb13">상품상세</div>
+      <div class="box bb14">배송및반품</div>
+      <div class="box bb15">리뷰</div>
+      <div class="box bb16">리뷰2</div>
+      <div class="box bb17">리뷰3</div>
+      `
+    );
+  }
 
 //   addToCartButton.addEventListener("click", async () => {
 //     try {
