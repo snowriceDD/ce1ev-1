@@ -8,11 +8,20 @@ class ProductService {
     const product = await productModel.findAll({});
     return product;
   }
-
+  async findId(productId){
+    const product = await productModel.findOne(productId)
+    return product;
+  }
   async findCategory(category) {
     const product = await productModel.findByCategory(category);
     return product;
   }
+
+  async findNum(num) {
+    const product = await productModel.findByNum(num);
+    return product;
+  }
+
 
   async findBrand(brand) {
     const product = await productModel.findByBrand(brand);

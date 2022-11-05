@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="productDetail.css" />
+    <script href="productDetail.js"></script>
     <title>Document</title>
   </head>
   <body>
     <div class="container">
-      <div class="box bb1">왼쪽 태그/오른쪽 찜</div>
+      <div class="box bb1"></div>
       <div class="box bb2">상품 메인이미지</div>
       <div class="box bb3">
         <p class="pd_brd">Undermycar</p>
@@ -19,30 +20,27 @@
         </p>
       </div>
       <div class="box bb4">
-        <p>색상</p>
-        <div class="color_block">
-          <button class="red" id="color_active" type="button"></button>
-          <button class="blue" id="color_active" type="button"></button>
-          <button class="green" id="color_active" type="button"></button>
-          <button class="purple" id="color_active" type="button"></button>
+        
+        <div class="tag_block">
+          <a class="tag_category">아이돌</a>
+          <a class="tag_name">NewJeans</a>
         </div>
       </div>
       <div class="box bb5">
         <p>사이즈</p>
         <div class="size_block">
-          <button class="size_s" type="button">S</button>
-          <button class="size_m" type="button">M</button>
-          <button class="size_l" type="button">L</button>
-          <button class="size_xl" type="button">XL</button>
-          <button class="size_xxl" type="button">XXL</button>
+          <button id="content_box" class="size_s" type="button">S</button>
+          <button id="content_box" class="size_m" type="button">M</button>
+          <button id="content_box" class="size_l" type="button">L</button>
+          <button id="content_box" class="size_xl" type="button">XL</button>
         </div>
       </div>
       <div class="box bb6">
         <span>${color/size}</span>
         <span class="counter">
-          <span class="minus">-</span>
+          <button type="button" class="minus">-</button>
           <span class="count_num">1</span>
-          <span class="plus">+</span>
+          <button type="button" class="plus">+</button>
         </span>
         <span class="price_li">11,111 원</span>
         <button class="delete">X</button>
@@ -51,10 +49,13 @@
         <span class="total_price_title">총가격</span>
         <span class="total_price">111,111원</span>
       </div>
-      <div class="box bb8">구매버튼/장바구니</div>
-      <div class="box bb9">추천상품</div>
+      <div class="box bb8">
+        <button class="button_buy" type="button">BUY NOW</button>
+        <button class="button_cart" type="button">cart</button>
+      </div>
+      <div class="box bb9">추천상품 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quae animi corrupti totam sint dolore facere ipsam adipisci voluptate optio, vero repellendus amet alias tempora aspernatur beatae, ut voluptatem autem?</div>
       <div class="box bb10">추천상품2</div>
-      <div class="box bb11">추천상품3</div>
+      <div class="box bb11">추천상품3 lo</div>
       <div class="box bb12">추천상품4</div>
       <div class="box bb13">상품상세</div>
       <div class="box bb14">배송및반품</div>
