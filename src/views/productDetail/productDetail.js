@@ -1,100 +1,100 @@
 // import * as Api from "../api";
 
-const buyButttonTag = document.querySelector("button_buy")
-const cartButtonTag = document.querySelector(".button_cart")
+const buyButttonTag = document.querySelector("button_buy");
+const cartButtonTag = document.querySelector(".button_cart");
 const productImageTag = document.querySelector(".bb2");
 const brandTag = document.querySelector(".pd_brd");
 const nameTag = document.querySelector(".pd_name");
-const categoryTag = document.querySelector('.tag_category');
-const descriptionTag = document.querySelector('.tag_name')
+const categoryTag = document.querySelector(".tag_category");
+const descriptionTag = document.querySelector(".tag_name");
 
-console.log(productImageTag)
-const productId = window.location.pathname.split('/')[2];
+console.log(productImageTag);
+const productId = window.location.pathname.split("/")[2];
 let product = {};
-let selectSize = '';
+let selectSize = "";
 
 const drawProduct = () => {
-    productImageTag.setAttribute('src', product.img);
-    brandTag.innerHTML  =  product.brand;
-    nameTag.innerHTML =  product.name;
-    categoryTag.innerHTML =  product.category;
-    descriptionTag.innerHTML =  product.description;
+  productImageTag.setAttribute("src", product.img);
+  brandTag.innerHTML = product.brand;
+  nameTag.innerHTML = product.name;
+  categoryTag.innerHTML = product.category;
+  descriptionTag.innerHTML = product.description;
 };
 const initialize = async () => {
-    const res = await fetch(`/api/productDetail/${productId}`);
-    product = await res.json();
-    drawProduct();
+  const res = await fetch(`/api/productDetail/${productId}`);
+  product = await res.json();
+  drawProduct();
 };
 initialize();
 addCart();
 
 const addCart = (id) => {
-    if (!selectSize) {
-        alert('사이즈를 선택해 주세요');
+  if (!selectSize) {
+    alert("사이즈를 선택해 주세요");
+  } else {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      localStorage.setItem(
+        "cart",
+        JSON.stringify({
+          [product._id]: {
+            productName: product.productName,
+            price: product.price,
+            quantity: 1,
+            size: selectSize,
+          },
+        })
+      );
+      alert("장바구니에 담겼습니다.");
+      ref.cartCount.innerText = parseInt(ref.cartCount.innerText) + 1;
     } else {
-        const cart = JSON.parse(localStorage.getItem('cart'));
-        if (!cart) {
-            localStorage.setItem(
-                'cart',
-                JSON.stringify({
-                    [product._id]: {
-                        productName: product.productName,
-                        price: product.price,
-                        quantity: 1,
-                        size: selectSize,
-                    },
-                }),
-            );
-            alert('장바구니에 담겼습니다.');
-            ref.cartCount.innerText = parseInt(ref.cartCount.innerText) + 1;
-        } else {
-            if (!cart[product._id]) {
-                cart[product._id] = {
-                    productName: product.productName,
-                    price: product.price,
-                    quantity: 1,
-                    size: selectSize,
-                };
-                localStorage.setItem('cart', JSON.stringify(cart));
-                alert('장바구니에 담겼습니다.');
-                ref.cartCount.innerText = parseInt(ref.cartCount.innerText) + 1;
-            } else {
-                alert('이미 담긴 상품입니다.');
-            }
-        }
+      if (!cart[product._id]) {
+        cart[product._id] = {
+          productName: product.productName,
+          price: product.price,
+          quantity: 1,
+          size: selectSize,
+        };
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("장바구니에 담겼습니다.");
+        ref.cartCount.innerText = parseInt(ref.cartCount.innerText) + 1;
+      } else {
+        alert("이미 담긴 상품입니다.");
+      }
     }
+  }
 };
 
 const setEvents = () => {
-    // 장바구니
-    cartBtn.addEventListener('click', addCart);
+  // 장바구니
+  cartBtn.addEventListener("click", addCart);
 
-    // 즉시구매
-    buyNowBtn.addEventListener('click', () => {
-        if (!selectSize) {
-            alert('사이즈를 선택해 주세요');
-        } else {
-            localStorage.setItem(
-                'payment',
-                JSON.stringify({
-                    [product._id]: {
-                        productName: product.productName,
-                        price: product.price,
-                        quantity: 1,
-                        size: selectSize,
-                    },
-                }),
-            );
-            location.href = '/order';
-        }
-    });
+  // 즉시구매
+  buyNowBtn.addEventListener("click", () => {
+    if (!selectSize) {
+      alert("사이즈를 선택해 주세요");
+    } else {
+      localStorage.setItem(
+        "payment",
+        JSON.stringify({
+          [product._id]: {
+            productName: product.productName,
+            price: product.price,
+            quantity: 1,
+            size: selectSize,
+          },
+        })
+      );
+      location.href = "/order";
+    }
+  });
 };
 // const num = product.num;
 // drawProduct();
 // const render = () => {
 //     drawProduct();
-    // drawCartCount();
-    // drawModal();
+// drawCartCount();
+// drawModal();
 // };
 
 // /////////

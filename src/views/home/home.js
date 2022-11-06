@@ -39,17 +39,11 @@ async function insertProductElement() {
     );
     const productItem = document.getElementById(`${num}`);
 
-  function a () {
-    window.location.assign(`/productDetail/${num}`)
-    // window.location.assign(/productDetail")
-  }
+    function a() {
+      window.location.assign(`/productDetail/${num}`);
+      // window.location.assign(/productDetail")
+    }
 
-  productItem.addEventListener(
-    "click", a
-
-    
-  );}
-
-  );
-
+    productItem.addEventListener("click", moveToproductDetail);
+  });
 }
