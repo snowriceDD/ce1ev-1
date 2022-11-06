@@ -39,7 +39,7 @@ async function insertProductElement() {
     );
     const productItem = document.getElementById(`${num}`);
 
-    function moveToproductDetail() {
+    function a() {
       window.location.assign(`/productDetail/${num}`);
       // window.location.assign(/productDetail")
     }
