@@ -1,120 +1,156 @@
-import * as Api from "../../api.js";
+// import * as Api from "../api";
 
-// 요소(element), input 혹은 상수
+const buyButttonTag = document.querySelector("button_buy")
+const cartButtonTag = document.querySelector(".button_cart")
 const productImageTag = document.querySelector(".bb2");
 const brandTag = document.querySelector(".pd_brd");
 const nameTag = document.querySelector(".pd_name");
 const categoryTag = document.querySelector('.tag_category');
-const descriptionTag = document.querySelector('.tag_name');
+const descriptionTag = document.querySelector('.tag_name')
 
+console.log(productImageTag)
+const productId = window.location.pathname.split('/')[2];
+let product = {};
+let selectSize = '';
 
-const productList = document.querySelector(".container");
+const drawProduct = () => {
+    productImageTag.setAttribute('src', product.img);
+    brandTag.innerHTML  =  product.brand;
+    nameTag.innerHTML =  product.name;
+    categoryTag.innerHTML =  product.category;
+    descriptionTag.innerHTML =  product.description;
+};
+const initialize = async () => {
+    const res = await fetch(`/api/productDetail/${productId}`);
+    product = await res.json();
+    drawProduct();
+};
+initialize();
+addCart();
 
-checkUrlParams("num");
-addAllElements();
-addAllEvents();
+const addCart = (id) => {
+    if (!selectSize) {
+        alert('사이즈를 선택해 주세요');
+    } else {
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        if (!cart) {
+            localStorage.setItem(
+                'cart',
+                JSON.stringify({
+                    [product._id]: {
+                        productName: product.productName,
+                        price: product.price,
+                        quantity: 1,
+                        size: selectSize,
+                    },
+                }),
+            );
+            alert('장바구니에 담겼습니다.');
+            ref.cartCount.innerText = parseInt(ref.cartCount.innerText) + 1;
+        } else {
+            if (!cart[product._id]) {
+                cart[product._id] = {
+                    productName: product.productName,
+                    price: product.price,
+                    quantity: 1,
+                    size: selectSize,
+                };
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert('장바구니에 담겼습니다.');
+                ref.cartCount.innerText = parseInt(ref.cartCount.innerText) + 1;
+            } else {
+                alert('이미 담긴 상품입니다.');
+            }
+        }
+    }
+};
 
-// html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
-function addAllElements() {
-  createNavbar();
-  insertProductData();
-}
+const setEvents = () => {
+    // 장바구니
+    cartBtn.addEventListener('click', addCart);
 
-// addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
-function addAllEvents() {}
+    // 즉시구매
+    buyNowBtn.addEventListener('click', () => {
+        if (!selectSize) {
+            alert('사이즈를 선택해 주세요');
+        } else {
+            localStorage.setItem(
+                'payment',
+                JSON.stringify({
+                    [product._id]: {
+                        productName: product.productName,
+                        price: product.price,
+                        quantity: 1,
+                        size: selectSize,
+                    },
+                }),
+            );
+            location.href = '/order';
+        }
+    });
+};
+// const num = product.num;
+// drawProduct();
+// const render = () => {
+//     drawProduct();
+    // drawCartCount();
+    // drawModal();
+// };
 
-async function insertProductData() {
-  const { num } = getUrlParams();
-  const product = await Api.get(`/api/products/${num}`);
+// /////////
+// import * as Api from "../../api.js";
+// import {
+//     getUrlParams,
+//     addCommas,
+//     checkUrlParams,
+//     createNavbar,
+//   } from "../../useful-functions.js";
 
-  // 객체 destructuring
-//   const {
-//     brand,
-//     name,
-//     price,
-//     size,
-//     color,
-//     category,
-//     description,
-//     img
-//   } = product;
+// // 요소(element), input 혹은 상수
+// const productImageTag = document.querySelector(".bb2");
+// const brandTag = document.querySelector(".pd_brd");
+// const nameTag = document.querySelector(".pd_name");
+// const categoryTag = document.querySelector('.tag_category');
+// const descriptionTag =document.querySelector('.tag_name');
 
+// checkUrlParams("num");
+// addAllElements();
+// addAllEvents();
 
-//   productImageTag.src = imageUrl;
-//   titleTag.innerText = title;
-//   detailDescriptionTag.innerText = detailDescription;
-//   manufacturerTag.innerText = manufacturer;
-//   priceTag.innerText = `${addCommas(price)}원`;
+// // html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
+// function addAllElements() {
+//   createNavbar();
+//   insertProductData();
+// }
 
+// // addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
+// function addAllEvents() {}
 
-    const brand = product.brand;
-    const name = product.name;
-    const price = product.price;
-    const img = product.img;
-    const category = product.category;
-    const description = product.description;
-    const number = product.num;
+// async function insertProductData() {
+//   const { num } = getUrlParams();
+//   const product = await Api.get(`/api/productDetail/${num}`);
+// console.log(product)
+//   // 객체 destructuring
+//   const brand = product.brand;
+//   const name = product.name;
+//   const price = product.price;
+//   const img = product.img;
+//   const category = product.category;
+//   const description = product.description;
+//   const number = product.num;
 
-    productList.insertAdjacentHTML(
-      "beforeend",
-      `
-      <div class="box bb1"></div>
-      <div class="box bb2">
-        <img src=${img}>
-      </div>
-      <div class="box bb3">
-        <p class="pd_brd">${brand}</p>
-        <p class="pd_name">
-        ${name}
-        </p>
-      </div>
-      <div class="box bb4">
-        
-        <div class="tag_block">
-          <a class="tag_category">${category}</a>
-          <a class="tag_name">${description}</a>
-        </div>
-      </div>
-      <div class="box bb5">
-        <p>사이즈</p>
-        <div class="size_block">
-          <button id="content_box" class="size_s" type="button">S</button>
-          <button id="content_box" class="size_m" type="button">M</button>
-          <button id="content_box" class="size_l" type="button">L</button>
-          <button id="content_box" class="size_xl" type="button">XL</button>
-          <!-- <button id="content_box" class="size_xxl" type="button">XXL</button> -->
-        </div>
-      </div>
-      <div class="box bb6">
-        <span>{color/size}</span>
-        <span class="counter">
-          <button type="button" class="minus">-</button>
-          <span class="count_num">1</span>
-          <button type="button" class="plus">+</button>
-        </span>
-        <span class="price_li">11,111 원</span>
-        <button class="delete">X</button>
-      </div>
-      <div class="box bb7">
-        <span class="total_price_title">총가격</span>
-        <span class="total_price">111,111원</span>
-      </div>
-      <div class="box bb8">
-        <button class="button_buy" type="button">BUY NOW</button>
-        <button class="button_cart" type="button">cart</button>
-      </div>
-      <div class="box bb9">추천상품 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quae animi corrupti totam sint dolore facere ipsam adipisci voluptate optio, vero repellendus amet alias tempora aspernatur beatae, ut voluptatem autem?</div>
-      <div class="box bb10">추천상품2</div>
-      <div class="box bb11">추천상품3 lo</div>
-      <div class="box bb12">추천상품4</div>
-      <div class="box bb13">상품상세</div>
-      <div class="box bb14">배송및반품</div>
-      <div class="box bb15">리뷰</div>
-      <div class="box bb16">리뷰2</div>
-      <div class="box bb17">리뷰3</div>
-      `
-    );
-  }
+//   productImageTag.src = img;
+//   brandTag.innerText = brand;
+//   nameTag.innerText = name;
+//   categoryTag.innerText = category;
+//   descriptionTag.innerText = description;
+// }
+//   if (isRecommended) {
+//     titleTag.insertAdjacentHTML(
+//       "beforeend",
+//       '<span class="tag is-success is-rounded">추천</span>'
+//     );
+//   }
 
 //   addToCartButton.addEventListener("click", async () => {
 //     try {
@@ -152,7 +188,7 @@ async function insertProductData() {
 
 //   // 장바구니 추가 시, indexedDB에 제품 데이터 및
 //   // 주문수량 (기본값 1)을 저장함.
-//   await addToDb("cart", { ...product, quantity: 1 }, id);
+//   await addToDb("cart", { …product, quantity: 1 }, id);
 
 //   // 장바구니 요약(=전체 총합)을 업데이트함.
 //   await putToDb("order", "summary", (data) => {
@@ -169,9 +205,9 @@ async function insertProductData() {
 //     data.productsTotal = total ? total + price : price;
 
 //     // 기존 데이터(배열)가 있다면 id만 추가하고, 없다면 배열 새로 만듦
-//     data.ids = ids ? [...ids, id] : [id];
+//     data.ids = ids ? […ids, id] : [id];
 
 //     // 위와 마찬가지 방식
-//     data.selectedIds = selectedIds ? [...selectedIds, id] : [id];
+//     data.selectedIds = selectedIds ? […selectedIds, id] : [id];
 //   });
 // }

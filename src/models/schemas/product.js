@@ -1,51 +1,52 @@
-const {Schema, default: mongoose} = require('mongoose');
+const { Schema, default: mongoose } = require("mongoose");
 // const {autoIncrement} = require('mongoose-auto-increment')
 // autoIncrement.initialize(mongoose.connection);
 
-
-const ProductSchema = new Schema({
-    id: Schema.Types.ObjectId,
+const ProductSchema = new Schema(
+  {
     num: {
-        type: Number,
-        requried: true,
+      type: Number,
+      requried: true,
     },
     brand: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     name: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     price: {
-        type: String,
-        required: true,
-        min: 0,
+      type: Number,
+      required: true,
+      min: 0,
     },
     size: {
-        type: Array,
-        required: true,
+      type: Array,
+      required: true,
     },
     color: {
-        type: Array,
-        requried: true,
+      type: Array,
+      requried: true,
     },
     category: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     description: {
-        type: String,
-        required: true,
-    }, 
+      type: String,
+      required: true,
+    },
     img: {
-        type: String,
-        required: true,   
-    }
-}, {
+      type: String,
+      required: true,
+    },
+  },
+  {
     collection: "products",
     timestamps: true,
-});
+  }
+);
 
 // ProductSchema(autoIncrement.plugin,{
 //     model: 'products',

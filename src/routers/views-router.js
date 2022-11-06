@@ -13,8 +13,11 @@ viewsRouter.use("/mypage_info", serveStatic("mypage_info"));
 viewsRouter.use("/mypage_shopping", serveStatic("mypage_shopping"));
 viewsRouter.use("/guest", serveStatic("guest"));
 viewsRouter.use("/products", serveStatic("addProduct"));
-viewsRouter.use("/productDetail", serveStatic("productDetail"));
-
+viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
+viewsRouter.use("/mypage", serveStatic("mypage"));
+viewsRouter.get("/mypage/account", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/mypageAccount.html"));
+});
 // views 폴더의 최상단 파일인 rabbit.png, api.js 등을 쓸 수 있게 함
 viewsRouter.use("/", serveStatic(""));
 
