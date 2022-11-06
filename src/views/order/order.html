@@ -1,0 +1,238 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>주문하기</title>
+    <!-- bulma css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <!-- 폰트 어썸: 아이콘 -->
+    <script
+      defer
+      src="https://kit.fontawesome.com/7630448495.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- 커스텀 css, js -->
+    <link rel="stylesheet" href="order.css" />
+    <!-- <link rel="stylesheet" href="../navBar/navBar.css" />
+    <script src="../navBar/navBar.js" type="module" defer></script>
+    <script src="order.js" type="module" defer></script> -->
+  </head>
+
+  <body>
+    <section class="container">
+        <div class="header">
+            <p class="title">주문하기</p>
+        </div>
+        <div class="main">
+            <form class="option">
+                <p>
+                    <strong style="font-size: 15px; font-weight: 600">Info</strong>
+                </p>
+                    <div class="field">
+                        <label class="label" for="fullNameInput">name</label>
+                        <div class="control">
+                            <input
+                            class="input"
+                            id="fullNameInput"
+                            type="text"
+                            autocomplete="on"
+                            />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="addressInput">address</label>
+                        <div class="control">
+                        <input
+                            class="input"
+                            id="addressInput"
+                            type="text"
+                            autocomplete="off"
+                        />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="emailInput">email</label>
+                        <div class="control">
+                            <input
+                            class="input"
+                            id="emailInput"
+                            type="email"
+                            autocomplete="on"
+                            />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="phoneNumberInput">phone number</label>
+                        <div class="control">
+                          <input
+                            class="input"
+                            id="phoneNumberInput"
+                            type="text"
+                            placeholder="010-1234-5678"
+                            autocomplete="off"
+                          />
+                        </div>
+                    </div>
+                    <p>
+                        <strong style="font-size: 15px; font-weight: 600">쿠폰 및 결제 방법</strong>
+                    </p>
+                <div class="pay">
+                    <div class="coupon">
+                        <div>Coupon</div>
+                        <select>
+                            <option value="1">배송비10% 할인</option>
+                            <option value="2">1000원 할인</option>
+                            <option value="3">2000원 할인</option>
+                            <option value="4">3000원 할인</option>
+                        </select>
+                    </div>
+                    <div class="payMethod">  
+                        <div>결제 방법</div>
+                        <input type="radio" name="payment" id="creditCard" checked="checked">신용카드
+                        <input type="radio" name="payment" id="deposit" value="sds">무통장입금
+                    </div>
+                </div>
+            </form>
+            <div class="total">
+                <p>총 결제 금액</p>
+                <div class="product">
+                    <div class="box"></div>
+                    <div class="info">
+                        <ul class="productInfo">
+                            <li id="name">
+                                언더마이카 트랙 자켓
+                            </li>
+                            <li id="color">
+                                color: 
+                                <div>
+                                    black
+                                </div>
+                            </li>
+                            <li id="size">
+                                size:
+                                <div>
+                                    M
+                                </div>
+                            </li>
+                            <li id="count">
+                                count:
+                                <div>
+                                    1
+                                </div>
+                            </li>
+                            <li id="price">
+                                price:
+                                <div>
+                                    1,000,000원
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="box"></div>
+                    <div class="info">
+                        <ul class="productInfo">
+                            <li id="name">
+                                언더마이카 트랙 자켓
+                            </li>
+                            <li id="color">
+                                color: 
+                                <div>
+                                    black
+                                </div>
+                            </li>
+                            <li id="size">
+                                size:
+                                <div>
+                                    M
+                                </div>
+                            </li>
+                            <li id="count">
+                                count:
+                                <div>
+                                    1
+                                </div>
+                            </li>
+                            <li id="price">
+                                price:
+                                <div>
+                                    1,000,000원
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="box"></div>
+                    <div class="info">
+                        <ul class="productInfo">
+                            <li id="name">
+                                언더마이카 트랙 자켓
+                            </li>
+                            <li id="color">
+                                color: 
+                                <div>
+                                    black
+                                </div>
+                            </li>
+                            <li id="size">
+                                size:
+                                <div>
+                                    M
+                                </div>
+                            </li>
+                            <li id="count">
+                                count:
+                                <div>
+                                    1
+                                </div>
+                            </li>
+                            <li id="price">
+                                price:
+                                <div>
+                                    1,000,000원
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="totalProduct">
+                    <div class="info">
+                        <ul class="totalProductInfo">
+                            <li id="count">
+                                총 수량
+                                <div>
+                                    4개
+                                </div>
+                            </li>
+                            <li id="discount">
+                                총 할인
+                                <div>
+                                    0원
+                                </div>
+                            </li>
+                            <li id="deliveryFee">
+                                배송비
+                                <div>
+                                    3,000원
+                                </div>
+                            </li>
+                            <li id="totalPrice">
+                                <strong>총 금액</strong>
+                                <div>
+                                    4,003,000원
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+  </body>
+</html>
