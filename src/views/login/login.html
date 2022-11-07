@@ -17,13 +17,23 @@
     />
     <!-- 커스텀 css, js -->
     <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="../home/reset.css" />
+    <link rel="stylesheet" href="../mypage/HeaderFooter.css" />
     <script src="login.js" type="module" defer></script>
+    <script src="../mypage/HeaderFooter.js" type="module" defer></script>
+
+    <script
+      src="https://kit.fontawesome.com/5c0da6133a.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body>
+  <body class="body">
     <!-- 로그인 폼(Form) -->
     <div class="login-form-container">
       <form class="box login-form-box" id="loginForm">
-        <p class="title" > <a href="/">Ce1ev.</a></p>
+        <div class="title">
+          <a href="/">Ce1ev.</a>
+        </div>
         <div class="field">
           <label class="label" for="emailInput">Email</label>
           <div class="control">
@@ -34,11 +44,9 @@
               autocomplete="on"
             />
           </div>
-          <div class="forget">
-            Forget Email?
-          </div>
+          <div class="forget">Forget Email?</div>
         </div>
-        
+
         <div class="field">
           <label class="label" for="passwordInput">Password</label>
           <div class="control">
@@ -49,18 +57,13 @@
               autocomplete="off"
             />
           </div>
-          <div class="forget">
-            Forget Password?
-          </div>
+          <div class="forget">Forget Password?</div>
         </div>
-        
-        <div class="guestOrder"> <a href="/guest">Order As Guest.</a>
-        </div>
-        <button class="button" id="submitButton">
-          Sign In
-        </button>
+
+        <div class="guestOrder"><a href="/guest">Order As Guest.</a></div>
+        <button class="button" id="submitButton">Sign In</button>
         <div class="signUpLink">
-          Don't have an account?  <a href="/register">Register Now</a>
+          Don't have an account? <a href="/register">Register Now</a>
         </div>
       </form>
     </div>

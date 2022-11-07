@@ -41,7 +41,7 @@
 .section .basic_info .container .content {
   width: 628px;
 
-  text-align: left;
+  text-align: right;
 }
 
 .section .basic_info .container button {

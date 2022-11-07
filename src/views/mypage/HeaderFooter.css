@@ -49,7 +49,7 @@
   border: none;
   background: rgb(236, 236, 236);
 }
-.header .search .header_search > img {
+.header .search > li > button > i {
   width: 24px;
   height: 24px;
 }
