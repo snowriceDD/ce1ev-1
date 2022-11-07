@@ -37,7 +37,7 @@ window.onload = () => {
       </ul>
       <ul class="header_right " id="logoutBox">
         <li id="header_mypage">
-          <a href="/mypage_info">
+          <a href="/mypage">
             MYPAGE
         </a>  
         </li>
