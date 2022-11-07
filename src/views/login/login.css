@@ -1,3 +1,7 @@
+.body a {
+  color: black;
+}
+
 .login-form-container {
   width: 800px;
   height: 468px;
@@ -29,6 +33,11 @@
 .login-form-box .title a {
   text-decoration: none;
   color: black;
+}
+
+.login-form-container > .login-form-box .h1 {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .login-form-box .field {

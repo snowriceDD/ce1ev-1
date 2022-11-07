@@ -24,16 +24,17 @@ async function handleSubmit(e) {
 
   if (check) {
     try {
-      const orderNum = Number(String(getToday()) + String(Math.random() * 1000000000));
+      const orderNum = Number(
+        String(getToday()) + String(Math.random() * 1000000000)
+      );
       const paymethod = payment;
-    //   const products = [{...}, {...}];
+      //   const products = [{...}, {...}];
 
       const costs = [];
       products.forEach((product) => {
         costs.push(product.price);
       });
       const cost = costs.reduce((a, b) => a + b);
-
 
       const count = products.length;
 

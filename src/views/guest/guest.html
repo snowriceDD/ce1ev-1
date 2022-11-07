@@ -15,16 +15,25 @@
       href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="./reset.css" />
+    <link rel="stylesheet" type="text/css" href="../home/reset.css" />
     <!-- 커스텀 css, js -->
-    <link rel="stylesheet" href="../login/login.css" />
+    <link rel="stylesheet" href="../guest/guest.css" />
     <!-- <script src="login.js" type="module" defer></script> -->
+    <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
+    <script src="../mypage/HeaderFooter.js" type="module" defer></script>
+    <script
+      src="https://kit.fontawesome.com/5c0da6133a.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body>
+  <body class="body">
     <!-- 로그인 폼(Form) -->
     <div class="login-form-container">
-      <form class="box login-form-box" id="loginForm">
-        <p class="title">Ce1ev.</p>
+      <form class="login-form-box">
+        <div class="title">
+          <a href="/">Ce1ev.</a>
+        </div>
+        <h1 class="h1">Guest Sign-In</h1>
         <div class="field">
           <label class="label" for="emailInput">Email</label>
           <div class="control">
@@ -35,7 +44,6 @@
               autocomplete="on"
             />
           </div>
-          <!-- <div class="forget">Forget Email?</div> -->
         </div>
 
         <div class="field">
