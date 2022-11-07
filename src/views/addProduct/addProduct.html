@@ -1,83 +1,57 @@
 <!DOCTYPE html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-    <!-- 아이콘 -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/elice-rabbit.png" />
-    <!-- bulma css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+    <title>상품등록</title>
     <!-- 폰트 어썸: 아이콘 -->
     <script defer src="https://kit.fontawesome.com/7630448495.js" crossorigin="anonymous"></script>
     <!-- 커스텀 css, js -->
     <link rel="stylesheet" href="addProduct.css" />
     <script src="addProduct.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/5c0da6133a.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <div class="category-form-container">
-        <form class="category-form-box" id="categoryForm">
-            <div class="">
-                <label class="category-label" for="categoryInput">카테고리</label>
-                <div class="input-box">
-                    <input class="category-input" id="categoryInput" type="text" placeholder="카테고리를 입력해주세요."
+<body class="body">
+    <h1>상품 등록</h1>
+        <div  class="input-box">
+            <label class="category-label" for="categoryInput">카테고리</label>
+                <input class="category-input" type="text" placeholder="카테고리를 입력해주세요."
+                autocomplete="on" minlength="1" maxlength="30" />
+        </div>
+        <div  class="input-box">
+            <label class="category-label" for="nameInput">상품 이름</label>
+                <input class="category-input" type="text" placeholder="상품 이름을 입력해주세요."
                     autocomplete="on" minlength="1" maxlength="30" />
-                </div>
-            </div>
-            <div class="">
-                <label class="category-label" for="nameInput">상품 이름</label>
-                <div class="input-box">
-                    <input class="category-input" id="nameInput" type="text" placeholder="상품 이름을 입력해주세요."
-                        autocomplete="on" minlength="1" maxlength="30" />
-                </div>
-            </div>
-            <div class="">
-                <label class="category-label" for="brandInput">제조사</label>
-                <div class="input-box">
-                    <input class="category-input" id="brandInput" type="text" placeholder="제조사를 입력해주세요"
-                        autocomplete="on" />
-                </div>
-            <div class="">
-                <label class="category-label" for="imgInput">사진 url</label>
-                <div class="input-box">
-                    <input class="category-input" id="imgInput" type="text" placeholder="유효한 url을 입력해주세요"
-                        autocomplete="on" />
-                </div>
-            </div>
-            <div class="">
-                <label class="category-label" for="descriptionInput">상세설명</label>
-                <div class="input-box">
-                    <input class="category-input" id="descriptionInput" type="text" placeholder="검섹 키워드를 입력해주세요"
-                        autocomplete="on" minlength="1" maxlength="30" />
-                </div>
-            </div>
-            <div class="">
-                <label class="category-label" for="sizeInput">사이즈</label>
-                <div class="input-box">
-                    <input class="category-input" id="sizeInput" type="text" placeholder="쉼표로 구분하여 입력해주세요"
-                        autocomplete="on" minlength="1" maxlength="30" />
-                </div>
-            </div>
-            <div class="">
-                <label class="category-label" for="priceInput">가격</label>
-                <div class="input-box">
-                    <input class="category-input" id="priceInput" type="number" placeholder="숫자만 입력해주세요."
-                        autocomplete="on" min="1000" max="10000000" />
-                </div>
-            </div>
-            <div class="">
-                <label class="category-label" for="colorInput">색상</label>
-                <div class="input-box">
-                    <input class="category-input" id="colorInput" type="text" placeholder="쉼표로 입력해주세요."
-                        autocomplete="on" />
-                </div>
-            </div>
-
-            <button class="category-button" id="submitButton">등록</button>
-        </form>
-    </div>
-
+        </div>
+        <div  class="input-box">
+            <label class="category-label" for="brandInput">제조사</label>
+                <input class="category-input" type="text" placeholder="제조사를 입력해주세요"
+                     autocomplete="on" />
+        <div  class="input-box">
+            <label class="category-label" for="imgInput">사진 url</label>
+                <input class="category-input" type="text" placeholder="유효한 url을 입력해주세요"
+                    autocomplete="on" />
+        </div>
+        <div  class="input-box">
+            <label class="category-label" for="descriptionInput">상세설명</label>
+                <input class="category-input" type="text" placeholder="검섹 키워드를 입력해주세요"
+                    autocomplete="on" minlength="1" maxlength="30" />
+        </div>
+        <div  class="input-box">
+            <label class="category-label" for="sizeInput">사이즈</label>
+                <input class="category-input" type="text" placeholder="쉼표로 구분하여 입력해주세요"
+                    autocomplete="on" minlength="1" maxlength="30" />
+        </div>
+        <div  class="input-box">
+            <label class="category-label" for="priceInput">가격</label>
+                <input class="category-input" type="number" placeholder="숫자만 입력해주세요."
+                    autocomplete="on" min="1000" max="10000000" />
+        </div>
+        <div  class="input-box">
+            <label class="category-label" for="colorInput">색상</label>
+                <input class="category-input" type="text" placeholder="쉼표로 입력해주세요."
+                    autocomplete="on" />
+        </div>
+        <button class="category-button">등록</button>
 </body>
-
 </html>
