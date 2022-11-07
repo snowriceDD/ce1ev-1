@@ -1,31 +1,39 @@
 // import * as Api from "../api";
-
-const buyButttonTag = document.querySelector("button_buy")
-const cartButtonTag = document.querySelector(".button_cart")
+const sizeBlockTag = document.querySelector('.size_block');
+const sizeTag = document.querySelector('size');
+const buyButttonTag = document.querySelector(".button_buy");
+const cartButtonTag = document.querySelector(".button_cart");
 const productImageTag = document.querySelector(".bb2");
 const brandTag = document.querySelector(".pd_brd");
 const nameTag = document.querySelector(".pd_name");
 const categoryTag = document.querySelector('.tag_category');
 const descriptionTag = document.querySelector('.tag_name')
 
-console.log(productImageTag)
 const productId = window.location.pathname.split('/')[2];
 let product = {};
 let selectSize = '';
 
-const drawProduct = () => {
+const drawProduct = async () => {
+    const res = await fetch(`/api/productDetail/${productId}`);
+    product = await res.json();
     productImageTag.setAttribute('src', product.img);
     brandTag.innerHTML  =  product.brand;
     nameTag.innerHTML =  product.name;
     categoryTag.innerHTML =  product.category;
     descriptionTag.innerHTML =  product.description;
-};
-const initialize = async () => {
-    const res = await fetch(`/api/productDetail/${productId}`);
-    product = await res.json();
-    drawProduct();
-};
-initialize();
+    console.log(product.size)
+    // [product.size].forEach((size)=>{
+    //     sizeBlockTag.insertAdjacentHTML(
+    //         "beforeend",
+    //         `
+    //         <button id="content_box" class="size" type="button">${size}</button>
+    //         `
+    //     )
+    // });
+    }
+    // product.size.forEach((a)=>{
+    //     const sizeselect = product.size;
+drawProduct();
 addCart();
 
 const addCart = (id) => {
@@ -89,6 +97,7 @@ const setEvents = () => {
         }
     });
 };
+
 // const num = product.num;
 // drawProduct();
 // const render = () => {
