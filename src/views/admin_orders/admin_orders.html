@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="admin_orders_style.css" rel="stylesheet">
-    <script src="admin_orders_script.js"></script>
+    <!-- <script src="admin_orders_script.js"></script> -->
+    <style></style>
 </head>
 <body>
     <h3 class="order_manage">주문관리</h3>
@@ -54,12 +55,31 @@
                   </div>
             </div>
             <div class="column1">
-                <button class="order_cancel">주문 취소</button>
+                <button class="order_cancel" id="order_cancel_btn">주문 취소</button>
             </div>
         </div>
 
+
+        <div id="modal" class="modal-overlay">
+          <div class="modal-window">
+            
+            <div class="close-area" id="modalCloseButton">❎</div>
+            <p class="modal_text">주문 삭제하믄, 되돌릴 수 없어...👻</p>
+              <p class="modal_text">정말 삭제하겄어?</p>
+
+              <div class="buttons">
+                <button class="button_comp" id="deleteComplete" aria-label="close">
+                  👌🏻
+                </button>
+                <button class="button_canc" id="deleteCancelButton" aria-label="close">
+                  🖕🏻
+                </button>
+              </div>
+          </div>
+        </div>
+        <script src="admin_orders_script.js"></script>
         <!-- 주문을 정말 취소할 지 묻는 Modal 창 -->
-    <div id="modal" class="modal">
+    <!-- <div id="modal" class="modal">
         <div class="modal-background" id="modalBackground"></div>
         <div class="modal-content">
           <div class="box">
@@ -91,7 +111,7 @@
           id="modalCloseButton"
           aria-label="close"
         ></button>
-      </div>
+      </div> -->
 
 </body>
 </html>
