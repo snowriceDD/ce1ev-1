@@ -1,7 +1,8 @@
 //import * as Api from "../api"
 
 const payments = document.getElementsByName("payment");
-const payment = null; // 체크된 값(checked value)const submitBtn = document.querySelector("#submitButton");
+const payment = null; // 체크된 값(checked value)
+//const submitBtn = document.querySelector("#submitButton");
 for (let i = 0; i < payments.length; i++) {
   if (payments[i].checked == true) {
     payment = payments[i].value;
@@ -24,9 +25,7 @@ async function handleSubmit(e) {
 
   if (check) {
     try {
-      const orderNum = Number(
-        String(getToday()) + String(Math.random() * 1000000000)
-      );
+      const orderNumber = Number(String(getToday()) + String(Math.random() * 1000000000));
       const paymethod = payment;
       //   const products = [{...}, {...}];
 
@@ -34,11 +33,19 @@ async function handleSubmit(e) {
       products.forEach((product) => {
         costs.push(product.price);
       });
-      const cost = costs.reduce((a, b) => a + b);
+      // console.log(costs); // ["10,000", "15,000", "100,000"]
+
+      const totalCost = [];
+      costs.forEach((cost) => {
+        totalCost.push(Number(cost.split(",").join("")));
+      });
+      // console.log(totalCost); // [10000, 15000, 100000]
+
+      const cost = addCommas(totalCost.reduce((a, b) => a + b));
+      console.log(cost);
 
       const count = products.length;
-
-      const data = { orderNum, products, cost, count, paymethod };
+      const data = { orderNumber, products, cost, count, paymethod };
       const result = await Api.post("/api/orders", data);
 
       if (result) {
@@ -59,4 +66,8 @@ function getToday() {
   var day = ("0" + date.getDate()).slice(-2);
 
   return year + month + day;
+}
+
+function addCommas(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

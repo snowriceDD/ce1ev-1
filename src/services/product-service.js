@@ -50,17 +50,21 @@ class ProductService {
     return createdNewProduct;
   }
 
-  async updateProduct(productInfo, toUpdate) {
-    const { num, brand, name, price, size, color, category, description, img } =
-      productInfo;
 
-    let product = await this.model.findByNum(num);
 
-    // db에서 찾지 못한 경우, 에러 메시지 반환
-    if (!product) {
-      throw new Error("해당 상품이 없습니다. 다시 한 번 확인해 주세요.");
-    }
+  async setProduct(num, toUpdate) {
+    
+    const updatedProduct = await this.model.update({
+      num,
+      update: toUpdate,
+    });
+
+    return updatedProduct;
+
   }
+
+
+
 
   async deleteProduct(num) {
     const product = await this.model.delete(num);

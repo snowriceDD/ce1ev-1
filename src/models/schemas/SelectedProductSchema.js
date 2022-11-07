@@ -1,5 +1,11 @@
 const {Schema} = require('mongoose');
 
+//  selectedProducts = {_id: 34532, num:1, zara, 청바지,s,black, ...}, { _id: 34533, num: 1, zara,청바지, m, black} 
+//  -> localStorage = [ObjectId(34532), ObjectId(34533)] 
+//  -> order = {orderNumber: 202211075348, products: [{1,zara,청바지,s,black, ...}, {1,zara,청바지,m,black}],
+//   cost: 1000, cousnt :products.length, "card", "주문완료" }
+// 
+
 const SelectedProductSchema = new Schema({
     num: {
         type: Number,
