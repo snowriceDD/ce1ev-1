@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="admin_orders_style.css" rel="stylesheet">
+    <script src="admin_orders_script.js"></script>
+</head>
+<body>
+    <h3 class="order_manage">주문관리</h3>
+    <div class="divide_line"></div>
+    
+        <li class="order_moniter">
+            <dl>
+                <p class="heading">총 주문수</p>
+                <p class="counter" id="ordersCount">123</p>
+            </dl>
+            <dl>
+                <p class="heading">상품준비중</p>
+                <p class="counter" id="prepareCount">123</p>
+            </dl>
+            <dl>
+                <p class="heading">상품배송중</p>
+                <p class="counter" id="deliveryCount">123</p>
+            </dl>
+            <dl>
+                <p class="heading">배송 완료</p>
+                <p class="counter" id="completeCount">123</p>
+            </dl>
+        </li>
+
+        <div class="list_heading">
+            <div class="column1">날짜</div>
+            <div class="column2">주문정보</div>
+            <div class="column1">주문총액</div>
+            <div class="column1">상태관리</div>
+            <div class="column1">취소</div>
+        </div>
+
+        <div class="listing">
+            <div class="column1">_</div>
+            <div class="column2">_</div>
+            <div class="column1">_</div>
+            <div class="column1">
+                <div class="selectBox">
+                    <select name="sB" class="select">
+                      <option value="select_prepare">상품 준비중</option>
+                      <option value="select_delivery">상품 배송중</option>
+                      <option value="select_complete">배송 완료</option>
+                    </select>
+                    <span class="icoArrow"><img src="https://freepikpsd.com/media/2019/10/down-arrow-icon-png-7-Transparent-Images.png" alt=""></span>
+                  </div>
+            </div>
+            <div class="column1">
+                <button class="order_cancel">주문 취소</button>
+            </div>
+        </div>
+
+        <!-- 주문을 정말 취소할 지 묻는 Modal 창 -->
+    <div id="modal" class="modal">
+        <div class="modal-background" id="modalBackground"></div>
+        <div class="modal-content">
+          <div class="box">
+            <p class="mb-3">
+              주문 삭제 시 복구할 수 없습니다. 정말로 취소하시겠습니까?
+            </p>
+  
+            <div class="buttons">
+              <button
+                class="button mt-5"
+                id="deleteCompleteButton"
+                aria-label="close"
+              >
+                네
+              </button>
+              <button
+                class="button is-primary mt-5"
+                id="deleteCancelButton"
+                aria-label="close"
+              >
+                아니오
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <button
+          class="modal-close is-large"
+          id="modalCloseButton"
+          aria-label="close"
+        ></button>
+      </div>
+
+</body>
+</html>
