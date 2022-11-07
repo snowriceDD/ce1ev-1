@@ -4,19 +4,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  margin: 50px auto;
 
   border: 1px solid #000000;
   border-radius: 10px;
 }
 
-.login-form-box {
+.login-form-container > .login-form-box {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.login-form-box .title {
+.login-form-container > .login-form-box > .title {
   text-align: center;
   font-family: "Imbue";
   font-size: 70px;
@@ -27,13 +27,23 @@
   margin: 10px;
 }
 
-.login-form-box .field {
+.login-form-box .title a {
+  text-decoration: none;
+  color: black;
+}
+
+.login-form-container > .login-form-box .h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.login-form-container > .login-form-box > .field {
   width: 400px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.login-form-box .field .label {
+.login-form-container > .login-form-box > .field .label {
   font-family: "Inter";
   font-size: 14px;
   font-weight: 400;
@@ -41,7 +51,7 @@
   letter-spacing: 0em;
   text-align: left;
 }
-.input {
+.login-form-container > .login-form-box > .field .input {
   width: 400px;
   height: 35px;
   background-color: #fff;
@@ -51,7 +61,7 @@
   color: #363636;
 }
 
-.login-form-box .button {
+.login-form-container > .login-form-box > .button {
   font-weight: bold;
   width: 400px;
   height: 50px;
@@ -63,26 +73,14 @@
   font-weight: 500;
   line-height: 30px;
   border: none;
-  margin-top: 15px;
+  margin-top: 39px;
 }
 
-.login-form-box .signUpLink {
+.login-form-container > .login-form-box > .signUpLink {
   font-family: Gothic A1;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0em;
   margin-top: 11px;
-}
-
-.forget {
-  display: flex;
-  justify-content: flex-end;
-  font-family: Gothic A1;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 15px;
-  letter-spacing: 0em;
-  text-align: center;
-  color: #7e7e7e;
 }
