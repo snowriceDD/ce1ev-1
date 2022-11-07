@@ -1,6 +1,4 @@
 const { Schema, default: mongoose } = require("mongoose");
-// const {autoIncrement} = require('mongoose-auto-increment')
-// autoIncrement.initialize(mongoose.connection);
 
 const ProductSchema = new Schema(
   {

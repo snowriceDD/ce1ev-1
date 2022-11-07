@@ -4,37 +4,37 @@ class ProductService {
   constructor(model) {
     this.model = model;
   }
-  async findProudct() {
-    const product = await productModel.findAll({});
+  async getProducts() {
+    const product = await this.model.findAll({});
     return product;
   }
-  async findId(productId){
-    const product = await productModel.findOne(productId)
+  async getId(productId){
+    const product = await this.model.findOne(productId)
     return product;
   }
-  async findCategory(category) {
+
+  async getNum(num) {
+    const product = await this.model.findByNumber(num);
+    return product;
+  }
+
+  // async findBrand(brand) {
+  //   const product = await productModel.findByBrand(brand);
+  //   return product;
+  // }
+
+  // async findName(name) {
+  //   const product = await productModel.findByname(name);
+  //   return product;
+  // }
+
+  async getCategory(category) {
     const product = await productModel.findByCategory(category);
     return product;
   }
 
-  async findNum(num) {
-    const product = await productModel.findByNum(num);
-    return product;
-  }
-
-
-  async findBrand(brand) {
-    const product = await productModel.findByBrand(brand);
-    return product;
-  }
-
-  async findName(name) {
-    const product = await productModel.findByname(name);
-    return product;
-  }
-
   async addProduct(productInfo) {
-    const curObj = await productModel.findNewest();
+    const curObj = await this.model.findNewest();
     const curNum = curObj[0].num;
     const { brand, name, price, size, color, category, description, img } =
       productInfo;
@@ -45,7 +45,7 @@ class ProductService {
     // console.log(newProductInfo)
 
     // db에 저장
-    const createdNewProduct = await productModel.create(newProductInfo);
+    const createdNewProduct = await this.model.create(newProductInfo);
 
     return createdNewProduct;
   }
@@ -63,7 +63,7 @@ class ProductService {
   }
 
   async deleteProduct(num) {
-    const product = await productModel.delete(num);
+    const product = await this.model.delete(num);
     return product;
   }
 }

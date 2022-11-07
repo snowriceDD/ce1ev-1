@@ -1,15 +1,12 @@
 const {Schema} = require('mongoose');
+import {SelectedProductSchema} from './SelectedProductSchema';
 
-const OrderListSchema = new Schema({
-    orderNum: { //Date.now() + Math.random() ~~
+const OrderSchema = new Schema({
+    orderNumber: { //Date.now() + Math.random() ~~
         type: Number, 
         required: true,
     },
-    orderList: {
-        type: Schema.Types.ObjectId, // [UndermayCar Operation ~, ... ]
-        required: true,
-        ref: "products",
-    },
+    products: [SelectedProductSchema],
     cost: {
         type: Number,
         required: true,
@@ -18,7 +15,7 @@ const OrderListSchema = new Schema({
         type: Number,
         required: true,
     },
-    pay_method: {
+    payMethod: {
         type: String,
         required: true,
     },
@@ -27,9 +24,9 @@ const OrderListSchema = new Schema({
         default: "주문완료"
     }
 }, {
-    collection: "orderList",
+    collection: "order",
     timestamps: true,
 });
 
-export { OrderListSchema };
+export { OrderSchema };
 

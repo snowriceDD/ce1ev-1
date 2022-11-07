@@ -4,7 +4,7 @@ import { ProductSchema } from "./schemas/product";
 const Product = model("products", ProductSchema);
 
 export class ProductModel {
-  async findByNum(num) {
+  async findByNumber(num) {
     const product = await Product.findOne({ num });
     return product;
   }
@@ -26,7 +26,7 @@ export class ProductModel {
     const product = await Product.findOne({ name });
     return product;
   }
-
+  
   async findByCategory(category) {
     const product = await Product.find({ category });
     return product;
