@@ -14,46 +14,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="mypageOrderList.css" />
-    <link rel="stylesheet" type="text/css" href="../home/homeHeader.css" />
     <link rel="stylesheet" type="text/css" href="../home/reset.css" />
+    <link rel="stylesheet" type="text/css" href="HeaderFooter.css" />
+    <script src="HeaderFooter.js"></script>
   </head>
-  <body class="body">
+  <body id="body">
     <!--Header_Navigator-->
-    <header class="header">
-      <div class="header_logo">
-        <a href="/"> Ce1ev. </a>
-      </div>
-      <ul class="search">
-        <li>
-          <input type="text" name="search" class="header_search" />
-          <button><img src="../image/search_img.png" alt="search" /></button>
-        </li>
-      </ul>
-      <ul class="header_right" id="loginBox">
-        <li id="header_login">
-          <a href="/login"> LOGIN </a>
-        </li>
-        <li id="header_wish">
-          <a href="/register"> SIGN-UP </a>
-        </li>
-        <li id="header_cart">
-          <a href="/guest"> GUEST </a>
-        </li>
-      </ul>
-      <ul class="header_right" id="logoutBox">
-        <li id="header_mypage">
-          <a href="/mypage_info"> MYPAGE </a>
-        </li>
-        <li id="header_logout">
-          <a href="/"> LOGOUT </a>
-        </li>
-      </ul>
-    </header>
+
     <section class="section">
       <article class="my_shopping">
         <h1>주문내역 조회</h1>
         <div class="title">
-          <div class="first">상품 정보/주문일자</div>
+          <div class="first">주문 정보</div>
           <div>주문 금액(수량)</div>
           <div>주문 상태</div>
         </div>
@@ -61,11 +33,12 @@
           <div class="first">
             <img class="product_img" />
             <div class="product_script">
-              <p>
+              <p class="product_name">
                 상품명 : Undermycar Operation Chromite Kerberos Oversized
                 Varsity Jacket Ox Blood - 22FW
               </p>
-              <div>주문 일자 : 2022-11-02</div>
+              <div class="order_number">주문 번호 : 20221102</div>
+              <div class="order_date">주문 일자 : 2022-11-02</div>
             </div>
           </div>
           <div class="product_price">
@@ -112,7 +85,6 @@
     </section>
 
     <!-------- footer -------->
-    <link rel="stylesheet" href="footer.css" />
     <footer class="footer">
       <address class="address_left">
         <ul class="addressLink">
@@ -149,5 +121,14 @@
         </p>
       </address>
     </footer>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

@@ -55,7 +55,7 @@
   flex-wrap: wrap;
 }
 
-.mypage_button_container .mypage_button {
+.mypage_button_container div {
   width: 400px;
   height: 200px;
   text-align: center;

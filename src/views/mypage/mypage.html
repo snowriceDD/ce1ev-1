@@ -14,7 +14,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="mypage.css" />
-    <link rel="stylesheet" type="text/css" href="../home/homeHeader.css" />
     <link rel="stylesheet" type="text/css" href="../home/reset.css" />
     <link rel="stylesheet" href="../mypage/HeaderFooter.css" />
     <script src="../mypage/HeaderFooter.js" type="module" defer></script>
@@ -23,7 +22,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body class="body">
+  <body id="body">
     <!--Header_Navigator-->
 
     <!-------- basic_info -------->
@@ -46,15 +45,16 @@
         </div>
       </article>
       <article class="mypage_button_container">
-        <div class="mypage_button">계정 관리</div>
-        <div class="mypage_button">주문 관리</div>
-        <div class="mypage_button">장바구니 관리</div>
-        <div class="mypage_button">회원 탈퇴</div>
+        <div id="mypageAccount_button">계정 관리</div>
+        <div id="mypageOrderList_button">주문 관리</div>
+        <div id="mypageCart_button">장바구니 관리</div>
+        <div id="mypageWithdrawal_button">회원 탈퇴</div>
       </article>
     </section>
 
     <!-------- mypage_shopping -------->
 
     <!-------- footer -------->
+    <script src="mypage.js" defer></script>
   </body>
 </html>
