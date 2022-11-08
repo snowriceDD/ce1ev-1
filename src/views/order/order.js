@@ -1,7 +1,9 @@
 //import * as Api from "../api"
+import { addCommas, checkLogin } from "../useful-functions";
 
 const payments = document.getElementsByName("payment");
-const payment = null; // 체크된 값(checked value)const submitBtn = document.querySelector("#submitButton");
+const payment = null; // 체크된 값(checked value)
+//const submitBtn = document.querySelector("#submitButton");
 for (let i = 0; i < payments.length; i++) {
   if (payments[i].checked == true) {
     payment = payments[i].value;
@@ -10,7 +12,7 @@ for (let i = 0; i < payments.length; i++) {
 
 // console.log(payments[0].value);
 // console.log(payments[1].value)
-
+// checkLogin();
 // addAllEvents();
 
 // function addAllEvents() {
@@ -24,7 +26,7 @@ async function handleSubmit(e) {
 
   if (check) {
     try {
-      const orderNum = Number(
+      const orderNumber = Number(
         String(getToday()) + String(Math.random() * 1000000000)
       );
       const paymethod = payment;
@@ -32,13 +34,13 @@ async function handleSubmit(e) {
 
       const costs = [];
       products.forEach((product) => {
-        costs.push(product.price);
+        costs.push(convertToNumber(product.price));
       });
-      const cost = costs.reduce((a, b) => a + b);
+      const cost = addCommas(costs.reduce((a, b)=> a+b));
+      console.log(cost);
 
       const count = products.length;
-
-      const data = { orderNum, products, cost, count, paymethod };
+      const data = { orderNumber, products, cost, count, paymethod };
       const result = await Api.post("/api/orders", data);
 
       if (result) {
@@ -50,13 +52,4 @@ async function handleSubmit(e) {
     }
   } else {
   }
-}
-
-function getToday() {
-  var date = new Date();
-  var year = date.getFullYear();
-  var month = ("0" + (1 + date.getMonth())).slice(-2);
-  var day = ("0" + date.getDate()).slice(-2);
-
-  return year + month + day;
 }

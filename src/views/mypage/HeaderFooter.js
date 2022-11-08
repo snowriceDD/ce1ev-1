@@ -39,12 +39,10 @@ window.onload = () => {
         <li id="header_mypage">
           <a href="/mypage">
             MYPAGE
-        </a>  
+          </a>  
         </li>
         <li id="header_logout">
-        <a href="/">
-          LOGOUT
-        </a>
+          <p id="logout">LOGOUT</p>
         </li>
       </ul>
     </header>
@@ -96,3 +94,15 @@ window.onload = () => {
   `
   );
 };
+
+function logout() {
+  console.log("text");
+  sessionStorage.removeItem('token');
+  sessionStorage.removeItem('admin');
+
+  window.location.href="/";
+}
+
+const logoutText = document.getElementById("logout");
+logoutText.addEventListener("click", logout);
+

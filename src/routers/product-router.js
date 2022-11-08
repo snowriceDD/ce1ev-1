@@ -1,3 +1,4 @@
+import is from "@sindresorhus/is";
 import { Router } from "express";
 import { ProductModel } from "../models";
 import { productService } from "../services/product-service";
@@ -100,16 +101,50 @@ productRouter.post("/products", async (req, res) => {
   res.json(newProduct);
 });
 
-productRouter.delete("/:num", async (req, res) => {
-  const num = req.params.num;
-  const product = await productRouter.deleteProduct(num);
-  res.json(product);
-});
 
-// productRouter.get('/?query=name', async (req, res)=> {
-//     const name = req.query.name;
-//     const data = await Product.findByName({name});
-//     res.json(data);
-// });
+productRouter.patch("/products/:num", async (req, res, next)=> {
+  try{
+    if(is.emptyObject(req.body)) {
+      throw new Error("headers의 Content-Type을 application/json으로 설정해주세요.")
+    };
+
+    const num = req.params.num;
+    const { brand, name, price, size, color, category, description, img} = req.body;
+
+    //위 데이터가 undefined가 아니라면, 업데이트 객체에 삽입.
+    const toUpdate = {
+      ...(brand && {brand}), 
+      ...(name && {name}),
+      ...(price && {price}),
+      ...(size && {size}),
+      ...(color && {color}),
+      ...(category && {category}),
+      ...(description && {description}),
+      ...(img && {img}),
+    };
+
+    const updatedProduct = await productService.setProduct(
+      num,
+      toUpdate
+    );
+
+    res.status(200).json(updatedProduct);
+
+  } catch(error) {
+    next(error);
+  }
+})
+
+productRouter.delete('/products/:num', async (req, res, next) => {
+  try{
+    const num = req.params.num;
+    const product = await productService.deleteProduct(num);
+
+    res.status(200).json(product);
+  } catch(error) {
+    next(error)
+  }
+  
+});
 
 export { productRouter };

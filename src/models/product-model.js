@@ -47,11 +47,11 @@ export class ProductModel {
     return product;
   }
 
-  async update({ prodcutNum, update }) {
-    const filter = { num: prodcutNum };
+  async update({ num, update }) {
+    const filter = { num };
     const option = { returnOriginal: false };
 
-    const updatedProduct = await User.findOneAndUpdate(filter, update, option);
+    const updatedProduct = await Product.findOneAndUpdate(filter, update, option);
     return updatedProduct;
   }
 

@@ -1,36 +1,40 @@
-const products = [
-    {
-        num: 1,
-        brand: "nike",
-        name: "cap",
-        price: 10000,
-        size: "S",
-        color: "red",
-        category: "idol",
-    },
-    {
-        num: 4,
-        brand: "adidas",
-        name: "shirt",
-        price: 15000,
-        size: "L",
-        color: "black",
-        category: "actor",
-    },
-    {
-        num: 10,
-        brand: "gucci",
-        name: "bag",
-        price: 100000,
-        size: "free",
-        color: "grey",
-        category: "singer",
-    },
-]
-const cost = [];
+import { addCommas, convertToNumber } from "../useful-functions.js";
 
-products.forEach((product)=> {
-    cost.push(product.price);
+const products = [
+  {
+    num: 1,
+    brand: "nike",
+    name: "cap",
+    price: "10,000",
+    size: "S",
+    color: "red",
+    category: "idol",
+  },
+  {
+    num: 4,
+    brand: "adidas",
+    name: "shirt",
+    price: "15,000",
+    size: "L",
+    color: "black",
+    category: "actor",
+  },
+  {
+    num: 10,
+    brand: "gucci",
+    name: "bag",
+    price: "100,000",
+    size: "free",
+    color: "grey",
+    category: "singer",
+  },
+];
+
+const costs = []
+
+products.forEach((product)=>{
+  costs.push(convertToNumber(product.price))
 })
-const sum = cost.reduce((a,b) => (a+b));
-console.log('reduce : ', sum);
+
+const cost = addCommas(costs.reduce((a, b)=> a+b));
+console.log(!cost)

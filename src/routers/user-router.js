@@ -1,7 +1,7 @@
 import { Router } from "express";
 import is from "@sindresorhus/is";
 // 폴더에서 import하면, 자동으로 폴더의 index.js에서 가져옴
-import { loginRequired } from "../middlewares";
+import { adminOnly, loginRequired } from "../middlewares";
 import { userService } from "../services";
 
 const userRouter = Router();
@@ -138,9 +138,25 @@ userRouter.patch(
   }
 );
 
-// Router.get('/logout', (req, res, next)=> {
-//   res.cookie('token', null,{maxAge: 0});
-//   res.redirect('/');
-// });
+userRouter.delete('/users:userId', loginRequired, async (req, res, next)=> {
+
+  try {
+    const userId = req.params.userId;
+    const delteResult = await userService.deleteUserData(userId);
+
+    res.status(200).json(delteResult);
+  } catch(err) {
+    next(err);
+  }
+});
+
+//관리자 토큰 가졌는지 확인
+userRouter.get("/admin/check", adminOnly, async (req, res, next)=> {
+  try {
+    res.status(200).json({result: "success"});
+  } catch(err) {
+    next(err);
+  }
+});
 
 export { userRouter };
