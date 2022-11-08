@@ -1,6 +1,6 @@
 import * as Api from "/api.js";
 
-const submitBtn = document.querySelector("#submitButton");
+const submitBtn = document.querySelector("#category-button");
 const categoryInput = document.querySelector("#categoryInput");
 const nameInput = document.querySelector("#nameInput");
 const brandInput = document.querySelector("#brandInput");
@@ -13,7 +13,6 @@ const colorInput = document.querySelector("#colorInput");
 addAllEvents();
 
 function addAllEvents() {
-
   submitBtn.addEventListener("click", handleSubmit);
 }
 async function handleSubmit(e) {
@@ -31,10 +30,17 @@ async function handleSubmit(e) {
       const description = descriptionInput.value;
       const color = getColorArray(colorInput.value);
       const size = getSizeArray(sizeInput.value);
-      if (!category || !brand || !name || !price || !img || !description || !color || !size) {
-        return alert(
-          "입력하지 않은 값이 있습니다."
-        )
+      if (
+        !category ||
+        !brand ||
+        !name ||
+        !price ||
+        !img ||
+        !description ||
+        !color ||
+        !size
+      ) {
+        return alert("입력하지 않은 값이 있습니다.");
       }
       const data = {
         category,
@@ -81,16 +87,15 @@ function getSizeArray(value) {
 }
 // 색상 처리함수
 function getColorArray(value) {
-    const colorArray = value.split(",");
-  
-    const colors = [];
-  
-    for (let i = 0; i < colorArray.length; i++) {
-      const color = colorArray[i];
-      if (colorArray[i] !== " ") {
-        colors.push(color);
-      }
-    }
-    return colors;
-  }
+  const colorArray = value.split(",");
 
+  const colors = [];
+
+  for (let i = 0; i < colorArray.length; i++) {
+    const color = colorArray[i];
+    if (colorArray[i] !== " ") {
+      colors.push(color);
+    }
+  }
+  return colors;
+}

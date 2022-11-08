@@ -28,7 +28,7 @@
   border-bottom: solid 1px rgb(140, 192, 222);
 }
 
-.category-button {
+#category-button {
   width: 640px;
   height: 4rem;
   margin-bottom: 0.5rem;
@@ -40,7 +40,7 @@
   font-weight: bold;
 }
 
-.category-button:hover {
+#category-button:hover {
   cursor: pointer;
   background-color: #6d6d6d;
 }
