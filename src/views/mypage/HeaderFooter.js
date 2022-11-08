@@ -105,4 +105,3 @@ function logout() {
 
 const logoutText = document.getElementById("logout");
 logoutText.addEventListener("click", logout);
-

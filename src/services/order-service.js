@@ -10,6 +10,16 @@ class OrderService {
         return orders;
     }
 
+    async getOrderData(userId) { //사용자의 order
+        const order = await this.model.findById(userId);
+        return order;
+    }
+
+    async getOrdersByUserId(userId) {
+        const orders = await this.model.findAllByUserId(userId);
+        return orders;
+    }
+
     async getOrderNumber(number) {
         const order = await this.model.findByOrderNumber(number);
         return order;

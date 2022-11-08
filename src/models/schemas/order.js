@@ -2,6 +2,10 @@ const {Schema} = require('mongoose');
 import {SelectedProductSchema} from './SelectedProductSchema';
 
 const OrderSchema = new Schema({
+    userId: {
+        type: String,
+        required: true,
+    },
     orderNumber: { //Date.now() + Math.random() ~~
         type: Number, 
         required: true,
