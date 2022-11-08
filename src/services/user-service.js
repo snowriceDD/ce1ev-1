@@ -129,6 +129,16 @@ class UserService {
 
     return user;
   }
+
+  async deleteUserData(userId) {
+    const {deletedCount} = await this.model.delete(userId);
+
+  if(deletedCount === 0) {
+    throw new Error(`${userId} 사용자 데이터의 삭제에 실패`);
+  }
+
+  return {result: "success"};
+  }
 }
 
 const userService = new UserService(userModel);

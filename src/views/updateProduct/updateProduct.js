@@ -1,5 +1,8 @@
 import * as Api from "/api.js";
+import {checkLogin} from "../useful-functions.js"
 
+
+checkLogin();
 addAllEvents();
 
 function addAllEvents() {

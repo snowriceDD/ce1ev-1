@@ -2,6 +2,7 @@
 // import { xxx } from "";
 // import * as Api from "";
 // import { doc } from "prettier";
+// import { checkAdmin } from "../useful-functions";
 
 // const ordersCount = document.querySelector("#ordersCount");
 // const prepareCount = document.querySelector("#prepareCount");
@@ -16,6 +17,8 @@ const modalCloseButton = document.querySelector("#modalCloseButton");
 // const deleteCancelButton = document.querySelector("#deleteCancelButton");
 
 //admimn checking 함수 필요
+// checkAdmin();
+// addAllEvent();
 
 //addEventListner 묶음 
 // function addAllEvent() {

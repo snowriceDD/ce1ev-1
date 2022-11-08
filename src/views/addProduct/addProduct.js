@@ -1,4 +1,5 @@
 import * as Api from "/api.js";
+import { checkLogin } from "../useful-functions.js";
 
 const submitBtn = document.querySelector("#category-button");
 const categoryInput = document.querySelector("#categoryInput");
@@ -10,6 +11,7 @@ const priceInput = document.querySelector("#priceInput");
 const descriptionInput = document.querySelector("#descriptionInput");
 const colorInput = document.querySelector("#colorInput");
 
+checkLogin();
 addAllEvents();
 
 function addAllEvents() {

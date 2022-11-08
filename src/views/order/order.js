@@ -1,4 +1,5 @@
 //import * as Api from "../api"
+import { addCommas, checkLogin } from "../useful-functions";
 
 const payments = document.getElementsByName("payment");
 const payment = null; // 체크된 값(checked value)
@@ -11,7 +12,7 @@ for (let i = 0; i < payments.length; i++) {
 
 // console.log(payments[0].value);
 // console.log(payments[1].value)
-
+// checkLogin();
 // addAllEvents();
 
 // function addAllEvents() {
@@ -25,23 +26,17 @@ async function handleSubmit(e) {
 
   if (check) {
     try {
-      const orderNumber = Number(String(getToday()) + String(Math.random() * 1000000000));
+      const orderNumber = Number(
+        String(getToday()) + String(Math.random() * 1000000000)
+      );
       const paymethod = payment;
       //   const products = [{...}, {...}];
 
       const costs = [];
       products.forEach((product) => {
-        costs.push(product.price);
+        costs.push(convertToNumber(product.price));
       });
-      // console.log(costs); // ["10,000", "15,000", "100,000"]
-
-      const totalCost = [];
-      costs.forEach((cost) => {
-        totalCost.push(Number(cost.split(",").join("")));
-      });
-      // console.log(totalCost); // [10000, 15000, 100000]
-
-      const cost = addCommas(totalCost.reduce((a, b) => a + b));
+      const cost = addCommas(costs.reduce((a, b)=> a+b));
       console.log(cost);
 
       const count = products.length;
@@ -57,17 +52,4 @@ async function handleSubmit(e) {
     }
   } else {
   }
-}
-
-function getToday() {
-  var date = new Date();
-  var year = date.getFullYear();
-  var month = ("0" + (1 + date.getMonth())).slice(-2);
-  var day = ("0" + date.getDate()).slice(-2);
-
-  return year + month + day;
-}
-
-function addCommas(n) {
-  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
