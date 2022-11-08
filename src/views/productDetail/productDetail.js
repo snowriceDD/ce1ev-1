@@ -23,17 +23,21 @@ const drawProduct = async () => {
   categoryTag.innerHTML = product.category;
   descriptionTag.innerHTML = product.description;
   priceTag.innerHTML = product.price;
-  console.log(product.size);
+  console.log(product)  
 
   buyButttonTag.addEventListener("click", () => (location.href = `/order`));
 
   // 제품 데이터 로컬에 담기
-
-  localStorage.setItem("product", JSON.stringify(product));
+ 
   cartButtonTag.addEventListener(
     "click",
-    () => (location.href = "/mypage/myPageCart")
-  );
+    () => { 
+      const products = JSON.parse(localStorage.getItem('products')) || [];
+  
+    products.push(product)
+    localStorage.setItem("products", JSON.stringify(products));
+      (location.href = "/mypage/myPageCart")
+});
 
   // [product.size].forEach((size)=>{
   //     sizeBlockTag.insertAdjacentHTML(
