@@ -84,3 +84,17 @@ window.onload = () => {
   `
   );
 };
+<<<<<<< HEAD:src/views/mypage/guestHeader.js
+=======
+
+function logout() {
+  console.log("text");
+  sessionStorage.removeItem('token');
+  sessionStorage.removeItem('admin');
+
+  window.location.href="/";
+}
+
+const logoutText = document.getElementById("logout");
+logoutText.addEventListener("click", logout);
+>>>>>>> fc565c01dd226ffbde5ce0479e968b8d1018a280:src/views/mypage/HeaderFooter.js

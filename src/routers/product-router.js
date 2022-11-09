@@ -1,30 +1,39 @@
 import is from "@sindresorhus/is";
 import { Router } from "express";
-import { ProductModel } from "../models";
+import { loginRequired } from "../middlewares";
 import { productService } from "../services/product-service";
 
 const productRouter = Router();
 
-productRouter.get("/products", async (req, res) => {
-  const product = await productService.getProducts(); //[{..}, {..}, ..]
+productRouter.get("/products", async (req, res, next) => {
+  try {
+    const product = await productService.getProducts(); //[{..}, {..}, ..]
 
-  // res.render('template/postProduct', {product})
-  res.json(product);
+    res.status(200).json(product);
+  } catch (err) {
+    next(err);
+  }
 });
 
-productRouter.get('/products/:num', async (req, res)=> {
-    const num = req.params.num;
+productRouter.get("/products/:num", async (req, res, next) => {
+  const num = req.params.num;
+  try {
     const product = await productService.getNum(num);
-    res.json(product);
-})
+    res.status(200).json(product);
+  } catch(err) {
+    next(err)
+  }
+});
 
-
-productRouter.get("/productDetail/:num", async (req, res) => {
-    const num = req.params.num;
+productRouter.get("/productDetail/:num", async (req, res, next) => {
+  const num = req.params.num;
+  try {
     const data = await productService.getNum(num); // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
-  
-    res.json(data);
-  });
+    res.status(200).json(data);
+  } catch(err) {
+    next(err)
+  }
+});
 
 productRouter.get("/products/:productId", async (req, res) => {
   const productId = req.params.productId;
@@ -38,7 +47,7 @@ productRouter.get("/products", async (req, res, next) => {
     const { category, num, brand } = req.query;
 
     const queries = [category, num, brand];
-    if (queries.filter(query => query !== undefined).length > 1) {
+    if (queries.filter((query) => query !== undefined).length > 1) {
       throw new Error("제품 조회 조건은 하나만 가능합니다");
     }
     if (category !== undefined) {
@@ -75,8 +84,6 @@ productRouter.get("/products", async (req, res, next) => {
   }
 });
 
-
-
 // productRouter.get("/products/:brand", async (req, res) => {
 //   const brand = req.params.brand;
 //   const data = await productService.findBrand(brand); // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
@@ -84,67 +91,74 @@ productRouter.get("/products", async (req, res, next) => {
 //   res.json(data);
 // });
 
-productRouter.post("/products", async (req, res) => {
-  const { brand, name, price, size, color, category, description, img } =
-    req.body;
-  const newProduct = await productService.addProduct({
-    brand,
-    name,
-    price,
-    size,
-    color,
-    category,
-    description,
-    img,
-  });
+productRouter.post("/products", loginRequired, async (req, res, next) => {
+  try {
+    if (is.emptyObject(req.body)) {
+      throw new Error(
+        "headers의 Content-Type을 application/json으로 설정해주세요."
+      );
+    }
+    const { brand, name, price, size, color, category, description, img } =
+      req.body;
+    const newProduct = await productService.addProduct({
+      brand,
+      name,
+      price,
+      size,
+      color,
+      category,
+      description,
+      img,
+    });
+    res.status(201).json(newProduct);
+  } catch (err) {
+    next(err);
+  }
+
   //console.log(newProduct);//num 안들어감
-  res.json(newProduct);
 });
 
-
-productRouter.patch("/products/:num", async (req, res, next)=> {
-  try{
-    if(is.emptyObject(req.body)) {
-      throw new Error("headers의 Content-Type을 application/json으로 설정해주세요.")
-    };
+productRouter.patch("/products/:num", async (req, res, next) => {
+  try {
+    if (is.emptyObject(req.body)) {
+      throw new Error(
+        "headers의 Content-Type을 application/json으로 설정해주세요."
+      );
+    }
 
     const num = req.params.num;
-    const { brand, name, price, size, color, category, description, img} = req.body;
+    const { brand, name, price, size, color, category, description, img } =
+      req.body;
 
     //위 데이터가 undefined가 아니라면, 업데이트 객체에 삽입.
     const toUpdate = {
-      ...(brand && {brand}), 
-      ...(name && {name}),
-      ...(price && {price}),
-      ...(size && {size}),
-      ...(color && {color}),
-      ...(category && {category}),
-      ...(description && {description}),
-      ...(img && {img}),
+      ...(brand && { brand }),
+      ...(name && { name }),
+      ...(price && { price }),
+      ...(size && { size }),
+      ...(color && { color }),
+      ...(category && { category }),
+      ...(description && { description }),
+      ...(img && { img }),
     };
 
-    const updatedProduct = await productService.setProduct(
-      num,
-      toUpdate
-    );
+    const updatedProduct = await productService.setProduct(num, toUpdate);
 
     res.status(200).json(updatedProduct);
-
-  } catch(error) {
+  } catch (error) {
     next(error);
   }
-})
+});
 
-productRouter.delete('/products/:num', async (req, res, next) => {
-  try{
+productRouter.delete("/products/:num", async (req, res, next) => {
+  try {
     const num = req.params.num;
     const product = await productService.deleteProduct(num);
 
     res.status(200).json(product);
-  } catch(error) {
-    next(error)
+  } catch (error) {
+    next(error);
   }
-  
 });
 
 export { productRouter };
