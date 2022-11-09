@@ -56,7 +56,7 @@ window.addEventListener("load", () =>{
       <ul class="header_right hidden" id="admin">
         <li id="header_addProduct">
         <a href="/products">
-          ADD PRODUCT
+          ADD-PRODUCT
         </a>  
       </li>
     <li id="header_mypage">
@@ -65,7 +65,9 @@ window.addEventListener("load", () =>{
       </a>  
     </li>
     <li id="header_logout">
-      <p id="logout">LOGOUT</p>
+      <a href="/logout">
+        LOG OUT
+      </a>
     </li>
       </ul>
     </header>
