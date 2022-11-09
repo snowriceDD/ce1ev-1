@@ -14,7 +14,7 @@ window.onload = () => {
         <li>
           <input type="text" placeholder="검색어를 입력하세요." class="header_search" id="text" />
           <button type="button">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa fa-magnifying-glass fa-2x"></i>
           </button>
         </li>
       </ul>
@@ -26,23 +26,13 @@ window.onload = () => {
         </li>
         <li id="header_wish">
             <a href="/register">
-                SIGN-UP
+              REGISTER
             </a>
         </li>
         <li id="header_cart">            
             <a href="/guest">
                 GUEST
             </a>
-        </li>
-      </ul>
-      <ul class="header_right " id="logoutBox">
-        <li id="header_mypage">
-          <a href="/mypage">
-            MYPAGE
-          </a>  
-        </li>
-        <li id="header_logout">
-          <p id="logout">LOGOUT</p>
         </li>
       </ul>
     </header>
@@ -94,15 +84,3 @@ window.onload = () => {
   `
   );
 };
-
-function logout() {
-  console.log("text");
-  sessionStorage.removeItem('token');
-  sessionStorage.removeItem('admin');
-
-  window.location.href="/";
-}
-
-const logoutText = document.getElementById("logout");
-logoutText.addEventListener("click", logout);
-
