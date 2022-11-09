@@ -15,80 +15,79 @@
     />
     <link rel="stylesheet" type="text/css" href="home.css" />
     <link rel="stylesheet" type="text/css" href="reset.css" />
-    <link rel="stylesheet"  type="text/css" href="../mypage/HeaderFooter.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
   </head>
+  <title>CE1EV</title>
   <body class="body">
     <!--Header-->
-    
+
     <!--Banner-->
     <div class="section">
-      <input type="radio" name="slide" id="slide01" checked>
-      <input type="radio" name="slide" id="slide02">
-      <input type="radio" name="slide" id="slide03">
-      <input type="radio" name="slide" id="slide04">
-      
-        <div class="slidewrap">
-          <ul class="slidelist">
-            <li>
-              <a>
-                <label for="slide04" class="left"></label>
-                <img src="../image/slide1.png" alt="slide01">
-                <label for="slide02" class="right"></label>
-              </a>
-            </li>
-            <li>
-              <a>
-                <label for="slide01" class="left"></label>
-                <img src="../image/slide2.png"  alt="slide02">
-                <label for="slide03" class="right"></label>
-              </a>
-            </li>
-            <li>
-              <a>
-                <label for="slide02" class="left"></label>
-                <img src="../image/slide3.png"  alt="slide03">
-                <label for="slide04" class="right"></label>
-              </a>
-            </li>
-            <li>
-              <a>
-                <label for="slide03" class="left"></label>
-                <img src="../image/slide4.png"  alt="slide04">
-                <label for="slide01" class="right"></label>
-              </a>
-            </li>
+      <input type="radio" name="slide" id="slide01" checked />
+      <input type="radio" name="slide" id="slide02" />
+      <input type="radio" name="slide" id="slide03" />
+      <input type="radio" name="slide" id="slide04" />
 
-            <div class="slide-control">
-              <div class="control01">
-                <label for="slide04" class="left"></label>
-                <label for="slide02" class="right"></label>
-              </div>
-              <div class="control02">
-                <label for="slide01" class="left"></label>
-                <label for="slide03" class="right"></label>
-              </div>
+      <div class="slidewrap">
+        <ul class="slidelist">
+          <li>
+            <a>
+              <label for="slide04" class="left"></label>
+              <img src="../image/slide1.png" alt="slide01" />
+              <label for="slide02" class="right"></label>
+            </a>
+          </li>
+          <li>
+            <a>
+              <label for="slide01" class="left"></label>
+              <img src="../image/slide2.png" alt="slide02" />
+              <label for="slide03" class="right"></label>
+            </a>
+          </li>
+          <li>
+            <a>
+              <label for="slide02" class="left"></label>
+              <img src="../image/slide3.png" alt="slide03" />
+              <label for="slide04" class="right"></label>
+            </a>
+          </li>
+          <li>
+            <a>
+              <label for="slide03" class="left"></label>
+              <img src="../image/slide4.png" alt="slide04" />
+              <label for="slide01" class="right"></label>
+            </a>
+          </li>
 
-              <div class="control03">
-                <label for="slide02" class="left"></label>
-                <label for="slide04" class="right"></label>
-              </div>
-
-              <div class="control04">
-                <label for="slide03" class="left"></label>
-                <label for="slide01" class="right"></label>
-              </div>
-
-
+          <div class="slide-control">
+            <div class="control01">
+              <label for="slide04" class="left"></label>
+              <label for="slide02" class="right"></label>
             </div>
-          </ul>
-        </div>
+            <div class="control02">
+              <label for="slide01" class="left"></label>
+              <label for="slide03" class="right"></label>
+            </div>
 
-        <!--Category_button-->
+            <div class="control03">
+              <label for="slide02" class="left"></label>
+              <label for="slide04" class="right"></label>
+            </div>
+
+            <div class="control04">
+              <label for="slide03" class="left"></label>
+              <label for="slide01" class="right"></label>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <!--Category_button-->
     <ul class="category">
       <!-- 동적인 구성 필요 ! 빽에서 가져와서 후리기 ! -->
       <li>
-        <div class="category_btn" id="hot" ></div>
+        <div class="category_btn" id="hot"></div>
         <p>화제의인물</p>
       </li>
       <li>
@@ -117,16 +116,17 @@
       </li>
     </ul>
     <!-- Product-List -->
-    <div class="section_box"> 
-
-    </div>
+    <div class="section_box"></div>
     <!-------- footer -------->
-    
-    <script src="../mypage/HeaderFooter.js" type="module" defer></script>
+
+    <script src="../mypage/guestHeader.js" defer></script>
     <script src="home.js" type="module" defer></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="categoryfilter.js"></script>
-    <script src="product.js"></script>
-    <script src="https://kit.fontawesome.com/5c0da6133a.js" crossorigin="anonymous"></script>
+    <script src="categoryfilter.js" defer></script>
+    <script src="product.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/5c0da6133a.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

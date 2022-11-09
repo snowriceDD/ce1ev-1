@@ -26,23 +26,13 @@ window.onload = () => {
         </li>
         <li id="header_wish">
             <a href="/register">
-                SIGN-UP
+              REGISTER
             </a>
         </li>
         <li id="header_cart">            
             <a href="/guest">
                 GUEST
             </a>
-        </li>
-      </ul>
-      <ul class="header_right " id="logoutBox">
-        <li id="header_mypage">
-          <a href="/mypage">
-            MYPAGE
-          </a>  
-        </li>
-        <li id="header_logout">
-          <p id="logout">LOGOUT</p>
         </li>
       </ul>
     </header>
@@ -94,6 +84,8 @@ window.onload = () => {
   `
   );
 };
+<<<<<<< HEAD:src/views/mypage/guestHeader.js
+=======
 
 function logout() {
   console.log("text");
@@ -105,3 +97,4 @@ function logout() {
 
 const logoutText = document.getElementById("logout");
 logoutText.addEventListener("click", logout);
+>>>>>>> fc565c01dd226ffbde5ce0479e968b8d1018a280:src/views/mypage/HeaderFooter.js
