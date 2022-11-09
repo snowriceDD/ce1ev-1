@@ -14,7 +14,7 @@ window.onload = () => {
         <li>
           <input type="text" placeholder="검색어를 입력하세요." class="header_search" id="text" />
           <button type="button">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa fa-magnifying-glass fa-2x"></i>
           </button>
         </li>
       </ul>
@@ -84,17 +84,3 @@ window.onload = () => {
   `
   );
 };
-<<<<<<< HEAD:src/views/mypage/guestHeader.js
-=======
-
-function logout() {
-  console.log("text");
-  sessionStorage.removeItem('token');
-  sessionStorage.removeItem('admin');
-
-  window.location.href="/";
-}
-
-const logoutText = document.getElementById("logout");
-logoutText.addEventListener("click", logout);
->>>>>>> fc565c01dd226ffbde5ce0479e968b8d1018a280:src/views/mypage/HeaderFooter.js
