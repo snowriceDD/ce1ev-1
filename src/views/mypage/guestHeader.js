@@ -14,7 +14,7 @@ window.onload = () => {
         <li>
           <input type="text" placeholder="검색어를 입력하세요." class="header_search" id="text" />
           <button type="button">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa fa-magnifying-glass fa-2x"></i>
           </button>
         </li>
       </ul>
