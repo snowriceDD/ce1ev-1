@@ -5,7 +5,7 @@
   align-items: center;
   height: 150px;
   background: #f4f4f4;
-
+  gap:10px;
   padding: 0 130px;
 }
 .header .header_logo a {
@@ -63,7 +63,8 @@
 
   width: 150px;
   height: 52px;
-
+  gap: 10px;
+  
   font-weight: 600;
   font-size: 12px;
   line-height: 19px;
