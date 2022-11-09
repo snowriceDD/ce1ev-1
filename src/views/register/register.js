@@ -70,3 +70,15 @@ async function handleSubmit(e) {
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
 }
+
+window.onload = function(){
+  document.getElementById("addressInput").addEventListener("click", function(){ //주소입력칸을 클릭하면
+      //카카오 지도 발생
+      new daum.Postcode({
+          oncomplete: function(data) { //선택시 입력값 세팅
+              document.getElementById("addressInput").value = data.address; // 주소 넣기
+              // document.querySelector("input[id=address_detail]").focus(); //상세입력 포커싱
+          }
+      }).open();
+  });
+}
