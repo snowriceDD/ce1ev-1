@@ -19,7 +19,7 @@ const UserSchema = new Schema(
       required: true,
     },
     phoneNum: {
-      type: Number,
+      type: String,
       required: true,
     },
     role: {

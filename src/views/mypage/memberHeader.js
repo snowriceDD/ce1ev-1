@@ -78,13 +78,11 @@ window.onload = () => {
   );
 };
 
-function logout() {
-  console.log("text");
-  sessionStorage.removeItem("token");
-  sessionStorage.removeItem("admin");
+// function logout() {
+//   console.log("text");
+//   sessionStorage.removeItem("token");
+//   window.location.href = "/";
+// }
 
-  window.location.href = "/";
-}
-
-const logoutText = document.getElementById("logout");
-logoutText.addEventListener("click", logout);
+// const logoutText = document.getElementById("logout");
+// logoutText.addEventListener("click", logout);

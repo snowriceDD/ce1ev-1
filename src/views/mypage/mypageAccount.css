@@ -67,7 +67,7 @@
   justify-content: space-between;
 }
 
-.section .btn_container .left {
+.section .btn_container .withdraw {
   width: 191px;
   height: 40px;
   border: 1px solid black;
@@ -77,7 +77,7 @@
   line-height: 19px;
 }
 
-.section .btn_container .right {
+.section .btn_container .update {
   width: 193px;
   height: 42px;
   background-color: black;

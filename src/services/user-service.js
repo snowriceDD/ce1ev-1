@@ -85,7 +85,7 @@ class UserService {
 
   async getUserData(userId) {
     const user = await this.model.findById(userId);
-    if(!uesr) {
+    if(!user) {
       throw new Error("가입 내역이 없습니다.")
     }
     return user;
@@ -134,6 +134,19 @@ class UserService {
       userId,
       update: toUpdate,
     });
+
+    return user;
+  }
+
+  async checkUserPassword(userId, password) {
+    const user = await this.model.findById(userId);
+
+    const correctPasswordHash = user.password;
+    const isPasswordCorrect = await bcrypt.compare(password, correctPasswordHash);
+
+    if(!isPasswordCorrect) {
+      throw new Error("비밀번호가 일치하지 않습니다.")
+    }
 
     return user;
   }
