@@ -68,11 +68,7 @@
   line-height: 72px;
   letter-spacing: 0;
   text-align: center;
-}
 
-.register-user-form-box .button {
-  width: 100%;
-  font-weight: bold;
 }
 
 .register-user-form-box .button {
@@ -87,6 +83,7 @@
   line-height: 30px;
   border: none;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .register-user-form-box .signInLink {
