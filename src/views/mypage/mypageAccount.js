@@ -5,6 +5,7 @@ const nameTag = document.querySelector(".name");
 const phoneNumTag = document.querySelector(".phoneNum");
 const emailTag = document.querySelector('.email');
 const addressTag = document.querySelector(".address");
+const withdrawBtn = document.querySelector(".withdraw");
 
 
 checkLogin();
@@ -20,4 +21,11 @@ async function addAllEvents() {
     phoneNumTag.innerText = `${phoneNum}`;
     emailTag.innerText=`${email}`;
     addressTag.innerText = `${address}`; 
+}
+
+
+withdrawBtn.addEventListener("click", withDraw);
+
+function withDraw() {
+    window.location.assign("/mypage/withdrawal");
 }

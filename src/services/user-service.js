@@ -138,6 +138,19 @@ class UserService {
     return user;
   }
 
+  async checkUserPassword(userId, password) {
+    const user = await this.model.findById(userId);
+
+    const correctPasswordHash = user.password;
+    const isPasswordCorrect = await bcrypt.compare(password, correctPasswordHash);
+
+    if(!isPasswordCorrect) {
+      throw new Error("비밀번호가 일치하지 않습니다.")
+    }
+
+    return user;
+  }
+
   async deleteUserData(userId) {
     const {deletedCount} = await this.model.delete(userId);
 
