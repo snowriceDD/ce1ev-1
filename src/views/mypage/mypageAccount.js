@@ -5,6 +5,7 @@ const nameTag = document.querySelector(".name");
 const phoneNumTag = document.querySelector(".phoneNum");
 const emailTag = document.querySelector('.email');
 const addressTag = document.querySelector(".address");
+const updateBtn = document.querySelector(".update");
 const withdrawBtn = document.querySelector(".withdraw");
 
 
@@ -28,4 +29,10 @@ withdrawBtn.addEventListener("click", withDraw);
 
 function withDraw() {
     window.location.assign("/mypage/withdrawal");
+}
+
+updateBtn.addEventListener("click", update);
+
+function update() {
+    window.location.assign("/mypage/myAccountUpdate");
 }

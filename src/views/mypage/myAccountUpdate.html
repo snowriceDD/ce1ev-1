@@ -30,7 +30,7 @@
     <!-- 회원가입 폼(Form) -->
     <div class="register-user-form-container">
       <form class="register-user-form-box">
-        <p class="title">Welcome!</p>
+        <p class="title">정보 수정하기</p>
         <div class="field">
           <label class="label" for="fullNameInput">Name</label>
           <div class="control">
@@ -38,7 +38,7 @@
               class="input"
               type="text"
               id="fullNameInput"
-              value="박소민"
+              value=""
               autocomplete="on"
             />
           </div>
@@ -50,7 +50,29 @@
               class="input"
               type="email"
               id="emailInput"
-              value="abc@example.com"
+              value=""
+              autocomplete="on"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="numberInput">Number</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="numberInput"
+              autocomplete="on"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="addressInput">Address</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="addressInput"
               autocomplete="on"
             />
           </div>
@@ -62,7 +84,6 @@
               class="input"
               type="password"
               id="passwordInput"
-              placeholder="********"
               autocomplete="off"
             />
           </div>
@@ -76,43 +97,29 @@
               class="input"
               type="password"
               id="passwordConfirmInput"
-              placeholder="********"
               autocomplete="off"
             />
           </div>
         </div>
-        <div class="field">
-          <label class="label" for="numberInput">Number</label>
+
+        <div class="field mb-5">
+          <label class="label" for="passwordConfirmInput"
+            >현재 비밀번호</label
+          >
           <div class="control">
             <input
               class="input"
-              type="text"
-              id="numberInput"
-              value="010-1234-5678"
+              type="password"
+              id="currentPasswordInput"
               autocomplete="off"
             />
           </div>
         </div>
-        <div class="field">
-          <label class="label" for="addressInput">Address</label>
-          <div class="control">
-            <input
-              class="input"
-              type="text"
-              id="addressInput"
-              value="서울특별시 강남구 도곡동 타워펠리스 APT 2차 1306호"
-              autocomplete="off"
-            />
-          </div>
-        </div>
-        <button class="button" id="submitButton">Sign Up</button>
-        <div class="signInLink">
-          Already have an account? <a href="/login">Sign in</a>
-        </div>
+        <button class="button" id="updateButton">수정된 정보 저장하기</button>
       </form>
     </div>
-    <script src="register.js" type="module" defer></script>
-    <script src="guestHeader.js" type="module" defer></script>
+    <script src="myAccountUpdate.js" type="module" defer></script>
+    <script src="memberHeader.js" type="module" defer></script>
     <script
       src="https://kit.fontawesome.com/5c0da6133a.js"
       crossorigin="anonymous"

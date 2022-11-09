@@ -45,9 +45,10 @@ viewsRouter.get("/admin/adminOrder", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/admin_orders/admin_orders.html"));
 });
 viewsRouter.get("/admin/adminMember", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "../views/admin_members/admin_members.html")
-  );
+  res.sendFile(path.join(__dirname, "../views/admin_members/admin_members.html"))
+});
+viewsRouter.get("/mypage/myAccountUpdate", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/myAccountUpdate.html"));
 });
 // views 폴더의 최상단 파일인 rabbit.png, api.js 등을 쓸 수 있게 함
 viewsRouter.use("/", serveStatic(""));

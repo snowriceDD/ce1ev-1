@@ -131,7 +131,8 @@ userRouter.patch(
       const userId = req.params.userId;
 
       // body data 로부터 업데이트할 사용자 정보를 추출함.
-      const fullName = req.body.fullName;
+      const name = req.body.name;
+      const email = req.body.email;
       const password = req.body.password;
       const address = req.body.address;
       const phoneNum = req.body.phoneNum;
@@ -150,7 +151,8 @@ userRouter.patch(
       // 위 데이터가 undefined가 아니라면, 즉, 프론트에서 업데이트를 위해
       // 보내주었다면, 업데이트용 객체에 삽입함.
       const toUpdate = {
-        ...(fullName && { fullName }),
+        ...(name && { name }),
+        ...(email && { email }),
         ...(password && { password }),
         ...(address && { address }),
         ...(phoneNum && { phoneNum }),
