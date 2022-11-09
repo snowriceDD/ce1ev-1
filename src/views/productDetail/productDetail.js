@@ -1,44 +1,30 @@
-// import * as Api from "../api";
-const sizeBlockTag = document.querySelector(".size_block");
-const sizeTag = document.querySelector("size");
-const buyButttonTag = document.querySelector(".button_buy");
-const cartButtonTag = document.querySelector(".button_cart");
-const productImageTag = document.querySelector(".bb2");
-const brandTag = document.querySelector(".pd_brd");
-const nameTag = document.querySelector(".pd_name");
-const categoryTag = document.querySelector(".tag_category");
-const descriptionTag = document.querySelector(".tag_name");
-const priceTag = document.querySelector(".total_price");
+// import { name } from "ejs";
 
+// import * as Api from "/api.js";
+const ref = {
+  sizeBlockTag: document.querySelector(".size_block"),
+  sizeTag: document.querySelector("selectBox"),
+  buyButttonTag: document.querySelector(".button_buy"),
+  cartButtonTag: document.querySelector(".button_cart"),
+  productImageTag: document.querySelector(".bb2"),
+  brandTag: document.querySelector(".pd_brd"),
+  nameTag: document.querySelector(".pd_name"),
+  categoryTag: document.querySelector(".tag_category"),
+  descriptionTag: document.querySelector(".tag_name"),
+  priceTag: document.querySelector(".total_price"),
+};
 const productId = window.location.pathname.split("/")[2];
 let product = {};
 let selectSize = "";
 
+//상품상세페이지 구현
 const drawProduct = async () => {
-  const res = await fetch(`/api/productDetail/${productId}`);
-  product = await res.json();
-  productImageTag.setAttribute("src", product.img);
-  brandTag.innerHTML = product.brand;
-  nameTag.innerHTML = product.name;
-  categoryTag.innerHTML = product.category;
-  descriptionTag.innerHTML = product.description;
-  priceTag.innerHTML = product.price;
-  console.log(product)  
-
-  buyButttonTag.addEventListener("click", () => (location.href = `/order`));
-
-  // 제품 데이터 로컬에 담기
- 
-  cartButtonTag.addEventListener(
-    "click",
-    () => { 
-      const products = JSON.parse(localStorage.getItem('products')) || [];
-  
-    products.push(product)
-    localStorage.setItem("products", JSON.stringify(products));
-      (location.href = "/mypage/myPageCart")
-});
-
+  ref.productImageTag.setAttribute("src", product.img);
+  ref.brandTag.innerHTML = product.brand;
+  ref.nameTag.innerHTML = product.name;
+  ref.categoryTag.innerHTML = product.category;
+  ref.descriptionTag.innerHTML = product.description;
+  ref.priceTag.innerHTML = product.price;
   // [product.size].forEach((size)=>{
   //     sizeBlockTag.insertAdjacentHTML(
   //         "beforeend",
@@ -47,11 +33,50 @@ const drawProduct = async () => {
   //         `
   //     )
   // });
-};
-// product.size.forEach((a)=>{
-//     const sizeselect = product.size;
-drawProduct();
+  const name = ref.nameTag.innerHTML;
+  const brand = ref.brandTag.innerHTML;
+  const price = ref.priceTag.innerHTML;
+  // const size =
+  // const color =
+  const category = ref.categoryTag.innerHTML;
 
+  const data = {
+    name,
+    brand,
+    price,
+    // size,
+    // color,
+    category,
+  };
+  const result = await fetch("/api/selectedProducts", data);
+  console.log(result);
+};
+//localStorage 저장하기
+const addCart = () => {
+  ref.cartButtonTag.addEventListener("click", () => {
+    const products = JSON.parse(localStorage.getItem("products")) || [];
+
+    products.push(product);
+    localStorage.setItem("products", JSON.stringify(products));
+    location.href = "/mypage/myPageCart";
+  });
+};
+async function insertSizeList() {}
+//함수 실행
+const render = () => {
+  drawProduct();
+  addCart();
+};
+
+const initialize = async () => {
+  const res = await fetch(`/api/productDetail/${productId}`);
+  product = await res.json();
+  console.log(product);
+};
+initialize().then(() => render());
+ref.buyButttonTag.addEventListener("click", () => (location.href = `/order`));
+
+// Header&Footer
 const body = document.querySelector(".body");
 
 window.onload = () => {
