@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>회원가입</title>
+    <!-- bulma css 관련 -->
+    <!-- 구글 OAuth -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- 카카오 OAuth -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <!-- 커스텀 css, js -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Itim&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="myAccountUpdate.css" />
+    <link rel="stylesheet" href="../home/reset.css" />
+    <link rel="stylesheet" type="text/css" href="HeaderFooter.css" />
+  </head>
+  <body class="body">
+    <!-- 회원가입 폼(Form) -->
+    <div class="register-user-form-container">
+      <form class="register-user-form-box">
+        <p class="title">Welcome!</p>
+        <div class="field">
+          <label class="label" for="fullNameInput">Name</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="fullNameInput"
+              value="박소민"
+              autocomplete="on"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="emailInput">Email</label>
+          <div class="control">
+            <input
+              class="input"
+              type="email"
+              id="emailInput"
+              value="abc@example.com"
+              autocomplete="on"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="passwordInput">Password</label>
+          <div class="control">
+            <input
+              class="input"
+              type="password"
+              id="passwordInput"
+              placeholder="********"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <div class="field mb-5">
+          <label class="label" for="passwordConfirmInput"
+            >Password confirm</label
+          >
+          <div class="control">
+            <input
+              class="input"
+              type="password"
+              id="passwordConfirmInput"
+              placeholder="********"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="numberInput">Number</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="numberInput"
+              value="010-1234-5678"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="addressInput">Address</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="addressInput"
+              value="서울특별시 강남구 도곡동 타워펠리스 APT 2차 1306호"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <button class="button" id="submitButton">Sign Up</button>
+        <div class="signInLink">
+          Already have an account? <a href="/login">Sign in</a>
+        </div>
+      </form>
+    </div>
+    <script src="register.js" type="module" defer></script>
+    <script src="guestHeader.js" type="module" defer></script>
+    <script
+      src="https://kit.fontawesome.com/5c0da6133a.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

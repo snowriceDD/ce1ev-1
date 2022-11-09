@@ -67,7 +67,8 @@ userRouter.post("/login", async function (req, res, next) {
 
 // // 전체 유저 목록을 가져옴 (배열 형태임)
 // // 미들웨어로 loginRequired 를 썼음 (이로써, jwt 토큰이 없으면 사용 불가한 라우팅이 됨)
-userRouter.get("/userlist", loginRequired, async function (req, res, next) {
+userRouter.get("/userlist", async function (req, res, next) {
+  //  로그인인증미들웨어 잠시 삭제함.
   try {
     // 전체 사용자 목록을 얻음
     const users = await userService.getUsers();
@@ -79,16 +80,16 @@ userRouter.get("/userlist", loginRequired, async function (req, res, next) {
   }
 });
 
-userRouter.get("/user", loginRequired, async (req,res, next)=> {
+userRouter.get("/user", loginRequired, async (req, res, next) => {
   try {
-    const userId = req.currentUserId;  //loginRequired에 있음
+    const userId = req.currentUserId; //loginRequired에 있음
     const currentUserInfo = await userService.getUserData(userId);
 
     res.status(200).json(currentUserInfo);
-  } catch(err) {
+  } catch (err) {
     next(err);
   }
-})
+});
 
 // 사용자 정보 수정
 // (예를 들어 /api/users/abc12345 로 요청하면 req.params.userId는 'abc12345' 문자열로 됨)
@@ -149,23 +150,22 @@ userRouter.patch(
   }
 );
 
-userRouter.delete('/users/:userId', loginRequired, async (req, res, next)=> {
-
+userRouter.delete("/users/:userId", loginRequired, async (req, res, next) => {
   try {
     const userId = req.params.userId;
     const delteResult = await userService.deleteUserData(userId);
 
     res.status(200).json(delteResult);
-  } catch(err) {
+  } catch (err) {
     next(err);
   }
 });
 
 //관리자 토큰 가졌는지 확인
-userRouter.get("/admin/check", adminOnly, async (req, res, next)=> {
+userRouter.get("/admin/check", adminOnly, async (req, res, next) => {
   try {
-    res.status(200).json({result: "success"});
-  } catch(err) {
+    res.status(200).json({ result: "success" });
+  } catch (err) {
     next(err);
   }
 });

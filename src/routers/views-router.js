@@ -16,6 +16,9 @@ viewsRouter.use("/mypage", serveStatic("mypage"));
 viewsRouter.get("/mypage/account", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageAccount.html"));
 });
+viewsRouter.get("/mypage/accountUpdate", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/myAccountUpdate.html"));
+});
 viewsRouter.use("/order", serveStatic("order"));
 viewsRouter.get("/mypage/myPageCart", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/myPageCart.html"));
