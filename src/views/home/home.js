@@ -31,7 +31,7 @@ async function insertProductElement() {
       <a class="tag_category">${category}</a>
       <a class="tag_name" id="${description}">${description}</a>
       </div>
-      <p class="pd_price">${price}</p>
+      <p class="pd_price">${price} 원</p>
     </article>
   </section>
     `
