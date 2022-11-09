@@ -85,7 +85,7 @@ class UserService {
 
   async getUserData(userId) {
     const user = await this.model.findById(userId);
-    if(!uesr) {
+    if(!user) {
       throw new Error("가입 내역이 없습니다.")
     }
     return user;

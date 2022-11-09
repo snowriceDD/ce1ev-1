@@ -81,8 +81,6 @@ window.onload = () => {
 function logout() {
   console.log("text");
   sessionStorage.removeItem("token");
-  sessionStorage.removeItem("admin");
-
   window.location.href = "/";
 }
 

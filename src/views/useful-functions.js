@@ -42,6 +42,7 @@ export const getToday =()=> {
 // 로그인 여부(토큰 존재 여부 확인) 확인
 export const checkLogin = () => {
   const token = sessionStorage.getItem("token");
+  console.log(token);
   if(!token) {
 
     //현재 주소 url 추출

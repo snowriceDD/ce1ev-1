@@ -83,6 +83,7 @@ userRouter.get("/userlist", async function (req, res, next) {
 userRouter.get("/user", loginRequired, async (req, res, next) => {
   try {
     const userId = req.currentUserId; //loginRequired에 있음
+    // console.log(userId);
     const currentUserInfo = await userService.getUserData(userId);
 
     res.status(200).json(currentUserInfo);
