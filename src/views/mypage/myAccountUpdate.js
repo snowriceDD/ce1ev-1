@@ -1,165 +1,95 @@
-// import { name } from "ejs";
+import * as Api from "/api.js";
+import { checkLogin } from "../useful-functions.js";
 
-// import * as Api from "/api.js";
+const inputnameTag = document.querySelector("#fullNameInput");
+const emailTag = document.querySelector("#emailInput");
+const passwordTag = document.querySelector("#passwordInput");
+const passwordConfirmTag = document.querySelector("#passwordConfirmInput");
+const currentPasswordTag = document.querySelector("#currentPasswordInput");
+const numberTag = document.querySelector("#numberInput");
+const addressTag = document.querySelector("#addressInput");
+const updatebtn = document.querySelector("#updateButton");
 
-window.onload = () => {
-  body.insertAdjacentHTML(
-    "afterBegin",
-    `
-    <header class="header">
-      <div class="header_logo">
-        <a href="/">
-          Ce1ev.
-        </a>
-      </div>
-      <ul class="search">
-        <li>
-          <input type="text" placeholder="검색어를 입력하세요." class="header_search" id="text" />
-          <button type="button">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </li>
-      </ul>
-      <ul class="header_right" id="loginBox">
-        <li id="header_login">
-            <a href="/login">
-                LOGIN
-            </a>
-        </li>
-        <li id="header_wish">
-            <a href="/register">
-              REGISTER
-            </a>
-        </li>
-        <li id="header_cart">            
-            <a href="/guest">
-                GUEST
-            </a>
-        </li>
-      </ul>
-    </header>
-    `
-  );
 
-  body.insertAdjacentHTML(
-    "beforeEnd",
-    `
-  <footer class="footer">
-  <address class="address_left">
-    <ul class="addressLink">
-      <li>
-        <a href="/" id="footer_logo">
-          Ce1ev.
-        </a>
-      </li>
-      <li>
-        <a href="#">개인정보 취급방침</a>
-      </li>
-      <li>
-        <a href="#">이용약관</a>
-      </li>
-    </ul>
+checkLogin();
+addAllEvents();
 
-    <div class="addressText">
-      <p>셀레브 주식회사 · 대표 김원송 사업자등록번호 : 000-00-00000</p>
-      <p>
-        사업장소재지 : 경기도 성남시 분당구 분당내곡로 131 판교테크원 타워1, 8층
-      </p>
-      <p>ⓒ CELEV. Corp.</p>
-    </div>
-  </address>
-  <address class="address_right">
-    <p>
-      <strong style="font-size: 20px; font-weight: 600">
-        고객센터 1588-0000
-      </strong>
-    </p>
-    <p>
-      운영시간 평일 11:00 - 18:00 (토∙일, 공휴일 휴무)
-      <br />
-      점심시간 평일 13:00 - 14:00
-      <br />
-      1:1 문의하기는 앱에서만 가능합니다.
-    </p>
-  </address>
-</footer>
-  `
-  );
-};
-const ref = {
-  sizeBlockTag: document.querySelector(".size_block"),
-  sizeTag: document.querySelector("selectBox"),
-  buyButttonTag: document.querySelector(".button_buy"),
-  cartButtonTag: document.querySelector(".button_cart"),
-  productImageTag: document.querySelector(".bb2"),
-  brandTag: document.querySelector(".pd_brd"),
-  nameTag: document.querySelector(".pd_name"),
-  categoryTag: document.querySelector(".tag_category"),
-  descriptionTag: document.querySelector(".tag_name"),
-  priceTag: document.querySelector(".total_price"),
-};
-const productId = window.location.pathname.split("/")[2];
-let product = {};
-let selectSize = "";
+let userData;
+async function addAllEvents() {
+  userData = await Api.get("/api/user");
 
-//상품상세페이지 구현
-const drawProduct = async () => {
-  ref.productImageTag.setAttribute("src", product.img);
-  ref.brandTag.innerHTML = product.brand;
-  ref.nameTag.innerHTML = product.name;
-  ref.categoryTag.innerHTML = product.category;
-  ref.descriptionTag.innerHTML = product.description;
-  ref.priceTag.innerHTML = product.price;
-  // [product.size].forEach((size)=>{
-  //     sizeBlockTag.insertAdjacentHTML(
-  //         "beforeend",
-  //         `
-  //         <button id="content_box" class="size" type="button">${size}</button>
-  //         `
-  //     )
-  // });
-  const name = ref.nameTag.innerHTML;
-  const brand = ref.brandTag.innerHTML;
-  const price = ref.priceTag.innerHTML;
-  // const size =
-  // const color =
-  const category = ref.categoryTag.innerHTML;
+  const {email, name, phoneNum, address} = userData;
 
-  const data = {
-    name,
-    brand,
-    price,
-    // size,
-    // color,
-    category,
-  };
-  const result = await fetch("/api/selectedProducts", data);
-  console.log(result);
-};
-//localStorage 저장하기
-const addCart = () => {
-  ref.cartButtonTag.addEventListener("click", () => {
-    const products = JSON.parse(localStorage.getItem("products")) || [];
+  userData.password = "";
+  inputnameTag.value = name;
+  numberTag.value = phoneNum;
+  emailTag.value = email;
+  addressTag.value = `${address}`
 
-    products.push(product);
-    localStorage.setItem("products", JSON.stringify(products));
-    location.href = "/mypage/myPageCart";
-  });
-};
-async function insertSizeList() {}
-//함수 실행
-const render = () => {
-  drawProduct();
-  addCart();
-};
+  passwordTag.value = ""; //크롬 자동완성 삭제
 
-const initialize = async () => {
-  const res = await fetch(`/api/productDetail/${productId}`);
-  product = await res.json();
-  console.log(product);
-};
-initialize().then(() => render());
-ref.buyButttonTag.addEventListener("click", () => (location.href = `/order`));
+  updatebtn.addEventListener("click", saveUserData);
+}
 
-// Header&Footer
-const body = document.querySelector(".body");
+//db 저장
+async function saveUserData(e) {
+  e.preventDefault();
+
+  const name = inputnameTag.value;
+  const email = emailTag.value;
+  const password = passwordTag.value;
+  const passwordConfirm = passwordConfirmTag.value;
+  const address = addressTag.value;
+  const phoneNum = numberTag.value;
+  const currentPassword = currentPasswordTag.value;
+
+  const isPasswordLong = password.length >= 4;
+  const isPasswordSame = password === passwordConfirm;
+  
+  //비밀번호 변경
+  if(password && !isPasswordLong) {
+    alert("비밀번호는 4글자 이상이어야 합니다.")
+  }
+  if(password && !isPasswordSame) {
+    alert("비밀번호와 비밀번호확인이 일치하지 않습니다.")
+  }
+  
+  const data = {currentPassword};
+
+  if(name !== userData.name) {
+    data.name = name;
+  }
+
+  if(password !== userData.password) {
+    data.password = password;
+  }
+
+  if(address !== userData.address) {
+    data.address = address;
+  }
+
+  if(phoneNum !== userData.phoneNum) {
+    data.phoneNum = phoneNum;
+  }
+
+  if(email != userData.email) {
+    data.email = email;
+  }
+
+  const toUpdate = Object.keys(data);
+  if(toUpdate.length ===1) {
+    alert("업데이트한 정보가 없습니다.")
+  }
+
+  try {
+    const {_id} = userData;
+    await Api.patch("/api/users", _id, data);
+    alert("회원정보가 수정되었습니다.")
+    window.location.assign("/");
+
+  } catch(err) {
+    alert(`회원정보 저장 과정에서 오류가 발생하였습니다: ${err}`);
+  }
+
+}
+
