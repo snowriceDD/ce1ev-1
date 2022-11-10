@@ -28,11 +28,11 @@ async function addAllEvent() {
 
 // adminCategory.addEventListener("click", moveToadminCategory);
 
-function moveToadminProduct() {
-  window.location.assign("/admin/adminProduct");
+function moveToadminProductList() {
+  window.location.assign("/admin/adminProductList");
 }
 
-adminProduct.addEventListener("click", moveToadminProduct);
+adminProduct.addEventListener("click", moveToadminProductList);
 
 function moveToadminOrder() {
   window.location.assign("/admin/adminOrder");
