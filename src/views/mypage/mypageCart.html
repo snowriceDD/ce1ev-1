@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="mypageOrderList.css" />
+    <link rel="stylesheet" type="text/css" href="mypageCart.css" />
     <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
     <link rel="stylesheet" type="text/css" href="../home/reset.css" />
   </head>
@@ -25,32 +25,18 @@
         <h1>장바구니</h1>
         <div class="title">
           <div class="first">상품 정보</div>
-          <div>주문 금액(수량)</div>
+          <div>상품 금액(수량)</div>
           <div>관리</div>
         </div>
-        <div class="content">
-          <!-- <div class="first">
-            <img class="product_img" />
-            <div class="product_script">
-              <p class="product_name">
-                상품명 : Undermycar Operation Chromite Kerberos Oversized
-                Varsity Jacket Ox Blood - 22FW
-              </p>
-            </div>
-          </div>
-          <div class="product_price">
-            390,000원<br />
-            (1개)
-          </div>
-          <div class="status">삭제 버튼 기능 구현</div> -->
-        </div>
+        <div class="content_box"></div>
       </article>
     </section>
-
-    <!-------- footer -------->
+    <div>총 금액</div>
+    <div class="totalPrice"></div>
+    <div>상품 수</div>
+    <div class="totalAmount"></div>
+    <!———— footer ————>
     <script src="mypageCart.js"></script>
-    <script src="header.js" type="module" defer></script>
-    <script src="footer.js" type="module" defer></script>
-    <script src="../home/changeHeader.js" type="module" defer></script>
+    <script src="../mypage/HeaderFooter.js" type="module" defer></script>
   </body>
 </html>
