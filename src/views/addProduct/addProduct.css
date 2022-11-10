@@ -15,6 +15,12 @@
   font-weight: bold;
 }
 
+#fileBox {
+  margin-bottom: 2rem;
+  border: none;
+  border-bottom: solid 1px rgb(240, 240, 240);
+}
+
 .category-input {
   width: 645px;
   height: 3rem;
@@ -44,3 +50,4 @@
   cursor: pointer;
   background-color: #6d6d6d;
 }
+
