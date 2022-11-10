@@ -19,6 +19,11 @@ window.onload = () => {
         </li>
       </ul>
       <ul class="header_right " id="logoutBox">
+        <li id="header_addProduct">
+            <a href="/products">
+              ADD PRODUCT
+            </a>  
+          </li>
         <li id="header_mypage">
           <a href="/mypage">
             ADMIN PAGE
