@@ -6,11 +6,23 @@
   color: black;
 }
 
+.homebt {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-family: "Imbue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 100px;
+  line-height: 120px;
+  color: #000000;
+}
+
 .body .register-user-form-container {
   width: 400px;
-  height: 824px;
-
-  margin: 50px auto;
+  height: 100%;
+  margin: 0px auto;
 }
 
 .body .register-user-form-container .register-user-form-box {
@@ -62,12 +74,13 @@
 }
 .register-user-form-box .title {
   width: 100%;
-  font-family: Inknut Antiqua;
-  font-size: 40px;
-  font-weight: bold;
-  line-height: 72px;
-  letter-spacing: 0;
-  text-align: center;
+    font-family: Inknut Antiqua;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 72px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #606060;
 }
 
 .register-user-form-box .button {
