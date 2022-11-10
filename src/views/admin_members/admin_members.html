@@ -1,109 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="admin_members_style.css" rel="stylesheet">
-    <!-- <script src="admin_orders_script.js"></script> -->
-    <style></style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원관리</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Itim&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/admin_members/admin_members_style.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
+    <link rel="stylesheet" type="text/css" href="../home/reset.css" />
+  </head>
+  <body class="body">
     <h3 class="order_manage">회원관리</h3>
     <div class="divide_line"></div>
-    
-        <li class="order_moniter">
-            <dl>
-                <p class="heading">총 회원 수</p>
-                <p class="counter" id="ordersCount">123</p>
-            </dl>
-            <dl>
-                <p class="heading">총 관리자 수</p>
-                <p class="counter" id="prepareCount">123</p>
-            </dl>
-        </li>
 
-        <div class="list_heading">
-            <div class="column1">가입날짜</div>
-            <div class="column2">이메일</div>
-            <div class="column1">이름</div>
-            <div class="column1">권한</div>
-            <div class="column1">관리</div>
+    <li class="order_moniter">
+      <dl>
+        <p class="heading">총 회원 수</p>
+        <p class="counter" id="ordersCount">123</p>
+      </dl>
+      <dl>
+        <p class="heading">총 관리자 수</p>
+        <p class="counter" id="prepareCount">123</p>
+      </dl>
+    </li>
+
+    <div class="list_heading">
+      <div class="column1">가입날짜</div>
+      <div class="column2">이메일</div>
+      <div class="column1">이름</div>
+      <div class="column1">권한</div>
+      <div class="column1">관리</div>
+    </div>
+
+    <div class="listing">
+      <div class="column1">_</div>
+      <div class="column2">_</div>
+      <div class="column1">_</div>
+      <div class="column1">
+        <div class="selectBox">
+          <select name="sB" class="select">
+            <option value="select_prepare">일반 사용자</option>
+            <option value="select_delivery">셀러</option>
+            <option value="select_complete">관리자</option>
+          </select>
         </div>
+      </div>
+      <div class="column1">
+        <button class="order_cancel" id="order_cancel_btn">
+          회원정보 삭제
+        </button>
+      </div>
+    </div>
 
-        <div class="listing">
-            <div class="column1">_</div>
-            <div class="column2">_</div>
-            <div class="column1">_</div>
-            <div class="column1">
-                <div class="selectBox">
-                    <select name="sB" class="select">
-                      <option value="select_prepare">일반 사용자</option>
-                      <option value="select_delivery">셀러</option>
-                      <option value="select_complete">관리자</option>
-                    </select>
-                    <span class="icoArrow"><img src="https://freepikpsd.com/media/2019/10/down-arrow-icon-png-7-Transparent-Images.png" alt=""></span>
-                  </div>
-            </div>
-            <div class="column1">
-                <button class="order_cancel" id="order_cancel_btn">회원정보 삭제</button>
-            </div>
+    <div id="modal" class="modal-overlay">
+      <div class="modal-window">
+        <div class="close-area" id="modalCloseButton">❎</div>
+        <p class="modal_text">회원 삭제하믄, 되돌릴 수 없어...👻</p>
+        <p class="modal_text">정말 삭제하겄어?</p>
+
+        <div class="buttons">
+          <button class="button_comp" id="deleteComplete" aria-label="close">
+            네
+          </button>
+          <button
+            class="button_canc"
+            id="deleteCancelButton"
+            aria-label="close"
+          >
+            아니오
+          </button>
         </div>
-
-
-        <div id="modal" class="modal-overlay">
-          <div class="modal-window">
-            
-            <div class="close-area" id="modalCloseButton">❎</div>
-            <p class="modal_text">회원 삭제하믄, 되돌릴 수 없어...👻</p>
-              <p class="modal_text">정말 삭제하겄어?</p>
-
-              <div class="buttons">
-                <button class="button_comp" id="deleteComplete" aria-label="close">
-                  네
-                </button>
-                <button class="button_canc" id="deleteCancelButton" aria-label="close">
-                  아니오
-                </button>
-              </div>
-          </div>
-        </div>
-        <script src="admin_members_script.js"></script>
-        <!-- 주문을 정말 취소할 지 묻는 Modal 창 -->
-    <!-- <div id="modal" class="modal">
-        <div class="modal-background" id="modalBackground"></div>
-        <div class="modal-content">
-          <div class="box">
-            <p class="mb-3">
-              주문 삭제 시 복구할 수 없습니다. 정말로 취소하시겠습니까?
-            </p>
-  
-            <div class="buttons">
-              <button
-                class="button mt-5"
-                id="deleteCompleteButton"
-                aria-label="close"
-              >
-                네
-              </button>
-              <button
-                class="button is-primary mt-5"
-                id="deleteCancelButton"
-                aria-label="close"
-              >
-                아니오
-              </button>
-            </div>
-          </div>
-        </div>
-  
-        <button
-          class="modal-close is-large"
-          id="modalCloseButton"
-          aria-label="close"
-        ></button>
-      </div> -->
-
-</body>
+      </div>
+    </div>
+    <script
+      src="/admin_members/admin_members_script.js"
+      type="module"
+      defer
+    ></script>
+    <script src="../mypage/header.js" type="module" defer></script>
+    <script src="../mypage/footer.js" type="module" defer></script>
+  </body>
 </html>

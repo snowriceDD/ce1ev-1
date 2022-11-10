@@ -1,3 +1,5 @@
+import { addImageToS3 } from "../aws-s3.js";
+
 import * as Api from "/api.js";
 import { checkLogin } from "../useful-functions.js";
 
@@ -15,61 +17,62 @@ checkLogin();
 addAllEvents();
 
 function addAllEvents() {
+  // imgInput.addEventListener("change", handleImageUpload);
   submitBtn.addEventListener("click", handleSubmit);
 }
 async function handleSubmit(e) {
   e.preventDefault();
 
-  const check = confirm("상품을 등록하시겠습니까?");
+  const category = categoryInput.value;
+  const brand = brandInput.value;
+  const name = nameInput.value;
+  const price = priceInput.value;
+  const img = imgInput.files[0];
+  const description = descriptionInput.value;
+  const color = getColorArray(colorInput.value);
+  const size = getSizeArray(sizeInput.value);
 
-  if (check) {
-    try {
-      const category = categoryInput.value;
-      const brand = brandInput.value;
-      const name = nameInput.value;
-      const price = priceInput.value;
-      const img = imgInput.value;
-      const description = descriptionInput.value;
-      const color = getColorArray(colorInput.value);
-      const size = getSizeArray(sizeInput.value);
-      if (
-        !category ||
-        !brand ||
-        !name ||
-        !price ||
-        !img ||
-        !description ||
-        !color ||
-        !size
-      ) {
-        return alert("입력하지 않은 값이 있습니다.");
-      }
-      const data = {
-        category,
-        brand,
-        name,
-        price,
-        img,
-        description,
-        color,
-        size,
-      };
-      //경로 재설정 필요함 어디로 보낼지를 정해야됨!
-      const result = await Api.post("/api/products", data);
-      console.log(result);
+  if (
+    !category ||
+    !brand ||
+    !name ||
+    !price ||
+    !description ||
+    !color ||
+    !size
+  ) {
+    return alert("입력하지 않은 값이 있습니다.");
+  }
 
-      if (result) {
-        alert(`${result.name} 상품이 성공적으로 등록되었습니다!`);
+  if (img.size > 3e6) {
+    return alert("사진은 최대 2.5MB 크기까지 가능합니다.");
+  }
 
-        window.location.href = "/";
-      }
-    } catch (err) {
-      console.error(err.stack);
-      alert(`${err.message}`);
+  try {
+    const imageKey = await addImageToS3(imgInput, category);
+    const data = {
+      category,
+      brand,
+      name,
+      price,
+      imageKey,
+      description,
+      color,
+      size,
+    };
+
+    //경로 재설정 필요함 어디로 보낼지를 정해야됨!
+    const result = await Api.post("/api/products", data);
+    console.log(result);
+    if (result) {
+      alert(`${result.name} 상품이 성공적으로 등록되었습니다!`);
+
+      window.location.href = "/";
     }
-  } else {
-    nameInput.value = "동하";
-    sizeInput.value = "s";
+  } catch (err) {
+    console.log(err.stack);
+
+    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
 }
 
