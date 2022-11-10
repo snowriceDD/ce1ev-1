@@ -1,6 +1,6 @@
 const body = document.querySelector(".body");
 
-window.addEventListener("load", () =>{
+window.addEventListener("load", () => {
   console.log(123);
   body.insertAdjacentHTML(
     "afterBegin",
@@ -60,8 +60,8 @@ window.addEventListener("load", () =>{
         </a>  
       </li>
     <li id="header_mypage">
-      <a href="/mypage">
-        ADMIN PAGE
+      <a href="/admin">
+        ADMIN-PAGE
       </a>  
     </li>
     <li id="header_logout">
@@ -73,9 +73,4 @@ window.addEventListener("load", () =>{
     </header>
     `
   );
-
-  
-}) 
-  
-
-
+});

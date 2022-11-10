@@ -38,14 +38,19 @@ viewsRouter.get("/admin/adminCategory", (req, res) => {
 });
 viewsRouter.get("/admin/adminProduct", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "../views/admin_product/admin_product.html")
+    path.join(
+      __dirname,
+      "../views/admin_productDetail/admin_productDetail.html"
+    )
   );
 });
 viewsRouter.get("/admin/adminOrder", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/admin_orders/admin_orders.html"));
 });
 viewsRouter.get("/admin/adminMember", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/admin_members/admin_members.html"))
+  res.sendFile(
+    path.join(__dirname, "../views/admin_members/admin_members.html")
+  );
 });
 viewsRouter.get("/mypage/myAccountUpdate", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/myAccountUpdate.html"));

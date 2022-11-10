@@ -1,35 +1,32 @@
-
-
 .divide_line {
-    width: 100%;
-    border: 0.25px solid gray;
+  width: 100%;
+  border: 0.25px solid gray;
 }
 
 .order_moniter {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .order_moniter dl {
-    display: inline;
-    text-align: center;
+  display: inline;
+  text-align: center;
 }
 
 .list_heading {
-    display: grid;
-    grid-template-columns: 2fr 4fr 2fr 2fr 2fr;
-    text-align: center;
-    background: #d3d3d3;
-    padding: 20px 0px;
-    border-radius: 5px;
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr 2fr 2fr;
+  text-align: center;
+  background: #d3d3d3;
+  padding: 20px 0px;
+  border-radius: 5px;
 }
 
 .listing {
-    display: grid;
-    grid-template-columns: 2fr 4fr 2fr 2fr 2fr;
-    text-align: center;
-    margin: 15px 0px;
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr 2fr 2fr;
+  text-align: center;
+  margin: 15px 0px;
 }
 
 .selectBox {
@@ -80,12 +77,12 @@
 } */
 
 .order_cancel {
-    position: relative;
-    width: 150px;
-    height: 35px;
-    border-radius: 4px;
-    border: 2px solid rgb(65, 65, 65);
-    cursor: pointer;
+  position: relative;
+  width: 150px;
+  height: 35px;
+  border-radius: 4px;
+  border: 2px solid rgb(65, 65, 65);
+  cursor: pointer;
 }
 
 #modal.modal-overlay {
@@ -105,7 +102,7 @@
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255,255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #modal .modal-window {
@@ -114,16 +111,14 @@
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255,255, 0.2);
-
-  
+  border: 1px solid rgba(255, 255, 255, 0.2);
 
   width: 400px;
-  
+
   position: relative;
   top: -100px;
   padding: 10px;
-} 
+}
 
 #modal .modal_text {
   padding-left: 10px;
@@ -165,4 +160,3 @@
   margin: 10px 20px;
   border-radius: 5px;
 }
-
