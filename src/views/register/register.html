@@ -9,6 +9,8 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <!-- 카카오 OAuth -->
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <!-- 다음 주소찾기 api -->
+    <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script> 
     <!-- 커스텀 css, js -->
     <link
       href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
@@ -27,6 +29,9 @@
     <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
   </head>
   <body class="body">
+    
+    <a href="/" class="homebt">ce1ev.</a>
+    
     <!-- 회원가입 폼(Form) -->
     <div class="register-user-form-container">
       <form class="register-user-form-box">
@@ -38,7 +43,7 @@
               class="input"
               type="text"
               id="fullNameInput"
-              placeholder="홍길동"
+              placeholder="박소민"
               autocomplete="on"
             />
           </div>
@@ -88,7 +93,7 @@
               class="input"
               type="text"
               id="numberInput"
-              placeholder="010-1234-5678"
+              placeholder="01012345678 (하이픈(-)을 빼고 입력하십시오.)"
               autocomplete="off"
             />
           </div>
@@ -100,7 +105,7 @@
               class="input"
               type="text"
               id="addressInput"
-              placeholder="서울특별시 강남구 선릉로 433, 신관 6층"
+              placeholder="주소 찾기"
               autocomplete="off"
             />
           </div>
@@ -111,11 +116,14 @@
         </div>
       </form>
     </div>
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="register.js" type="module" defer></script>
-    <script src="../mypage/guestHeader.js" type="module" defer></script>
+    <!--🚨헤더푸터 <script src="../mypage/guestHeader.js" type="module" defer></script> -->
     <script
       src="https://kit.fontawesome.com/5c0da6133a.js"
       crossorigin="anonymous"
     ></script>
+    
   </body>
 </html>
