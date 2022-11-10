@@ -1,7 +1,6 @@
 const body = document.querySelector(".body");
 
 window.addEventListener("load", () => {
-  console.log(123);
   body.insertAdjacentHTML(
     "afterBegin",
     `
