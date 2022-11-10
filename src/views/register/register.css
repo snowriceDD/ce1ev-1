@@ -100,6 +100,7 @@
   line-height: 30px;
   border: none;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .register-user-form-box .signInLink {
@@ -109,4 +110,5 @@
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0em;
+  cursor: pointer;
 }

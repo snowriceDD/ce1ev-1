@@ -2,7 +2,7 @@ import { randomId } from "./useful-functions.js";
 // aws-s3 사이트에서의 설정값들
 const s3BucketName = "celev-bucket";
 const bucketRegion = "ap-northeast-2"; // 한국은 항상 ap-northeast-2임.
-const IdentityPoolId = "ap-northeast-2:68d1e8c4-e9f1-41f1-914a-87ac70f7171f";
+const IdentityPoolId = "ap-northeast-2:68d1e8c4-e9f1-41f1-914a-87ac70f7171";
 
 // aws 공식문서 그대로 가져옴
 AWS.config.update({
