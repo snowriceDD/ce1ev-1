@@ -65,10 +65,6 @@
 
 .section .my_shopping .content_box .content .first {
   width: 277px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
 }
 
 .section .my_shopping .content_box .content .product_img {
@@ -84,6 +80,8 @@
 
 .section .my_shopping .content_box .content .productPrice {
   width: 188px;
+
+  margin: auto;
 }
 
 .section .my_shopping .content_box .content .productPrice .price {
@@ -100,4 +98,6 @@
 
 .section .my_shopping .content_box .content .status {
   width: 188px;
+
+  margin: auto;
 }

@@ -92,11 +92,11 @@ async function increaseItemQuantity(_id) {
   // indexedDB의 cart 데이터 업데이트
   let perPrice = document.querySelector(`.initial-${_id}`).innerHTML;
   let amount = ++document.querySelector(`#quantityInput-${_id}`).value;
-  let totalPrice = document.querySelector(`.product_price-${_id}`).innerHTML;
+  let totalPrice = document.querySelector(`.price-${_id}`).innerHTML;
   //prPrice는 , 뺀 값
   totalPrice = parseInt(perPrice) * amount;
 
-  document.querySelector(`.product_price-${_id}`).innerHTML = totalPrice;
+  document.querySelector(`.price-${_id}`).innerHTML = totalPrice;
   // this.funcTotalPrice();
   return;
 }
@@ -106,9 +106,9 @@ async function decreaseItemQuantity(_id) {
   let perPrice = document.querySelector(`.initial-${_id}`).innerHTML;
   let amount = --document.querySelector(`#quantityInput-${_id}`).value;
 
-  let totalPrice = document.querySelector(`.product_price-${_id}`).innerHTML;
+  let totalPrice = document.querySelector(`.price-${_id}`).innerHTML;
   totalPrice = parseInt(perPrice) * amount;
-  document.querySelector(`.product_price-${_id}`).innerHTML = totalPrice;
+  document.querySelector(`.price-${_id}`).innerHTML = totalPrice;
   // this.funcTotalPrice()
   return;
 }
@@ -118,7 +118,7 @@ async function funcTotalPrice() {
   let totalPrice = 0;
   cart.forEach((product) => {
     const _id = product._id;
-    let pPrice = document.querySelector(`.product_price-${_id}`).innerHTML;
+    let pPrice = document.querySelector(`.price-${_id}`).innerHTML;
     console.log(pPrice);
     totalPrice = totalPrice + parseInt(pPrice);
   });
@@ -128,7 +128,7 @@ async function funcTotalPrice() {
 async function deleteItem(_id) {
   const btn = document.querySelector(`#delete-${_id}`);
   const deleteForm = btn.parentNode.parentNode;
-  document.querySelector(".content").removeChild(deleteForm);
+  document.querySelector(".content_box").removeChild(deleteForm);
   const cleanStorage = cart.filter(function (x) {
     console.log(x);
     return x._id !== _id;

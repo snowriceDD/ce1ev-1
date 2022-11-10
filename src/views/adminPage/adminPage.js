@@ -1,7 +1,7 @@
 import { checkAdmin } from "../useful-functions.js";
 import * as Api from "/api.js";
 
-const adminCategory = document.querySelector("#adminCategory_button");
+// const adminCategory = document.querySelector("#adminCategory_button");
 const adminProduct = document.querySelector("#adminProduct_button");
 const adminOrder = document.querySelector("#adminOrder_button");
 const adminMember = document.querySelector("#adminMember_button");
@@ -22,11 +22,11 @@ async function addAllEvent() {
   roleTag.innerText = `${role}`;
 }
 
-function moveToadminCategory() {
-  window.location.assign("/admin/adminCategory");
-}
+// function moveToadminCategory() {
+//   window.location.assign("/admin/adminCategory");
+// }
 
-adminCategory.addEventListener("click", moveToadminCategory);
+// adminCategory.addEventListener("click", moveToadminCategory);
 
 function moveToadminProduct() {
   window.location.assign("/admin/adminProduct");
