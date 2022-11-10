@@ -5,8 +5,7 @@ import dotenv  from "dotenv";
 dotenv.config();
 
 const DB_URL =
-  process.env.MONGODB_URL ||
-  "mongodb+srv://elice:W8RsZsSX2Xs1ydE4@cluster0.4gz9ij3.mongodb.net/?retryWrites=true&w=majority";
+  process.env.MONGODB_URL
 
 mongoose.connect(DB_URL)
 const db = mongoose.connection;
