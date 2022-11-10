@@ -1,4 +1,4 @@
-// import { checkAdmin } from "../useful-functions.js";
+import { checkAdmin } from "../useful-functions.js";
 import * as Api from "/api.js";
 
 const adminCategory = document.querySelector("#adminCategory_button");
@@ -9,7 +9,7 @@ const nameTag = document.querySelector(".name");
 const emailTag = document.querySelector(".email");
 const roleTag = document.querySelector(".role");
 
-// checkAdmin();
+checkAdmin();
 addAllEvent();
 
 let adminData;
