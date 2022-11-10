@@ -24,67 +24,67 @@
   font-size: 14px;
 }
 
-.section .my_shopping div {
-  width: 188px;
-}
-
 .section .my_shopping .title {
-  width: 1000px;
   height: 60px;
   border: 1px solid lightgray;
   border-bottom: 0;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   font-size: 16px;
   text-align: center;
 }
 
-.section .my_shopping .title .first {
-  width: 625px;
+.section .my_shopping .title > div {
+  width: 188px;
+
+  border: 1px solid lightgray;
 }
 
-.section .my_shopping .content {
-  width: 1000px;
-  height: 200px;
-  border: 1px solid lightgray;
+.section .my_shopping .title .first {
+  width: 75px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0 275px;
+}
+
+.section .my_shopping .content_box {
+  width: 1000px;
+  border: 1px solid lightgray;
 
   text-align: center;
 }
 
-.section .my_shopping .content .first {
-  width: 545px;
-  padding-left: 40px;
-  padding-right: 40px;
+.section .my_shopping .content_box .content {
+  border: 1px solid lightgray;
 
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
 }
 
-.section .my_shopping .content .product_img {
+.section .my_shopping .content_box .content .first {
+  width: 277px;
+}
+
+.section .my_shopping .content_box .content .product_img {
   width: 176px;
   height: 176px;
   border: 1px solid black;
 }
 
-.section .my_shopping .content .product_script {
-  width: 329px;
-
+.section .my_shopping .content_box .content .product_name {
+  width: 348px;
   text-align: left;
-
-  display: flex;
-  flex-direction: column;
-  gap: 46px;
 }
 
-.section .my_shopping .content .product_price {
+.section .my_shopping .content_box .content .productPrice {
+  width: 188px;
+
+  margin: auto;
+}
+
+.section .my_shopping .content_box .content .productPrice .price {
   width: 188px;
   height: 202px;
 
@@ -94,4 +94,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.section .my_shopping .content_box .content .status {
+  width: 188px;
+
+  margin: auto;
 }
