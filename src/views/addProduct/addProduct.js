@@ -44,7 +44,7 @@ async function handleSubmit(e) {
     return alert("입력하지 않은 값이 있습니다.");
   }
 
-  if (img.size > 3e6) {
+  if (imageKey.size > 3e6) {
     return alert("사진은 최대 2.5MB 크기까지 가능합니다.");
   }
 

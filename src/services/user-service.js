@@ -138,6 +138,16 @@ class UserService {
     return user;
   }
 
+  async setRole(userId, role) {
+    const updatedUser = await this.model.update({
+      userId,
+      update: { role },
+    });
+
+    return updatedUser;
+  }
+
+
   async checkUserPassword(userId, password) {
     const user = await this.model.findById(userId);
 

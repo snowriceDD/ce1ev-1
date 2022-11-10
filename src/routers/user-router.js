@@ -172,6 +172,37 @@ userRouter.patch(
     }
   }
 );
+ //권한 수정
+userRouter.patch(
+  "/users/role/:userId",
+  adminOnly,
+  async function (req, res, next) {
+    try {
+      // content-type 을 application/json 로 프론트에서
+      // 설정 안 하고 요청하면, body가 비어 있게 됨.
+      if (is.emptyObject(req.body)) {
+        throw new Error(
+          "headers의 Content-Type을 application/json으로 설정해주세요"
+        );
+      }
+
+      // params로부터 id를 가져옴
+      const userId = req.params.userId;
+
+      // body data 로부터 업데이트할 사용자 권한 정보를 추출함.
+      const role = req.body.role;
+
+      // 사용자 정보를 업데이트함.
+      const updatedUserInfo = await userService.setRole(userId, role);
+
+      res.status(200).json(updatedUserInfo);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+
 
 userRouter.delete("/users/:userId", loginRequired, async (req, res, next) => {
   try {
