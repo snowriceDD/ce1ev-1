@@ -36,12 +36,9 @@ viewsRouter.get("/admin/adminCategory", (req, res) => {
     path.join(__dirname, "../views/admin_Category/admin_Category.html")
   );
 });
-viewsRouter.get("/admin/adminProduct", (req, res) => {
+viewsRouter.get("/admin/adminProductList", (req, res) => {
   res.sendFile(
-    path.join(
-      __dirname,
-      "../views/admin_productDetail/admin_productDetail.html"
-    )
+    path.join(__dirname, "../views/adminProductList/adminProductList.html")
   );
 });
 viewsRouter.get("/admin/adminOrder", (req, res) => {

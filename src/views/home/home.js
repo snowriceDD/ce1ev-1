@@ -38,15 +38,33 @@ async function insertProductElement() {
     );
     const productItem = document.getElementById(`${num}`);
 
-    function moveToProductDetail() {
-      window.location.assign(`/productDetail/${num}`);
-      // window.location.assign(/productDetail")
+    //관리자 여부 확인
+    async function moveToProductAsRole() {
+      const token = sessionStorage.getItem("token");
+      if (!token) {
+        window.location.assign(`/productDetail/${num}`);
+      }
+
+      const res = await fetch("/api/admin/check", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const { result } = await res.json();
+
+      if (result === "success") {
+        window.location.assign(`/admin/adminProduct/${num}`);
+
+        return;
+      } else {
+        window.location.assign(`/productDetail/${num}`);
+      }
     }
 
-    productItem.addEventListener("click", moveToProductDetail);
+    productItem.addEventListener("click", moveToProductAsRole);
   });
 }
-
 
 /** 슬라이드 전환 자동화 코드인데요..
  * 원래 class right를 이용해 클릭해주는 매크로를 작성하려 했습니다.
@@ -74,15 +92,12 @@ function nextMove4() {
   right4.click();
 }
 
-
 let loopInterval = setInterval(() => {
-setTimeout(nextMove1, 2000);
-setTimeout(nextMove2, 4000);
-setTimeout(nextMove3, 6000);
-setTimeout(nextMove4, 8000);
+  setTimeout(nextMove1, 2000);
+  setTimeout(nextMove2, 4000);
+  setTimeout(nextMove3, 6000);
+  setTimeout(nextMove4, 8000);
 }, 8000);
-
-
 
 // let loopInterval = setInterval(() => {
 //   nextMove(); // 다음 슬라이드를 보여주는 함수
@@ -92,14 +107,11 @@ setTimeout(nextMove4, 8000);
 //       nextMove(); // 다음 슬라이드를 보여주는 함수
 //     }, 3000);
 
-
-
 // 슬라이드에 마우스가 올라간 경우 루프 멈추기
 // 되긴하는데 loopInterval을 전체 순환으로 했더니 무조건 한바퀴 돌고 발동함
 // slidelist.addEventListener("mouseover", () => {
 //   clearInterval(loopInterval);
 // });
-
 
 // // 슬라이드에서 마우스가 나온 경우 루프 재시작하기
 // slidelist.addEventListener("mouseout", () => {
