@@ -28,7 +28,7 @@ let selectSize = "";
 
 window.addEventListener("load", async () => {
   const editButton = document.querySelector(".product_edit");
-  const deleteButton = document.querySelector(".product_delete");
+  // const deleteButton = document.querySelector(".product_delete");
   const token = sessionStorage.getItem("token");
 
   function moveToUpdate() {
@@ -47,11 +47,11 @@ window.addEventListener("load", async () => {
 
   if (result === "success") {
     editButton.classList.remove("hidden");
-    deleteButton.classList.remove("hidden");
+    // deleteButton.classList.remove("hidden");
     return;
   } else {
     editButton.classList.add("hidden");
-    deleteButton.classList.add("hidden");
+    // deleteButton.classList.add("hidden");
     return;
   }
 });
