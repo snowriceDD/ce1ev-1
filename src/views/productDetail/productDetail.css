@@ -5,6 +5,18 @@
   list-style: none;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.product_edit {
+  cursor:pointer;
+}
+
+.product_delete {
+  cursor:pointer;
+}
+
 a {
   color: black;
   text-decoration: none;
