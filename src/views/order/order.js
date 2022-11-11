@@ -1,26 +1,161 @@
 import * as Api from "../api.js";
+import { checkLogin, getToday , validateEmail} from "../useful-functions.js";
 // import { addCommas, checkLogin } from "../useful-functions";
 
 let cart = JSON.parse(localStorage.getItem("orderProducts"));
-console.log(cart);
-insertOrderElement();
+
+const inputnameTag = document.querySelector("#fullNameInput");
+const addressTag = document.querySelector("#addressInput");
+const emailTag = document.querySelector("#emailInput");
+const phoneNumTag = document.querySelector("#phoneNumberInput");
+const token = sessionStorage.getItem("token");
+
+if (token) {
+  checkLogin();
+  insertUserData();
+  insertOrderElement();
+
+  document.querySelector(".payButton").addEventListener("click", handleSubmit);
+  async function handleSubmit(e) {
+    e.preventDefault();
+    let payments = document.getElementsByName("payment");
+    let payment = null; // 체크된 값(checked value)
+    //const submitBtn = document.querySelector("#submitButton");
+    for (let i = 0; i < payments.length; i++) {
+      if (payments[i].checked == true) {
+        payment = payments[i].value;
+      }
+    }
+    const check = confirm("결제 진행 하시겠습니까?");
+
+    if (check) {
+      try {
+        const orderNumber = Number(
+          String(getToday()) + String(Math.random() * 1000000000)
+        );
+        const payMethod = payment;
+        const products = cart;
+        const cost = parseInt(document.querySelector(".AllPrice").innerHTML);
+        const count = cart.length;
+        const data = { orderNumber, products, cost, count, payMethod };
+        const result = await Api.post("/api/orders", data);
+        console.log(result);
+        if (result) {
+          window.location.href = "/";
+        }
+      } catch (err) {
+        console.error(err.stack);
+        alert(`${err.message}`);
+      }
+    } else {
+    }
+  }
+} else {
+  insertOrderElement();
+
+  document.querySelector(".payButton").addEventListener("click", handleSubmit);
+
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    let payments = document.getElementsByName("payment");
+    let payment = null; 
+    for (let i = 0; i < payments.length; i++) {
+      if (payments[i].checked == true) {
+        payment = payments[i].value;
+      }
+    }
+    const check = confirm("결제 진행 하시겠습니까?");
+
+    //order 삽입
+    if (check) {
+      try {
+        const orderNumber = Number(
+          String(getToday()) + String(Math.random() * 1000000000)
+        );
+        const payMethod = payment;
+        const products = cart;
+        const cost = parseInt(document.querySelector(".AllPrice").innerHTML);
+        const count = cart.length;
+        const data = { orderNumber, products, cost, count, payMethod };
+
+          //user 정보 확인
+        const name = inputnameTag.value;
+        const email = emailTag.value;
+        const password = String(orderNumber);
+        const phoneNum = phoneNumTag.value;
+        const address = addressTag.value;
+        const role = "guest"
+
+        //잘 입력했는지
+        const isnameValid = name.length >=2;
+        const isEmailValid = validateEmail(email);
+        const isAddressValid = address.length >=1;
+        const isNumberValid = phoneNum.length >=8;
+
+        if(!isnameValid) {
+          return alert("이름은 2글자 이상이어야 합니다.");
+        }
+
+        if(!isEmailValid) {
+          return alert("이메일 형식이 맞지 않습니다.");
+        }
+
+        if(!isAddressValid) {
+          return alert("주소 형식이 아닙니다.");
+        }
+        
+        if(!isNumberValid) {
+          return alert("전화번호 형식이 아닙니다.");
+        }
+        const result = await Api.post("/api/orders", data);
+
+        try {
+          const user = {name, email, password, phoneNum, address, role};
+          await Api.post("/api/register", user);
+          
+          alert(`guest 주문이 완료 되었습니다. 주문번호(${password})를 꼭 기억하여 password로 입력해주십시오.`)
+        } catch (err) {
+          console.error(err.stack);
+          alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err}`)
+        }
+
+        if (result) {
+          window.location.href = "/";
+        }
+      } catch (err) {
+        console.error(err.stack);
+        alert(`${err.message}`);
+      }
+    } else {
+    }
+  }
+}
+
+
+
+let userData;
+async function insertUserData() {
+  userData = await Api.get("/api/user");
+
+  const { email, name, phoneNum, address } = userData;
+
+  inputnameTag.value = name;
+  addressTag.value = address;
+  emailTag.value = email;
+  phoneNumTag.value = phoneNum;
+}
 
 async function insertOrderElement() {
   let cost = 0;
   cart.forEach((product) => {
     const orderForm = document.querySelector(".total");
-    const _id = product._id;
     const name = product.name;
     const price = product.totalPrice;
     const img = product.img;
     const size = product.selectSize;
     const color = product.selectColor;
-    const category = product.category;
-    const description = product.description;
     const count = product.totalCount;
-    const num = product.num;
-    const quantity = product.quantity;
-    console.log(product);
     orderForm.insertAdjacentHTML(
       "beforeend",
       `
@@ -64,46 +199,4 @@ async function insertOrderElement() {
   const totalPrice = document.querySelector(".AllPrice");
   totalPrice.innerHTML = cost;
   document.querySelector(".totalCount").innerHTML = cart.length;
-}
-document.querySelector(".payButton").addEventListener("click", handleSubmit);
-async function handleSubmit(e) {
-  e.preventDefault();
-  let payments = document.getElementsByName("payment");
-  let payment = null; // 체크된 값(checked value)
-  //const submitBtn = document.querySelector("#submitButton");
-  for (let i = 0; i < payments.length; i++) {
-    if (payments[i].checked == true) {
-      payment = payments[i].value;
-    }
-  }
-  const check = confirm("결제 진행 하시겠습니까?");
-
-  if (check) {
-    try {
-      const orderNumber = Number(
-        String(Date.now()) + String(Math.random() * 1000000000)
-      );
-      const payMethod = payment;
-      const products = cart;
-
-      const cost = parseInt(document.querySelector(".AllPrice").innerHTML);
-      // orderProducts.forEach((product) => {
-      //   costs.push(convertToNumber(product.price));
-      // });
-      // const cost = addCommas(costs.reduce((a, b) => a + b));
-      // console.log(cost);
-
-      const count = cart.length;
-      const data = { orderNumber, products, cost, count, payMethod };
-      const result = await Api.post("/api/orders", data);
-      console.log(result);
-      if (result) {
-        window.location.href = "/mypage";
-      }
-    } catch (err) {
-      console.error(err.stack);
-      alert(`${err.message}`);
-    }
-  } else {
-  }
 }
