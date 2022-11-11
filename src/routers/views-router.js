@@ -16,38 +16,38 @@ viewsRouter.use("/mypage", serveStatic("mypage"));
 viewsRouter.use("/order", serveStatic("order"));
 viewsRouter.use("/updateProduct", serveStatic("updateProduct"));
 
-viewsRouter.get("/mypage/account", (req, res) => {
+viewsRouter.use("/mypage/account", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageAccount.html"));
 });
-viewsRouter.get("/mypage/accountUpdate", (req, res) => {
+viewsRouter.use("/mypage/accountUpdate", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/myAccountUpdate.html"));
 });
-viewsRouter.get("/mypage/myPageCart", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/mypage/myPageCart.html"));
+viewsRouter.use("/mypage/myPageCart", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/mypageCart.html"));
 });
-viewsRouter.get("/mypage/myPageOrderList", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/mypage/myPageOrderList.html"));
+viewsRouter.use("/mypage/myPageOrderList", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/mypageOrderList.html"));
 });
-viewsRouter.get("/mypage/withdrawal", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/mypage/myPageWithDrawal.html"));
+viewsRouter.use("/mypage/withdrawal", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/mypageWithDrawal.html"));
 });
 
 viewsRouter.use("/admin", serveStatic("adminPage"));
 
-viewsRouter.get("/admin/adminProductList", (req, res) => {
+viewsRouter.use("/admin/adminProductList", (req, res) => {
   res.sendFile(
     path.join(__dirname, "../views/adminProductList/adminProductList.html")
   );
 });
-viewsRouter.get("/admin/adminOrder", (req, res) => {
+viewsRouter.use("/admin/adminOrder", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/admin_orders/admin_orders.html"));
 });
-viewsRouter.get("/admin/adminMember", (req, res) => {
+viewsRouter.use("/admin/adminMember", (req, res) => {
   res.sendFile(
     path.join(__dirname, "../views/admin_members/admin_members.html")
   );
 });
-viewsRouter.get("/mypage/myAccountUpdate", (req, res) => {
+viewsRouter.use("/mypage/myAccountUpdate", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/myAccountUpdate.html"));
 });
 

@@ -23,9 +23,7 @@ async function insertProductElement() {
     <img src="${img}"class="box" id="${num}"/>
     <article class="pd_text">
       <p class="pd_brd" id="${brand}">${brand}</p>
-      <p class="pd_name" id="${name}">
-        ${name}
-      </p>
+      <p class="pd_name" id="${name}">${name}</p>
   
       <div class="tag_box">
       <a class="tag_category">${category}</a>

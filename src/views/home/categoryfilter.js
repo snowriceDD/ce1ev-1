@@ -34,13 +34,13 @@ $(document).ready(function () {
     if (searchText == "") {
       $("section").show();
     }
-    var brand = $(
-      "section > article > .pd_brd:contains('" + searchText + "')"
-    )[0].id;
-    $(`#${brand}`).parents().show();
-    // console.log( $(`#${brand}`).parents());
+    var brand = $("section > article > .pd_brd:contains('" + searchText + "')");
+    for(let i = 0; i< brand.length; i++) {
+      $(`#${brand[i].id}`).parents().show();
+    }
   });
 });
+
 
 $(document).ready(function () {
   let activeCel = "";
@@ -78,6 +78,13 @@ $(document).ready(function () {
   });
 });
 
+function checkSpace(str) {
+	if(str.search(/\s/) != -1) {
+		return true;
+	} else {
+		return false;
+	}
+}
 //category id 추가 > .cat-1 란 대체
 //pd section에 id 추가 > group-1 대체
 
