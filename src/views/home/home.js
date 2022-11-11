@@ -23,9 +23,7 @@ async function insertProductElement() {
     <img src="${img}"class="box" id="${num}"/>
     <article class="pd_text">
       <p class="pd_brd" id="${brand}">${brand}</p>
-      <p class="pd_name" id="${name}">
-        ${name}
-      </p>
+      <p class="pd_name" id="${name}">${name}</p>
   
       <div class="tag_box">
       <a class="tag_category">${category}</a>
@@ -38,31 +36,11 @@ async function insertProductElement() {
     );
     const productItem = document.getElementById(`${num}`);
 
-    //관리자 여부 확인
-    async function moveToProductAsRole() {
-      const token = sessionStorage.getItem("token");
-      if (!token) {
-        window.location.assign(`/productDetail/${num}`);
-      }
-
-      const res = await fetch("/api/admin/check", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      const { result } = await res.json();
-
-      if (result === "success") {
-        window.location.assign(`/admin/adminProduct/${num}`);
-
-        return;
-      } else {
-        window.location.assign(`/productDetail/${num}`);
-      }
+    function moveToProduct() {
+      window.location.assign(`/productDetail/${num}`);
     }
 
-    productItem.addEventListener("click", moveToProductAsRole);
+    productItem.addEventListener("click", moveToProduct);
   });
 }
 
