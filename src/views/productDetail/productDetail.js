@@ -122,45 +122,21 @@ const initialize = async () => {
 initialize().then(() => render());
 ref.buyButttonTag.addEventListener("click", () => (location.href = `/order`));
 
-// // Header&Footer
-// const body = document.querySelector(".body");
+// Header&Footer
+const body = document.querySelector(".body");
 
-// window.onload = () => {
-//   body.insertAdjacentHTML(
-//     "afterBegin",
-//     `
-//     <header class="header">
-//       <div class="header_logo">
-//         <a href="/">
-//           Ce1ev.
-//         </a>
-//       </div>
-//       <ul class="search">
-//         <li>
-//           <input type="text" placeholder="검색어를 입력하세요." class="header_search" id="text" />
-//           <button type="button">
-//             <i class="fa-solid fa-magnifying-glass"></i>
-//           </button>
-//         </li>
-//       </ul>
-//       <ul class="header_right" id="loginBox">
-//         <li id="header_login">
-//             <a href="/login">
-//                 LOGIN
-//             </a>
-//         </li>
-//         <li id="header_wish">
-//             <a href="/register">
-//               REGISTER
-//             </a>
-//         </li>
-//         <li id="header_cart">
-//             <a href="/guest">
-//                 GUEST
-//             </a>
-//         </li>
-//       </ul>
-//     </header>
-//     `
-//   );
-//   }
+let randomNum = Math.floor(Math.random() *10);
+let imgName = [
+  'https://www.giordano.co.kr/_gio_on/2022/05412944.jpg',
+  'https://www.giordano.co.kr/_gio_on/2022/05372906.jpg',
+  'https://www.giordano.co.kr/_gio_on/2021/05371913_eshop.jpg',
+  'https://www.giordano.co.kr/_gio_on/2022/01112951.jpg',
+  'https://www.giordano.co.kr/_gio_on/2022/01072930.jpg',
+  'https://www.giordano.co.kr/_gio_on/2022/05372908.jpg',
+  'https://www.giordano.co.kr/_gio_on/2022/05372915.jpg',
+  'https://www.giordano.co.kr/_gio_on/2022/05372910_RDS%EC%A0%9C%EC%99%B8.jpg',
+  'https://www.giordano.co.kr/_gio_on/2022/05352917.jpg',
+  'https://www.giordano.co.kr/_gio_on/2022/01072920.jpg'
+];
+
+document.querySelector('.img_box img').setAttribute('src', imgName[randomNum]);
