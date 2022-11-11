@@ -42,14 +42,14 @@ orderRouter.get(
   }
 );
 
-orderRouter.post("/orders", loginRequired, async (req, res, next) => {
+orderRouter.post("/orders", async (req, res, next) => {
   // 주문 생성
   try {
-    const uesrId = req.currentUserId;
+    const userId = req.currentUserId;
     const { orderNumber, products, cost, count, payMethod, status } = req.body;
 
     const newOrder = await orderService.addOrder({
-      uesrId,
+      userId,
       orderNumber,
       products,
       cost,
@@ -57,6 +57,7 @@ orderRouter.post("/orders", loginRequired, async (req, res, next) => {
       payMethod,
       status,
     });
+    console.log(userId)
 
     res.status(201).json(newOrder);
   } catch (err) {

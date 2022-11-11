@@ -74,6 +74,7 @@
   line-height: 30px;
   border: none;
   margin-top: 39px;
+  cursor: pointer;
 }
 
 .login-form-container > .login-form-box > .signUpLink {
