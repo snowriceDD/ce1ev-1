@@ -30,7 +30,7 @@ const OrderSchema = new Schema(
     },
     status: {
       type: String,
-      default: "주문완료",
+      default: "상품 준비중",
     },
   },
   {

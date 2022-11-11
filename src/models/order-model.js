@@ -30,8 +30,16 @@ export class OrderModel {
     return createdNewOrder;
   }
 
-  async delete(orderNumber) {
-    const order = await Order.deleteOne({orderNumber});
+  async update({orderId, update}) {
+    const filter = {_id: orderId};
+    const option = {returnOriginal: false};
+
+    const updateOrder = await Order.findOneAndUpdate(filter, update, option);
+    return updateOrder;
+  }
+
+  async delete(orderId) {
+    const order = await Order.deleteOne({_id: orderId});
     return order;
   }
 }

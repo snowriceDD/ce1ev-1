@@ -25,6 +25,15 @@ class OrderService {
         return order;
     }
 
+    async setStatus(orderId, status) {
+        const updateOrder = await this.model.update({
+            orderId,
+            update: {status},
+        });
+
+        return updateOrder;
+    }
+
     async addOrder(orderInfo) {
 
         const {orderNumber, products, cost, count, payMethod, status  } = orderInfo;
@@ -44,11 +53,13 @@ class OrderService {
         return createdNewProduct;
     }
 
-    async deleteOrder(num) {
-        const order = await this.model.delete(num);
-        return order;
+    async deleteOrder(orderId) {
+        const {orderCount} = await this.model.delete(orderId);
+        if(orderCount === 0) {
+            throw new Error(`${orderId} 주문의 데이터 삭제 실패`)
+        }
+        return {result: "success"};
     }
-
 }
 
 const orderService = new OrderService(orderModel);

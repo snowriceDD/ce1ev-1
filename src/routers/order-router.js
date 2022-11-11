@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { orderService } from "../services/order-service";
 import { adminOnly, loginRequired } from "../middlewares";
+import is from "@sindresorhus/is";
 
 const orderRouter = Router();
 
@@ -9,7 +10,7 @@ orderRouter.get("/orderlist/all", adminOnly, async (req, res, next) => {
   try {
     const orders = await orderService.getOrders();
 
-    res.staus(200).json(orders);
+    res.status(200).json(orders);
   } catch (err) {
     next(err);
   }
@@ -35,7 +36,7 @@ orderRouter.get(
       const orderNumber = req.params.orderNumber;
       const order = await orderService.getOrders(orderNumber);
 
-      res.staus(200).json(order);
+      res.status(200).json(order);
     } catch (err) {
       next(err);
     }
@@ -65,13 +66,33 @@ orderRouter.post("/orders", async (req, res, next) => {
   }
 });
 
-orderRouter.delete(
-  "/orders:orderNumber",
+orderRouter.patch(
+  "/orders/status/:orderId",
   loginRequired,
+  async function(req, res, next) {
+    try {
+      if(is.emptyObject(req.body)) {
+        throw new Error("headers의 Content-Type을 application/json으로 설정해주세요.")
+      }
+
+      const orderId = req.params.orderId;
+      const status = req.body.status;
+      const updateOrderInfo = await orderService.setStatus(orderId, status);
+
+      res.status(200).json(updateOrderInfo);
+    } catch(err) {
+      next(err);
+    }
+  }
+)
+
+orderRouter.delete(
+  "/orders/:orderId",
+  adminOnly,
   async (req, res, next) => {
     try {
-      const orderNumber = req.params.orderNumber;
-      const order = await orderService.deleteOrder(orderNumber);
+      const orderId = req.params.orderId;
+      const order = await orderService.deleteOrder(orderId);
 
       res.status(201).json(order);
     } catch (err) {

@@ -2,8 +2,8 @@
 import * as Api from "/api.js";
 import { addCommas, checkAdmin } from "../useful-functions.js";
 
-const ordersCount = document.querySelector("#ordersCount");
-const prepareCount = document.querySelector("#prepareCount");
+const usersCount = document.querySelector("#usersCount");
+const adminCount = document.querySelector("#adminCount");
 const listing = document.querySelector(".listing-user");
 
 const modal = document.querySelector("#modal");
@@ -21,7 +21,7 @@ function addAllEvents() {
     modalBackground.addEventListener("click", closeModal);
     modalCloseButton.addEventListener("click", closeModal);
     document.addEventListener("keydown", keyDownCloseModal);
-    deleteCompleteButton.addEventListener("click", deleteOrderDate);
+    deleteCompleteButton.addEventListener("click", deleteUserDate);
     deleteCancelButton.addEventListener("click", cancelDelete);
 }
 
@@ -30,18 +30,18 @@ async function insertUsers() {
   const users = await Api.get("/api/userlist");
 
   const summary = {
-    ordersCount:0,
-    prepareCount:0,
+    usersCount:0,
+    adminCount:0,
   };
 
   for(const user of users) {
     const {_id, email, name, role, createdAt} = user;
     const date = createdAt.split("T")[0];
 
-    summary.ordersCount += 1;
+    summary.usersCount += 1;
 
     if(role === "admin") {
-      summary.prepareCount += 1;
+      summary.adminCount += 1;
     }
     listing.insertAdjacentHTML(
       "beforeend", 
@@ -52,12 +52,12 @@ async function insertUsers() {
         <div class="column1" id="name">${name}</div>
         <div class="column1" id="auth">${role}</div>
         <div class="column1" id="admin">
-        <div class="select">
-          <select name="sB" id="roleSelect-${_id}">
-            <option ${role==="일반회원"?"selected":""} value="일반회원">일반회원</option>
-            <option ${role==="admin"?"selected": ""}value="admin">admin</option>
-          </select>
-        </div> 
+          <div class="select">
+            <select name="sB" id="roleSelect-${_id}">
+              <option ${role==="일반회원"?"selected":""} value="일반회원">일반회원</option>
+              <option ${role==="admin"?"selected": ""}value="admin">admin</option>
+            </select>
+          </div> 
         </div>
         <div class="column1">
           <button class="order_cancel" id="deleteBtn-${_id}"> 회원정보 삭제 </button>
@@ -89,12 +89,12 @@ async function insertUsers() {
     });
   }
 
-  ordersCount.innerText = addCommas(summary.ordersCount);
-  prepareCount.innerText = addCommas(summary.prepareCount);
+  usersCount.innerText = addCommas(summary.usersCount);
+  adminCount.innerText = addCommas(summary.adminCount);
 }
 
 //db삭제
-async function deleteOrderDate(e) {
+async function deleteUserDate(e) {
   e.preventDefault();
 
   try {
@@ -135,16 +135,3 @@ function keyDownCloseModal(e) {
     closeModal();
   }
 }
-
-// /* X button close */
-// modalCloseButton.addEventListener("click", (e) => {
-//   closeModal();
-// });
-
-// /* 모달 외 영역으로 끄기 */
-// modal.addEventListener("click", (e) => {
-//   const evTarget = e.target;
-//   if (evTarget.classList.contains("modal-overlay")) {
-//     closeModal();
-//   }
-// });

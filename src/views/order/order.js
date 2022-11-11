@@ -52,7 +52,6 @@ if (token) {
   }
 } else {
   insertOrderElement();
-
   document.querySelector(".payButton").addEventListener("click", handleSubmit);
 
 
@@ -86,6 +85,7 @@ if (token) {
         const phoneNum = phoneNumTag.value;
         const address = addressTag.value;
         const role = "guest"
+        const isMember = false;
 
         //잘 입력했는지
         const isnameValid = name.length >=2;
@@ -108,10 +108,10 @@ if (token) {
         if(!isNumberValid) {
           return alert("전화번호 형식이 아닙니다.");
         }
-        const result = await Api.post("/api/orders", data);
+        
 
         try {
-          const user = {name, email, password, phoneNum, address, role};
+          const user = {name, email, password, phoneNum, address, role, isMember};
           await Api.post("/api/register", user);
           
           alert(`guest 주문이 완료 되었습니다. 주문번호(${password})를 꼭 기억하여 password로 입력해주십시오.`)
@@ -119,6 +119,8 @@ if (token) {
           console.error(err.stack);
           alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err}`)
         }
+
+        const result = await Api.post("/api/orders", data);
 
         if (result) {
           window.location.href = "/";
