@@ -59,8 +59,7 @@ if (token) {
   async function handleSubmit(e) {
     e.preventDefault();
     let payments = document.getElementsByName("payment");
-    let payment = null; // 체크된 값(checked value)
-    //const submitBtn = document.querySelector("#submitButton");
+    let payment = null; 
     for (let i = 0; i < payments.length; i++) {
       if (payments[i].checked == true) {
         payment = payments[i].value;
