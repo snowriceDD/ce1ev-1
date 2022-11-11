@@ -81,16 +81,6 @@ async function handleSubmit(e) {
         alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
       }
 }
-    
-function handleImageUpload() {
-  const file = imgInput.files[0];
-  if(file) {
-    fileName.innerText = file.name;
-  } else {
-    fileName.innerText="";
-  }
-}
-  
 
 // 배열 처리함수
 function getSizeArray(value) {

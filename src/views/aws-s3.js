@@ -15,7 +15,7 @@ AWS.config.update({
 // aws 공식문서 그대로 가져옴
 const s3 = new AWS.S3({
   apiVersion: "2006-03-01",
-  params: { Bucket: s3BucketName },
+  params: { Bucket: s3BucketName, Expires: 1200 },
 });
 
 // 아마존 S3에 사진파일 올리는 함수
