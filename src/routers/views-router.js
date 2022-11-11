@@ -33,7 +33,11 @@ viewsRouter.get("/mypage/withdrawal", (req, res) => {
 });
 
 viewsRouter.use("/admin", serveStatic("adminPage"));
-
+viewsRouter.get("/admin/adminCategory", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../views/admin_Category/admin_Category.html")
+  );
+});
 viewsRouter.get("/admin/adminProductList", (req, res) => {
   res.sendFile(
     path.join(__dirname, "../views/adminProductList/adminProductList.html")
