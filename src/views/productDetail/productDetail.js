@@ -17,6 +17,31 @@ const ref = {
 const productId = window.location.pathname.split("/")[2];
 let product = {};
 let selectSize = "";
+
+window.addEventListener("load", async () => {
+  const editButton = document.querySelector('.product_edit');
+  const deleteButton = document.querySelector('.product_delete');
+  const token = sessionStorage.getItem("token");
+
+  const res = await fetch("/api/admin/check", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const { result } = await res.json();
+
+  if (result === "success") {
+    editButton.classList.remove('hidden');
+    deleteButton.classList.remove('hidden');
+    return;
+  } else {
+    editButton.classList.add('hidden');
+    deleteButton.classList.add('hidden');
+    return;
+  }
+});
+
 //상품상세페이지 구현
 const drawProduct = async () => {
   ref.productImageTag.setAttribute("src", product.img);
