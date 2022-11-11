@@ -1,76 +1,147 @@
-.section {
-  width: 1000px;
-  margin: 110px auto;
+.hidden {
+  display: none !important;
 }
 
-.section h1 {
-  font-size: 24px;
-  font-weight: bold;
+.body {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
 }
-
-.section h2 {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.section h3 {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.section .profile {
-  display: flex;
+.body .section_box {
+  /* display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap; */
 
-  height: 135px;
-  border: 1px solid lightgrey;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin: 0 60px;
+}
+
+.pd_block {
+  width: 300px;
+  height: 510px;
+  margin: auto;
+}
+
+.pd_block img {
+  width: 100%;
+  height: 300px;
+}
+
+.pd_text {
+  padding-left: 5px;
+}
+
+.box {
+  /* position: absolute; */
+  /* width: 300px; */
+  height: 300px;
+
+  background: #f5f5f5;
   border-radius: 10px;
-  padding: 0 33px;
-
-  margin-bottom: 80px;
+  cursor: pointer;
 }
 
-.section .profile .picture {
-  width: 100px;
-  height: 100px;
-  border-radius: 100%;
-  background-color: lightgrey;
+.pd_brd {
+  /* position: absolute; */
+
+  font-family: "Gothic";
+  font-style: Bold;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height */
+
+  text-decoration-line: underline;
+
+  color: #000000;
 }
 
-.section .profile .profile_right {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+.pd_name {
+  /* position: absolute; */
+
+  font-family: "Gothic A1";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #000000;
+
+  margin-top: 2px;
 }
 
-.section .profile .profile_right div > div {
-  margin-bottom: 16px;
+.tag_box {
+  margin-top: 15px;
 }
 
-.admin_button_container {
+.tag_category {
+  border: 4px;
+  padding: 5px;
+  border-radius: 4px;
+  color: #000000;
+  background: rgb(219, 219, 219);
+
+  font-family: "Gothic";
+  font-weight: 600;
+}
+
+.tag_name {
+  border: 4px;
+  padding: 5px;
+  border-radius: 4px;
+  color: #000000;
+  background: rgb(184, 211, 227);
+
+  font-family: "Gothic";
+  font-weight: 600;
+}
+
+.pd_price {
+  /* position: absolute; */
+  font-family: "Gothic";
+  /* font-style: Bold; */
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 21px;
+
+  margin: 15px 5px 0 0;
+
+  float: right;
+
+  color: #000000;
+}
+
+.body .category {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: center;
+
+  width: 987px;
+  height: 150px;
+  margin: auto;
 }
 
-.admin_button_container div {
-  width: 400px;
-  height: 200px;
+.body .category .category_btn {
+  height: 56px;
+  width: 56px;
+
+  border-radius: 10px;
+  background: #d9d9d9;
+
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.body .category .category_btn + p {
+  font-family: "Itim";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
   text-align: center;
-  line-height: 200px;
 
-  border: 1px solid black;
-
-  margin-bottom: 60px;
-}
-
-.name {
-  font-size: medium;
-  font-weight: bold;
-}
-
-.email {
-  font-size: medium;
-  font-weight: bold;
+  color: #000000;
 }

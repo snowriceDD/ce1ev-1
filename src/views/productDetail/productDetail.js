@@ -1,6 +1,14 @@
 // import { name } from "ejs";
 // import { convertToNumber } from "../useful-functions.js";
 import * as Api from "/api.js";
+const productEdit = document.querySelector(".product_edit");
+
+function moveToadminProductUpdate() {
+  window.location.assign("/updateProduct");
+}
+
+productEdit.addEventListener("click", moveToadminProductUpdate);
+
 const ref = {
   sizeBlockTag: document.querySelector(".size_block"),
   sizeTag: document.querySelector("#sizeTag"),
@@ -19,9 +27,15 @@ let product = {};
 let selectSize = "";
 
 window.addEventListener("load", async () => {
-  const editButton = document.querySelector('.product_edit');
-  const deleteButton = document.querySelector('.product_delete');
+  const editButton = document.querySelector(".product_edit");
+  const deleteButton = document.querySelector(".product_delete");
   const token = sessionStorage.getItem("token");
+
+  function moveToUpdate() {
+    window.location.assign(`/productDetail/${productId}/updateProduct`);
+  }
+  
+  editButton.addEventListener("click", moveToUpdate);
 
   const res = await fetch("/api/admin/check", {
     headers: {
@@ -32,12 +46,12 @@ window.addEventListener("load", async () => {
   const { result } = await res.json();
 
   if (result === "success") {
-    editButton.classList.remove('hidden');
-    deleteButton.classList.remove('hidden');
+    editButton.classList.remove("hidden");
+    deleteButton.classList.remove("hidden");
     return;
   } else {
-    editButton.classList.add('hidden');
-    deleteButton.classList.add('hidden');
+    editButton.classList.add("hidden");
+    deleteButton.classList.add("hidden");
     return;
   }
 });
@@ -150,18 +164,18 @@ ref.buyButttonTag.addEventListener("click", () => (location.href = `/order`));
 // Header&Footer
 const body = document.querySelector(".body");
 
-let randomNum = Math.floor(Math.random() *10);
+let randomNum = Math.floor(Math.random() * 10);
 let imgName = [
-  'https://www.giordano.co.kr/_gio_on/2022/05412944.jpg',
-  'https://www.giordano.co.kr/_gio_on/2022/05372906.jpg',
-  'https://www.giordano.co.kr/_gio_on/2021/05371913_eshop.jpg',
-  'https://www.giordano.co.kr/_gio_on/2022/01112951.jpg',
-  'https://www.giordano.co.kr/_gio_on/2022/01072930.jpg',
-  'https://www.giordano.co.kr/_gio_on/2022/05372908.jpg',
-  'https://www.giordano.co.kr/_gio_on/2022/05372915.jpg',
-  'https://www.giordano.co.kr/_gio_on/2022/05372910_RDS%EC%A0%9C%EC%99%B8.jpg',
-  'https://www.giordano.co.kr/_gio_on/2022/05352917.jpg',
-  'https://www.giordano.co.kr/_gio_on/2022/01072920.jpg'
+  "https://www.giordano.co.kr/_gio_on/2022/05412944.jpg",
+  "https://www.giordano.co.kr/_gio_on/2022/05372906.jpg",
+  "https://www.giordano.co.kr/_gio_on/2021/05371913_eshop.jpg",
+  "https://www.giordano.co.kr/_gio_on/2022/01112951.jpg",
+  "https://www.giordano.co.kr/_gio_on/2022/01072930.jpg",
+  "https://www.giordano.co.kr/_gio_on/2022/05372908.jpg",
+  "https://www.giordano.co.kr/_gio_on/2022/05372915.jpg",
+  "https://www.giordano.co.kr/_gio_on/2022/05372910_RDS%EC%A0%9C%EC%99%B8.jpg",
+  "https://www.giordano.co.kr/_gio_on/2022/05352917.jpg",
+  "https://www.giordano.co.kr/_gio_on/2022/01072920.jpg",
 ];
 
-document.querySelector('.img_box img').setAttribute('src', imgName[randomNum]);
+document.querySelector(".img_box img").setAttribute("src", imgName[randomNum]);
