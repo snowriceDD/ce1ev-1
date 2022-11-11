@@ -28,15 +28,17 @@ async function insertOrderElement() {
         <div class="first ${_id}">
           <img class="product_img" src="${img}" id="image${_id}"/>
         </div> 
-        <p class="product_name">
-          상품명 : ${name}
-        </p>
-        <p class="product_size">
-            사이즈 : ${size}
-        </p>
-        <p class="product_color">
-            색상 : ${color}
-        </p>
+        <div class="product_box">
+          <p class="product_name">
+            상품명 : ${name}
+          </p>
+          <p class="product_size">
+              사이즈 : ${size}
+          </p>
+          <p class="product_color">
+              색상 : ${color}
+          </p>
+        </div>
         <div>
         </div>
 
@@ -49,8 +51,9 @@ async function insertOrderElement() {
             max=99
             value="1"/>
              <button class="button plus" id="plus-${_id}">+</button>
-             <p class=initial-${_id}>${price}</p>
-             <div class="price-${_id}">${price}</div>
+              <p class=initial-${_id}>${price}</p>
+              <div class="price-${_id}">${price}</div>
+             
         </div>
 
           <div class="status">
