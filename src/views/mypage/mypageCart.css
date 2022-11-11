@@ -1,0 +1,153 @@
+.section {
+  width: 1000px;
+  margin: 110px auto 50px auto;
+}
+
+.section h1 {
+  font-size: 24px;
+  font-weight: bold;
+
+  margin-bottom: 60px;
+}
+
+.section h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.section h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.section .my_shopping {
+  font-size: 14px;
+}
+
+.section .my_shopping .title {
+  height: 60px;
+  border: 1px solid lightgray;
+  border-bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 16px;
+  text-align: center;
+}
+
+.section .my_shopping .title > div {
+  width: 188px;
+
+  border: 1px solid lightgray;
+}
+
+.section .my_shopping .title .first {
+  width: 75px;
+
+  padding: 0 275px;
+}
+
+.section .my_shopping .content_box {
+  width: 1000px;
+  border: 1px solid lightgray;
+
+  text-align: center;
+}
+
+.section .my_shopping .content_box .content {
+  border: 1px solid lightgray;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+.section .my_shopping .content_box .content .first {
+  width: 277px;
+}
+
+.section .my_shopping .content_box .content .product_img {
+  width: 176px;
+  height: 176px;
+  border: 1px solid black;
+}
+
+.product_box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 35px;
+}
+.section .my_shopping .content_box .content .product_name {
+  width: 348px;
+  text-align: left;
+}
+
+.section .my_shopping .content_box .content .productPrice {
+  width: 188px;
+
+  margin: auto;
+}
+
+.section .my_shopping .content_box .content .productPrice .price {
+  width: 188px;
+  height: 202px;
+
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section .my_shopping .content_box .content .status {
+  width: 188px;
+
+  margin: auto;
+}
+
+.productPrice > p {
+  margin-top: 10px;
+    margin-bottom: 10px;
+}
+.total_box {
+  width: 1000px;
+  height: auto;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 100px;
+  justify-content: center;
+  align-content: center;
+}
+
+.total_box .totalPrice_box {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 30px;
+  border-right: 1px solid black;
+}
+
+.total_box .totalAmount_box {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 30px;
+  border-right: 1px solid black;
+}
+
+.payNow {
+  border: 1px solid lightgray;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 80px;
+  background: #D9D9DA;
+  width: 100px;
+  text-align: center;
+}

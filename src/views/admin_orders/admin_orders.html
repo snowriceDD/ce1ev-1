@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>관리자 주문조회</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Itim&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/admin_orders/admin_orders_style.css" rel="stylesheet" type="text/css" />
+    <link href="../mypage/HeaderFooter.css" rel="stylesheet" type="text/css" />
+    <link href="../home/reset.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="body">
+    <h3 class="order_manage">주문관리</h3>
+    <div class="divide_line"></div>
+
+    <li class="order_moniter">
+      <dl>
+        <p class="heading">총 주문수</p>
+        <p class="counter" id="ordersCount"></p>
+      </dl>
+      <dl>
+        <p class="heading">상품준비중</p>
+        <p class="counter" id="prepareCount"></p>
+      </dl>
+      <dl>
+        <p class="heading">상품배송중</p>
+        <p class="counter" id="deliveryCount"></p>
+      </dl>
+      <dl>
+        <p class="heading">배송 완료</p>
+        <p class="counter" id="completeCount"></p>
+      </dl>
+    </li>
+
+    <div class="orderContainer">
+      <div class="list_heading">
+        <div class="column1">날짜</div>
+        <div class="column2">주문번호</div>
+        <div class="column1">주문총액</div>
+        <div class="column1">상태관리</div>
+        <div class="column1">취소</div>
+      </div>
+      <div class = "listing-order" id="order">
+      </div>
+    </div>
+    
+
+    
+
+
+    <div id="modal" class="modal-overlay">
+      <div class="modal-window" id="modalBackground">
+        <div class="close-area" id="modalCloseButton">❎</div>
+        <p class="modal_text">주문 삭제하믄, 되돌릴 수 없어...👻</p>
+        <p class="modal_text">정말 삭제하겄어?</p>
+
+              <div class="buttons">
+                <button class="button_comp" id="deleteComplete" aria-label="close">
+                  네
+                </button>
+                <button class="button_canc" id="deleteCancelButton" aria-label="close">
+                  아니오
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/admin_orders/admin_orders_script.js" type="module" defer></script>
+    <script src="../mypage/header.js" type="module" defer></script>
+    <script src="../mypage/footer.js" type="module" defer></script>
+    <script src="../home/changeHeader.js" type="module" defer></script>
+  </body>
+</html>

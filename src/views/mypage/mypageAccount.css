@@ -1,0 +1,79 @@
+.section {
+  width: 1000px;
+  margin: 110px auto;
+}
+
+.section h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.section .basic_info {
+  font-size: 14px;
+  margin-bottom: 36px;
+}
+
+.section .basic_info .container {
+  width: 916px;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 42px;
+  padding-right: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-top: 1px solid black;
+}
+
+.section .basic_info .user_address {
+  border-bottom: 1px solid black;
+}
+
+.section .basic_info .container .title {
+  width: 195px;
+
+  text-align: left;
+}
+
+.section .basic_info .container .content {
+  width: 628px;
+
+  text-align: right;
+}
+
+.section .basic_info .container button {
+  width: 92px;
+  height: 33px;
+  line-height: 33px;
+
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+
+  text-align: center;
+
+  padding: 0;
+}
+
+.section .btn_container {
+  width: 550px;
+  padding: 0 225px;
+  margin-top: 36px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.section .btn_container .update {
+  width: 193px;
+  height: 42px;
+  background-color: black;
+
+  color: white;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+}

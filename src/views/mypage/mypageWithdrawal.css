@@ -1,0 +1,88 @@
+.body a {
+  color: black;
+}
+
+.container {
+  width: 800px;
+  height: 468px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-box .title {
+  text-align: center;
+  font-family: "Imbue";
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 84px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 10px;
+}
+.form-box .title a {
+  text-decoration: none;
+  color: black;
+}
+
+.container > .form-box .h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.form-box .field {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-box .field p {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  color: #979797;
+}
+
+.form-box .field .label {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.input {
+  width: 400px;
+  height: 35px;
+  background-color: #fff;
+  border-color: #dbdbdb;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  color: #363636;
+}
+
+.form-box .button {
+  font-weight: bold;
+  width: 400px;
+  height: 50px;
+  background: #d9d9d9;
+  border-radius: 10px;
+
+  font-family: Gothic A1;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+}

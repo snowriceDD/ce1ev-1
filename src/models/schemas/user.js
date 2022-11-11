@@ -6,35 +6,30 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    fullName: {
-      type: String,
-      required: true,
-    },
     password: {
       type: String,
-      required: true,
+      required: false,
     },
-    phoneNumber: {
+    name: {
       type: String,
       required: false,
     },
     address: {
-      type: new Schema(
-        {
-          postalCode: String,
-          address1: String,
-          address2: String,
-        },
-        {
-          _id: false,
-        }
-      ),
-      required: false,
+      type:String,
+      required: true,
+    },
+    phoneNum: {
+      type: String,
+      required: true,
     },
     role: {
       type: String,
-      required: false,
-      default: "basic-user",
+      required: true,
+      default: "일반회원", 
+    },
+    isMember: {
+      type: Boolean,
+      default: true,
     },
   },
   {

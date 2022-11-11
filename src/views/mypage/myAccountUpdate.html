@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>회원가입</title>
+    <!-- bulma css 관련 -->
+    <!-- 구글 OAuth -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- 카카오 OAuth -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <!-- 커스텀 css, js -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Itim&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="myAccountUpdate.css" />
+    <link rel="stylesheet" href="../home/reset.css" />
+    <link rel="stylesheet" type="text/css" href="HeaderFooter.css" />
+  </head>
+  <body class="body">
+    <!-- 회원가입 폼(Form) -->
+    <div class="register-user-form-container">
+      <form class="register-user-form-box">
+        <p class="title">정보 수정하기</p>
+        <div class="field">
+          <label class="label" for="fullNameInput">Name</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="fullNameInput"
+              value=""
+              autocomplete="on"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="emailInput">Email</label>
+          <div class="control">
+            <input
+              class="input"
+              type="email"
+              id="emailInput"
+              value=""
+              autocomplete="on"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="numberInput">Number</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="numberInput"
+              autocomplete="on"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="addressInput">Address</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="addressInput"
+              autocomplete="on"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="passwordInput">Password</label>
+          <div class="control">
+            <input
+              class="input"
+              type="password"
+              id="passwordInput"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <div class="field mb-5">
+          <label class="label" for="passwordConfirmInput"
+            >Password confirm</label
+          >
+          <div class="control">
+            <input
+              class="input"
+              type="password"
+              id="passwordConfirmInput"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <div class="field mb-5">
+          <label class="label" for="passwordConfirmInput"
+            >현재 비밀번호</label
+          >
+          <div class="control">
+            <input
+              class="input"
+              type="password"
+              id="currentPasswordInput"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <button class="button" id="updateButton">수정된 정보 저장하기</button>
+      </form>
+    </div>
+    <script src="myAccountUpdate.js" type="module" defer></script>
+    <script src="memberHeader.js" type="module" defer></script>
+    <script
+      src="https://kit.fontawesome.com/5c0da6133a.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

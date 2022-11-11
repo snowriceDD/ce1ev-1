@@ -9,6 +9,47 @@ const viewsRouter = express.Router();
 viewsRouter.use("/", serveStatic("home"));
 viewsRouter.use("/register", serveStatic("register"));
 viewsRouter.use("/login", serveStatic("login"));
+viewsRouter.use("/guest", serveStatic("guest"));
+viewsRouter.use("/products", serveStatic("addProduct"));
+viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
+viewsRouter.use("/mypage", serveStatic("mypage"));
+viewsRouter.use("/order", serveStatic("order"));
+viewsRouter.use("/updateProduct", serveStatic("updateProduct"));
+
+viewsRouter.get("/mypage/account", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/mypageAccount.html"));
+});
+viewsRouter.get("/mypage/accountUpdate", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/myAccountUpdate.html"));
+});
+viewsRouter.get("/mypage/myPageCart", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/myPageCart.html"));
+});
+viewsRouter.get("/mypage/myPageOrderList", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/myPageOrderList.html"));
+});
+viewsRouter.get("/mypage/withdrawal", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/myPageWithDrawal.html"));
+});
+
+viewsRouter.use("/admin", serveStatic("adminPage"));
+
+viewsRouter.get("/admin/adminProductList", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../views/adminProductList/adminProductList.html")
+  );
+});
+viewsRouter.get("/admin/adminOrder", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/admin_orders/admin_orders.html"));
+});
+viewsRouter.get("/admin/adminMember", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../views/admin_members/admin_members.html")
+  );
+});
+viewsRouter.get("/mypage/myAccountUpdate", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/myAccountUpdate.html"));
+});
 
 // views 폴더의 최상단 파일인 rabbit.png, api.js 등을 쓸 수 있게 함
 viewsRouter.use("/", serveStatic(""));

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="mypageAccount.css" />
+    <link rel="stylesheet" type="text/css" href="../home/reset.css" />
+    <link rel="stylesheet" type="text/css" href="HeaderFooter.css" />
+    <script type="module" src="mypageAccount.js" defer></script>
+  </head>
+  <body class="body">
+    <!--Header_Navigator-->
+
+    <!-------- mypage_info -------->
+    <section class="section">
+      <article class="basic_info">
+        <h1>기본 정보</h1>
+        <div class="container">
+          <div class="title">이름</div>
+          <div class="content">
+            <span class="name"></span>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="title">휴대전화</div>
+          <div class="content"><span class="phoneNum"></span></div>
+        </div>
+
+        <div class="container">
+          <div class="title">이메일</div>
+          <div class="content"><span class="email"></span></div>
+        </div>
+
+        <div class="container">
+          <div class="title">비밀번호</div>
+          <div class="content"><span class="password"></span></div>
+        </div>
+
+        <div class="container user_address">
+          <div class="title">주소</div>
+          <div class="content">
+            <span class="address"></span>
+          </div>
+        </div>
+        <div class="btn_container">
+          <button class="update">정보수정</button>
+        </div>
+      </article>
+    </section>
+    <!-------- footer -------->
+    <script src="header.js" type="module" defer></script>
+    <script src="footer.js" type="module" defer></script>
+    <script src="../home/changeHeader.js" type="module" defer></script>
+  </body>
+</html>

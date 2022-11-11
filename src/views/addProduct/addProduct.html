@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>상품등록</title>
+    <!-- 폰트 어썸: 아이콘 -->
+    <script defer src="https://kit.fontawesome.com/7630448495.js" crossorigin="anonymous"></script>
+     <!-- AWS S3 사용하기 위한 파일 -->
+     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
+    <!-- 커스텀 css, js -->
+    <link rel="stylesheet" href="addProduct.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+  />
+
+    </head>
+
+<body class="body">
+    <h1>상품 등록</h1>
+        <div  class="input-box">
+            <label class="category-label" for="categoryInput">카테고리</label>
+                <input id="categoryInput" class="category-input" type="text" placeholder="카테고리를 입력해주세요."
+                autocomplete="on" minlength="1" maxlength="30" />
+        </div>
+        <div  class="input-box">
+            <label class="category-label" for="nameInput">상품 이름</label>
+                <input id="nameInput" class="category-input" type="text" placeholder="상품 이름을 입력해주세요."
+                    autocomplete="on" minlength="1" maxlength="30" />
+        </div>
+        <div class="input-box">
+            <label class="category-label" for="brandInput">제조사</label>
+                <input id="brandInput" class="category-input" type="text" placeholder="제조사를 입력해주세요"
+                     autocomplete="on" />
+        </div>
+        <div  class="input-box">
+            <label class="category-label" for="imgInput">사진 url</label>
+                <input id="imgInput" class="category-input" type="file" placeholder="유효한 url을 입력해주세요"
+                    autocomplete="on" accept=".png, .jpeg, .jpg"/>
+        </div>
+
+
+        <div  class="input-box">
+            <label class="category-label" for="descriptionInput">상세설명</label>
+                <input id="descriptionInput" class="category-input" type="text" placeholder="검섹 키워드를 입력해주세요"
+                    autocomplete="on" minlength="1" maxlength="30" />
+        </div>
+        <div  class="input-box">
+            <label class="category-label" for="sizeInput">사이즈</label>
+                <input id="sizeInput" class="category-input" type="text" placeholder="쉼표로 구분하여 입력해주세요"
+                    autocomplete="on" minlength="1" maxlength="30" />
+        </div>
+        <div  class="input-box">
+            <label class="category-label" for="priceInput">가격</label>
+                <input id="priceInput" class="category-input" type="text" placeholder="콤마를 포함하여 입력해주세요."
+                    autocomplete="on" min="1000" max="10000000" />
+        </div>
+        <div  class="input-box">
+            <label class="category-label" for="colorInput">색상</label>
+                <input id="colorInput" class="category-input" type="text" placeholder="쉼표로 입력해주세요."
+                    autocomplete="on" />
+        </div>
+        <button id="category-button">등록</button>
+
+        <!-- script -->
+        <script src="addProduct.js" type="module"></script>
+        <script src="https://kit.fontawesome.com/5c0da6133a.js" crossorigin="anonymous"></script>
+    
+</body>
+</html>

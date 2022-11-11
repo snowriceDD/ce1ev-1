@@ -1,78 +1,129 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>쇼핑-n팀</title>
-    <!-- 아이콘 -->
     <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/elice-rabbit-favicon.png"
-    />
-    <!-- bulma css -->
-    <link
+      href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
-    <!-- 폰트 어썸: 아이콘 -->
-    <script
-      defer
-      src="https://kit.fontawesome.com/9daa42bcef.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- 커스텀 css, js -->
-    <link rel="stylesheet" href="home.css" />
-    <script src="home.js" type="module" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Itim&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="home.css" />
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
   </head>
-  <body>
-    <!-- 헤더 -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="container mt-3">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <img src="/elice-rabbit.png" width="30" height="30" />
-            <span class="has-text-link">쇼핑-n팀</span>
-          </a>
+  <title>CE1EV</title>
+  <body class="body">
+    <!--Header-->
 
-          <a
-            role="button"
-            class="navbar-burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
+    <!--Banner-->
+    <div class="section">
+      <input type="radio" name="slide" id="slide01" checked />
+      <input type="radio" name="slide" id="slide02" />
+      <input type="radio" name="slide" id="slide03" />
+      <input type="radio" name="slide" id="slide04" />
 
-        <div class="navbar-end breadcrumb my-auto" aria-label="breadcrumbs">
-          <ul id="navbar">
-            <li><a href="/login">로그인</a></li>
-            <li><a href="/register">회원가입</a></li>
-            <li>
-              <a href="#cart" aria-current="page">
-                <span class="icon">
-                  <i class="fas fa-cart-shopping"></i>
-                </span>
-                <span>카트</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      <div class="slidewrap">
+        <ul class="slidelist">
+          <li>
+            <a>
+              <label for="slide04" class="left"></label>
+              <img src="../image/slide1.png" alt="slide01" />
+              <label for="slide02" class="right" id="right1"></label>
+            </a>
+          </li>
+          <li>
+            <a>
+              <label for="slide01" class="left"></label>
+              <img src="../image/slide2.png" alt="slide02" />
+              <label for="slide03" class="right" id="right2"></label>
+            </a>
+          </li>
+          <li>
+            <a>
+              <label for="slide02" class="left"></label>
+              <img src="../image/slide3.png" alt="slide03" />
+              <label for="slide04" class="right" id="right3"></label>
+            </a>
+          </li>
+          <li>
+            <a>
+              <label for="slide03" class="left"></label>
+              <img src="../image/slide4.png" alt="slide04" />
+              <label for="slide01" class="right" id="right4"></label>
+            </a>
+          </li>
 
-    <div class="div-container">
-      <div class="landing" id="landingDiv">
-        <h1>랜딩 페이지</h1>
-      </div>
-      <div class="greeting" id="greetingDiv">
-        <h1>안녕하세요!</h1>
+          <div class="slide-control">
+            <div class="control01">
+              <label for="slide04" class="left"></label>
+              <label for="slide02" class="right"></label>
+            </div>
+            <div class="control02">
+              <label for="slide01" class="left"></label>
+              <label for="slide03" class="right"></label>
+            </div>
+
+            <div class="control03">
+              <label for="slide02" class="left"></label>
+              <label for="slide04" class="right"></label>
+            </div>
+
+            <div class="control04">
+              <label for="slide03" class="left"></label>
+              <label for="slide01" class="right"></label>
+            </div>
+          </div>
+        </ul>
       </div>
     </div>
+
+    <!--Category_button-->
+    <ul class="category">
+      <!-- 동적인 구성 필요 ! 빽에서 가져와서 후리기 ! -->
+      <li>
+        <div class="category_btn" id="all"></div>
+        <p>화제의인물</p>
+      </li>
+      <li>
+        <div class="category_btn" id="idol"></div>
+        <p>아이돌</p>
+      </li>
+      <li>
+        <div class="category_btn" id="actor"></div>
+        <p>배우</p>
+      </li>
+      <li>
+        <div class="category_btn" id="sport"></div>
+        <p>스포츠스타</p>
+      </li>
+      <li>
+        <div class="category_btn" id="singer"></div>
+        <p>가수</p>
+      </li>
+      <li>
+        <div class="category_btn" id="etc"></div>
+        <p>기타</p>
+      </li>
+    </ul>
+    <!-- Product-List -->
+    <div class="section_box"></div>
+    <!-------- footer -------->
+    <script src="../mypage/header.js" type="module" defer></script>
+    <script src="../mypage/footer.js" type="module" defer></script>
+    <script src="changeHeader.js" type="module" defer></script>
+    <script src="home.js" type="module" defer></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="categoryfilter.js" defer></script>
+    <script src="product.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/5c0da6133a.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

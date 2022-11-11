@@ -1,0 +1,96 @@
+.body {
+  margin: auto;
+}
+
+.body a {
+  color: black;
+}
+
+.body .register-user-form-container {
+  width: 400px;
+  height: 824px;
+
+  margin: 50px auto;
+}
+
+.body .register-user-form-container .register-user-form-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: none;
+  gap: 20px;
+}
+.register-user-form-box .field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.register-user-form-box .field .label {
+  width: 100%;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0;
+  text-align: left;
+}
+.register-user-form-box .field .label .control {
+  width: 100%;
+  box-sizing: border-box;
+
+  position: absolute;
+
+  height: 44px;
+  left: 761px;
+  top: 460px;
+
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+.input {
+  width: 100%;
+  height: 35px;
+  background-color: #fff;
+  border-color: #dbdbdb;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  color: #363636;
+}
+.register-user-form-box .title {
+  width: 100%;
+  font-family: Inknut Antiqua;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 72px;
+  letter-spacing: 0;
+  text-align: center;
+
+}
+
+.register-user-form-box .button {
+  width: 100%;
+  height: 50px;
+  background: #d9d9d9;
+  border-radius: 10px;
+
+  font-family: Gothic A1;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.register-user-form-box .signInLink {
+  width: 100%;
+  font-family: Gothic A1;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
