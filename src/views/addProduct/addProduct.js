@@ -17,7 +17,7 @@ checkLogin();
 addAllEvents();
 
 function addAllEvents() {
-  // imgInput.addEventListener("change", handleImageUpload);
+  imgInput.addEventListener("change", handleImageUpload);
   submitBtn.addEventListener("click", handleSubmit);
 }
 async function handleSubmit(e) {

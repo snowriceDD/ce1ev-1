@@ -24,6 +24,7 @@
     />
     <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
     <link rel="stylesheet" type="text/css" href="../home/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../admin_members/admin_members_style.css" />
   </head>
   <body class="body">
     <h3 class="order_manage">회원관리</h3>
@@ -32,44 +33,28 @@
     <li class="order_moniter">
       <dl>
         <p class="heading">총 회원 수</p>
-        <p class="counter" id="ordersCount">123</p>
+        <p class="counter" id="ordersCount"></p>
       </dl>
       <dl>
         <p class="heading">총 관리자 수</p>
-        <p class="counter" id="prepareCount">123</p>
+        <p class="counter" id="prepareCount"></p>
       </dl>
     </li>
 
-    <div class="list_heading">
-      <div class="column1">가입날짜</div>
-      <div class="column2">이메일</div>
-      <div class="column1">이름</div>
-      <div class="column1">권한</div>
-      <div class="column1">관리</div>
-    </div>
-
-    <div class="listing">
-      <div class="column1">_</div>
-      <div class="column2">_</div>
-      <div class="column1">_</div>
-      <div class="column1">
-        <div class="selectBox">
-          <select name="sB" class="select">
-            <option value="select_prepare">일반 사용자</option>
-            <option value="select_delivery">셀러</option>
-            <option value="select_complete">관리자</option>
-          </select>
-        </div>
+    <div class="userContainer">
+      <div class="list_heading">
+        <div class="column1">가입날짜</div>
+        <div class="column1">이메일</div>
+        <div class="column1">이름</div>
+        <div class="column1">권한</div>
+        <div class="column1">관리</div>
       </div>
-      <div class="column1">
-        <button class="order_cancel" id="order_cancel_btn">
-          회원정보 삭제
-        </button>
+      <div class="listing-user" id="user">
       </div>
     </div>
 
     <div id="modal" class="modal-overlay">
-      <div class="modal-window">
+      <div class="modal-window" id="modalBackground">
         <div class="close-area" id="modalCloseButton">❎</div>
         <p class="modal_text">회원 삭제하믄, 되돌릴 수 없어...👻</p>
         <p class="modal_text">정말 삭제하겄어?</p>
@@ -89,10 +74,7 @@
       </div>
     </div>
     <script
-      src="/admin_members/admin_members_script.js"
-      type="module"
-      defer
-    ></script>
+      src="/admin_members/admin_members_script.js" type="module" defer></script>
     <script src="../mypage/header.js" type="module" defer></script>
     <script src="../mypage/footer.js" type="module" defer></script>
     <script src="../home/changeHeader.js" type="module" defer></script>

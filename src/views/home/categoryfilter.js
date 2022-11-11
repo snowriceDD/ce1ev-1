@@ -61,9 +61,6 @@ $(document).ready(function () {
     activeCel = "ㄴ";
   });
 
-  $("#hot").click(function () {
-    filterGroup("hot");
-  });
   $("#idol").click(function () {
     filterGroup("idol");
   });
@@ -73,8 +70,8 @@ $(document).ready(function () {
   $("#sport").click(function () {
     filterGroup("sport");
   });
-  $("#youtuber").click(function () {
-    filterGroup("youtuber");
+  $("#singer").click(function () {
+    filterGroup("singer");
   });
   $("#etc").click(function () {
     filterGroup("etc");

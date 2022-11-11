@@ -5,6 +5,7 @@ let cart = JSON.parse(localStorage.getItem("products"));
 
 insertOrderElement();
 funcTotalPrice();
+funcTotalAmount();
 async function insertOrderElement() {
   cart.forEach((product) => {
     const orderForm = document.querySelector(".content_box");
@@ -12,11 +13,13 @@ async function insertOrderElement() {
     const name = product.name;
     const price = product.price;
     const img = product.img;
+    const size = product.selectSize;
+    const color = product.selectColor;
     const category = product.category;
     const description = product.description;
     const num = product.num;
     const quantity = product.quantity;
-    console.log(img);
+
     orderForm.insertAdjacentHTML(
       "beforeend",
       `
@@ -27,6 +30,12 @@ async function insertOrderElement() {
         </div> 
         <p class="product_name">
           상품명 : ${name}
+        </p>
+        <p class="product_size">
+            사이즈 : ${size}
+        </p>
+        <p class="product_color">
+            색상 : ${color}
         </p>
         <div>
         </div>
@@ -41,9 +50,7 @@ async function insertOrderElement() {
             value="1"/>
              <button class="button plus" id="plus-${_id}">+</button>
              <p class=initial-${_id}>${price}</p>
-             <div class="price-${_id}">
-               ${price}
-             </div>
+             <div class="price-${_id}">${price}</div>
         </div>
 
           <div class="status">
@@ -57,15 +64,8 @@ async function insertOrderElement() {
 
     document.querySelector(`#delete-${_id}`).addEventListener("click", () => {
       deleteItem(_id);
+      window.location.assign("/mypage/myPageCart");
     });
-
-    // document
-    //   .querySelector(`#image-${_id}`)
-    //   .addEventListener("click", window.location.assign("/"));
-
-    // document
-    //   .querySelector(`#title-${_id}`)
-    //   .addEventListener("click", window.location.assign(`/productDetail/${num}`));
 
     document.querySelector(`#plus-${_id}`).addEventListener("click", () => {
       if (
@@ -88,16 +88,16 @@ async function insertOrderElement() {
   });
 }
 async function increaseItemQuantity(_id) {
-  console.log(_id);
   // indexedDB의 cart 데이터 업데이트
   let perPrice = document.querySelector(`.initial-${_id}`).innerHTML;
   let amount = ++document.querySelector(`#quantityInput-${_id}`).value;
   let totalPrice = document.querySelector(`.price-${_id}`).innerHTML;
   //prPrice는 , 뺀 값
-  totalPrice = parseInt(perPrice) * amount;
+  totalPrice = parseInt(perPrice.replace(/(,|개|원)/g, "")) * amount;
 
-  document.querySelector(`.price-${_id}`).innerHTML = totalPrice;
-  // this.funcTotalPrice();
+  document.querySelector(`.price-${_id}`).innerHTML = totalPrice
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return;
 }
 
@@ -107,8 +107,10 @@ async function decreaseItemQuantity(_id) {
   let amount = --document.querySelector(`#quantityInput-${_id}`).value;
 
   let totalPrice = document.querySelector(`.price-${_id}`).innerHTML;
-  totalPrice = parseInt(perPrice) * amount;
-  document.querySelector(`.price-${_id}`).innerHTML = totalPrice;
+  totalPrice = parseInt(perPrice.replace(/(,|개|원)/g, "")) * amount;
+  document.querySelector(`.price-${_id}`).innerHTML = totalPrice
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   // this.funcTotalPrice()
   return;
 }
@@ -119,10 +121,11 @@ async function funcTotalPrice() {
   cart.forEach((product) => {
     const _id = product._id;
     let pPrice = document.querySelector(`.price-${_id}`).innerHTML;
-    console.log(pPrice);
-    totalPrice = totalPrice + parseInt(pPrice);
+    totalPrice = totalPrice + parseInt(pPrice.replace(/(,|개|원)/g, ""));
   });
-  document.querySelector(".totalPrice").innerHTML = totalPrice;
+  document.querySelector(".totalPrice").innerHTML = totalPrice
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 // console.log(Object.)
 async function deleteItem(_id) {
@@ -130,16 +133,44 @@ async function deleteItem(_id) {
   const deleteForm = btn.parentNode.parentNode;
   document.querySelector(".content_box").removeChild(deleteForm);
   const cleanStorage = cart.filter(function (x) {
-    console.log(x);
     return x._id !== _id;
   });
 
-  console.log(cleanStorage);
   cart = cleanStorage;
   localStorage.setItem("products", JSON.stringify(cart));
 }
 
-async function funcTotalAmount(_id) {
-  document.querySelector("totalAmount").innerHTML;
+async function moveToOrder() {
+  // const newPrice = document.querySelector(`.product_price-${_id}`).innerHTML;
+  // console.log(newPrice);
+  let a = [];
+  cart.forEach((item, i) => {
+    const id = item._id;
+    const newPrice = document.querySelector(`.price-${id}`).innerHTML;
+    const newCount = document.querySelector(`#quantityInput-${id}`).value;
+
+    item.totalPrice = newPrice;
+    item.totalCount = newCount;
+
+    a.push(item);
+
+    localStorage.setItem("orderProducts", JSON.stringify(a));
+    // const newCount = document.querySelector(`#quantityInput-${_id}`).innerHTML;
+  });
+  // localStorage.clear();
+
+  location.href = "/order";
+}
+
+document.querySelector(".payNow").addEventListener("click", moveToOrder);
+//   product.payPrice = `product_price-${_id}`.innerHTML
+//   product.payQuantity = `quantityInput-${_id}`.innerHTML
+
+// console.log(product.payPrice)
+// products.push(product);
+// localStorage.setItem('products')
+
+async function funcTotalAmount() {
+  document.querySelector(".totalAmount").innerHTML = cart.length;
 }
 // 수량 변경박스(-버튼, 입력칸, +버튼) 상태 업데이트
