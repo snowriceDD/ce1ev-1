@@ -1,4 +1,4 @@
-import { addImageToS3 } from "../aws-s3.js";
+import { addImageToS3, getImageUrl } from "../aws-s3.js";
 
 import * as Api from "/api.js";
 import { checkLogin } from "../useful-functions.js";
@@ -27,7 +27,7 @@ async function handleSubmit(e) {
   const brand = brandInput.value;
   const name = nameInput.value;
   const price = priceInput.value;
-  const imageKey = imgInput.files[0];
+  const image = imgInput.files[0];
   const description = descriptionInput.value;
   const color = getColorArray(colorInput.value);
   const size = getSizeArray(sizeInput.value);
@@ -44,17 +44,18 @@ async function handleSubmit(e) {
     return alert("입력하지 않은 값이 있습니다.");
   }
 
-  if (img.size > 3e6) {
+  if (image.size > 3e6) {
     return alert("사진은 최대 2.5MB 크기까지 가능합니다.");
   }
 
-    if (imageKey.size > 3e6) {
+    if (image.size > 3e6) {
       return alert("사진은 최대 2.5MB 크기까지 가능합니다.");
     }
     
       
       try {
-        const img = await addImageToS3(imgInput, category);
+        const imageKey = await addImageToS3(imgInput, category);
+        const img = await getImageUrl(imageKey);
         const data = {
           category,
           brand,
@@ -71,28 +72,15 @@ async function handleSubmit(e) {
         console.log(result);
         if (result) {
           alert(`${result.name} 상품이 성공적으로 등록되었습니다!`);
-
           fileName.innerText="";
-  
           window.location.href = "/";
         }
 
       } catch (err) {
         console.log(err.stack);
-    
         alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
       }
 }
-    
-function handleImageUpload() {
-  const file = imgInput.files[0];
-  if(file) {
-    fileName.innerText = file.name;
-  } else {
-    fileName.innerText="";
-  }
-}
-  
 
 // 배열 처리함수
 function getSizeArray(value) {

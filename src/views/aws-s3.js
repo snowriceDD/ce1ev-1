@@ -2,7 +2,7 @@ import { randomId } from "./useful-functions.js";
 // aws-s3 사이트에서의 설정값들
 const s3BucketName = "celev-bucket";
 const bucketRegion = "ap-northeast-2"; // 한국은 항상 ap-northeast-2임.
-const IdentityPoolId = "ap-northeast-2:68d1e8c4-e9f1-41f1-914a-87ac70f7171";
+const IdentityPoolId = "ap-northeast-2:68d1e8c4-e9f1-41f1-914a-87ac70f7171f";
 
 // aws 공식문서 그대로 가져옴
 AWS.config.update({
@@ -15,7 +15,7 @@ AWS.config.update({
 // aws 공식문서 그대로 가져옴
 const s3 = new AWS.S3({
   apiVersion: "2006-03-01",
-  params: { Bucket: s3BucketName },
+  params: { Bucket: s3BucketName, Expires: 1200 },
 });
 
 // 아마존 S3에 사진파일 올리는 함수
@@ -70,7 +70,7 @@ function getImageUrl(imageKey) {
     const params = {
       Bucket: s3BucketName,
       Key: imageKey,
-      Expires: 60,
+      Expires: 604800,
     };
 
     s3.getSignedUrl("getObject", params, (_, url) => {
