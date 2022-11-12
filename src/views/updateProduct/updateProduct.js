@@ -1,5 +1,5 @@
 import * as Api from "/api.js";
-// import { checkAdmin } from "../useful-functions";
+import { checkAdmin } from "../useful-functions";
 
 const updateBtn = document.querySelector("#update-button");
 const categoryInput = document.querySelector('#categoryInput');
@@ -11,7 +11,7 @@ const priceInput = document.querySelector('#priceInput');
 const sizeInput = document.querySelector('#sizeInput');
 const colorInput = document.querySelector('#colorInput');
 
-// checkAdmin();
+checkAdmin();
 addAllEvents();
 
 
