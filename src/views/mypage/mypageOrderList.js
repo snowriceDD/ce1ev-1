@@ -12,8 +12,4 @@ async function addAllEvent(){
     const {email, name, role} = userData;
 
     product.innerHTML = `${name}`
-<<<<<<< Updated upstream
-=======
-    product.innerHTML = `${name}`
->>>>>>> Stashed changes
 }   
