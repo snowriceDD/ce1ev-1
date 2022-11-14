@@ -11,5 +11,5 @@ async function addAllEvent(){
     userData = await Api.get('/api/user');
     const {email, name, role} = userData;
 
-    product.innerHTML = `${email}`
-}
+    product.innerHTML = `${name}`
+}   
