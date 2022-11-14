@@ -2,11 +2,30 @@
 // import { convertToNumber } from "../useful-functions.js";
 import * as Api from "/api.js";
 const productEdit = document.querySelector(".product_edit");
+const deleteButton = document.querySelector(".product_delete");
 
 function moveToadminProductUpdate() {
   window.location.assign("/updateProduct");
 }
 
+const productId = window.location.pathname.split("/")[2];
+async function deleteProduct() {
+  const value = confirm("진짜 삭제하시겠습니까?")
+  if(value===true) {
+    try{
+
+    await Api.delete("/api/products", productId);
+
+    alert("상품이 삭제되었습니다.")
+    window.location.href="/";
+    } catch(err) {
+      next(err)
+    } 
+  }
+
+}
+
+deleteButton.addEventListener("click", deleteProduct);
 productEdit.addEventListener("click", moveToadminProductUpdate);
 
 const ref = {
@@ -22,13 +41,13 @@ const ref = {
   descriptionTag: document.querySelector(".tag_name"),
   priceTag: document.querySelector(".total_price"),
 };
-const productId = window.location.pathname.split("/")[2];
+
 let product = {};
 let selectSize = "";
 
 window.addEventListener("load", async () => {
   const editButton = document.querySelector(".product_edit");
-  // const deleteButton = document.querySelector(".product_delete");
+  const deleteButton = document.querySelector(".product_delete");
   const token = sessionStorage.getItem("token");
 
   function moveToUpdate() {
@@ -47,11 +66,11 @@ window.addEventListener("load", async () => {
 
   if (result === "success") {
     editButton.classList.remove("hidden");
-    // deleteButton.classList.remove("hidden");
+    deleteButton.classList.remove("hidden");
     return;
   } else {
     editButton.classList.add("hidden");
-    // deleteButton.classList.add("hidden");
+    deleteButton.classList.add("hidden");
     return;
   }
 });

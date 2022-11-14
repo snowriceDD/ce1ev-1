@@ -39,7 +39,9 @@ if (token) {
         const count = cart.length;
         const data = { orderNumber, products, cost, count, payMethod };
         const result = await Api.post("/api/orders", data);
-        console.log(result);
+        alert(`주문이 완료 되었습니다.`)
+        // console.log(result);
+        localStorage.clear();
         if (result) {
           window.location.href = "/";
         }
@@ -115,6 +117,7 @@ if (token) {
           await Api.post("/api/register", user);
           
           alert(`guest 주문이 완료 되었습니다. 주문번호(${password})를 꼭 기억하여 password로 입력해주십시오.`)
+          localStorage.clear();
         } catch (err) {
           console.error(err.stack);
           alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err}`)

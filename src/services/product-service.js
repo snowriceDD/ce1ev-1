@@ -18,16 +18,6 @@ class ProductService {
     return product;
   }
 
-  // async findBrand(brand) {
-  //   const product = await productModel.findByBrand(brand);
-  //   return product;
-  // }
-
-  // async findName(name) {
-  //   const product = await productModel.findByname(name);
-  //   return product;
-  // }
-
   async getCategory(category) {
     const product = await productModel.findByCategory(category);
     return product;

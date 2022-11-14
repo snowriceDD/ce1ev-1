@@ -118,7 +118,8 @@ productRouter.post("/products", loginRequired, async (req, res, next) => {
   //console.log(newProduct);//num 안들어감
 });
 
-productRouter.patch("/products/:num", async (req, res, next) => {
+
+productRouter.patch("/products/:num", loginRequired, async (req, res, next) => {
   try {
     if (is.emptyObject(req.body)) {
       throw new Error(

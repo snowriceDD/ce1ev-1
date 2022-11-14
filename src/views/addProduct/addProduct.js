@@ -17,7 +17,7 @@ checkLogin();
 addAllEvents();
 
 function addAllEvents() {
-  imgInput.addEventListener("change", handleImageUpload);
+  // imgInput.addEventListener("change", handleImageUpload);
   submitBtn.addEventListener("click", handleSubmit);
 }
 async function handleSubmit(e) {
@@ -72,7 +72,6 @@ async function handleSubmit(e) {
         console.log(result);
         if (result) {
           alert(`${result.name} 상품이 성공적으로 등록되었습니다!`);
-          fileName.innerText="";
           window.location.href = "/";
         }
 
