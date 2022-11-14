@@ -22,10 +22,10 @@ viewsRouter.use("/mypage/account", (req, res) => {
 viewsRouter.use("/mypage/accountUpdate", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/myAccountUpdate.html"));
 });
-viewsRouter.use("/mypage/myPageCart", (req, res) => {
+viewsRouter.use("/mypage/mypageCart", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageCart.html"));
 });
-viewsRouter.use("/mypage/myPageOrderList", (req, res) => {
+viewsRouter.use("/mypage/mypageOrderList", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageOrderList.html"));
 });
 viewsRouter.use("/mypage/withdrawal", (req, res) => {
