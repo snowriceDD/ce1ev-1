@@ -15,6 +15,7 @@ viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
 viewsRouter.use("/mypage", serveStatic("mypage"));
 viewsRouter.use("/order", serveStatic("order"));
 viewsRouter.use("/updateProduct", serveStatic("updateProduct"));
+viewsRouter.use("/mypage/mypageOrderList/:email", serveStatic("mypageOrderList"));
 
 viewsRouter.use("/mypage/account", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageAccount.html"));
@@ -22,12 +23,12 @@ viewsRouter.use("/mypage/account", (req, res) => {
 viewsRouter.use("/mypage/accountUpdate", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/myAccountUpdate.html"));
 });
-viewsRouter.use("/mypage/myPageCart", (req, res) => {
+viewsRouter.use("/mypage/mypageCart", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageCart.html"));
 });
-viewsRouter.use("/mypage/myPageOrderList", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/mypage/mypageOrderList.html"));
-});
+// viewsRouter.use("/mypage/mypageOrderList", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../views/mypage/mypageOrderList.html"));
+// });
 viewsRouter.use("/mypage/withdrawal", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageWithdrawal.html"));
 });

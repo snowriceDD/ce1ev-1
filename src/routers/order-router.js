@@ -28,7 +28,7 @@ orderRouter.get("/orderlist/user", loginRequired, async (req, res, next) => {
 
 //주문 번호로
 orderRouter.get(
-  "/orders:orderNumber",
+  "/orders/:orderNumber",
   loginRequired,
   async (req, res, next) => {
     //해당 주문정보 조회
@@ -43,11 +43,27 @@ orderRouter.get(
   }
 );
 
+orderRouter.get(
+  "/myOrders/:email",
+  // loginRequired,
+  async (req, res, next) => {
+    //해당 주문정보 조회
+    try {
+      const email = req.params.email;
+      const order = await orderService.getOrderByEmail(email);
+
+      res.status(200).json(order);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 orderRouter.post("/orders", async (req, res, next) => {
   // 주문 생성
   try {
     const userId = req.currentUserId;
-    const { orderNumber, products, cost, count, payMethod, status } = req.body;
+    const { orderNumber, products, cost, count, payMethod, status, email } = req.body;
 
     const newOrder = await orderService.addOrder({
       userId,
@@ -57,6 +73,7 @@ orderRouter.post("/orders", async (req, res, next) => {
       count,
       payMethod,
       status,
+      email,
     });
     console.log(userId)
 

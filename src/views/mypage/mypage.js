@@ -20,7 +20,6 @@ async function addAllEvent() {
   nameTag.innerText = `${name}`;
   emailTag.innerText = `${email}`;
   roleTag.innerText = `${role}`;
-}
 
 function moveTomypageAccount() {
   window.location.assign("/mypage/account");
@@ -29,7 +28,7 @@ function moveTomypageAccount() {
 mypageAccount.addEventListener("click", moveTomypageAccount);
 
 function moveTomypageOrderList() {
-  window.location.assign("/mypage/myPageOrderList");
+  window.location.assign(`/mypage/myPageOrderList/${email}`);
 }
 
 mypageOrderList.addEventListener("click", moveTomypageOrderList);
@@ -45,3 +44,4 @@ function moveTomypageWithdrawal() {
 }
 
 mypageWithdrawal.addEventListener("click", moveTomypageWithdrawal);
+}
