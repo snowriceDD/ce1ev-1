@@ -91,7 +91,6 @@ productRouter.get("/products", async (req, res, next) => {
 // productRouter.get("/products/:brand", async (req, res) => {
 //   const brand = req.params.brand;
 //   const data = await productService.findBrand(brand); // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
-
 //   res.json(data);
 // });
 
