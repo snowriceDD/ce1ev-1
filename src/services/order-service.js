@@ -25,6 +25,11 @@ class OrderService {
         return order;
     }
 
+    async getOrderByEmail(email) {
+        const order = await this.model.findByEmail(email);
+        return order;
+    }
+
     async setStatus(orderId, status) {
         const updateOrder = await this.model.update({
             orderId,
@@ -36,7 +41,7 @@ class OrderService {
 
     async addOrder(orderInfo) {
 
-        const {orderNumber, products, cost, count, payMethod, status  } = orderInfo;
+        const {orderNumber, products, cost, count, payMethod, status, email  } = orderInfo;
 
         const newOrderInfo = {
             orderNumber, 
@@ -44,7 +49,8 @@ class OrderService {
             cost, 
             count, 
             payMethod, 
-            status  
+            status,
+            email,  
         };
     
         // // db에 저장

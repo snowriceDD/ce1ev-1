@@ -33,11 +33,12 @@ if (token) {
         const orderNumber = Number(
           String(getToday()) + String(Math.random() * 1000000000)
         );
+        const email = emailTag.value;
         const payMethod = payment;
         const products = cart;
         const cost = parseInt(document.querySelector(".AllPrice").innerHTML);
         const count = cart.length;
-        const data = { orderNumber, products, cost, count, payMethod };
+        const data = { orderNumber, products, cost, count, payMethod, email };
         const result = await Api.post("/api/orders", data);
         alert(`주문이 완료 되었습니다.`)
         // console.log(result);
@@ -78,7 +79,7 @@ if (token) {
         const products = cart;
         const cost = parseInt(document.querySelector(".AllPrice").innerHTML);
         const count = cart.length;
-        const data = { orderNumber, products, cost, count, payMethod };
+        const data = { orderNumber, products, cost, count, payMethod, email };
 
           //user 정보 확인
         const name = inputnameTag.value;
