@@ -41,7 +41,7 @@ const ref = {
   categoryTag: document.querySelector(".tag_category"),
   descriptionTag: document.querySelector(".tag_name"),
   priceTag: document.querySelector(".total_price"),
-  //reviewTag: document.querySelector(".bb16")
+  reviewListTag: document.querySelector(".bb17"),
   reviewBtnTag: document.querySelector(".button_review"),
   reviewContentTag: document.querySelector(".reviewContent")
 };
@@ -88,7 +88,6 @@ const drawProduct = async () => {
   ref.categoryTag.innerHTML = product.category;
   ref.descriptionTag.innerHTML = product.description;
   ref.priceTag.innerHTML = product.price;
-  //ref.reviewTag.innerHTML = review[0].review;
   //사이즈 셀렉박스로 넣기
   product.size.forEach((size, index) => {
     ref.sizeTag.insertAdjacentHTML(
@@ -99,7 +98,7 @@ const drawProduct = async () => {
     );
   });
   //컬러 셀렉박스로 넣기
-  console.log(product.color);
+  // console.log(product.color);
   product.color.forEach((color, index) => {
     ref.colorTag.insertAdjacentHTML(
       "beforeend",
@@ -110,7 +109,6 @@ const drawProduct = async () => {
   });
   const value_size = document.querySelector("#sizeTag");
   const value_color = document.querySelector("#colorTag");
-
   const name = ref.nameTag.innerHTML;
   const brand = ref.brandTag.innerHTML;
   const price = ref.priceTag.innerHTML;
@@ -121,6 +119,26 @@ const drawProduct = async () => {
   const num = productId;
   product.selectSize = size;
   product.selectColor = color;
+
+  review.forEach((review) => {
+    const review_no = review.reviewNo;
+    const review_email = review.userId;
+    const review_content = review.review;
+
+    ref.reviewListTag.insertAdjacentHTML(
+      "beforeend",
+      `
+        <tr>
+          <th>번호: ${review_no}</th>
+          <th>이메일: ${review_email}</th>
+          <br>
+          <th>후기: ${review_content}</th>
+          <br>
+        </tr>
+        <br>
+      `
+    )
+  })
   // const data = {
   //   num,
   //   name,
@@ -179,6 +197,8 @@ const render = () => {
 async function addReview(e) {
   e.preventDefault();
 
+  const userData = await Api.get("/api/user");
+
   const review = ref.reviewContentTag.value;
 
   if (!review) {
@@ -186,7 +206,7 @@ async function addReview(e) {
   }
 
   try {
-    const data = { review, userId: "test" };
+    const data = { review, userId: userData.email };
 
     const result = await Api.post(`/api/productDetail/${productId}`, data);
 
