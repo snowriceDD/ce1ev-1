@@ -29,7 +29,11 @@ productRouter.get("/productDetail/:num", async (req, res, next) => {
   const num = req.params.num;
   try {
     const data = await productService.getNum(num); // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
-    res.status(200).json(data);
+    const review = await productService.getReviewByProductNo(num);
+
+    const datas = { data, review };
+
+    res.status(200).json(datas);
   } catch(err) {
     next(err)
   }
@@ -118,6 +122,23 @@ productRouter.post("/products", loginRequired, async (req, res, next) => {
   //console.log(newProduct);//num 안들어감
 });
 
+productRouter.post("/productDetail/:productId", loginRequired, async (req, res, next) => {
+  try {
+    if (is.emptyObject(req.body)) {
+      throw new Error(
+        "headers의 Content-Type을 application/json으로 설정해주세요."
+      );
+    }
+    const productNo = req.params.productId;
+    const { userId, review } = req.body;
+
+    const newReview = await productService.addReview({ productNo, userId, review });
+
+    res.status(201).json(newReview);
+  } catch (err) {
+    next(err);
+  }
+});
 
 productRouter.patch("/products/:num", loginRequired, async (req, res, next) => {
   try {

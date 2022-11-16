@@ -9,6 +9,7 @@ function moveToadminProductUpdate() {
 }
 
 const productId = window.location.pathname.split("/")[2];
+
 async function deleteProduct() {
   const value = confirm("진짜 삭제하시겠습니까?")
   if(value===true) {
@@ -40,9 +41,13 @@ const ref = {
   categoryTag: document.querySelector(".tag_category"),
   descriptionTag: document.querySelector(".tag_name"),
   priceTag: document.querySelector(".total_price"),
+  //reviewTag: document.querySelector(".bb16")
+  reviewBtnTag: document.querySelector(".button_review"),
+  reviewContentTag: document.querySelector(".reviewContent")
 };
 
 let product = {};
+let review = {};
 let selectSize = "";
 
 window.addEventListener("load", async () => {
@@ -83,6 +88,7 @@ const drawProduct = async () => {
   ref.categoryTag.innerHTML = product.category;
   ref.descriptionTag.innerHTML = product.description;
   ref.priceTag.innerHTML = product.price;
+  //ref.reviewTag.innerHTML = review[0].review;
   //사이즈 셀렉박스로 넣기
   product.size.forEach((size, index) => {
     ref.sizeTag.insertAdjacentHTML(
@@ -129,8 +135,8 @@ const drawProduct = async () => {
   // const result = await Api.post("/api/selectedProducts", data);
   // console.log(result)
 };
-//localStorage 저장하기
 
+//localStorage 저장하기
 const addCart = (id) => {
   const products = JSON.parse(localStorage.getItem("products")) || [];
   console.log(product.num);
@@ -164,21 +170,50 @@ const addCart = (id) => {
 };
 ref.cartButtonTag.addEventListener("click", addCart);
 // async function insertSizeList() {}
+
 //함수 실행
 const render = () => {
   drawProduct();
 };
+
+async function addReview(e) {
+  e.preventDefault();
+
+  const review = ref.reviewContentTag.value;
+
+  if (!review) {
+    return alert("입력하지 않은 값이 있습니다.");
+  }
+
+  try {
+    const data = { review, userId: "test" };
+
+    const result = await Api.post(`/api/productDetail/${productId}`, data);
+
+    if (result) {
+      alert(`후기가 성공적으로 등록되었습니다!`);
+      window.location.href = `/productDetail/${productId}`;
+    }
+
+  } catch (err) {
+    console.log(err.stack);
+    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
+  }
+}
 
 const initialize = async () => {
   const value_size = document.querySelector("#sizeTag");
   const value_color = document.querySelector("#colorTag");
   const res = await fetch(`/api/productDetail/${productId}`);
   product = await res.json();
+  review = product.review;
+  product = product.data;
   console.log(product["size"].join());
 };
 
 initialize().then(() => render());
 ref.buyButttonTag.addEventListener("click", () => (location.href = `/order`));
+ref.reviewBtnTag.addEventListener("click", addReview);
 
 // Header&Footer
 const body = document.querySelector(".body");
