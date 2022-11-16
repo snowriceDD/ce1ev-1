@@ -28,6 +28,10 @@ async function insertProductElement() {
       <div class="tag_box">
       <a class="tag_category">${category}</a>
       <a class="tag_name" id="${description}">${description}</a>
+      <div class="tag_like">
+        <p class="like_count">10</p>
+        <img src="../image/like.png" alt="" width="30px">
+      </div>
       </div>
       <p class="pd_price">${price} 원</p>
     </article>
