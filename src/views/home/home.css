@@ -180,6 +180,20 @@
   font-weight: 600;
 }
 
+.tag_like {
+  float: right;
+}
+
+.tag_like > p {
+  float: left;
+  font-weight: bold;
+}
+
+.tag_like > img {
+  height: 30px;
+  width: 30px;
+}
+
 .pd_price {
   /* position: absolute; */
   font-family: "Gothic";
@@ -226,3 +240,4 @@
 
   color: #000000;
 }
+
