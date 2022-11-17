@@ -23,6 +23,11 @@ class ProductService {
     return product;
   }
 
+  async getReviewByProductNo(productNo) {
+    const review = await productModel.findReviewByProduct(productNo);
+    return review;
+  }
+
   async addProduct(productInfo) {
     const curObj = await this.model.findNewest();
     const curNum = curObj[0].num;
@@ -40,7 +45,18 @@ class ProductService {
     return createdNewProduct;
   }
 
+  async addReview(reviewInfo) {
+    const curObj = await productModel.findNewestReview();
+    const curNum = curObj[0].reviewNo;
+    const reviewNo = curNum + 1;
 
+    const { productNo, userId, review } = reviewInfo;
+    const newReviewInfo = { reviewNo, productNo, userId, review };
+
+    const createdNewReview = await productModel.createReview(newReviewInfo);
+
+    return createdNewReview;
+  }
 
   // async SetLikeCount(likeInfo) {
   //   const {num, like} = likeInfo;

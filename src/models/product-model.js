@@ -1,7 +1,9 @@
 import { model } from "mongoose";
 import { ProductSchema } from "./schemas/product";
+import { ReviewSchema } from "./schemas/review";
 
 const Product = model("products", ProductSchema);
+const Review = model("reviews", ReviewSchema);
 
 export class ProductModel {
   async findByNumber(num) {
@@ -12,9 +14,15 @@ export class ProductModel {
     const product = await Product.findOne({ _id : productId });
     return product;
   }
+
   async findNewest() {
     const product = await Product.find().sort({ num: -1 });
     return product;
+  }
+
+  async findNewestReview() {
+    const review = await Review.find().sort({ reviewNo: -1 });
+    return review;
   }
 
   async findByBrand(brand) {
@@ -35,6 +43,11 @@ export class ProductModel {
   async findByDescription(description) {
     const product = await Product.find({ description });
     return product;
+  }
+
+  async findReviewByProduct(productNo) {
+    const review = await Review.find({ productNo })
+    return review;
   }
 
   async create(productInfo) {
