@@ -34,7 +34,7 @@
 
 <details><summary>사용자 회원가입, 로그인</summary>
 
-![image](https://user-images.githubusercontent.com/91174156/172159634-1e105633-9948-464e-a540-5429200a1353.gif)
+![image](./src/views/image/register.gif)
 
 </details>
 
