@@ -44,6 +44,12 @@ const ProductSchema = new Schema(
       required: true,
       default: false,
     },
+    like: {
+      type: Number,
+      required: true,
+      default: 0,
+      min: 0,
+    },
   },
   {
     collection: "products",

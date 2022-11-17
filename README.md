@@ -34,8 +34,16 @@
 
 <details><summary>사용자 회원가입, 로그인</summary>
 
-![image](./src/views/image/register.gif)
+![image](https://user-images.githubusercontent.com/91174156/172159634-1e105633-9948-464e-a540-5429200a1353.gif)
 
+</details>
+
+<details><summary>카테고리 추가 및 반영</summary>
+
+추후 관련 영상을 삽입하세요 (하기 2가지 방법 가능)
+1. 화면녹화 -> 유튜브 업로드 -> 유튜브 링크 삽입  
+2. 화면움짤녹화 -> 움짤삽입 (https://www.screentogif.com/ 활용가능)
+   
 </details>
 
 <details><summary>제품 추가 및 반영</summary>

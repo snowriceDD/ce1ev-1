@@ -28,7 +28,7 @@ function moveTomypageAccount() {
 mypageAccount.addEventListener("click", moveTomypageAccount);
 
 function moveTomypageOrderList() {
-  window.location.assign(`/mypage/myPageOrderList/${email}`);
+  window.location.assign(`/myPageOrderList/${email}`);
 }
 
 mypageOrderList.addEventListener("click", moveTomypageOrderList);
