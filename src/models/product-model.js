@@ -42,6 +42,16 @@ export class ProductModel {
     return createdNewProduct;
   }
 
+  async createReview(reviewInfo) {
+    const createdNewReview = await Review.create(reviewInfo);
+    return createdNewReview;
+  }
+
+  // async createNewLike(likeInfo) {
+  //   const createdNewLikecount = await Product.create(likeInfo);
+  //   return createdNewLikecount;
+  // }
+
   async findAll() {
     const product = await Product.find({});
     return product;

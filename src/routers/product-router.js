@@ -119,7 +119,26 @@ productRouter.post("/products", loginRequired, async (req, res, next) => {
 });
 
 
-productRouter.patch("/products/:num", loginRequired, async (req, res, next) => {
+// productRouter.post("/products/:num", async(req, res, next)=> {
+//   try{
+//     if(is.emptyObject(req.body)) {
+//       throw  new Error(
+//         "headers의 Content-Type을 application/json으로 설정해주세요."
+//       );
+//     }
+
+//     const num = req.params.num;
+//     const {like} = req.body;
+//     const newLike = await productService.SetLikeCount({num, like});
+    
+//     res.status(201).json(newLike);
+
+//   }catch(err) {
+//     next(err);
+//   }
+// })
+
+productRouter.patch("/products/:num", async (req, res, next) => {
   try {
     if (is.emptyObject(req.body)) {
       throw new Error(
@@ -128,7 +147,7 @@ productRouter.patch("/products/:num", loginRequired, async (req, res, next) => {
     }
 
     const num = req.params.num;
-    const { brand, name, price, size, color, category, description, img } =
+    const { brand, name, price, size, color, category, description, img, like } =
       req.body;
 
     //위 데이터가 undefined가 아니라면, 업데이트 객체에 삽입.
@@ -141,6 +160,7 @@ productRouter.patch("/products/:num", loginRequired, async (req, res, next) => {
       ...(category && { category }),
       ...(description && { description }),
       ...(img && { img }),
+      ...(like && {like})
     };
 
     const updatedProduct = await productService.setProduct(num, toUpdate);
