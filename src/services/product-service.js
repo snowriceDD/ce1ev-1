@@ -58,6 +58,18 @@ class ProductService {
     return createdNewReview;
   }
 
+  // async SetLikeCount(likeInfo) {
+  //   const {num, like} = likeInfo;
+
+  //   const curObj = await this.model.findByNumber(num);
+  //   const curLike = curObj['like'] +1;
+  //   const newLikeInfo = {curLike, num};
+
+  //   const createNewLike = await this.model.createNewLike(newLikeInfo);
+
+    
+  // }
+
   async setProduct(num, toUpdate) {
     
     const updatedProduct = await this.model.update({
@@ -68,8 +80,6 @@ class ProductService {
     return updatedProduct;
 
   }
-
-
 
 
   async deleteProduct(num) {
