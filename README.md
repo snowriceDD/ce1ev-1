@@ -2,7 +2,7 @@
 
 <div>
 
-<img alt="쇼핑-데모 로고" src="https://i.ibb.co/xSZHxmy/image.png">
+<img alt="쇼핑-데모 로고" src="./src/views/image/celev_logo.PNG">
 
 </div>
 
@@ -16,7 +16,11 @@
 3. 장바구니에 제품을 추가할 수 있으며, **장바구니에서 CRUD** 작업이 가능함.
 4. 장바구니는 서버 DB가 아닌, 프론트 단에서 저장 및 관리됨 (localStorage, indexedDB 등)
 5. 장바구니에서 주문을 진행하며, **주문 완료 후 조회 및 삭제**가 가능함.
-6. 추가 기능 ...
+6. 카테고리별 필터링
+7. 검색기능 가능
+8. 찜하기
+9. 리뷰작성
+10. Q & A page
 
 <br />
 
@@ -30,7 +34,7 @@
 
 <details><summary>사용자 회원가입, 로그인</summary>
 
-![image](https://user-images.githubusercontent.com/91174156/172159634-1e105633-9948-464e-a540-5429200a1353.gif)
+![image](./src/views/image/register.gif)
 
 </details>
 
@@ -80,9 +84,9 @@
 
 |  |  |
 | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------|
-| ![image](https://i.ibb.co/jyxjcd3/image.png) | ![image](https://i.ibb.co/Q860RKz/image.png) |
+| ![image](./src/views/image/mainPage.PNG) | ![image](./src/views/image/register.PNG) |
 |    메인 페이지                                |      회원가입 화면                            |
-| ![image](https://i.ibb.co/RpYN379/image.png) |                                         |
+| ![image](./src/views/image/login.PNG) |                                         |
 |    로그인 페이지                              |     앞으로 추가할 페이지                         |
 
 <br />
@@ -152,15 +156,6 @@ MONGODB_URL=<몽고DB URL>
 PORT=5000
 JWT_SECERT_KEY=<랜덤 문자열>
 ```
-
-  앱을 테스트하고 싶은 경우 다음의 몽고DB URL을 이용하세요.
-
-  - mongodb+srv://elice:W8RsZsSX2Xs1ydE4@cluster0.4gz9ij3.mongodb.net/?retryWrites=true&w=majority
-
-  단, 해당 URL은 READ만 가능하며 회원 가입을 하거나 상품 정보를 추가하는 등의 동작은 할 수 없습니다. <br>
-  주어진 URL은 테스트 용이므로 실제 개발을 할 때는 해당 URL을 사용하지 않고, 반드시 직접 설치한 몽고DB의 URL을 사용하시기를 바랍니다.
-
-
 
 4. express 앱을 실행
 
