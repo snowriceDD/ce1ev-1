@@ -2,6 +2,7 @@ import is from "@sindresorhus/is";
 import { Router } from "express";
 import { loginRequired } from "../middlewares";
 import { productService } from "../services/product-service";
+import { reviewService } from "../services/review-service";
 
 const productRouter = Router();
 
@@ -29,7 +30,7 @@ productRouter.get("/productDetail/:num", async (req, res, next) => {
   const num = req.params.num;
   try {
     const data = await productService.getNum(num); // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
-    const review = await productService.getReviewByProductNo(num);
+    const review = await reviewService.getReview(num);
 
     const datas = { data, review };
 
@@ -131,7 +132,7 @@ productRouter.post("/productDetail/:productId", loginRequired, async (req, res, 
     const productNo = req.params.productId;
     const { userId, review } = req.body;
 
-    const newReview = await productService.addReview({ productNo, userId, review });
+    const newReview = await reviewService.addReview({ productNo, userId, review });
 
     res.status(201).json(newReview);
   } catch (err) {
