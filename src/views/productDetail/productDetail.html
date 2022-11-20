@@ -73,14 +73,13 @@
         </li>
       </ul>
     </header>
-
+    
     <div class="container">
       <div class="box bb1"></div>
       <img class="box bb2" src=""></img>
       <div class="box bb3">
-<p class="pd_brd">brand</p>
-<p class="pd_name">name
-        </p>
+        <p class="pd_brd">brand</p>
+        <p class="pd_name">name</p>
       </div>
       <div class="box bb4">
         <div class="tag_block">
@@ -89,18 +88,16 @@
         </div>
       </div>
       <div class="box bb5">
-<p>사이즈</p>
+        <p>사이즈</p>
         <div class="sizeSelectBox">
-          <select name="sB" class="select" id="sizeTag">
-          </select>
+          <select name="sB" class="select" id="sizeTag"></select>
         </div>
       </div>
       <div class="box bb6">
-<p>색상</p>
-<div class="colorSelectBox">
-<select name="sB" class="select" id="colorTag">
-</select>
-</div>
+        <p>색상</p>
+        <div class="colorSelectBox">
+          <select name="sB" class="select" id="colorTag"></select>
+        </div>
       </div>
       <div class="box bb7">
         <span class="total_price_title">상품가격</span>
@@ -113,15 +110,14 @@
         <button class="button_buy" type="button">BUY NOW</button>
         <button class="button_cart" type="button">cart</button>
       </div>
-<div class="box bb9"></div>
-  <div class="box bb10"></div>
-  <div class="box bb11 product_edit hidden">
-    상품 수정
-</div>
-<div class="box bb12 product_delete hidden">
-상품 삭제
-</div>
-
+      <div class="box bb9"></div>
+      <div class="box bb10"></div>
+      <div class="box bb11 product_edit hidden">
+        상품 수정
+      </div>
+      <div class="box bb12 product_delete hidden">
+        상품 삭제
+      </div>
       <div class="box bb13">
         <div class="pd_detail_text_group">
         <span class="pd_detail_text_main">상품상세</span>
@@ -195,10 +191,36 @@
         <span class="pd_detail_text_main">상품리뷰</span>
       </div>
       </div>
-      <div class="box bb16">리뷰2</div>
-      <div class="box bb17">리뷰3</div>
+      <div class="box bb16">
+        <form>
+          <table frame=void>
+            <!--
+            <tr>
+              <td>
+                <input type="button" id = "<%=id%>" value="파일 업로드" onclick="openChild(this)">
+                <span id="sInput"></span>
+                <a href="/uploadedFileDelete/<%=id%>">
+                  <input type="button" value="업로드 취소" onclick="deleteFile()"></a>
+              </td>
+            </tr>
+            -->
+            <tr>
+              <td colspan="2" style="padding-top:20px;">
+                <input class="reviewContent" type="text" placeholder="내용을 작성해주세요." required />
+                <!--<textarea class="reviewContent" placeholder="내용을 작성해주세요" required ></textarea>-->
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" style="text-align:right;">
+                <button class="button_review" type="button">글 쓰기</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <div class="box bb17"></div>
     </div>
-    
+
     <!-- Footer -->
     <script src="../mypage/Footer.js" type="module" defer></script>
     <script src="./productDetail.js" type="module" defer></script>

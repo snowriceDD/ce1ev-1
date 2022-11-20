@@ -29,7 +29,11 @@ productRouter.get("/productDetail/:num", async (req, res, next) => {
   const num = req.params.num;
   try {
     const data = await productService.getNum(num); // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
-    res.status(200).json(data);
+    const review = await productService.getReviewByProductNo(num);
+
+    const datas = { data, review };
+
+    res.status(200).json(datas);
   } catch(err) {
     next(err)
   }
@@ -87,7 +91,6 @@ productRouter.get("/products", async (req, res, next) => {
 // productRouter.get("/products/:brand", async (req, res) => {
 //   const brand = req.params.brand;
 //   const data = await productService.findBrand(brand); // [{ brand: 5252 바이 오아이오아이, name: SIGNAUTRE HOODIE, price: 79,000}, {...}, ...]
-
 //   res.json(data);
 // });
 
@@ -118,8 +121,44 @@ productRouter.post("/products", loginRequired, async (req, res, next) => {
   //console.log(newProduct);//num 안들어감
 });
 
+productRouter.post("/productDetail/:productId", loginRequired, async (req, res, next) => {
+  try {
+    if (is.emptyObject(req.body)) {
+      throw new Error(
+        "headers의 Content-Type을 application/json으로 설정해주세요."
+      );
+    }
+    const productNo = req.params.productId;
+    const { userId, review } = req.body;
 
-productRouter.patch("/products/:num", loginRequired, async (req, res, next) => {
+    const newReview = await productService.addReview({ productNo, userId, review });
+
+    res.status(201).json(newReview);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// productRouter.post("/products/:num", async(req, res, next)=> {
+//   try{
+//     if(is.emptyObject(req.body)) {
+//       throw  new Error(
+//         "headers의 Content-Type을 application/json으로 설정해주세요."
+//       );
+//     }
+
+//     const num = req.params.num;
+//     const {like} = req.body;
+//     const newLike = await productService.SetLikeCount({num, like});
+    
+//     res.status(201).json(newLike);
+
+//   }catch(err) {
+//     next(err);
+//   }
+// })
+
+productRouter.patch("/products/:num", async (req, res, next) => {
   try {
     if (is.emptyObject(req.body)) {
       throw new Error(
@@ -128,7 +167,7 @@ productRouter.patch("/products/:num", loginRequired, async (req, res, next) => {
     }
 
     const num = req.params.num;
-    const { brand, name, price, size, color, category, description, img } =
+    const { brand, name, price, size, color, category, description, img, like } =
       req.body;
 
     //위 데이터가 undefined가 아니라면, 업데이트 객체에 삽입.
@@ -141,6 +180,7 @@ productRouter.patch("/products/:num", loginRequired, async (req, res, next) => {
       ...(category && { category }),
       ...(description && { description }),
       ...(img && { img }),
+      ...(like && {like})
     };
 
     const updatedProduct = await productService.setProduct(num, toUpdate);
