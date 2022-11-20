@@ -1,79 +1,132 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>notice</title>
-    <link rel="stylesheet" href="css/css.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/css.css" />
+  </head>
+  <body class="body">
+    <!--Header-->
+    <header class="header">
+      <div class="header_logo">
+        <a href="/"> Ce1ev. </a>
+      </div>
+      <ul class="search">
+        <li>
+          <input
+            type="text"
+            placeholder="검색어를 입력하세요."
+            class="header_search"
+            id="text"
+          />
+          <button type="button" class="searchBtn">
+            <i class="fa fa-magnifying-glass fa-2x"></i>
+          </button>
+        </li>
+      </ul>
+      <ul class="header_right" id="guest">
+        <li id="header_login">
+          <a href="/login"> LOGIN </a>
+        </li>
+        <li id="header_wish">
+          <a href="/register"> REGISTER </a>
+        </li>
+        <li id="header_cart">
+          <a href="/guest"> GUEST </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="user">
+        <li id="header_cart">
+          <a href="/mypage/myPageCart"> CART </a>
+        </li>
+        <li id="header_myPage">
+          <a href="/mypage"> MY PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout2"> LOG OUT </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="admin">
+        <li id="header_addProduct">
+          <a href="/products"> ADD-PRODUCT </a>
+        </li>
+        <li id="header_mypage">
+          <a href="/admin"> ADMIN-PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout1"> LOG OUT </a>
+        </li>
+      </ul>
+    </header>
     <div class="board_wrap">
-        <div class="board_title">
-            <strong>Q & A</strong>
-            <p>Q&A 게시판 입니다.</p>
+      <div class="board_title">
+        <strong>Q & A</strong>
+        <p>Q&A 게시판 입니다.</p>
+      </div>
+      <div class="board_list_wrap">
+        <div class="board_list">
+          <div class="top">
+            <div class="num">번호</div>
+            <div class="title">제목</div>
+            <div class="writer">작성자</div>
+            <div class="date">작성일</div>
+            <div class="count">조회</div>
+          </div>
+          <div>
+            <div class="num">5</div>
+            <div class="title"><a href="#">제목이 들어감</a></div>
+            <div class="writer">홍길동</div>
+            <div class="date">2022.11.15</div>
+            <div class="count">33</div>
+          </div>
+          <div>
+            <div class="num">4</div>
+            <div class="title"><a href="#">제목이 들어감</a></div>
+            <div class="writer">홍길동</div>
+            <div class="date">2022.11.15</div>
+            <div class="count">33</div>
+          </div>
+          <div>
+            <div class="num">3</div>
+            <div class="title"><a href="#">제목이 들어감</a></div>
+            <div class="writer">홍길동</div>
+            <div class="date">2022.11.15</div>
+            <div class="count">33</div>
+          </div>
+          <div>
+            <div class="num">2</div>
+            <div class="title"><a href="#">제목이 들어감</a></div>
+            <div class="writer">홍길동</div>
+            <div class="date">2022.11.15</div>
+            <div class="count">33</div>
+          </div>
+          <div>
+            <div class="num">1</div>
+            <div class="title"><a href="#">제목이 들어감</a></div>
+            <div class="writer">홍길동</div>
+            <div class="date">2022.11.15</div>
+            <div class="count">33</div>
+          </div>
         </div>
-        <div class="board_list_wrap">
-            <div class="board_list">
-                <div class="top">
-                    <div class="num">번호</div>
-                    <div class="title">제목</div>
-                    <div class="writer">작성자</div>
-                    <div class="date">작성일</div>
-                    <div class="count">조회</div>
-                </div>
-                <div>
-                    <div class="num">5</div>
-                    <div class="title"><a href="#">제목이 들어감</a></div>
-                    <div class="writer">홍길동</div>
-                    <div class="date">2022.11.15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">4</div>
-                    <div class="title"><a href="#">제목이 들어감</a></div>
-                    <div class="writer">홍길동</div>
-                    <div class="date">2022.11.15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">3</div>
-                    <div class="title"><a href="#">제목이 들어감</a></div>
-                    <div class="writer">홍길동</div>
-                    <div class="date">2022.11.15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">2</div>
-                    <div class="title"><a href="#">제목이 들어감</a></div>
-                    <div class="writer">홍길동</div>
-                    <div class="date">2022.11.15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">1</div>
-                    <div class="title"><a href="#">제목이 들어감</a></div>
-                    <div class="writer">홍길동</div>
-                    <div class="date">2022.11.15</div>
-                    <div class="count">33</div>
-                </div>
-            </div>
-            <div class="board_page">
-                <a href="#" class="bt first"><<</a>
-                <a href="#" class="bt prev"><</a>
-                <a href="#" class="num on">1</a>
-                <a href="#" class="num">2</a>
-                <a href="#" class="num">3</a>
-                <a href="#" class="num">4</a>
-                <a href="#" class="num">5</a>
-                <a href="#" class="bt next">></a>
-                <a href="#" class="bt last">>></a>
-            </div>
-            <div class="bt_wrap">
-                <a href="#" class="on">등록</a>
-                <!-- <a href="#" >수정</a> -->
-            </div>
+        <div class="board_page">
+          <a href="#" class="bt first"><<</a>
+          <a href="#" class="bt prev"><</a>
+          <a href="#" class="num on">1</a>
+          <a href="#" class="num">2</a>
+          <a href="#" class="num">3</a>
+          <a href="#" class="num">4</a>
+          <a href="#" class="num">5</a>
+          <a href="#" class="bt next">></a>
+          <a href="#" class="bt last">>></a>
         </div>
+        <div class="bt_wrap">
+          <a href="#" class="on">등록</a>
+          <!-- <a href="#" >수정</a> -->
+        </div>
+      </div>
     </div>
-</body>
+    <script src="../mypage/Footer.js"></script>
+  </body>
 </html>
