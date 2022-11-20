@@ -4,7 +4,6 @@ import * as Api from "/api.js";
 const section = document.querySelector('.title')
 const product = document.querySelector('.product_name')
 const userEmail = window.location.pathname.split("/")[2];
-console.log(userEmail)
 // checkLogin();
 insertOrderListElement();
 
