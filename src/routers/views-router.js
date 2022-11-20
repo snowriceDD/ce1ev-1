@@ -15,6 +15,7 @@ viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
 viewsRouter.use("/mypage", serveStatic("mypage"));
 viewsRouter.use("/order", serveStatic("order"));
 viewsRouter.use("/updateProduct", serveStatic("updateProduct"));
+viewsRouter.use("/notice", serveStatic("notice"));
 viewsRouter.use("/mypageOrderList/:email", serveStatic("mypageOrderList"));
 
 viewsRouter.use("/mypage/account", (req, res) => {
@@ -48,7 +49,9 @@ viewsRouter.use("/admin/adminMember", (req, res) => {
     path.join(__dirname, "../views/admin_members/admin_members.html")
   );
 });
-
+viewsRouter.use("/notice/veiwList", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/notice/view.html"));
+});
 
 viewsRouter.use("/productDetail/:productId/updateProduct", serveStatic("updateProduct"));
 
