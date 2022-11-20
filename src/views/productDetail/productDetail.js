@@ -41,9 +41,7 @@ const ref = {
   categoryTag: document.querySelector(".tag_category"),
   descriptionTag: document.querySelector(".tag_name"),
   priceTag: document.querySelector(".total_price"),
-  reviewListTag: document.querySelector(".bb17"),
-  reviewBtnTag: document.querySelector(".button_review"),
-  reviewContentTag: document.querySelector(".reviewContent")
+  reviewListTag: document.querySelector(".bb17")
 };
 
 let product = {};
@@ -194,33 +192,6 @@ const render = () => {
   drawProduct();
 };
 
-async function addReview(e) {
-  e.preventDefault();
-
-  const userData = await Api.get("/api/user");
-
-  const review = ref.reviewContentTag.value;
-
-  if (!review) {
-    return alert("입력하지 않은 값이 있습니다.");
-  }
-
-  try {
-    const data = { review, userId: userData.email };
-
-    const result = await Api.post(`/api/productDetail/${productId}`, data);
-
-    if (result) {
-      alert(`후기가 성공적으로 등록되었습니다!`);
-      window.location.href = `/productDetail/${productId}`;
-    }
-
-  } catch (err) {
-    console.log(err.stack);
-    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
-  }
-}
-
 const initialize = async () => {
   const value_size = document.querySelector("#sizeTag");
   const value_color = document.querySelector("#colorTag");
@@ -233,7 +204,6 @@ const initialize = async () => {
 
 initialize().then(() => render());
 ref.buyButttonTag.addEventListener("click", () => (location.href = `/order`));
-ref.reviewBtnTag.addEventListener("click", addReview);
 
 // Header&Footer
 const body = document.querySelector(".body");

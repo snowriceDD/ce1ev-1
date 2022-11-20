@@ -10,7 +10,7 @@ export class ReviewModel {
   }
 
   async findByInfo(info) {
-    const reviews = await Review.find({ info });
+    const reviews = await Review.find(info);
     return reviews;
   }
 
