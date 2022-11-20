@@ -9,8 +9,6 @@
 
 </aside>
 
-[https://github.com/Zuhye/ce1ev](https://github.com/Zuhye/ce1ev)
-
 ---
 
 ### About Project
