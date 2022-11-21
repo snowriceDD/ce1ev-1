@@ -15,8 +15,8 @@ class ReviewService {
     const curNum = curObj[0].reviewNo;
     const reviewNo = curNum + 1;
 
-    const { productNo, userId, review } = reviewInfo;
-    const newReviewInfo = { reviewNo, productNo, userId, review };
+    const { orderNo, productNo, userId, review } = reviewInfo;
+    const newReviewInfo = { reviewNo, orderNo, productNo, userId, review };
 
     const createdNewReview = await reviewModel.createReview(newReviewInfo);
 

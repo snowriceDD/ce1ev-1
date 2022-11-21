@@ -9,6 +9,7 @@ const userData = await Api.get("/api/user");
 
 let orderLists = {}
 let reviewLists = {}
+let ref = {}
 
 const initialize = async () => {
   const orders = await Api.get('/api/myOrders', userData.email);
@@ -23,13 +24,14 @@ async function getReviewList(){
     for(let i=0; i<orderList.products.length; i++) {
       const product = orderList.products[i]
 
+      const orderNo = orderList.orderNumber;
       const productNo = product.num;
       const img = product.img;
       const name = product.name;
       const size = product.selectSize;
       const color = product.selectColor;
       const price = product.price;
-      const review = reviewLists.find((e) => e.orderNo === orderList.orderNumber && e.productNo === productNo);
+      const review = reviewLists.find((e) => e.orderNo === orderNo && e.productNo === productNo);
 
       let html = ``;
 
@@ -48,7 +50,7 @@ async function getReviewList(){
       section.insertAdjacentHTML(
         "afterend",
         `<div class="content">
-          <div class="first">
+          <div id="${orderNo}-${productNo}">
             <img class="product_img" src="${img}"/>
             <div class="product_script">
               <p class="product_name">상품 명 : ${name}</p>
@@ -63,49 +65,58 @@ async function getReviewList(){
       )
     }
   })
-}
+
+  ref['reviewCreateBtn'] = document.querySelector(".reviewCreateBtn");
+  ref['reviewContentTag'] = document.querySelector(".reviewContent")
+
+  ref.reviewCreateBtn.addEventListener("click", addReview);
+} // class로 구현해둠
 
 async function addReview(e) {
   e.preventDefault();
 
-  console.log('do')
-  const review = reviewContentTag.value;
+  const parentElement = ref.reviewContentTag.parentElement.parentElement.id;
+  const [orderNo, productNo] = parentElement.split("-");
+  const review = ref.reviewContentTag.value;
 
-  /*
   try {
-    const data = { orderNo: review, userId: userData.email };
+    const data = { orderNo: orderNo, productNo: productNo, userId: userData.email, review: review };
 
-    const result = await Api.post(`/api/productDetail/${productId}`, data);
+    const result = await Api.post(`/api/mypage/myPageReview`, data);
 
     if (result) {
       alert(`후기가 성공적으로 등록되었습니다!`);
-      window.location.href = `/productDetail/${productId}`;
+      //window.location.href = `/productDetail/${productId}`;
     }
 
   } catch (err) {
     console.log(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
-  } */
+  }
 }
 
 //reviewCreateBtn.addEventListener("click", addReview);
 
 const render = () => {
-  getReviewList().then(() => {
-    //reviewCreateBtn.addEventListener("click", addReview);
-  })
+  getReviewList()
 };
 
 initialize().then(() => render());
 
 window.onload = function () {
   console.log('as')
-  const reviewContentTag = document.querySelector(".reviewContent")
-  const reviewCreateBtn = document.querySelector(".reviewCreateBtn")
+  //const reviewContentTag = document.querySelector(".reviewContent")
+  //const reviewCreateBtn = document.querySelector(".reviewCreateBtn")
 
   console.log('as')
 
-  reviewCreateBtn.addEventListener("click", addReview);
+  //reviewCreateBtn.addEventListener("click", addReview);
 
   console.log('as')
 }
+
+window.onload = function() {
+  console.log("onload : start");
+
+};
+

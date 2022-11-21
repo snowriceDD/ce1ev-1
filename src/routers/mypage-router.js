@@ -15,18 +15,9 @@ mypageRouter.get("/mypage/myPageReview/:orderNo", async (req, res, next) => {
   }
 });
 
-mypageRouter.post("/mypage/myPageReview/:productId", async (req, res, next) => {
+mypageRouter.post("/mypage/myPageReview", async (req, res, next) => {
   try {
-    if (is.emptyObject(req.body)) {
-      throw new Error(
-        "headers의 Content-Type을 application/json으로 설정해주세요."
-      );
-    }
-
-    const productNo = req.params.productId;
-    const { userId, review } = req.body;
-
-    const newReview = await reviewService.addReview({ productNo, userId, review });
+    const newReview = await reviewService.addReview(req.body);
 
     res.status(201).json(newReview);
   } catch (err) {
