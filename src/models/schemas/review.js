@@ -6,6 +6,10 @@ const ReviewSchema = new Schema(
       type: Number,
       requried: true,
     },
+    orderNo: {
+      type: Number,
+      requried: true,
+    },
     productNo: {
       type: Number,
       requried: true,

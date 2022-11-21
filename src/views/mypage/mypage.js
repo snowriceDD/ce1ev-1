@@ -22,33 +22,39 @@ async function addAllEvent() {
   emailTag.innerText = `${email}`;
   roleTag.innerText = `${role}`;
 
-function moveTomypageAccount() {
-  window.location.assign("/mypage/account");
-}
+  function moveTomypageAccount() {
+    window.location.assign("/mypage/account");
+  }
 
-mypageAccount.addEventListener("click", moveTomypageAccount);
+  mypageAccount.addEventListener("click", moveTomypageAccount);
 
-function moveTomypageOrderList() {
-  window.location.assign(`/myPageOrderList/${email}`);
-}
+  function moveTomypageOrderList() {
+    window.location.assign(`/myPageOrderList/${email}`);
+  }
 
-mypageOrderList.addEventListener("click", moveTomypageOrderList);
+  mypageOrderList.addEventListener("click", moveTomypageOrderList);
 
-function moveTomypageCart() {
-  window.location.assign("/mypage/myPageCart");
-}
+  function moveTomypageCart() {
+    window.location.assign("/mypage/myPageCart");
+  }
 
-mypageCart.addEventListener("click", moveTomypageCart);
+  mypageCart.addEventListener("click", moveTomypageCart);
 
-function moveTomypageReview() {
-  window.location.assign("/mypage/myPageReview");
-}
+  function moveTomypageReview() {
+    window.location.assign("/mypage/myPageReview");
+  }
 
-mypageReview.addEventListener("click", moveTomypageReview);
+  mypageReview.addEventListener("click", moveTomypageReview);
 
-function moveTomypageWithdrawal() {
-  window.location.assign("/mypage/withdrawal");
-}
+  function moveTomypageWithdrawal() {
+    window.location.assign("/mypage/withdrawal");
+  }
 
-mypageWithdrawal.addEventListener("click", moveTomypageWithdrawal);
+  mypageReview.addEventListener("click", moveTomypageReview);
+
+  function moveTomypageWithdrawal() {
+    window.location.assign("/mypage/withdrawal");
+  }
+
+  mypageWithdrawal.addEventListener("click", moveTomypageWithdrawal);
 }
