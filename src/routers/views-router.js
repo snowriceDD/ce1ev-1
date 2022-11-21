@@ -53,6 +53,14 @@ viewsRouter.use("/notice/veiwList", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/notice/view.html"));
 });
 
+viewsRouter.use("/notice/edit", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/notice/edit.html"));
+});
+
+viewsRouter.use("/notice/write", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/notice/write.html"));
+});
+
 viewsRouter.use("/productDetail/:productId/updateProduct", serveStatic("updateProduct"));
 
 

@@ -72,65 +72,43 @@
         <strong>Q & A</strong>
         <p>Q&A 게시판 입니다.</p>
       </div>
-      <div class="board_list_wrap">
-        <div class="board_list">
-          <div class="top">
-            <div class="num">번호</div>
-            <div class="title">제목</div>
-            <div class="writer">작성자</div>
-            <div class="date">작성일</div>
-            <div class="count">조회</div>
+      <div class="board_write_wrap">
+        <div class="board_write">
+          <div class="title">
+            <dl>
+                <dt>제목</dt>
+                <dd>
+                    <input type="text" placeholder="제목 입력" value="글제목이 들어감"/>
+                </dd>
+            </dl>
           </div>
-          <div>
-            <div class="num">5</div>
-            <div class="title"><a href="veiwList">제목이 들어감</a></div>
-            <div class="writer">홍길동</div>
-            <div class="date">2022.11.15</div>
-            <div class="count">33</div>
+          <div class="info">
+            <dl>
+                <dt>글쓴이</dt>
+                <dd>
+                    <input type="text" placeholder="글쓴이 입력" value="홍길동"/>
+                </dd>
+            </dl>
+            <dl>
+                <dt>비밀번호</dt>
+                <dd>
+                    <input type="password" placeholder="비밀번호 입력" value="1234"/>
+                </dd>
+            </dl>
           </div>
-          <div>
-            <div class="num">4</div>
-            <div class="title"><a href="veiwList">제목이 들어감</a></div>
-            <div class="writer">홍길동</div>
-            <div class="date">2022.11.15</div>
-            <div class="count">33</div>
+          <div class="cont">
+            <textarea placeholder="내용 입력">
+글 내용이 들어감
+글 내용이 들어감
+글 내용이 들어감
+글 내용이 들어감
+글 내용이 들어감
+            </textarea>
           </div>
-          <div>
-            <div class="num">3</div>
-            <div class="title"><a href="veiwList">제목이 들어감</a></div>
-            <div class="writer">홍길동</div>
-            <div class="date">2022.11.15</div>
-            <div class="count">33</div>
-          </div>
-          <div>
-            <div class="num">2</div>
-            <div class="title"><a href="veiwList">제목이 들어감</a></div>
-            <div class="writer">홍길동</div>
-            <div class="date">2022.11.15</div>
-            <div class="count">33</div>
-          </div>
-          <div>
-            <div class="num">1</div>
-            <div class="title"><a href="veiwList">제목이 들어감</a></div>
-            <div class="writer">홍길동</div>
-            <div class="date">2022.11.15</div>
-            <div class="count">33</div>
-          </div>
-        </div>
-        <div class="board_page">
-          <a href="#" class="bt first"><<</a>
-          <a href="#" class="bt prev"><</a>
-          <a href="#" class="num on">1</a>
-          <a href="#" class="num">2</a>
-          <a href="#" class="num">3</a>
-          <a href="#" class="num">4</a>
-          <a href="#" class="num">5</a>
-          <a href="#" class="bt next">></a>
-          <a href="#" class="bt last">>></a>
         </div>
         <div class="bt_wrap">
-          <a href="write" class="on">등록</a>
-          <!-- <a href="#" >수정</a> -->
+          <a href="viewList" class="on">수정</a>
+          <a href="veiwList" >취소</a>
         </div>
       </div>
     </div>
