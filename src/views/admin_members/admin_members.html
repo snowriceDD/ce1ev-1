@@ -24,9 +24,66 @@
     />
     <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
     <link rel="stylesheet" type="text/css" href="../home/reset.css" />
-    <link rel="stylesheet" type="text/css" href="../admin_members/admin_members_style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../admin_members/admin_members_style.css"
+    />
   </head>
   <body class="body">
+    <!-- Header -->
+    <header class="header">
+      <div class="header_logo">
+        <a href="/"> Ce1ev. </a>
+      </div>
+      <ul class="search">
+        <li>
+          <input
+            type="text"
+            placeholder="검색어를 입력하세요."
+            class="header_search"
+            id="text"
+          />
+          <button type="button" class="searchBtn">
+            <i class="fa fa-magnifying-glass fa-2x"></i>
+          </button>
+        </li>
+      </ul>
+      <ul class="header_right" id="guest">
+        <li id="header_login">
+          <a href="/login"> LOGIN </a>
+        </li>
+        <li id="header_wish">
+          <a href="/register"> REGISTER </a>
+        </li>
+        <li id="header_cart">
+          <a href="/guest"> GUEST </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="user">
+        <li id="header_cart">
+          <a href="/mypage/myPageCart"> CART </a>
+        </li>
+        <li id="header_myPage">
+          <a href="/mypage"> MY PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout2"> LOG OUT </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="admin">
+        <li id="header_addProduct">
+          <a href="/products"> ADD-PRODUCT </a>
+        </li>
+        <li id="header_mypage">
+          <a href="/admin"> ADMIN-PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout1"> LOG OUT </a>
+        </li>
+      </ul>
+    </header>
+    <!-- Main -->
     <h3 class="order_manage">회원관리</h3>
     <div class="divide_line"></div>
 
@@ -49,8 +106,7 @@
         <div class="column1">권한</div>
         <div class="column1">관리</div>
       </div>
-      <div class="listing-user" id="user">
-      </div>
+      <div class="listing-user" id="user"></div>
     </div>
 
     <div id="modal" class="modal-overlay">
@@ -74,8 +130,10 @@
       </div>
     </div>
     <script
-      src="/admin_members/admin_members_script.js" type="module" defer></script>
-    <script src="../mypage/header.js" type="module" defer></script>
+      src="/admin_members/admin_members_script.js"
+      type="module"
+      defer
+    ></script>
     <script src="../mypage/footer.js" type="module" defer></script>
     <script src="../home/changeHeader.js" type="module" defer></script>
   </body>
