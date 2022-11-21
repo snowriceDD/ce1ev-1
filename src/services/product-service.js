@@ -32,27 +32,20 @@ class ProductService {
     const newProductInfo = {
       num,brand,name,price, size, color, category, description, img,
     };
-    // console.log(newProductInfo)
 
-    // db에 저장
     const createdNewProduct = await this.model.create(newProductInfo);
 
     return createdNewProduct;
   }
 
   async setProduct(num, toUpdate) {
-    
     const updatedProduct = await this.model.update({
       num,
       update: toUpdate,
     });
 
     return updatedProduct;
-
   }
-
-
-
 
   async deleteProduct(num) {
     const product = await this.model.delete(num);

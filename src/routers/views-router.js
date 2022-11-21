@@ -15,7 +15,7 @@ viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
 viewsRouter.use("/mypage", serveStatic("mypage"));
 viewsRouter.use("/order", serveStatic("order"));
 viewsRouter.use("/updateProduct", serveStatic("updateProduct"));
-viewsRouter.use("/mypage/mypageOrderList/:email", serveStatic("mypageOrderList"));
+viewsRouter.use("/mypageOrderList/:email", serveStatic("mypageOrderList"));
 
 viewsRouter.use("/mypage/account", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageAccount.html"));

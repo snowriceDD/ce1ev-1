@@ -11,19 +11,17 @@ function moveToadminProductUpdate() {
 const productId = window.location.pathname.split("/")[2];
 
 async function deleteProduct() {
-  const value = confirm("진짜 삭제하시겠습니까?")
-  if(value===true) {
-    try{
+  const value = confirm("진짜 삭제하시겠습니까?");
+  if (value === true) {
+    try {
+      await Api.delete("/api/products", productId);
 
-    await Api.delete("/api/products", productId);
-
-    alert("상품이 삭제되었습니다.")
-    window.location.href="/";
-    } catch(err) {
-      next(err)
-    } 
+      alert("상품이 삭제되었습니다.");
+      window.location.href = "/";
+    } catch (err) {
+      next(err);
+    }
   }
-
 }
 
 deleteButton.addEventListener("click", deleteProduct);
@@ -56,7 +54,7 @@ window.addEventListener("load", async () => {
   function moveToUpdate() {
     window.location.assign(`/productDetail/${productId}/updateProduct`);
   }
-  
+
   editButton.addEventListener("click", moveToUpdate);
 
   const res = await fetch("/api/admin/check", {
@@ -185,7 +183,6 @@ const addCart = (id) => {
   location.href = "/mypage/myPageCart";
 };
 ref.cartButtonTag.addEventListener("click", addCart);
-// async function insertSizeList() {}
 
 //함수 실행
 const render = () => {

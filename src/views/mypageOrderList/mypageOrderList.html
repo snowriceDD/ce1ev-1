@@ -14,11 +14,62 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="mypageOrderList.css" />
-    <link rel="stylesheet" type="text/css" href="../home/reset.css" />
+    <link rel="stylesheet" type="text/css" href="reset.css" />
     <link rel="stylesheet" type="text/css" href="HeaderFooter.css" />
   </head>
   <body class="body">
-    <!--Header_Navigator-->
+    <!-- Header -->
+    <header class="header">
+      <div class="header_logo">
+        <a href="/"> Ce1ev. </a>
+      </div>
+      <ul class="search">
+        <li>
+          <input
+            type="text"
+            placeholder="검색어를 입력하세요."
+            class="header_search"
+            id="text"
+          />
+          <button type="button" class="searchBtn">
+            <i class="fa fa-magnifying-glass fa-2x"></i>
+          </button>
+        </li>
+      </ul>
+      <ul class="header_right" id="guest">
+        <li id="header_login">
+          <a href="/login"> LOGIN </a>
+        </li>
+        <li id="header_wish">
+          <a href="/register"> REGISTER </a>
+        </li>
+        <li id="header_cart">
+          <a href="/guest"> GUEST </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="user">
+        <li id="header_cart">
+          <a href="/mypage/myPageCart"> CART </a>
+        </li>
+        <li id="header_myPage">
+          <a href="/mypage"> MY PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout2"> LOG OUT </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="admin">
+        <li id="header_addProduct">
+          <a href="/products"> ADD-PRODUCT </a>
+        </li>
+        <li id="header_mypage">
+          <a href="/admin"> ADMIN-PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout1"> LOG OUT </a>
+        </li>
+      </ul>
+    </header>
 
     <section class="section">
       <article class="my_shopping">
@@ -27,58 +78,6 @@
           <div class="first">주문 정보</div>
           <div>주문 금액(수량)</div>
           <div>주문 상태</div>
-        </div>
-        <div class="content">
-          <div class="first">
-            <img class="product_img" />
-            <div class="product_script">
-              <p class="product_name">
-                상품명 : Undermycar Operation Chromite Kerberos Oversized
-                Varsity Jacket Ox Blood - 22FW
-              </p>
-              <div class="order_number">주문 번호 : 20221102</div>
-              <div class="order_date">주문 일자 : 2022-11-02</div>
-            </div>
-          </div>
-          <div class="product_price">
-            390,000원<br />
-            (1개)
-          </div>
-          <div>배송중</div>
-        </div>
-        <div class="content">
-          <div class="first">
-            <img class="product_img" />
-            <div class="product_script">
-              <p>
-                상품명 : Undermycar Operation Chromite Kerberos Oversized
-                Varsity Jacket Ox Blood - 22FW
-              </p>
-              <div>주문 일자 : 2022-11-02</div>
-            </div>
-          </div>
-          <div class="product_price">
-            390,000원<br />
-            (1개)
-          </div>
-          <div>배송중</div>
-        </div>
-        <div class="content">
-          <div class="first">
-            <img class="product_img" />
-            <div class="product_script">
-              <p>
-                상품명 : Undermycar Operation Chromite Kerberos Oversized
-                Varsity Jacket Ox Blood - 22FW
-              </p>
-              <div>주문 일자 : 2022-11-02</div>
-            </div>
-          </div>
-          <div class="product_price">
-            390,000원<br />
-            (1개)
-          </div>
-          <div>배송중</div>
         </div>
       </article>
     </section>
@@ -96,6 +95,6 @@
     <script src="mypageOrderList.js" type="module" defer></script>
     <script src="header.js" type="module" defer></script>
     <script src="footer.js" type="module" defer></script>
-    <script src="../home/changeHeader.js" type="module" defer></script>
+    <script src="changeHeader.js" type="module" defer></script>
   </body>
 </html>
