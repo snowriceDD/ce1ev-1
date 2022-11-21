@@ -25,4 +25,14 @@ mypageRouter.post("/mypage/myPageReview", async (req, res, next) => {
   }
 });
 
+mypageRouter.delete("/mypage/myPageReview", async (req, res, next) => {
+  try {
+    const deletedReview = await reviewService.deleteReview(req.body);
+
+    res.status(201).json(deletedReview);
+  } catch (err) {
+    next(err);
+  }
+});
+
 export { mypageRouter };

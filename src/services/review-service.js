@@ -22,6 +22,12 @@ class ReviewService {
 
     return createdNewReview;
   }
+
+  async deleteReview(reviewInfo) {
+    const deletedReview = await reviewModel.deleteReview(reviewInfo);
+
+    return deletedReview;
+  }
 }
 
 const reviewService = new ReviewService(reviewModel);

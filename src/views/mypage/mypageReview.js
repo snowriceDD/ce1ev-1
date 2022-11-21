@@ -33,17 +33,21 @@ async function getReviewList(){
       const price = product.price;
       const review = reviewLists.find((e) => e.orderNo === orderNo && e.productNo === productNo);
 
+      const createBtn = `reviewCreateBtn${orderNo}-${productNo}`;
+      const reviewContent = `reviewContent${orderNo}-${productNo}`;
+      const deleteBtn = `reviewDeleteBtn${orderNo}-${productNo}`;
+
       let html = ``;
 
       if (review !== undefined) {
         html = `
           <p>${review.review}</p>
-          <button class="deleteReview">삭제하기</button>
+          <button class="${deleteBtn}">삭제하기</button>
         `;
       } else {
         html = `
-          <input class="reviewContent" type="text" placeholder="내용을 작성해주세요." required />
-          <button class="reviewCreateBtn" >글쓰기</button>
+          <input class="${reviewContent}" type="text" placeholder="내용을 작성해주세요." required />
+          <button class="${createBtn}" >글쓰기</button>
         `;
       }
 
@@ -63,21 +67,26 @@ async function getReviewList(){
           </div>
         </div>`
       )
+
+      if (review !== undefined) {
+        ref[deleteBtn] = document.querySelector(`.${deleteBtn}`);
+
+        ref[deleteBtn].addEventListener("click", (event) => deleteReview(event, orderNo, productNo));
+      } else {
+        ref[createBtn] = document.querySelector(`.${createBtn}`);
+        ref[reviewContent] = document.querySelector(`.${reviewContent}`);
+
+        ref[createBtn].addEventListener("click", (event) => addReview(event, orderNo, productNo));
+      }
     }
   })
+}
 
-  ref['reviewCreateBtn'] = document.querySelector(".reviewCreateBtn");
-  ref['reviewContentTag'] = document.querySelector(".reviewContent")
-
-  ref.reviewCreateBtn.addEventListener("click", addReview);
-} // class로 구현해둠
-
-async function addReview(e) {
+async function addReview(e, orderNo, productNo) {
   e.preventDefault();
 
-  const parentElement = ref.reviewContentTag.parentElement.parentElement.id;
-  const [orderNo, productNo] = parentElement.split("-");
-  const review = ref.reviewContentTag.value;
+  const tagName = `reviewContent${orderNo}-${productNo}`;
+  const review = ref[tagName].value;
 
   try {
     const data = { orderNo: orderNo, productNo: productNo, userId: userData.email, review: review };
@@ -86,37 +95,34 @@ async function addReview(e) {
 
     if (result) {
       alert(`후기가 성공적으로 등록되었습니다!`);
-      //window.location.href = `/productDetail/${productId}`;
+      window.location.reload();
     }
-
   } catch (err) {
     console.log(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
 }
 
-//reviewCreateBtn.addEventListener("click", addReview);
+async function deleteReview(e, orderNo, productNo) {
+  e.preventDefault();
+
+  try {
+    const data = { orderNo: orderNo, productNo: productNo, userId: userData.email };
+
+    const result = await Api.delete(`/api/mypage/myPageReview`, '', data);
+
+    if (result) {
+      alert(`후기가 성공적으로 삭제되었습니다!`);
+      window.location.reload();
+    }
+  } catch (err) {
+    console.log(err.stack);
+    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
+  }
+}
 
 const render = () => {
   getReviewList()
 };
 
 initialize().then(() => render());
-
-window.onload = function () {
-  console.log('as')
-  //const reviewContentTag = document.querySelector(".reviewContent")
-  //const reviewCreateBtn = document.querySelector(".reviewCreateBtn")
-
-  console.log('as')
-
-  //reviewCreateBtn.addEventListener("click", addReview);
-
-  console.log('as')
-}
-
-window.onload = function() {
-  console.log("onload : start");
-
-};
-
