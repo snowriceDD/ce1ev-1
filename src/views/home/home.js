@@ -42,12 +42,18 @@ async function insertProductElement() {
     );
     const productItem = document.getElementById(`${num}`);
     const likeBtn = document.getElementById(`like_${num}`);
+    const likeCount = document.getElementById(`likeCount_${num}`)
+
+    productItem.addEventListener("click", moveToProduct);
+    likeBtn.addEventListener("click", countIncrease);
 
     function moveToProduct() {
       window.location.assign(`/productDetail/${num}`);
     }
 
-    async function countIncrease() {
+    async function countIncrease(e) {
+      e.preventDefault();
+
       try{
         const data = {num, like}
       // console.log(data); {num: 2, like: 0}
@@ -57,16 +63,13 @@ async function insertProductElement() {
         data.like = newLike;
         console.log(data);
         await Api.patch("/api/products", num, data);
-        alert("찜하기가 완료되었습니다.");
-        location.reload()
+        likeCount.innerText = data.like;
+        likeBtn.src = "../image/like_hover.png" //새로고침하면 사라짐
       }
       } catch(err) {
         alert(`찜하는 중 오류 발생: ${err}`)
       }
     }
-
-    productItem.addEventListener("click", moveToProduct);
-    likeBtn.addEventListener("click", countIncrease);
   });
   const logoutBtn1 = document.querySelector("#logout1");
   const logoutBtn2 = document.querySelector("#logout2");
