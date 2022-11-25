@@ -62,6 +62,9 @@
         <li id="header_mypage">
           <a href="/admin"> ADMIN-PAGE </a>
         </li>
+        <li id="header_notice">
+          <a href="/notice"> NOTICE </a>
+        </li>
         <li id="header_logout">
           <a href="/#" id="logout1"> LOG OUT </a>
         </li>
@@ -69,8 +72,8 @@
     </header>
     <div class="board_wrap">
       <div class="board_title">
-        <strong>Q & A</strong>
-        <p>Q&A 게시판 입니다.</p>
+        <strong>공지사항</strong>
+        <p>공지사항 게시판 입니다.</p>
       </div>
       <div class="board_write_wrap">
         <div class="board_write">
@@ -78,7 +81,7 @@
             <dl>
                 <dt>제목</dt>
                 <dd>
-                    <input type="text" placeholder="제목 입력"/>
+                    <input id="title" type="text" placeholder="제목 입력"/>
                 </dd>
             </dl>
           </div>
@@ -86,26 +89,27 @@
             <dl>
                 <dt>글쓴이</dt>
                 <dd>
-                    <input type="text" placeholder="글쓴이 입력"/>
+                    <input id="name" type="text" placeholder="글쓴이 입력"/>
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호</dt>
                 <dd>
-                    <input type="password" placeholder="비밀번호 입력"/>
+                    <input id="password" type="password" placeholder="비밀번호 입력"/>
                 </dd>
             </dl>
           </div>
           <div class="cont">
-            <textarea placeholder="내용 입력"></textarea>
+            <textarea id="content" placeholder="내용 입력"></textarea>
           </div>
         </div>
         <div class="bt_wrap">
-          <a href="write" class="on">등록</a>
-          <a href="veiwList" >취소</a>
+          <a href="/notice" class="on">등록</a>
+          <a href="/notice" >취소</a>
         </div>
       </div>
     </div>
     <script src="../mypage/Footer.js"></script>
+    <script src="write.js" type="module"></script>
   </body>
 </html>

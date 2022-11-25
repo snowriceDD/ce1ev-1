@@ -64,6 +64,10 @@ viewsRouter.use("/notice/write", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/notice/write.html"));
 });
 
+viewsRouter.use("/notice/:postNo", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/notice/view.html"));
+});
+
 viewsRouter.use("/productDetail/:productId/updateProduct", serveStatic("updateProduct"));
 
 
