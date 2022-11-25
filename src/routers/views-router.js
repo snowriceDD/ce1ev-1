@@ -27,6 +27,9 @@ viewsRouter.use("/mypage/accountUpdate", (req, res) => {
 viewsRouter.use("/mypage/mypageCart", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageCart.html"));
 });
+viewsRouter.use("/mypage/mypageReview", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/mypageReview.html"));
+});
 // viewsRouter.use("/mypage/mypageOrderList", (req, res) => {
 //   res.sendFile(path.join(__dirname, "../views/mypage/mypageOrderList.html"));
 // });
