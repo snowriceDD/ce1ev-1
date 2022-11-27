@@ -1,5 +1,6 @@
 # Ce1ev. :: celebrity picks.
 ## 리팩토링 진행 중
+### 기존 URL : http://kdt-sw3-team23.elicecoding.com/
 ---
 
 # Service
