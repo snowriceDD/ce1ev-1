@@ -1,11 +1,11 @@
 # Ce1ev. :: celebrity picks.
-
+## 리팩토링 진행 중
 ---
 
 # Service
 
 <aside>
-💡 **셀럽들이 착용했던 의상들을 기준**으로 데이터화하여 소비자에게 착용 정보 제공 및 상품을 판매하는 **쇼핑몰 서비스**입니다.
+💡 셀럽들이 착용했던 의상들을 기준**으로 데이터화하여 소비자에게 착용 정보 제공 및 상품을 판매하는 쇼핑몰 서비스입니다.
 
 </aside>
 
@@ -45,66 +45,24 @@
 ### 기술 스택
 
 ## 🚀  Stacks
+- HTML
+- CSS
+- JavaScript
+- MongoDB
 
 ---
-
-<aside>
-<img src="Ce1ev%20celebrity%20picks%2074206bbc6f43456daaf65fe591025f43/pngwing.com_(3).png" alt="Ce1ev%20celebrity%20picks%2074206bbc6f43456daaf65fe591025f43/pngwing.com_(3).png" width="40px" /> **HTML**
-
-</aside>
-
-<aside>
-<img src="Ce1ev%20celebrity%20picks%2074206bbc6f43456daaf65fe591025f43/pngwing.com_(1).png" alt="Ce1ev%20celebrity%20picks%2074206bbc6f43456daaf65fe591025f43/pngwing.com_(1).png" width="40px" /> **CSS(SCSS)**
-
-</aside>
-
-<aside>
-<img src="Ce1ev%20celebrity%20picks%2074206bbc6f43456daaf65fe591025f43/pngwing.com_(2).png" alt="Ce1ev%20celebrity%20picks%2074206bbc6f43456daaf65fe591025f43/pngwing.com_(2).png" width="40px" /> **JavaScript**
-
-</aside>
-
-<aside>
-♻️ **MongoDB**
-
-</aside>
 
 ## 🛠  Tools
+- Figma
+- Git
+- Adobe Photoshop
 
 ---
-
-<aside>
-<img src="https://cdn-icons-png.flaticon.com/512/5968/5968520.png" alt="https://cdn-icons-png.flaticon.com/512/5968/5968520.png" width="40px" /> **Photoshop**
-
-</aside>
-
-<aside>
-<img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" width="40px" /> **Figma**
-
-</aside>
-
-<aside>
-<img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" width="40px" /> **Git**
-
-</aside>
 
 ## 👥  Collaboration
-
----
-
-<aside>
-<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="40px" /> **GitHub**
-
-</aside>
-
-<aside>
-<img src="https://cdn.icon-icons.com/icons2/2389/PNG/512/notion_logo_icon_145025.png" alt="https://cdn.icon-icons.com/icons2/2389/PNG/512/notion_logo_icon_145025.png" width="40px" /> **Notion**
-
-</aside>
-
-<aside>
-<img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" width="40px" /> **Discord**
-
-</aside>
+- GitHub
+- Notion
+- Discord
 
 ---
 
