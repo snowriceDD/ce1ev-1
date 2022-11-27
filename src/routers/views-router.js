@@ -52,6 +52,9 @@ viewsRouter.use("/admin/adminMember", (req, res) => {
     path.join(__dirname, "../views/admin_members/admin_members.html")
   );
 });
+viewsRouter.use("/admin/adminReview", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/admin_reviews/admin_reviews.html"));
+});
 viewsRouter.use("/notice/veiwList", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/notice/view.html"));
 });
