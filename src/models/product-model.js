@@ -48,6 +48,11 @@ export class ProductModel {
   //   return createdNewLikecount;
   // }
 
+  // async createNewLike(likeInfo) {
+  //   const createdNewLikecount = await Product.create(likeInfo);
+  //   return createdNewLikecount;
+  // }
+
   async findAll() {
     const product = await Product.find({});
     return product;
