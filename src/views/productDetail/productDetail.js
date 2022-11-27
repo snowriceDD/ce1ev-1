@@ -39,9 +39,7 @@ const ref = {
   categoryTag: document.querySelector(".tag_category"),
   descriptionTag: document.querySelector(".tag_name"),
   priceTag: document.querySelector(".total_price"),
-  //reviewTag: document.querySelector(".bb16")
-  reviewBtnTag: document.querySelector(".button_review"),
-  reviewContentTag: document.querySelector(".reviewContent"),
+  reviewListTag: document.querySelector(".bb17")
 };
 
 let product = {};
@@ -111,11 +109,31 @@ const drawProduct = async () => {
   const price = ref.priceTag.innerHTML;
   const size = value_size.options[value_size.selectedIndex].text;
   const color = value_color.options[value_color.selectedIndex].text;
+  const category = ref.categoryTag.innerHTML;
+  const num = productId;
 
-  // const category = ref.categoryTag.innerHTML;
-  // const num = productId;
   product.selectSize = size;
   product.selectColor = color;
+
+  review.forEach((review) => {
+    const review_no = review.reviewNo;
+    const review_email = review.userId;
+    const review_content = review.review;
+
+    ref.reviewListTag.insertAdjacentHTML(
+      "beforeend",
+      `
+        <tr>
+          <th>번호: ${review_no}</th>
+          <th>이메일: ${review_email}</th>
+          <br>
+          <th>후기: ${review_content}</th>
+          <br>
+        </tr>
+        <br>
+      `
+    )
+  })
 
   // const data = {
   //   num,
