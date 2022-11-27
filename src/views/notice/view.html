@@ -38,8 +38,8 @@
           <a href="/guest"> GUEST </a>
         </li>
         <li id="header_notice">
-          <a href="/notice"> NOTICE </a>
-        </li>
+            <a href="/notice"> NOTICE </a>
+          </li>
       </ul>
       <ul class="header_right hidden" id="user">
         <li id="header_cart">
@@ -49,8 +49,8 @@
           <a href="/mypage"> MY PAGE </a>
         </li>
         <li id="header_notice">
-          <a href="/notice"> NOTICE </a>
-        </li>
+            <a href="/notice"> NOTICE </a>
+          </li>
         <li id="header_logout">
           <a href="/#" id="logout2"> LOG OUT </a>
         </li>
@@ -72,36 +72,16 @@
         <strong>공지사항</strong>
         <p>공지사항 게시판 입니다.</p>
       </div>
-      <div class="board_list_wrap">
-        <div class="board_list">
-          <div class="top">
-            <div class="num">번호</div>
-            <div class="title">제목</div>
-            <div class="writer">작성자</div>
-            <div class="date">작성일</div>
-            <div class="count">조회</div>
-          </div>
-          <div class="board-post"></div>  
-        </div>
-
-        <div class="board_page">
-          <a href="#" class="bt first"><<</a>
-          <a href="#" class="bt prev"><</a>
-          <a href="#" class="num on">1</a>
-          <a href="#" class="num">2</a>
-          <a href="#" class="num">3</a>
-          <a href="#" class="num">4</a>
-          <a href="#" class="num">5</a>
-          <a href="#" class="bt next">></a>
-          <a href="#" class="bt last">>></a>
+      <div class="board_view_wrap">
+        <div class="board_view">
         </div>
         <div class="bt_wrap">
-          <a href="write" class="on">등록</a>
-          <!-- <a href="#" >수정</a> -->
+          <a href="/notice" class="on">목록</a>
+          <a href="edit" >수정</a>
         </div>
       </div>
     </div>
     <script src="../mypage/Footer.js"></script>
-    <script src="notice.js" type="module"></script>
+    <script src="view.js" type="module"></script>
   </body>
 </html>

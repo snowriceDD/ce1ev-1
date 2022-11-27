@@ -86,7 +86,6 @@ const drawProduct = async () => {
   ref.categoryTag.innerHTML = product.category;
   ref.descriptionTag.innerHTML = product.description;
   ref.priceTag.innerHTML = product.price;
-  //ref.reviewTag.innerHTML = review[0].review;
   //사이즈 셀렉박스로 넣기
   product.size.forEach((size, index) => {
     ref.sizeTag.insertAdjacentHTML(
@@ -97,7 +96,6 @@ const drawProduct = async () => {
     );
   });
   //컬러 셀렉박스로 넣기
-
   product.color.forEach((color, index) => {
     ref.colorTag.insertAdjacentHTML(
       "beforeend",
@@ -108,11 +106,9 @@ const drawProduct = async () => {
   });
   const value_size = document.querySelector("#sizeTag");
   const value_color = document.querySelector("#colorTag");
-
-  // const name = ref.nameTag.innerHTML;
-  // const brand = ref.brandTag.innerHTML;
-  // const price = ref.priceTag.innerHTML;
-
+  const name = ref.nameTag.innerHTML;
+  const brand = ref.brandTag.innerHTML;
+  const price = ref.priceTag.innerHTML;
   const size = value_size.options[value_size.selectedIndex].text;
   const color = value_color.options[value_color.selectedIndex].text;
 
@@ -156,36 +152,11 @@ const addCart = (id) => {
   console.log(color);
 };
 ref.cartButtonTag.addEventListener("click", addCart);
-// async function insertSizeList() {}
 
 //함수 실행
 const render = () => {
   drawProduct();
 };
-
-async function addReview(e) {
-  e.preventDefault();
-
-  const review = ref.reviewContentTag.value;
-
-  if (!review) {
-    return alert("입력하지 않은 값이 있습니다.");
-  }
-
-  try {
-    const data = { review, userId: "test" };
-
-    const result = await Api.post(`/api/productDetail/${productId}`, data);
-
-    if (result) {
-      alert(`후기가 성공적으로 등록되었습니다!`);
-      window.location.href = `/productDetail/${productId}`;
-    }
-  } catch (err) {
-    console.log(err.stack);
-    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
-  }
-}
 
 const initialize = async () => {
   const value_size = document.querySelector("#sizeTag");
@@ -199,7 +170,6 @@ const initialize = async () => {
 
 initialize().then(() => render());
 ref.buyButttonTag.addEventListener("click", () => (location.href = `/order`));
-ref.reviewBtnTag.addEventListener("click", addReview);
 
 // Header&Footer
 const body = document.querySelector(".body");

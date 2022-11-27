@@ -16,13 +16,64 @@
       href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="productDetail.css" />
     <link rel="stylesheet" href="../mypage/HeaderFooter.css" />
-    <script src="productDetail.js" type="module" ></script>
+    <link rel="stylesheet" href="productDetail.css" />
     <title>productDetail</title>
   </head>
   <body class="body">
     <!-- Header -->
+    <header class="header">
+      <div class="header_logo">
+        <a href="/"> Ce1ev. </a>
+      </div>
+      <ul class="search">
+        <li>
+          <input
+            type="text"
+            placeholder="검색어를 입력하세요."
+            class="header_search"
+            id="text"
+          />
+          <button type="button" class="searchBtn">
+            <i class="fa fa-magnifying-glass fa-2x"></i>
+          </button>
+        </li>
+      </ul>
+      <ul class="header_right" id="guest">
+        <li id="header_login">
+          <a href="/login"> LOGIN </a>
+        </li>
+        <li id="header_wish">
+          <a href="/register"> REGISTER </a>
+        </li>
+        <li id="header_cart">
+          <a href="/guest"> GUEST </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="user">
+        <li id="header_cart">
+          <a href="/mypage/myPageCart"> CART </a>
+        </li>
+        <li id="header_myPage">
+          <a href="/mypage"> MY PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout2"> LOG OUT </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="admin">
+        <li id="header_addProduct">
+          <a href="/products"> ADD-PRODUCT </a>
+        </li>
+        <li id="header_mypage">
+          <a href="/admin"> ADMIN-PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout1"> LOG OUT </a>
+        </li>
+      </ul>
+    </header>
+    
     <div class="container">
       <div class="box bb1"></div>
       <img class="box bb2" src=""></img>
@@ -140,37 +191,12 @@
         <span class="pd_detail_text_main">상품리뷰</span>
       </div>
       </div>
-      <div class="box bb16">
-        <form>
-          <table frame=void>
-            <!--
-            <tr>
-              <td>
-                <input type="button" id = "<%=id%>" value="파일 업로드" onclick="openChild(this)">
-                <span id="sInput"></span>
-                <a href="/uploadedFileDelete/<%=id%>">
-                  <input type="button" value="업로드 취소" onclick="deleteFile()"></a>
-              </td>
-            </tr>
-            -->
-            <tr>
-              <td colspan="2" style="padding-top:20px;">
-                <input class="reviewContent" type="text" placeholder="내용을 작성해주세요." required />
-                <!--<textarea class="reviewContent" placeholder="내용을 작성해주세요" required ></textarea>-->
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2" style="text-align:right;">
-                <button class="button_review" type="button">글 쓰기</button>
-              </td>
-            </tr>
-          </table>
-        </form>
-      </div>
-      <div class="box bb17">리뷰3</div>
+      <div class="box bb17"></div>
     </div>
-    
+
     <!-- Footer -->
+    <script src="../mypage/Footer.js" type="module" defer></script>
+    <script src="./productDetail.js" type="module" defer></script>
     <script src="https://kit.fontawesome.com/5c0da6133a.js" crossorigin="anonymous"></script>
   </body>
 </html>

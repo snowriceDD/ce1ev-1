@@ -23,11 +23,6 @@ class ProductService {
     return product;
   }
 
-  async getReviewByProductNo(productNo) {
-    const review = await productModel.findReviewByProduct(productNo);
-    return review;
-  }
-
   async addProduct(productInfo) {
     const curObj = await this.model.findNewest();
     const curNum = curObj[0].num;
@@ -37,50 +32,20 @@ class ProductService {
     const newProductInfo = {
       num,brand,name,price, size, color, category, description, img,
     };
-    // console.log(newProductInfo)
 
-    // db에 저장
     const createdNewProduct = await this.model.create(newProductInfo);
 
     return createdNewProduct;
   }
 
-  async addReview(reviewInfo) {
-    const curObj = await productModel.findNewestReview();
-    const curNum = curObj[0].reviewNo;
-    const reviewNo = curNum + 1;
-
-    const { productNo, userId, review } = reviewInfo;
-    const newReviewInfo = { reviewNo, productNo, userId, review };
-
-    const createdNewReview = await productModel.createReview(newReviewInfo);
-
-    return createdNewReview;
-  }
-
-  // async SetLikeCount(likeInfo) {
-  //   const {num, like} = likeInfo;
-
-  //   const curObj = await this.model.findByNumber(num);
-  //   const curLike = curObj['like'] +1;
-  //   const newLikeInfo = {curLike, num};
-
-  //   const createNewLike = await this.model.createNewLike(newLikeInfo);
-
-    
-  // }
-
   async setProduct(num, toUpdate) {
-    
     const updatedProduct = await this.model.update({
       num,
       update: toUpdate,
     });
 
     return updatedProduct;
-
   }
-
 
   async deleteProduct(num) {
     const product = await this.model.delete(num);
