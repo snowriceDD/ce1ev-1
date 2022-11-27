@@ -1,5 +1,5 @@
 # Ce1ev. :: celebrity picks.
-##
+## 리팩토링 진행 중
 ---
 
 # Service
