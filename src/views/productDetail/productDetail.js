@@ -11,19 +11,17 @@ function moveToadminProductUpdate() {
 const productId = window.location.pathname.split("/")[2];
 
 async function deleteProduct() {
-  const value = confirm("진짜 삭제하시겠습니까?")
-  if(value===true) {
-    try{
+  const value = confirm("진짜 삭제하시겠습니까?");
+  if (value === true) {
+    try {
+      await Api.delete("/api/products", productId);
 
-    await Api.delete("/api/products", productId);
-
-    alert("상품이 삭제되었습니다.")
-    window.location.href="/";
-    } catch(err) {
-      next(err)
-    } 
+      alert("상품이 삭제되었습니다.");
+      window.location.href = "/";
+    } catch (err) {
+      next(err);
+    }
   }
-
 }
 
 deleteButton.addEventListener("click", deleteProduct);
@@ -43,7 +41,7 @@ const ref = {
   priceTag: document.querySelector(".total_price"),
   //reviewTag: document.querySelector(".bb16")
   reviewBtnTag: document.querySelector(".button_review"),
-  reviewContentTag: document.querySelector(".reviewContent")
+  reviewContentTag: document.querySelector(".reviewContent"),
 };
 
 let product = {};
@@ -58,7 +56,7 @@ window.addEventListener("load", async () => {
   function moveToUpdate() {
     window.location.assign(`/productDetail/${productId}/updateProduct`);
   }
-  
+
   editButton.addEventListener("click", moveToUpdate);
 
   const res = await fetch("/api/admin/check", {
@@ -99,7 +97,7 @@ const drawProduct = async () => {
     );
   });
   //컬러 셀렉박스로 넣기
-  console.log(product.color);
+
   product.color.forEach((color, index) => {
     ref.colorTag.insertAdjacentHTML(
       "beforeend",
@@ -111,16 +109,18 @@ const drawProduct = async () => {
   const value_size = document.querySelector("#sizeTag");
   const value_color = document.querySelector("#colorTag");
 
-  const name = ref.nameTag.innerHTML;
-  const brand = ref.brandTag.innerHTML;
-  const price = ref.priceTag.innerHTML;
+  // const name = ref.nameTag.innerHTML;
+  // const brand = ref.brandTag.innerHTML;
+  // const price = ref.priceTag.innerHTML;
+
   const size = value_size.options[value_size.selectedIndex].text;
   const color = value_color.options[value_color.selectedIndex].text;
-  // console.log(color)
-  const category = ref.categoryTag.innerHTML;
-  const num = productId;
+
+  // const category = ref.categoryTag.innerHTML;
+  // const num = productId;
   product.selectSize = size;
   product.selectColor = color;
+
   // const data = {
   //   num,
   //   name,
@@ -139,7 +139,6 @@ const drawProduct = async () => {
 //localStorage 저장하기
 const addCart = (id) => {
   const products = JSON.parse(localStorage.getItem("products")) || [];
-  console.log(product.num);
   var i = 0;
   for (i; i < products.length; i++) {
     if (products[i]._id == product._id) {
@@ -152,21 +151,9 @@ const addCart = (id) => {
     localStorage.setItem("products", JSON.stringify(products));
     alert("장바구니에 담겼습니다.");
   }
-  //   if (!products[0]) {
-  //     // products[product._id] = {
-  //     //     productName: product.name,
-  //     //     price: product.price,
-  //     // };
-  //     products.push(product);
-  //     localStorage.setItem("products", JSON.stringify(products));
-  //     alert('장바구니에 담겼습니다.');
-  //     // location.href = "/mypage/myPageCart";
-  // } else {
-  //     alert('이미 담긴 상품입니다.');
-  // }
-  // products.push(product);
-  // localStorage.setItem("products", JSON.stringify(products));
-  location.href = "/mypage/myPageCart";
+  console.log("테스트");
+  console.log(size);
+  console.log(color);
 };
 ref.cartButtonTag.addEventListener("click", addCart);
 // async function insertSizeList() {}
@@ -194,7 +181,6 @@ async function addReview(e) {
       alert(`후기가 성공적으로 등록되었습니다!`);
       window.location.href = `/productDetail/${productId}`;
     }
-
   } catch (err) {
     console.log(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
