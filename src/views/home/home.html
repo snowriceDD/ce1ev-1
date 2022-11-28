@@ -16,174 +16,91 @@
     <link rel="stylesheet" type="text/css" href="home.css" />
     <link rel="stylesheet" type="text/css" href="reset.css" />
     <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
+    <link rel="stylesheet" href="slideStyle.css" />
   </head>
   <title>CE1EV</title>
   <body class="body">
     <!--Header-->
-    <header class="header">
-      <div class="header_logo">
-        <a href="/"> Ce1ev. </a>
-      </div>
-      <ul class="search">
-        <li>
-          <input
-            type="text"
-            placeholder="검색어를 입력하세요."
-            class="header_search"
-            id="text"
+
+    <!--Banner-->
+
+    <!--Slide Img-->
+    <body>
+      <div class="slide">
+        <div class="slide_item">
+          <img
+            src="../image/slide1.png"
+            alt="slide01"
+            style="height: auto; width: 100vw"
           />
-          <button type="button" class="searchBtn">
-            <i class="fa fa-magnifying-glass fa-2x"></i>
-          </button>
-        </li>
-      </ul>
-      <ul class="header_right" id="guest">
-        <li id="header_login">
-          <a href="/login"> LOGIN </a>
-        </li>
-        <li id="header_wish">
-          <a href="/register"> REGISTER </a>
-        </li>
-        <li id="header_cart">
-          <a href="/guest"> GUEST </a>
-        </li>
-        <li id="header_notice">
-          <a href="/notice"> NOTICE </a>
-        </li>
-      </ul>
-      <ul class="header_right hidden" id="user">
-        <li id="header_cart">
-          <a href="/mypage/myPageCart"> CART </a>
-        </li>
-        <li id="header_myPage">
-          <a href="/mypage"> MY PAGE </a>
-        </li>
-        <li id="header_notice">
-          <a href="/notice"> NOTICE </a>
-        </li>
-        <li id="header_logout">
-          <a href="/#" id="logout2"> LOG OUT </a>
-        </li>
-      </ul>
-      <ul class="header_right hidden" id="admin">
-        <li id="header_addProduct">
-          <a href="/products"> ADD-PRODUCT </a>
-        </li>
-        <li id="header_mypage">
-          <a href="/admin"> ADMIN-PAGE </a>
-        </li>
-        <li id="header_notice">
-          <a href="/notice"> NOTICE </a>
-        </li>
-        <li id="header_logout">
-          <a href="/#" id="logout1"> LOG OUT </a>
-        </li>
-      </ul>
-    </header>
-    <!-- Main -->
-    <div class="main">
-      <!--Banner-->
-      <div class="section">
-        <input type="radio" name="slide" id="slide01" checked />
-        <input type="radio" name="slide" id="slide02" />
-        <input type="radio" name="slide" id="slide03" />
-        <input type="radio" name="slide" id="slide04" />
-
-        <div class="slidewrap">
-          <ul class="slidelist">
-            <li>
-              <a>
-                <label for="slide04" class="left"></label>
-                <img src="../image/slide1.png" alt="slide01" />
-                <label for="slide02" class="right" id="right1"></label>
-              </a>
-            </li>
-            <li>
-              <a>
-                <label for="slide01" class="left"></label>
-                <img src="../image/slide2.png" alt="slide02" />
-                <label for="slide03" class="right" id="right2"></label>
-              </a>
-            </li>
-            <li>
-              <a>
-                <label for="slide02" class="left"></label>
-                <img src="../image/slide3.png" alt="slide03" />
-                <label for="slide04" class="right" id="right3"></label>
-              </a>
-            </li>
-            <li>
-              <a>
-                <label for="slide03" class="left"></label>
-                <img src="../image/slide4.png" alt="slide04" />
-                <label for="slide01" class="right" id="right4"></label>
-              </a>
-            </li>
-
-            <div class="slide-control">
-              <div class="control01">
-                <label for="slide04" class="left"></label>
-                <label for="slide02" class="right"></label>
-              </div>
-              <div class="control02">
-                <label for="slide01" class="left"></label>
-                <label for="slide03" class="right"></label>
-              </div>
-
-              <div class="control03">
-                <label for="slide02" class="left"></label>
-                <label for="slide04" class="right"></label>
-              </div>
-
-              <div class="control04">
-                <label for="slide03" class="left"></label>
-                <label for="slide01" class="right"></label>
-              </div>
-            </div>
-          </ul>
         </div>
+        <div class="slide_item">
+          <img
+            src="../image/slide2.png"
+            alt="slide02"
+            style="height: auto; width: 100vw"
+          />
+        </div>
+        <div class="slide_item">
+          <img
+            src="../image/slide3.png"
+            alt="slide03"
+            style="height: auto; width: 100vw"
+          />
+        </div>
+        <div class="slide_item">
+          <img
+            src="../image/slide4.png"
+            alt="slide04"
+            style="height: auto; width: 100vw"
+          />
+        </div>
+
+        <div class="slide_prev_button slide_button">◀</div>
+        <div class="slide_next_button slide_button">▶</div>
+        <ul class="slide_pagination"></ul>
       </div>
+      <script src="slideScript.js"></script>
+    </body>
 
-      <!--Category_button-->
-      <ul class="category" id="category_box">
-        <!-- 동적인 구성 필요 ! 빽에서 가져와서 후리기 ! -->
-        <li>
-          <div class="category_btn" id="all"></div>
-          <p>화제의인물</p>
-        </li>
-        <li>
-          <div class="category_btn" id="idol"></div>
-          <p>아이돌</p>
-        </li>
-        <li>
-          <div class="category_btn" id="actor"></div>
-          <p>배우</p>
-        </li>
-        <li>
-          <div class="category_btn" id="sport"></div>
-          <p>스포츠스타</p>
-        </li>
-        <li>
-          <div class="category_btn" id="singer"></div>
-          <p>가수</p>
-        </li>
-        <li>
-          <div class="category_btn" id="etc"></div>
-          <p>기타</p>
-        </li>
-      </ul>
-      <!-- Product-List -->
-      <div class="section_box"></div>
-    </div>
-
+    <!--Category_button-->
+    <ul class="category">
+      <!-- 동적인 구성 필요 ! 빽에서 가져와서 후리기 ! -->
+      <li>
+        <div class="category_btn" id="all"></div>
+        <p>화제의인물</p>
+      </li>
+      <li>
+        <div class="category_btn" id="idol"></div>
+        <p>아이돌</p>
+      </li>
+      <li>
+        <div class="category_btn" id="actor"></div>
+        <p>배우</p>
+      </li>
+      <li>
+        <div class="category_btn" id="sport"></div>
+        <p>스포츠스타</p>
+      </li>
+      <li>
+        <div class="category_btn" id="singer"></div>
+        <p>가수</p>
+      </li>
+      <li>
+        <div class="category_btn" id="etc"></div>
+        <p>기타</p>
+      </li>
+    </ul>
+    <!-- Product-List -->
+    <div class="section_box"></div>
     <!-------- footer -------->
+    <script src="../mypage/header.js" type="module" defer></script>
     <script src="../mypage/footer.js" type="module" defer></script>
     <script src="changeHeader.js" type="module" defer></script>
     <script src="home.js" type="module" defer></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="product.js" type="module" defer></script>
-    <script src="searching.js" type="module" defer></script>
-    <script src="category.js" type="module" defer></script>
+    <script src="categoryfilter.js" defer></script>
+    <script src="product.js" defer></script>
     <script
       src="https://kit.fontawesome.com/5c0da6133a.js"
       crossorigin="anonymous"
