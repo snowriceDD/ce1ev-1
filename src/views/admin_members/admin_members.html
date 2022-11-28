@@ -31,104 +31,109 @@
     />
   </head>
   <body class="body">
-    <!-- Header -->
-    <header class="header">
-      <div class="header_logo">
-        <a href="/"> Ce1ev. </a>
+    <div class="main">
+      <!-- Header -->
+      <header class="header">
+        <div class="header_logo">
+          <a href="/"> Ce1ev. </a>
+        </div>
+        <ul class="search">
+          <li>
+            <input
+              type="text"
+              placeholder="검색어를 입력하세요."
+              class="header_search"
+              id="text"
+            />
+            <button type="button" class="searchBtn">
+              <i class="fa fa-magnifying-glass fa-2x"></i>
+            </button>
+          </li>
+        </ul>
+        <ul class="header_right" id="guest">
+          <li id="header_login">
+            <a href="/login"> LOGIN </a>
+          </li>
+          <li id="header_wish">
+            <a href="/register"> REGISTER </a>
+          </li>
+          <li id="header_cart">
+            <a href="/guest"> GUEST </a>
+          </li>
+        </ul>
+        <ul class="header_right hidden" id="user">
+          <li id="header_cart">
+            <a href="/mypage/myPageCart"> CART </a>
+          </li>
+          <li id="header_myPage">
+            <a href="/mypage"> MY PAGE </a>
+          </li>
+          <li id="header_logout">
+            <a href="/#" id="logout2"> LOG OUT </a>
+          </li>
+        </ul>
+        <ul class="header_right hidden" id="admin">
+          <li id="header_addProduct">
+            <a href="/products"> ADD-PRODUCT </a>
+          </li>
+          <li id="header_mypage">
+            <a href="/admin"> ADMIN-PAGE </a>
+          </li>
+          <li id="header_logout">
+            <a href="/#" id="logout1"> LOG OUT </a>
+          </li>
+        </ul>
+      </header>
+      <!-- Main -->
+      <h3 class="order_manage">회원관리</h3>
+      <div class="divide_line"></div>
+
+      <li class="order_moniter">
+        <dl>
+          <p class="heading">총 회원 수</p>
+          <p class="counter" id="usersCount"></p>
+        </dl>
+        <dl>
+          <p class="heading">총 관리자 수</p>
+          <p class="counter" id="adminCount"></p>
+        </dl>
+      </li>
+
+      <div class="userContainer">
+        <div class="list_heading">
+          <div class="column1">가입날짜</div>
+          <div class="column1">이메일</div>
+          <div class="column1">이름</div>
+          <div class="column1">권한</div>
+          <div class="column1">관리</div>
+        </div>
+        <div class="listing-user" id="user"></div>
       </div>
-      <ul class="search">
-        <li>
-          <input
-            type="text"
-            placeholder="검색어를 입력하세요."
-            class="header_search"
-            id="text"
-          />
-          <button type="button" class="searchBtn">
-            <i class="fa fa-magnifying-glass fa-2x"></i>
-          </button>
-        </li>
-      </ul>
-      <ul class="header_right" id="guest">
-        <li id="header_login">
-          <a href="/login"> LOGIN </a>
-        </li>
-        <li id="header_wish">
-          <a href="/register"> REGISTER </a>
-        </li>
-        <li id="header_cart">
-          <a href="/guest"> GUEST </a>
-        </li>
-      </ul>
-      <ul class="header_right hidden" id="user">
-        <li id="header_cart">
-          <a href="/mypage/myPageCart"> CART </a>
-        </li>
-        <li id="header_myPage">
-          <a href="/mypage"> MY PAGE </a>
-        </li>
-        <li id="header_logout">
-          <a href="/#" id="logout2"> LOG OUT </a>
-        </li>
-      </ul>
-      <ul class="header_right hidden" id="admin">
-        <li id="header_addProduct">
-          <a href="/products"> ADD-PRODUCT </a>
-        </li>
-        <li id="header_mypage">
-          <a href="/admin"> ADMIN-PAGE </a>
-        </li>
-        <li id="header_logout">
-          <a href="/#" id="logout1"> LOG OUT </a>
-        </li>
-      </ul>
-    </header>
-    <!-- Main -->
-    <h3 class="order_manage">회원관리</h3>
-    <div class="divide_line"></div>
 
-    <li class="order_moniter">
-      <dl>
-        <p class="heading">총 회원 수</p>
-        <p class="counter" id="usersCount"></p>
-      </dl>
-      <dl>
-        <p class="heading">총 관리자 수</p>
-        <p class="counter" id="adminCount"></p>
-      </dl>
-    </li>
+      <div id="modal" class="modal-overlay">
+        <div class="modal-window" id="modalBackground">
+          <div class="close-area" id="modalCloseButton">❎</div>
+          <p class="modal_text">회원 삭제하믄, 되돌릴 수 없어...👻</p>
+          <p class="modal_text">정말 삭제하겄어?</p>
 
-    <div class="userContainer">
-      <div class="list_heading">
-        <div class="column1">가입날짜</div>
-        <div class="column1">이메일</div>
-        <div class="column1">이름</div>
-        <div class="column1">권한</div>
-        <div class="column1">관리</div>
-      </div>
-      <div class="listing-user" id="user"></div>
-    </div>
-
-    <div id="modal" class="modal-overlay">
-      <div class="modal-window" id="modalBackground">
-        <div class="close-area" id="modalCloseButton">❎</div>
-        <p class="modal_text">회원 삭제하믄, 되돌릴 수 없어...👻</p>
-        <p class="modal_text">정말 삭제하겄어?</p>
-
-        <div class="buttons">
-          <button class="button_comp" id="deleteComplete" aria-label="close">
-            네
-          </button>
-          <button
-            class="button_canc"
-            id="deleteCancelButton"
-            aria-label="close"
-          >
-            아니오
-          </button>
+          <div class="buttons">
+            <button class="button_comp" id="deleteComplete" aria-label="close">
+              네
+            </button>
+            <button
+              class="button_canc"
+              id="deleteCancelButton"
+              aria-label="close"
+            >
+              아니오
+            </button>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- footer -->
+
     <script
       src="/admin_members/admin_members_script.js"
       type="module"

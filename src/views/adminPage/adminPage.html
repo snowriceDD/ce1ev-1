@@ -18,35 +18,95 @@
     <link rel="stylesheet" href="../mypage/HeaderFooter.css" />
   </head>
   <body class="body">
-    <!--Header_Navigator-->
-
-    <!-------- basic_info -------->
-    <section class="section">
-      <article class="profile">
-        <div class="picture">
-          <img class="picture" alt="profile_image" src="../image/profile.png" />
+    <div class="main">
+      <!--Header-->
+      <header class="header">
+        <div class="header_logo">
+          <a href="/"> Ce1ev. </a>
         </div>
-        <div class="name"></div>
-        <div class="email"></div>
-        <div class="profile_right">
-          <div>
-            <div class="grade">직책</div>
-            <p class="role"></p>
+        <ul class="search">
+          <li>
+            <input
+              type="text"
+              placeholder="검색어를 입력하세요."
+              class="header_search"
+              id="text"
+            />
+            <button type="button" class="searchBtn">
+              <i class="fa fa-magnifying-glass fa-2x"></i>
+            </button>
+          </li>
+        </ul>
+        <ul class="header_right" id="guest">
+          <li id="header_login">
+            <a href="/login"> LOGIN </a>
+          </li>
+          <li id="header_wish">
+            <a href="/register"> REGISTER </a>
+          </li>
+          <li id="header_cart">
+            <a href="/guest"> GUEST </a>
+          </li>
+        </ul>
+        <ul class="header_right hidden" id="user">
+          <li id="header_cart">
+            <a href="/mypage/myPageCart"> CART </a>
+          </li>
+          <li id="header_myPage">
+            <a href="/mypage"> MY PAGE </a>
+          </li>
+          <li id="header_logout">
+            <a href="/#" id="logout2"> LOG OUT </a>
+          </li>
+        </ul>
+        <ul class="header_right hidden" id="admin">
+          <li id="header_addProduct">
+            <a href="/products"> ADD-PRODUCT </a>
+          </li>
+          <li id="header_mypage">
+            <a href="/admin"> ADMIN-PAGE </a>
+          </li>
+          <li id="header_logout">
+            <a href="/#" id="logout1"> LOG OUT </a>
+          </li>
+        </ul>
+      </header>
+
+      <!-------- basic_info -------->
+      <section class="section">
+        <article class="profile">
+          <div class="picture">
+            <img
+              class="picture"
+              alt="profile_image"
+              src="../image/profile.png"
+            />
           </div>
-        </div>
-      </article>
-      <article class="admin_button_container">
-        <!-- <div id="adminCategory_button hidden">카테고리 관리</div> -->
-        <div id="adminProduct_button"> <a href="/admin/adminProductList">상품 관리</a></div>
-        <div id="adminOrder_button"> <a href="/admin/adminOrder">주문 관리</a></div>
-        <div id="adminMember_button"> <a href="/admin/adminMember">회원 관리</a></div>
-      </article>
-    </section>
-
-    <!-------- mypage_shopping -------->
+          <div class="name"></div>
+          <div class="email"></div>
+          <div class="profile_right">
+            <div>
+              <div class="grade">직책</div>
+              <p class="role"></p>
+            </div>
+          </div>
+        </article>
+        <article class="admin_button_container">
+          <!-- <div id="adminCategory_button hidden">카테고리 관리</div> -->
+          <div id="adminProduct_button">
+            <a href="/admin/adminProductList">상품 관리</a>
+          </div>
+          <div id="adminOrder_button">
+            <a href="/admin/adminOrder">주문 관리</a>
+          </div>
+          <div id="adminMember_button">
+            <a href="/admin/adminMember">회원 관리</a>
+          </div>
+        </article>
+      </section>
+    </div>
 
     <!-------- footer -------->
-    <script src="../mypage/header.js" type="module" defer></script>
     <script src="../mypage/footer.js" type="module" defer></script>
     <script src="../home/changeHeader.js" type="module" defer></script>
     <script src="adminPage.js" type="module" defer></script>

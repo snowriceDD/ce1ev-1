@@ -1,13 +1,15 @@
-.body {
-  margin: auto;
+a {
+  color: #8c7b75;
 }
 
-.body a {
-  color: black;
+.body {
+  padding: 50px 0;
+
+  height: auto;
 }
 
 .body .register-user-form-container {
-  width: 400px;
+  width: 645px;
   height: 824px;
 
   margin: 50px auto;
@@ -51,15 +53,27 @@
   border: 1px solid #000000;
   border-radius: 5px;
 }
-.input {
-  width: 100%;
+
+input {
+  border: 0;
+}
+
+.field .control .input {
+  width: 645px;
   height: 35px;
+  margin: auto;
+  padding: 0 5px;
+
   background-color: #fff;
   border-color: #dbdbdb;
-  border: 1px solid #000000;
-  border-radius: 4px;
-  color: #363636;
+  border-bottom: 1px solid #000000;
 }
+
+.field .control .input:focus {
+  outline: none;
+  border-bottom: solid 1px rgb(140, 192, 222);
+}
+
 .register-user-form-box .title {
   width: 100%;
   font-family: Inknut Antiqua;
@@ -68,7 +82,6 @@
   line-height: 72px;
   letter-spacing: 0;
   text-align: center;
-
 }
 
 .register-user-form-box .button {
