@@ -4,6 +4,7 @@ import * as Api from "/api.js";
 const mypageAccount = document.querySelector("#mypageAccount_button");
 const mypageOrderList = document.querySelector("#mypageOrderList_button");
 const mypageCart = document.querySelector("#mypageCart_button");
+const mypageReview = document.querySelector("#mypageReview_button");
 const mypageWithdrawal = document.querySelector("#mypageWithdrawal_button");
 const nameTag = document.querySelector(".name");
 const emailTag = document.querySelector(".email");
@@ -21,27 +22,39 @@ async function addAllEvent() {
   emailTag.innerText = `${email}`;
   roleTag.innerText = `${role}`;
 
-function moveTomypageAccount() {
-  window.location.assign("/mypage/account");
-}
+  function moveTomypageAccount() {
+    window.location.assign("/mypage/account");
+  }
 
-mypageAccount.addEventListener("click", moveTomypageAccount);
+  mypageAccount.addEventListener("click", moveTomypageAccount);
 
-function moveTomypageOrderList() {
-  window.location.assign(`/mypage/myPageOrderList/${email}`);
-}
+  function moveTomypageOrderList() {
+    window.location.assign(`/myPageOrderList/${email}`);
+  }
 
-mypageOrderList.addEventListener("click", moveTomypageOrderList);
+  mypageOrderList.addEventListener("click", moveTomypageOrderList);
 
-function moveTomypageCart() {
-  window.location.assign("/mypage/myPageCart");
-}
+  function moveTomypageCart() {
+    window.location.assign("/mypage/myPageCart");
+  }
 
-mypageCart.addEventListener("click", moveTomypageCart);
+  mypageCart.addEventListener("click", moveTomypageCart);
 
-function moveTomypageWithdrawal() {
-  window.location.assign("/mypage/withdrawal");
-}
+  function moveTomypageReview() {
+    window.location.assign("/mypage/myPageReview");
+  }
 
-mypageWithdrawal.addEventListener("click", moveTomypageWithdrawal);
+  mypageReview.addEventListener("click", moveTomypageReview);
+
+  function moveTomypageWithdrawal() {
+    window.location.assign("/mypage/withdrawal");
+  }
+
+  mypageReview.addEventListener("click", moveTomypageReview);
+
+  function moveTomypageWithdrawal() {
+    window.location.assign("/mypage/withdrawal");
+  }
+
+  mypageWithdrawal.addEventListener("click", moveTomypageWithdrawal);
 }

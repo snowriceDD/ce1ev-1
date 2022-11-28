@@ -12,6 +12,7 @@ export class ProductModel {
     const product = await Product.findOne({ _id : productId });
     return product;
   }
+
   async findNewest() {
     const product = await Product.find().sort({ num: -1 });
     return product;
@@ -41,6 +42,16 @@ export class ProductModel {
     const createdNewProduct = await Product.create(productInfo);
     return createdNewProduct;
   }
+
+  // async createNewLike(likeInfo) {
+  //   const createdNewLikecount = await Product.create(likeInfo);
+  //   return createdNewLikecount;
+  // }
+
+  // async createNewLike(likeInfo) {
+  //   const createdNewLikecount = await Product.create(likeInfo);
+  //   return createdNewLikecount;
+  // }
 
   async findAll() {
     const product = await Product.find({});
