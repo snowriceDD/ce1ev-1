@@ -13,6 +13,7 @@ viewsRouter.use("/guest", serveStatic("guest"));
 viewsRouter.use("/products", serveStatic("addProduct"));
 viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
 viewsRouter.use("/mypage", serveStatic("mypage"));
+viewsRouter.use("/order_now", serveStatic("order_now"));
 viewsRouter.use("/order", serveStatic("order"));
 viewsRouter.use("/updateProduct", serveStatic("updateProduct"));
 viewsRouter.use("/notice", serveStatic("notice"));
