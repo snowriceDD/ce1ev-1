@@ -6,7 +6,6 @@
   height: 150px;
   background: #f4f4f4;
   gap: 35px;
-  padding: 0 100px;
   width: 100vw;
   flex-wrap: wrap;
 }
@@ -27,7 +26,6 @@
 .search {
   display: flex;
   width: 50vw;
-  
 }
 .header .search > li {
   position: relative;
@@ -89,6 +87,9 @@
   width: 100vw;
   height: 200px;
   background: #f4f4f4;
+
+  position: relative;
+  transform: translateY(-100%);
 }
 
 .addressLink {
@@ -145,12 +146,11 @@
   }
 }
 
-@media (max-width : 1200px) {
-
+@media (max-width: 1200px) {
   /* 헤더 파트 반응형 */
-  .header { 
+  .header {
     justify-content: center;
-    height: 300px; 
+    height: 300px;
     padding: 0px 5%;
     gap: 0px;
     width: auto;
@@ -158,10 +158,12 @@
 
   .header .header_logo a {
     gap: 0px;
-    width: 100%
+    width: 100%;
   }
-  
-  .search { width: 100%; }
+
+  .search {
+    width: 100%;
+  }
 
   .header .header_right {
     justify-content: center;
@@ -170,5 +172,4 @@
   }
 
   /* 푸터 파트 반응형 */
-
 }
