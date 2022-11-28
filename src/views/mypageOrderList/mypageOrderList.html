@@ -13,13 +13,53 @@
       href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
       rel="stylesheet"
     />
+
+    <!-- <link rel="stylesheet" type="text/css" href="../home/reset.css" /> -->
     <link rel="stylesheet" type="text/css" href="mypageOrderList.css" />
+<<<<<<< HEAD
+    <!-- <link rel="stylesheet" type="text/css" href="HeaderFooter.css" /> -->
+    <script>
+      window.addEventListener("load", () => {
+        const moreBtn = document.querySelector(".button");
+        const content = document.querySelector(".content_container");
+        moreBtn.addEventListener("click", moreInfo);
+
+        function moreInfo() {
+          const a = `
+          
+          <div class="content">
+            <div class="first">
+            <img class="product_img" />
+            <div class="product_script">
+              <p class="product_name">
+                상품명 : Undermycar Operation Chromite Kerberos Oversized
+                Varsity Jacket Ox Blood - 22FW
+              </p>
+              <div class="order_number">주문 번호 : 20221102</div>
+              <div class="order_date">주문 일자 : 2022-11-02</div>
+            </div>
+          </div>
+          <div class="product_price">
+            390,000원<br />
+            (1개)
+          </div>
+          <div>배송중</div>
+            </div>
+    
+          `;
+
+          content.insertAdjacentHTML("beforeend", a);
+        }
+      });
+    </script>
+=======
     <link rel="stylesheet" type="text/css" href="reset.css" />
     <link rel="stylesheet" type="text/css" href="HeaderFooter.css" />
+>>>>>>> 103d4e889ed7322efa55b7bf2aa0a3040ffcde49
   </head>
   <body class="body">
     <!-- Header -->
-    <header class="header">
+    <!-- <header class="header">
       <div class="header_logo">
         <a href="/"> Ce1ev. </a>
       </div>
@@ -69,16 +109,42 @@
           <a href="/#" id="logout1"> LOG OUT </a>
         </li>
       </ul>
-    </header>
+    </header> -->
 
     <section class="section">
       <article class="my_shopping">
         <h1>주문내역 조회</h1>
         <div class="title">
-          <div class="first">주문 정보</div>
+          <div class="first">
+            주문 정보
+            <button class="button">click</button>
+          </div>
           <div>주문 금액(수량)</div>
           <div>주문 상태</div>
         </div>
+<<<<<<< HEAD
+        <div class="content_container">
+          <div class="content">
+            <div class="first">
+              <img class="product_img" />
+              <div class="product_script">
+                <p class="product_name">
+                  상품명 : Undermycar Operation Chromite Kerberos Oversized
+                  Varsity Jacket Ox Blood - 22FW
+                </p>
+                <div class="order_number">주문 번호 : 20221102</div>
+                <div class="order_date">주문 일자 : 2022-11-02</div>
+              </div>
+            </div>
+            <div class="product_price">
+              390,000원<br />
+              (1개)
+            </div>
+            <div>배송중</div>
+          </div>
+        </div>
+=======
+>>>>>>> 103d4e889ed7322efa55b7bf2aa0a3040ffcde49
       </article>
     </section>
 
@@ -92,9 +158,12 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
-    <script src="mypageOrderList.js" type="module" defer></script>
-    <script src="header.js" type="module" defer></script>
+    <!-- <script src="mypageOrderList.js" type="module" defer></script>
     <script src="footer.js" type="module" defer></script>
+<<<<<<< HEAD
+    <script src="../home/changeHeader.js" type="module" defer></script> -->
+=======
     <script src="changeHeader.js" type="module" defer></script>
+>>>>>>> 103d4e889ed7322efa55b7bf2aa0a3040ffcde49
   </body>
 </html>
