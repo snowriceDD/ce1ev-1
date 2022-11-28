@@ -2,6 +2,12 @@
   display: none !important;
 }
 
+.main {
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 200px;
+}
+
 .section input[id*="slide"] {
   display: none;
 }
@@ -184,7 +190,7 @@
   float: right;
 }
 
-.like_count{
+.like_count {
   color: #999;
   margin-top: 15px;
 }
@@ -241,4 +247,3 @@
 
   color: #000000;
 }
-

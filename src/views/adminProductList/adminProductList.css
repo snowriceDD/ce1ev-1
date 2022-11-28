@@ -1,3 +1,19 @@
+.main {
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 200px;
+}
+
+.order_manage {
+  margin-top: 50px;
+  margin-bottom: 25px;
+
+  font-size: 35px;
+  font-weight: 900;
+
+  text-align: center;
+}
+
 .hidden {
   display: none !important;
 }
@@ -8,15 +24,10 @@
   width: 100vw;
 }
 .body .section_box {
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; */
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 40px;
-  margin: 0 60px;
+  margin-top: 50px;
 }
 
 .pd_block {
