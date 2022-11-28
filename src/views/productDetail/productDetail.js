@@ -165,12 +165,18 @@ const addCart = (id) => {
     localStorage.setItem("products", JSON.stringify(products));
     alert("장바구니에 담겼습니다.");
   }
-  console.log("테스트");
-  console.log(size);
-  console.log(color);
 };
 ref.cartButtonTag.addEventListener("click", addCart);
 
+//주문 바로하기
+const buyNow =() =>{
+  localStorage.removeItem("buyNowProducts");
+  const products = JSON.parse(localStorage.getItem("buyNowProducts")) || [];
+    products.push(product);
+    localStorage.setItem("buyNowProducts", JSON.stringify(products));
+    alert("구매페이지로 이동합니다.");
+  }
+ref.buyButttonTag.addEventListener('click', buyNow);
 //함수 실행
 const render = () => {
   drawProduct();
@@ -187,7 +193,7 @@ const initialize = async () => {
 };
 
 initialize().then(() => render());
-ref.buyButttonTag.addEventListener("click", () => (location.href = `/order`));
+ref.buyButttonTag.addEventListener("click", () => (location.href = `/order_now`));
 
 // Header&Footer
 const body = document.querySelector(".body");

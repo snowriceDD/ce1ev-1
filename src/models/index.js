@@ -28,4 +28,5 @@ export * from "./product-model";
 export * from "./order-model";
 export * from "./review-model";
 export * from "./post-model";
+export * from "./guest-model";
 // export * from "./SelectedProduct-model";
