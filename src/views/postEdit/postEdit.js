@@ -12,12 +12,12 @@ let postData;
 async function insertEditElement() {
     const postNo = window.location.pathname.split("/")[2];
 
-    postData = await Api.get(`/api/notice/${postNo}`);
+    postData = await Api.get(`/api/posts/${postNo}`);
 
     const {title, user, password, content} = postData;
 
     titleInput.value = title;
-    userInput.valeu = user;
+    userInput.value = user;
     passwordInput.value = password;
     contentInput.value = content;
 

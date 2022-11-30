@@ -77,9 +77,11 @@ viewsRouter.use("/notice/:postNo", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/notice/view.html"));
 });
 
-viewsRouter.use("/postEdit/:postNo", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/postEdit/postEdit.html"));
-});
+viewsRouter.use("/postEdit/:postNo", serveStatic("postEdit"));
+
+// viewsRouter.use("/postEdit/:postNo", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../views/postEdit/postEdit.html"));
+// });
 
 viewsRouter.use("/productDetail/:productId/updateProduct", serveStatic("updateProduct"));
 

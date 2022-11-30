@@ -39,16 +39,33 @@ async function insertPostElement() {
       <div class="bt_wrap">
         <a href="/notice" class="on">목록</a>
         <div id="edit_${postNo}" class="edit">수정</div>
+        <div id="delete${postNo}" class="edit">삭제</div>
       </div>
         `
     )
 
     const editNoBtn = document.getElementById(`edit_${postNo}`);
-    console.log(editNoBtn);
+    const deleteNoBtn = document.getElementById(`delete${postNo}`);
+
     editNoBtn.addEventListener("click", moveToEditPost);
+    deleteNoBtn.addEventListener("click", deletePost);
 
     function moveToEditPost() {
         window.location.assign(`/postEdit/${postNo}`);
+    }
+
+    async function deletePost() {
+      const value = confirm("해당 게시글을 삭제하시겠습니까?")
+      if(value) {
+        try{
+          await Api.delete("/api/posts", postNo);
+          alert("게시물이 삭제 되었습니다.");
+
+          window.location.href="/notice";
+        }catch(err) {
+          alert(`게시물 삭제 중 오류가 발생하였습니다. ${err}`);
+        }
+      }
     }
 
 }
