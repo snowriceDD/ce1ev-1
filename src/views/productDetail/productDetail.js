@@ -104,8 +104,18 @@ const drawProduct = async () => {
       `
     );
   });
-  const value_size = document.getElementById("sizeTag");
-  const value_color = document.getElementById("colorTag");
+  const name = ref.nameTag.innerHTML;
+  const brand = ref.brandTag.innerHTML;
+  const price = ref.priceTag.innerHTML;
+  const size = value_size.options[value_size.selectedIndex].text;
+  const color = value_color.options[value_color.selectedIndex].text;
+  const category = ref.categoryTag.innerHTML;
+  const num = productId;
+
+  // FIX] 여기는 처음 로딩할때 실행되고 끝나는 함수라서 여기서 사이즈를 바꿀 수 없음
+  // product.selectSize = size;
+  // product.selectColor = color;
+
   review.forEach((review) => {
     const review_no = review.reviewNo;
     const review_email = review.userId;

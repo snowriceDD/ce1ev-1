@@ -1,21 +1,11 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.section {
-  flex: 1;
-}
-
-.section {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
 }
 
-.section .title {
+.container .title {
   font-family: Gothic A1;
   font-size: 24px;
   font-weight: 700;
@@ -23,12 +13,12 @@
   letter-spacing: 0em;
   text-align: left;
 }
-.section .section_main {
+.container .main {
   display: flex;
   width: 800px;
   justify-content: space-between;
 }
-.section .option {
+.container .option {
   width: 830px;
   height: 50px;
   display: flex;
@@ -36,17 +26,17 @@
   gap: 10px;
 }
 
-.section .option .input {
+.container .option .input {
   width: 400px;
   height: 30px;
 }
 
-.section .option .pay {
+.container .option .pay {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-.section .option .pay .coupon {
+.container .option .pay .coupon {
   width: 400px;
   display: flex;
   flex-direction: column;

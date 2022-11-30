@@ -105,13 +105,9 @@ nav,
 section {
   display: block;
 }
-html {
-  height: 100%;
-}
 body {
   line-height: 1;
   overflow-x: hidden;
-  height: 100%;
 }
 ol,
 ul {
@@ -133,6 +129,6 @@ table {
   border-spacing: 0;
 }
 a {
-  color: #8c7b75;
+  color: 8c7b75;
   text-decoration: none;
 }

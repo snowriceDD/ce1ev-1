@@ -5,7 +5,7 @@
 
 .order_moniter {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .order_moniter dl {
@@ -28,6 +28,7 @@
   text-align: center;
   margin: 15px 0px;
 }
+
 
 .selectBox {
   position: relative;
@@ -55,11 +56,11 @@
   font-size: 16px;
 }
 .selectBox .icoArrow {
-  position: absolute; 
-  top: 0; 
-  right: 0; 
-  z-index: 1; 
-  width: 35px; 
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 35px;
   height: inherit;
   border-left: 2px solid rgb(65, 65, 65);
   display: flex;
@@ -69,7 +70,7 @@
 
 .selectBox .icoArrow img {
   width: 50%;
-  transition: .3s; 
+  transition: .3s;
 }
 
 .selectBox .select:focus + .icoArrow img {
@@ -146,17 +147,19 @@
 .button_comp {
   width: 100px;
   height: 50px;
-  font-size: 30px;
+  font-size: 20px;
   background: #009991;
   margin: 10px 20px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .button_canc {
   width: 100px;
   height: 50px;
-  font-size: 30px;
+  font-size: 20px;
   background: #5d5d5d;
   margin: 10px 20px;
   border-radius: 5px;
+  cursor: pointer;
 }

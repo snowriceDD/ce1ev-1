@@ -3,6 +3,7 @@ import { checkLogin, getToday , validateEmail} from "../useful-functions.js";
 // import { addCommas, checkLogin } from "../useful-functions";
 
 let cart = JSON.parse(localStorage.getItem("orderProducts"));
+
 const inputnameTag = document.querySelector("#fullNameInput");
 const addressTag = document.querySelector("#addressInput");
 const emailTag = document.querySelector("#emailInput");

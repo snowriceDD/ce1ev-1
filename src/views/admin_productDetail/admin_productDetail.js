@@ -1,81 +1,10 @@
-import * as Api from "/api.js";
+// import { name } from "ejs";
 
-const productId = window.location.pathname.split("/")[3];
+// import * as Api from "/api.js";
 
-let product = {};
-const ref = {
-  sizeBlockTag: document.querySelector(".size_block"),
-  sizeTag: document.querySelector("selectBox"),
-  productImageTag: document.querySelector(".bb2"),
-  brandTag: document.querySelector(".pd_brd"),
-  nameTag: document.querySelector(".pd_name"),
-  categoryTag: document.querySelector(".tag_category"),
-  descriptionTag: document.querySelector(".tag_name"),
-  priceTag: document.querySelector(".price_li"),
-
-  addButtonTag: document.querySelector(".pd_add"),
-  updateButtonTag: document.querySelector(".pd_fix"),
-  deleteButtonTag: document.querySelector(".pd_delete")
-};
 const body = document.querySelector(".body");
 
-const drawProduct = async () => {
-  ref.productImageTag.setAttribute("src", product.img);
-  ref.brandTag.innerHTML = product.brand;
-  ref.nameTag.innerHTML = product.name;
-  ref.categoryTag.innerHTML = product.category;
-  ref.descriptionTag.innerHTML = product.description;
-  ref.priceTag.innerHTML = product.price;
-  // TODO] 사이즈 및 색상 추가 해야됨
-
-  const name = ref.nameTag.innerHTML;
-  const brand = ref.brandTag.innerHTML;
-  const price = ref.priceTag.innerHTML;
-  const category = ref.categoryTag.innerHTML;
-  // TODO] 사이즈 및 색상 추가 해야됨
-};
-
-function addProduct() {
-  window.location.assign("/products");
-}
-
-function moveToadminProductUpdate() {
-  location.href = `/adminProductDetail/${productId}/updateProduct`
-}
-
-async function deleteProduct() {
-  const value = confirm("진짜 삭제하시겠습니까?");
-
-  if (value === true) {
-    try {
-      await Api.delete("/api/products", productId);
-
-      alert("상품이 삭제되었습니다.");
-      window.location.href = "/";
-    } catch (err) {
-      next(err);
-    }
-  }
-}
-
-ref.addButtonTag.addEventListener("click", addProduct);
-ref.updateButtonTag.addEventListener("click", moveToadminProductUpdate);
-ref.deleteButtonTag.addEventListener("click", deleteProduct);
-
-const render = () => {
-  drawProduct();
-};
-
-const initialize = async () => {
-  const res = await fetch(`/api/productDetail/${productId}`);
-
-  product = await res.json();
-  product = product.data
-};
-
 window.addEventListener("load", () => {
-
-  console.log()
   body.insertAdjacentHTML(
     "afterBegin",
     `
@@ -159,5 +88,69 @@ window.addEventListener("load", () => {
   `
   );
 });
+// const ref = {
+//   // sizeBlockTag: document.querySelector(".size_block"),
+//   // sizeTag: document.querySelector("selectBox"),
+//   updateButttonTag: document.querySelector(".pd_fix"),
+//   deleteButtonTag: document.querySelector(".pd_delete"),
+//   // productImageTag: document.querySelector(".bb2"),
+//   brandTag: document.querySelector(".pd_brd"),
+//   nameTag: document.querySelector(".pd_name"),
+//   // categoryTag: document.querySelector(".tag_category"),
+//   // descriptionTag: document.querySelector(".tag_name"),
+//   // priceTag: document.querySelector(".total_price"),
+// };
+// const productId = window.location.pathname.split("/")[-1];
+// let product = {};
+// let selectSize = "";
 
-initialize().then(() => render());
+// //상품상세페이지 구현
+// const drawProduct = async () => {
+//   // ref.productImageTag.setAttribute("src", product.img);
+//   ref.brandTag.innerHTML = product.brand;
+//   ref.nameTag.innerHTML = product.name;
+//   // ref.categoryTag.innerHTML = product.category;
+//   // ref.descriptionTag.innerHTML = product.description;
+//   // ref.priceTag.innerHTML = product.price;
+//   // [product.size].forEach((size)=>{
+//   //     sizeBlockTag.insertAdjacentHTML(
+//   //         "beforeend",
+//   //         `
+//   //         <button id="content_box" class="size" type="button">${size}</button>
+//   //         `
+//   //     )
+//   // });
+//   const name = ref.nameTag.innerHTML;
+//   const brand = ref.brandTag.innerHTML;
+//   // const price = ref.priceTag.innerHTML;
+//   // const size =
+//   // const color =
+//   // const category = ref.categoryTag.innerHTML;
+
+//   const data = {
+//     name,
+//     brand,
+//     // price,
+//     // size,
+//     // color,
+//     // category,
+//   };
+//   const result = await fetch("/api/selectedProducts", data);
+//   console.log(result);
+// };
+// async function insertSizeList() {}
+// //함수 실행
+// const render = () => {
+//   drawProduct();
+// };
+
+// const initialize = async () => {
+//   const res = await fetch(`/api/productDetail/${productId}`);
+//   product = await res.json();
+//   console.log(product);
+// };
+// initialize().then(() => render());
+// ref.updateButttonTag.addEventListener(
+//   "click",
+//   () => (location.href = `/admin/adminProduct`)
+// );

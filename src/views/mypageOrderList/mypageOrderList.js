@@ -1,8 +1,8 @@
 // import { checkLogin } from "../useful-functions.js";
 import * as Api from "/api.js";
 
-const section = document.querySelector(".title");
-const product = document.querySelector(".product_name");
+const section = document.querySelector('.title')
+const product = document.querySelector('.product_name')
 const userEmail = window.location.pathname.split("/")[2];
 
 // checkLogin();
@@ -29,6 +29,7 @@ async function insertOrderListElement() {
       section.insertAdjacentHTML(
         "afterend",
         `<div class="content">
+
             <div class="first">
               <img class="product_img" src="${img}"/>
               <div class="product_script">
@@ -45,7 +46,7 @@ async function insertOrderListElement() {
             </div>
             <div>${status}</div>
           </div>`
-      );
-    });
-  });
-}
+        )
+      })
+    })
+}   
