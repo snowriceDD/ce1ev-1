@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+</html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>주문하기</title>
+    <!-- bulma css -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Itim&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
+    rel="stylesheet"
+  />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <!-- 폰트 어썸: 아이콘 -->
+    <script
+      defer
+      src="https://kit.fontawesome.com/7630448495.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- 커스텀 css, js -->
+    <link rel="stylesheet" href="order_now.css" />
+    <link rel="stylesheet" href="../mypage/HeaderFooter.css" />
+    <!-- <link rel="stylesheet" href="../navBar/navBar.css" />
+    <script src="../navBar/navBar.js" type="module" defer></script> -->
+  </head>
+
+  <body class="body">
+    <!--Header-->
+    <header class="header">
+      <div class="header_logo">
+        <a href="/"> Ce1ev. </a>
+      </div>
+      <ul class="search">
+        <li>
+          <input
+            type="text"
+            placeholder="검색어를 입력하세요."
+            class="header_search"
+            id="text"
+          />
+          <button type="button" class="searchBtn">
+            <i class="fa fa-magnifying-glass fa-2x"></i>
+          </button>
+        </li>
+      </ul>
+      <ul class="header_right" id="guest">
+        <li id="header_login">
+          <a href="/login"> LOGIN </a>
+        </li>
+        <li id="header_wish">
+          <a href="/register"> REGISTER </a>
+        </li>
+        <li id="header_cart">
+          <a href="/guest"> GUEST </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="user">
+        <li id="header_cart">
+          <a href="/mypage/myPageCart"> CART </a>
+        </li>
+        <li id="header_myPage">
+          <a href="/mypage"> MY PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout2"> LOG OUT </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="admin">
+        <li id="header_addProduct">
+          <a href="/products"> ADD-PRODUCT </a>
+        </li>
+        <li id="header_mypage">
+          <a href="/admin"> ADMIN-PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout1"> LOG OUT </a>
+        </li>
+      </ul>
+    </header>
+    <section class="container">
+            <h1 class="title">주문하기</h1>
+        <div class="main">
+            <form class="option">
+                <p>
+                    <strong style="font-size: 15px; font-weight: 600">Info</strong>
+                </p>
+                    <div class="field">
+                        <label class="label" for="fullNameInput" >name</label>
+                        <div class="control">
+                            <input
+                            class="input"
+                            id="fullNameInput"
+                            type="text"
+                            autocomplete="on"
+                            />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="addressInput">address</label>
+                        <div class="control">
+                        <input
+                            class="input"
+                            id="addressInput"
+                            type="text"
+                            autocomplete="on"
+                        />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="emailInput">email</label>
+                        <div class="control">
+                            <input
+                            class="input"
+                            id="emailInput"
+                            type="email"
+                            autocomplete="on"
+                            />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="phoneNumberInput">phone number</label>
+                        <div class="control">
+                          <input
+                            class="input"
+                            id="phoneNumberInput"
+                            type="text"
+                            placeholder="010-1234-5678"
+                            autocomplete="on"
+                          />
+                        </div>
+                    </div>
+                    <p>
+                        <strong style="font-size: 15px; font-weight: 600">쿠폰 및 결제 방법</strong>
+                    </p>
+                <div class="pay">
+                    <div class="coupon">
+                        <div>Coupon</div>
+                        <select>
+                            <option value="1">배송비10% 할인</option>
+                            <option value="2">1000원 할인</option>
+                            <option value="3">2000원 할인</option>
+                            <option value="4">3000원 할인</option>
+                        </select>
+                    </div>
+                    <div class="payMethod">  
+                        <div>결제 방법</div>
+                        <input type="radio" name="payment" id="creditCard" value="creditCard">신용카드
+                        <input type="radio" name="payment" id="deposit" value="deposit">무통장입금
+                    </div>
+                </div>
+                <button class="payButton">주문하기</button>
+            </form>
+            <div class="total">
+                </div> 
+                <div class="totalProduct">
+                    <div class="info">
+                        <ul class="totalProductInfo">
+                            <li id="count">
+                                총 수량
+                                <div class="totalCount">
+                                    4개
+                                </div>
+                            </li>
+                            <li id="discount">
+                                총 할인
+                                <div>
+                                    0원
+                                </div>
+                            </li>
+                            <li id="deliveryFee">
+                                배송비
+                                <div>
+                                    3,000원
+                                </div>
+                            </li>
+                            <li id="totalPrice">
+                                <strong>총 금액</strong>
+                                <div class="AllPrice">
+                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="order_now.js" type="module" defer></script> 
+    <script src="../mypage/guestHeader.js"></script>
+    <script src="../mypage/Footer.js"></script>  </body>
+</html>
