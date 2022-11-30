@@ -16,6 +16,7 @@ async function insertOrderListElement() {
   // console.log(email)
   const res = await fetch(`/api/myOrders/${userEmail}`);
   orderLists = await res.json();
+  console.log(orderLists)
   orderLists.forEach((orderList) => {
     orderList.products.forEach((productList) => {
       const name = productList.name;

@@ -76,7 +76,7 @@ if (token) {
         );
         const payMethod = payment;
         const products = cart;
-        const cost = parseInt(document.querySelector(".AllPrice").innerHTML);
+        const cost = totalPrice.innerHTML;
         const count = cart.length;
         const data = { orderNumber, products, cost, count, payMethod, email };
 
@@ -113,8 +113,8 @@ if (token) {
         
 
         try {
-          const user = {name, email, password, phoneNum, address, role, isMember};
-          await Api.post("/api/register", user);
+          // const user = {name, email, password, phoneNum, address, role, isMember};
+          // await Api.post("/api/register", user);
           
           alert(`guest 주문이 완료 되었습니다. 주문번호(${password})를 꼭 기억하여 password로 입력해주십시오.`)
           localStorage.clear();
@@ -202,9 +202,6 @@ async function insertOrderElement() {
     cost += parseInt(price.replace(/(,|개|원)/g, ""));
   });
   const totalPrice = document.querySelector(".AllPrice");
-  const sideCost = String(cost);
-  // totalPrice.innerHTML = parseInt(sideCost.replace(/(,|개|원)/g, ""));
-  totalPrice.innerHTML = String(cost);
-
+  totalPrice.innerHTML = cost;
   document.querySelector(".totalCount").innerHTML = cart.length;
 }
