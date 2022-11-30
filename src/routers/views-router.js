@@ -13,12 +13,10 @@ viewsRouter.use("/guest", serveStatic("guest"));
 viewsRouter.use("/products", serveStatic("addProduct"));
 viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
 viewsRouter.use("/mypage", serveStatic("mypage"));
-viewsRouter.use("/order_now", serveStatic("order_now"));
 viewsRouter.use("/order", serveStatic("order"));
 viewsRouter.use("/updateProduct", serveStatic("updateProduct"));
 viewsRouter.use("/notice", serveStatic("notice"));
 viewsRouter.use("/mypageOrderList/:email", serveStatic("mypageOrderList"));
-viewsRouter.use("/guestOrderList/:orderNumber", serveStatic("guestOrderList"));
 
 viewsRouter.use("/mypage/account", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageAccount.html"));
@@ -46,15 +44,6 @@ viewsRouter.get("/admin/adminProductList", (req, res) => {
     path.join(__dirname, "../views/adminProductList/adminProductList.html")
   );
 });
-
-viewsRouter.get("/admin/adminProductDetail/:productId", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "../views/admin_ProductDetail/admin_ProductDetail.html")
-  );
-});
-
-viewsRouter.use("/adminProductDetail/:productId/updateProduct", serveStatic("updateProduct"));
-
 viewsRouter.use("/admin/adminOrder", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/admin_orders/admin_orders.html"));
 });
@@ -62,6 +51,9 @@ viewsRouter.use("/admin/adminMember", (req, res) => {
   res.sendFile(
     path.join(__dirname, "../views/admin_members/admin_members.html")
   );
+});
+viewsRouter.use("/admin/adminReview", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/admin_reviews/admin_reviews.html"));
 });
 viewsRouter.use("/notice/veiwList", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/notice/view.html"));
@@ -80,6 +72,7 @@ viewsRouter.use("/notice/:postNo", (req, res) => {
 });
 
 viewsRouter.use("/productDetail/:productId/updateProduct", serveStatic("updateProduct"));
+
 
 // views 폴더의 최상단 파일인 rabbit.png, api.js 등을 쓸 수 있게 함
 viewsRouter.use("/", serveStatic(""));

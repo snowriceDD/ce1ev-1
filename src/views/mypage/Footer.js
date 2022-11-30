@@ -1,7 +1,7 @@
-const main = document.querySelector(".main");
+const body = document.querySelector(".body");
 
 window.onload = () => {
-  main.insertAdjacentHTML(
+  body.insertAdjacentHTML(
     "beforeEnd",
     `
   <footer class="footer">

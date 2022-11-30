@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -6,17 +5,17 @@
     <title>주문하기</title>
     <!-- bulma css -->
     <link
-      href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Itim&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
-      rel="stylesheet"
-    />
+    href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Itim&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
+    rel="stylesheet"
+  />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
@@ -28,254 +27,275 @@
       crossorigin="anonymous"
     ></script>
     <!-- 커스텀 css, js -->
-    <link rel="stylesheet" type="text/css" href="memberOrder.css" />
+    <link rel="stylesheet" type="text/css" href="/memberOrder/memberOrder.css" />
     <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
   </head>
 
   <body class="body">
-    <div class="main">
-      <!-- Header -->
-      <header class="header">
-        <div class="header_logo">
-          <a href="/"> Ce1ev. </a>
-        </div>
-        <ul class="search">
-          <li>
-            <input
-              type="text"
-              placeholder="검색어를 입력하세요."
-              class="header_search"
-              id="text"
-            />
-            <button type="button" class="searchBtn">
-              <i class="fa fa-magnifying-glass fa-2x"></i>
-            </button>
-          </li>
-        </ul>
-        <ul class="header_right" id="guest">
-          <li id="header_login">
-            <a href="/login"> LOGIN </a>
-          </li>
-          <li id="header_wish">
-            <a href="/register"> REGISTER </a>
-          </li>
-          <li id="header_cart">
-            <a href="/guest"> GUEST </a>
-          </li>
-        </ul>
-        <ul class="header_right hidden" id="user">
-          <li id="header_cart">
-            <a href="/mypage/myPageCart"> CART </a>
-          </li>
-          <li id="header_myPage">
-            <a href="/mypage"> MY PAGE </a>
-          </li>
-          <li id="header_logout">
-            <a href="/#" id="logout2"> LOG OUT </a>
-          </li>
-        </ul>
-        <ul class="header_right hidden" id="admin">
-          <li id="header_addProduct">
-            <a href="/products"> ADD-PRODUCT </a>
-          </li>
-          <li id="header_mypage">
-            <a href="/admin"> ADMIN-PAGE </a>
-          </li>
-          <li id="header_logout">
-            <a href="/#" id="logout1"> LOG OUT </a>
-          </li>
-        </ul>
-      </header>
-      <div class="section">
-        <h1 class="title">주문하기</h1>
-        <div class="section_main">
-          <form class="option">
-            <p>
-              <strong style="font-size: 15px; font-weight: 600">Info</strong>
-            </p>
-            <div class="field">
-              <label class="label" for="fullNameInput">name</label>
-              <div class="control">
-                <input
-                  class="input"
-                  id="fullNameInput"
-                  type="text"
-                  autocomplete="on"
-                />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label" for="addressInput">address</label>
-              <div class="control">
-                <input
-                  class="input"
-                  id="addressInput"
-                  type="text"
-                  autocomplete="off"
-                />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label" for="emailInput">email</label>
-              <div class="control">
-                <input
-                  class="input"
-                  id="emailInput"
-                  type="email"
-                  autocomplete="on"
-                />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label" for="phoneNumberInput">phone number</label>
-              <div class="control">
-                <input
-                  class="input"
-                  id="phoneNumberInput"
-                  type="text"
-                  placeholder="010-1234-5678"
-                  autocomplete="off"
-                />
-              </div>
-            </div>
-            <p>
-              <strong style="font-size: 15px; font-weight: 600"
-                >쿠폰 및 결제 방법</strong
-              >
-            </p>
-            <div class="pay">
-              <div class="coupon">
-                <div>Coupon</div>
-                <select>
-                  <option value="1">배송비10% 할인</option>
-                  <option value="2">1000원 할인</option>
-                  <option value="3">2000원 할인</option>
-                  <option value="4">3000원 할인</option>
-                </select>
-              </div>
-              <div class="payMethod">
-                <div>결제 방법</div>
-                <input
-                  type="radio"
-                  name="payment"
-                  id="creditCard"
-                  value="creditCard"
-                />신용카드
-                <input
-                  type="radio"
-                  name="payment"
-                  id="deposit"
-                  value="deposit"
-                />무통장입금
-              </div>
-            </div>
-          </form>
-          <div class="total">
-            <p>총 결제 금액</p>
-            <div class="product">
-              <div class="box"></div>
-              <div class="info">
-                <ul class="productInfo">
-                  <li id="name">언더마이카 트랙 자켓</li>
-                  <li id="color">
-                    color:
-                    <div>black</div>
-                  </li>
-                  <li id="size">
-                    size:
-                    <div>M</div>
-                  </li>
-                  <li id="count">
-                    count:
-                    <div>1</div>
-                  </li>
-                  <li id="price">
-                    price:
-                    <div>1,000,000원</div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="product">
-              <div class="box"></div>
-              <div class="info">
-                <ul class="productInfo">
-                  <li id="name">언더마이카 트랙 자켓</li>
-                  <li id="color">
-                    color:
-                    <div>black</div>
-                  </li>
-                  <li id="size">
-                    size:
-                    <div>M</div>
-                  </li>
-                  <li id="count">
-                    count:
-                    <div>1</div>
-                  </li>
-                  <li id="price">
-                    price:
-                    <div>1,000,000원</div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="product">
-              <div class="box"></div>
-              <div class="info">
-                <ul class="productInfo">
-                  <li id="name">언더마이카 트랙 자켓</li>
-                  <li id="color">
-                    color:
-                    <div>black</div>
-                  </li>
-                  <li id="size">
-                    size:
-                    <div>M</div>
-                  </li>
-                  <li id="count">
-                    count:
-                    <div>1</div>
-                  </li>
-                  <li id="price">
-                    price:
-                    <div>1,000,000원</div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="totalProduct">
-              <div class="info">
-                <ul class="totalProductInfo">
-                  <li id="count">
-                    총 수량
-                    <div>4개</div>
-                  </li>
-                  <li id="discount">
-                    총 할인
-                    <div>0원</div>
-                  </li>
-                  <li id="deliveryFee">
-                    배송비
-                    <div>3,000원</div>
-                  </li>
-                  <li id="totalPrice">
-                    <strong>총 금액</strong>
-                    <div>4,003,000원</div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Header -->
+    <header class="header">
+      <div class="header_logo">
+        <a href="/"> Ce1ev. </a>
       </div>
-    </div>
-
-    <script
-      src="sectionhttps://code.jquery.com/jquery-3.6.0.slim.js"
-      integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
-      crossorigin="anonymous"
-    ></script>
+      <ul class="search">
+        <li>
+          <input
+            type="text"
+            placeholder="검색어를 입력하세요."
+            class="header_search"
+            id="text"
+          />
+          <button type="button" class="searchBtn">
+            <i class="fa fa-magnifying-glass fa-2x"></i>
+          </button>
+        </li>
+      </ul>
+      <ul class="header_right" id="guest">
+        <li id="header_login">
+          <a href="/login"> LOGIN </a>
+        </li>
+        <li id="header_wish">
+          <a href="/register"> REGISTER </a>
+        </li>
+        <li id="header_cart">
+          <a href="/guest"> GUEST </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="user">
+        <li id="header_cart">
+          <a href="/mypage/myPageCart"> CART </a>
+        </li>
+        <li id="header_myPage">
+          <a href="/mypage"> MY PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout2"> LOG OUT </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="admin">
+        <li id="header_addProduct">
+          <a href="/products"> ADD-PRODUCT </a>
+        </li>
+        <li id="header_mypage">
+          <a href="/admin"> ADMIN-PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout1"> LOG OUT </a>
+        </li>
+      </ul>
+    </header>
+    <section class="container">
+            <h1 class="title">주문하기</h1>
+        <div class="main">
+            <form class="option">
+                <p>
+                    <strong style="font-size: 15px; font-weight: 600">Info</strong>
+                </p>
+                    <div class="field">
+                        <label class="label" for="fullNameInput">name</label>
+                        <div class="control">
+                            <input
+                            class="input"
+                            id="fullNameInput"
+                            type="text"
+                            autocomplete="on"
+                            />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="addressInput">address</label>
+                        <div class="control">
+                        <input
+                            class="input"
+                            id="addressInput"
+                            type="text"
+                            autocomplete="off"
+                        />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="emailInput">email</label>
+                        <div class="control">
+                            <input
+                            class="input"
+                            id="emailInput"
+                            type="email"
+                            autocomplete="on"
+                            />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="phoneNumberInput">phone number</label>
+                        <div class="control">
+                          <input
+                            class="input"
+                            id="phoneNumberInput"
+                            type="text"
+                            placeholder="010-1234-5678"
+                            autocomplete="off"
+                          />
+                        </div>
+                    </div>
+                    <p>
+                        <strong style="font-size: 15px; font-weight: 600">쿠폰 및 결제 방법</strong>
+                    </p>
+                <div class="pay">
+                    <div class="coupon">
+                        <div>Coupon</div>
+                        <select>
+                            <option value="1">배송비10% 할인</option>
+                            <option value="2">1000원 할인</option>
+                            <option value="3">2000원 할인</option>
+                            <option value="4">3000원 할인</option>
+                        </select>
+                    </div>
+                    <div class="payMethod">  
+                        <div>결제 방법</div>
+                        <input type="radio" name="payment" id="creditCard" value="creditCard">신용카드
+                        <input type="radio" name="payment" id="deposit" value="deposit">무통장입금
+                    </div>
+                </div>
+            </form>
+            <div class="total">
+                <p>총 결제 금액</p>
+                <div class="product">
+                    <div class="box"></div>
+                    <div class="info">
+                        <ul class="productInfo">
+                            <li id="name">
+                                언더마이카 트랙 자켓
+                            </li>
+                            <li id="color">
+                                color: 
+                                <div>
+                                    black
+                                </div>
+                            </li>
+                            <li id="size">
+                                size:
+                                <div>
+                                    M
+                                </div>
+                            </li>
+                            <li id="count">
+                                count:
+                                <div>
+                                    1
+                                </div>
+                            </li>
+                            <li id="price">
+                                price:
+                                <div>
+                                    1,000,000원
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="box"></div>
+                    <div class="info">
+                        <ul class="productInfo">
+                            <li id="name">
+                                언더마이카 트랙 자켓
+                            </li>
+                            <li id="color">
+                                color: 
+                                <div>
+                                    black
+                                </div>
+                            </li>
+                            <li id="size">
+                                size:
+                                <div>
+                                    M
+                                </div>
+                            </li>
+                            <li id="count">
+                                count:
+                                <div>
+                                    1
+                                </div>
+                            </li>
+                            <li id="price">
+                                price:
+                                <div>
+                                    1,000,000원
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="box"></div>
+                    <div class="info">
+                        <ul class="productInfo">
+                            <li id="name">
+                                언더마이카 트랙 자켓
+                            </li>
+                            <li id="color">
+                                color: 
+                                <div>
+                                    black
+                                </div>
+                            </li>
+                            <li id="size">
+                                size:
+                                <div>
+                                    M
+                                </div>
+                            </li>
+                            <li id="count">
+                                count:
+                                <div>
+                                    1
+                                </div>
+                            </li>
+                            <li id="price">
+                                price:
+                                <div>
+                                    1,000,000원
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="totalProduct">
+                    <div class="info">
+                        <ul class="totalProductInfo">
+                            <li id="count">
+                                총 수량
+                                <div>
+                                    4개
+                                </div>
+                            </li>
+                            <li id="discount">
+                                총 할인
+                                <div>
+                                    0원
+                                </div>
+                            </li>
+                            <li id="deliveryFee">
+                                배송비
+                                <div>
+                                    3,000원
+                                </div>
+                            </li>
+                            <li id="totalPrice">
+                                <strong>총 금액</strong>
+                                <div>
+                                    4,003,000원
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <!-- <script src="order.js" type="module" defer></script>  -->
     <script src="../mypage/footer.js" type="module" defer></script>
     <script src="../home/changeHeader.js" type="module" defer></script>
   </body>

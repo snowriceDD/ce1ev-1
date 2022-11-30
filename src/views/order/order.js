@@ -3,6 +3,7 @@ import { checkLogin, getToday , validateEmail} from "../useful-functions.js";
 // import { addCommas, checkLogin } from "../useful-functions";
 
 let cart = JSON.parse(localStorage.getItem("orderProducts"));
+
 const inputnameTag = document.querySelector("#fullNameInput");
 const addressTag = document.querySelector("#addressInput");
 const emailTag = document.querySelector("#emailInput");
@@ -202,9 +203,6 @@ async function insertOrderElement() {
     cost += parseInt(price.replace(/(,|개|원)/g, ""));
   });
   const totalPrice = document.querySelector(".AllPrice");
-  const sideCost = String(cost);
-  // totalPrice.innerHTML = parseInt(sideCost.replace(/(,|개|원)/g, ""));
-  totalPrice.innerHTML = String(cost);
-
+  totalPrice.innerHTML = cost;
   document.querySelector(".totalCount").innerHTML = cart.length;
 }

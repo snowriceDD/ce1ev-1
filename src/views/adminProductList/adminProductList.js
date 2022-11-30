@@ -5,8 +5,6 @@ const productList = document.querySelector(".section_box");
 // 데이터를 받아 요소를 만든 후, html에 삽입
 insertProductElement();
 
-let ref = {};
-
 async function insertProductElement() {
   const products = await Api.get("/api/products"); //백엔드 url
   // const products = await res.json();
@@ -20,8 +18,6 @@ async function insertProductElement() {
     const description = product.description;
     const num = product.num;
 
-    const updateProduct = `updateProduct-${num}`;
-
     productList.insertAdjacentHTML(
       "beforeend",
       `
@@ -29,7 +25,7 @@ async function insertProductElement() {
       <img src="${img}"class="box" id="${num}"/>
       <article class="pd_text">
         <p class="pd_brd" id="${brand}">${brand}</p>
-        <p class="${updateProduct}" id="${name}">
+        <p class="pd_name" id="${name}">
           ${name}
         </p>
 
@@ -42,36 +38,5 @@ async function insertProductElement() {
     </section>
       `
     );
-
-    ref[updateProduct] = document.querySelector(`.${updateProduct}`);
-
-    ref[updateProduct].addEventListener("click", (event) => updateProductFunc(event, product));
   });
-}
-
-async function updateProductFunc(e, product) {
-  e.preventDefault();
-
-  console.log(product);
-
-  //function moveToadminMember() {
-    window.location.assign(`/admin/adminProductDetail/${product.num}`);
-
-
-  //adminMember.addEventListener("click", moveToadminMember);
-
-  /*
-  try {
-    const data = { orderNo: orderNo, productNo: productNo, userId: userData.email };
-
-    const result = await Api.delete(`/api/mypage/myPageReview`, '', data);
-
-    if (result) {
-      alert(`후기가 성공적으로 삭제되었습니다!`);
-      window.location.reload();
-    }
-  } catch (err) {
-    console.log(err.stack);
-    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
-  } */
 }

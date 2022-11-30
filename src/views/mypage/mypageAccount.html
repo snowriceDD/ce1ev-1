@@ -15,100 +15,97 @@
     <script type="module" src="mypageAccount.js" defer></script>
   </head>
   <body class="body">
-    <div class="main">
-      <!-- Header -->
-      <header class="header">
-        <div class="header_logo">
-          <a href="/"> Ce1ev. </a>
+    <!-- Header -->
+    <header class="header">
+      <div class="header_logo">
+        <a href="/"> Ce1ev. </a>
+      </div>
+      <ul class="search">
+        <li>
+          <input
+            type="text"
+            placeholder="검색어를 입력하세요."
+            class="header_search"
+            id="text"
+          />
+          <button type="button" class="searchBtn">
+            <i class="fa fa-magnifying-glass fa-2x"></i>
+          </button>
+        </li>
+      </ul>
+      <ul class="header_right" id="guest">
+        <li id="header_login">
+          <a href="/login"> LOGIN </a>
+        </li>
+        <li id="header_wish">
+          <a href="/register"> REGISTER </a>
+        </li>
+        <li id="header_cart">
+          <a href="/guest"> GUEST </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="user">
+        <li id="header_cart">
+          <a href="/mypage/myPageCart"> CART </a>
+        </li>
+        <li id="header_myPage">
+          <a href="/mypage"> MY PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout2"> LOG OUT </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="admin">
+        <li id="header_addProduct">
+          <a href="/products"> ADD-PRODUCT </a>
+        </li>
+        <li id="header_mypage">
+          <a href="/admin"> ADMIN-PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout1"> LOG OUT </a>
+        </li>
+      </ul>
+    </header>
+
+    <!-------- mypage_info -------->
+    <section class="section">
+      <article class="basic_info">
+        <h1>기본 정보</h1>
+        <div class="container">
+          <div class="title">이름</div>
+          <div class="content">
+            <span class="name"></span>
+          </div>
         </div>
-        <ul class="search">
-          <li>
-            <input
-              type="text"
-              placeholder="검색어를 입력하세요."
-              class="header_search"
-              id="text"
-            />
-            <button type="button" class="searchBtn">
-              <i class="fa fa-magnifying-glass fa-2x"></i>
-            </button>
-          </li>
-        </ul>
-        <ul class="header_right" id="guest">
-          <li id="header_login">
-            <a href="/login"> LOGIN </a>
-          </li>
-          <li id="header_wish">
-            <a href="/register"> REGISTER </a>
-          </li>
-          <li id="header_cart">
-            <a href="/guest"> GUEST </a>
-          </li>
-        </ul>
-        <ul class="header_right hidden" id="user">
-          <li id="header_cart">
-            <a href="/mypage/myPageCart"> CART </a>
-          </li>
-          <li id="header_myPage">
-            <a href="/mypage"> MY PAGE </a>
-          </li>
-          <li id="header_logout">
-            <a href="/#" id="logout2"> LOG OUT </a>
-          </li>
-        </ul>
-        <ul class="header_right hidden" id="admin">
-          <li id="header_addProduct">
-            <a href="/products"> ADD-PRODUCT </a>
-          </li>
-          <li id="header_mypage">
-            <a href="/admin"> ADMIN-PAGE </a>
-          </li>
-          <li id="header_logout">
-            <a href="/#" id="logout1"> LOG OUT </a>
-          </li>
-        </ul>
-      </header>
 
-      <!-------- mypage_info -------->
-      <section class="section">
-        <article class="basic_info">
-          <h1>기본 정보</h1>
-          <div class="container">
-            <div class="title">이름</div>
-            <div class="content">
-              <span class="name"></span>
-            </div>
-          </div>
+        <div class="container">
+          <div class="title">휴대전화</div>
+          <div class="content"><span class="phoneNum"></span></div>
+        </div>
 
-          <div class="container">
-            <div class="title">휴대전화</div>
-            <div class="content"><span class="phoneNum"></span></div>
-          </div>
+        <div class="container">
+          <div class="title">이메일</div>
+          <div class="content"><span class="email"></span></div>
+        </div>
 
-          <div class="container">
-            <div class="title">이메일</div>
-            <div class="content"><span class="email"></span></div>
-          </div>
+        <div class="container">
+          <div class="title">비밀번호</div>
+          <div class="content"><span class="password"></span></div>
+        </div>
 
-          <div class="container">
-            <div class="title">비밀번호</div>
-            <div class="content"><span class="password"></span></div>
+        <div class="container user_address">
+          <div class="title">주소</div>
+          <div class="content">
+            <span class="address"></span>
           </div>
-
-          <div class="container user_address">
-            <div class="title">주소</div>
-            <div class="content">
-              <span class="address"></span>
-            </div>
-          </div>
-          <div class="btn_container">
-            <button class="update">정보수정</button>
-          </div>
-        </article>
-      </section>
-      <!-------- footer -------->
-    </div>
-
+        </div>
+        <div class="btn_container">
+          <button class="update">정보수정</button>
+        </div>
+      </article>
+    </section>
+    <!-------- footer -------->
     <script src="footer.js" type="module" defer></script>
     <script src="../home/changeHeader.js" type="module" defer></script>
   </body>
