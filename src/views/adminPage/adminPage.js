@@ -5,6 +5,7 @@ import * as Api from "/api.js";
 const adminProduct = document.querySelector("#adminProduct_button");
 const adminOrder = document.querySelector("#adminOrder_button");
 const adminMember = document.querySelector("#adminMember_button");
+const adminReivew = document.querySelector("#adminReview_button");
 const nameTag = document.querySelector(".name");
 const emailTag = document.querySelector(".email");
 const roleTag = document.querySelector(".role");
@@ -45,3 +46,9 @@ function moveToadminMember() {
 }
 
 adminMember.addEventListener("click", moveToadminMember);
+
+function moveToadminReview() {
+  window.location.assign("/admin/adminReview");
+}
+
+adminMember.addEventListener("click", moveToadminReview);

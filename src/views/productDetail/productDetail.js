@@ -39,7 +39,9 @@ const ref = {
   categoryTag: document.querySelector(".tag_category"),
   descriptionTag: document.querySelector(".tag_name"),
   priceTag: document.querySelector(".total_price"),
-  reviewListTag: document.querySelector(".bb17")
+  reviewListTag: document.querySelector(".bb17"),
+  productEdit: document.querySelector(".product_edit"),
+  deleteButton: document.querySelector(".product_delete"),
 };
 
 let product = {};
@@ -94,7 +96,6 @@ const drawProduct = async () => {
     );
   });
   //컬러 셀렉박스로 넣기
-  // console.log(product.color);
   product.color.forEach((color, index) => {
     ref.colorTag.insertAdjacentHTML(
       "beforeend",
@@ -103,18 +104,15 @@ const drawProduct = async () => {
       `
     );
   });
-  const value_size = document.querySelector("#sizeTag");
-  const value_color = document.querySelector("#colorTag");
   const name = ref.nameTag.innerHTML;
   const brand = ref.brandTag.innerHTML;
   const price = ref.priceTag.innerHTML;
-  const size = value_size.options[value_size.selectedIndex].text;
-  const color = value_color.options[value_color.selectedIndex].text;
-  // console.log(color)
   const category = ref.categoryTag.innerHTML;
   const num = productId;
-  product.selectSize = size;
-  product.selectColor = color;
+
+  // FIX] 여기는 처음 로딩할때 실행되고 끝나는 함수라서 여기서 사이즈를 바꿀 수 없음
+  // product.selectSize = size;
+  // product.selectColor = color;
 
   review.forEach((review) => {
     const review_no = review.reviewNo;
@@ -133,27 +131,19 @@ const drawProduct = async () => {
         </tr>
         <br>
       `
-    )
-  })
-  // const data = {
-  //   num,
-  //   name,
-  //   brand,
-  //   price,
-  //   size,
-  //   color,
-  //   category,
-  // };
-  // console.log(data);
-
-  // const result = await Api.post("/api/selectedProducts", data);
-  // console.log(result)
+    );
+  });
 };
 
 //localStorage 저장하기
 const addCart = (id) => {
+  const size = sizeTag.options[sizeTag.selectedIndex].text;
+  const color = colorTag.options[colorTag.selectedIndex].text;
+
+  product.selectSize = size;
+  product.selectColor = color;
+
   const products = JSON.parse(localStorage.getItem("products")) || [];
-  console.log(product.num);
   var i = 0;
   for (i; i < products.length; i++) {
     if (products[i]._id == product._id) {
@@ -166,24 +156,18 @@ const addCart = (id) => {
     localStorage.setItem("products", JSON.stringify(products));
     alert("장바구니에 담겼습니다.");
   }
-  //   if (!products[0]) {
-  //     // products[product._id] = {
-  //     //     productName: product.name,
-  //     //     price: product.price,
-  //     // };
-  //     products.push(product);
-  //     localStorage.setItem("products", JSON.stringify(products));
-  //     alert('장바구니에 담겼습니다.');
-  //     // location.href = "/mypage/myPageCart";
-  // } else {
-  //     alert('이미 담긴 상품입니다.');
-  // }
-  // products.push(product);
-  // localStorage.setItem("products", JSON.stringify(products));
-  location.href = "/mypage/myPageCart";
 };
 ref.cartButtonTag.addEventListener("click", addCart);
 
+//주문 바로하기
+const buyNow = () => {
+  localStorage.removeItem("buyNowProducts");
+  const products = JSON.parse(localStorage.getItem("buyNowProducts")) || [];
+  products.push(product);
+  localStorage.setItem("buyNowProducts", JSON.stringify(products));
+  alert("구매페이지로 이동합니다.");
+};
+ref.buyButttonTag.addEventListener("click", buyNow);
 //함수 실행
 const render = () => {
   drawProduct();
@@ -200,7 +184,10 @@ const initialize = async () => {
 };
 
 initialize().then(() => render());
-ref.buyButttonTag.addEventListener("click", () => (location.href = `/order`));
+ref.buyButttonTag.addEventListener(
+  "click",
+  () => (location.href = `/order_now`)
+);
 
 // Header&Footer
 const body = document.querySelector(".body");

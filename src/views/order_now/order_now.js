@@ -2,14 +2,15 @@ import * as Api from "../api.js";
 import { checkLogin, getToday , validateEmail} from "../useful-functions.js";
 // import { addCommas, checkLogin } from "../useful-functions";
 
-let cart = JSON.parse(localStorage.getItem("orderProducts"));
-
+let cart = JSON.parse(localStorage.getItem("buyNowProducts"));
 const inputnameTag = document.querySelector("#fullNameInput");
 const addressTag = document.querySelector("#addressInput");
 const emailTag = document.querySelector("#emailInput");
 const phoneNumTag = document.querySelector("#phoneNumberInput");
 const token = sessionStorage.getItem("token");
-
+cart[0].totalPrice=cart[0].price;
+cart[0].totalCount=1;
+console.log(cart)
 if (token) {
   checkLogin();
   insertUserData();
@@ -36,7 +37,8 @@ if (token) {
         const email = emailTag.value;
         const payMethod = payment;
         const products = cart;
-        const cost = parseInt(document.querySelector(".AllPrice").innerHTML);
+        const cost = parseInt(document.querySelector(".AllPrice").innerHTML.replace(/(,|개|원)/g, ""))
+        console.log(cost)
         const count = cart.length;
         const data = { orderNumber, products, cost, count, payMethod, email };
         const result = await Api.post("/api/orders", data);
@@ -68,22 +70,21 @@ if (token) {
       }
     }
     const check = confirm("결제 진행 하시겠습니까?");
-
     //order 삽입
     if (check) {
       try {
         const orderNumber = Number(
           String(getToday()) + String(Math.random() * 1000000000)
         );
+        const email = emailTag.value;
         const payMethod = payment;
         const products = cart;
-        const cost = totalPrice.innerHTML;
-        const count = cart.length;
+        const cost = parseInt(document.querySelector(".AllPrice").innerHTML.replace(/(,|개|원)/g, ""))
+        const count = products.length;
         const data = { orderNumber, products, cost, count, payMethod, email };
 
           //user 정보 확인
         const name = inputnameTag.value;
-        const email = emailTag.value;
         const password = String(orderNumber);
         const phoneNum = phoneNumTag.value;
         const address = addressTag.value;
@@ -117,7 +118,7 @@ if (token) {
           // const user = {name, email, password, phoneNum, address, role, isMember};
           // await Api.post("/api/register", user);
           
-          alert(`guest 주문이 완료 되었습니다. 주문번호(${password})를 꼭 기억하여 password로 입력해주십시오.`)
+          alert(`guest 주문이 완료 되었습니다. 주문번호(${password})를 꼭 기억하여 주문조회 시 입력해주십시오.`)
           localStorage.clear();
         } catch (err) {
           console.error(err.stack);
@@ -157,11 +158,11 @@ async function insertOrderElement() {
   cart.forEach((product) => {
     const orderForm = document.querySelector(".total");
     const name = product.name;
-    const price = product.totalPrice;
+    const price = product.price;
     const img = product.img;
     const size = product.selectSize;
     const color = product.selectColor;
-    const count = product.totalCount;
+    const count = product.quantity;
     orderForm.insertAdjacentHTML(
       "beforeend",
       `
@@ -203,6 +204,6 @@ async function insertOrderElement() {
     cost += parseInt(price.replace(/(,|개|원)/g, ""));
   });
   const totalPrice = document.querySelector(".AllPrice");
-  totalPrice.innerHTML = cost;
+  totalPrice.innerHTML = cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   document.querySelector(".totalCount").innerHTML = cart.length;
 }
