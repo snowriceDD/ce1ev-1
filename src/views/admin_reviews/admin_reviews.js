@@ -15,8 +15,6 @@ const initialize = async () => {
 
   orderLists = orders;
   reviewLists = reviews;
-
-  console.log(orderLists, reviewLists)
 };
 
 async function getReviewList(){

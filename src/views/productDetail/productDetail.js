@@ -102,8 +102,6 @@ const drawProduct = async () => {
       `
     );
   });
-  const value_size = document.querySelector("#sizeTag");
-  const value_color = document.querySelector("#colorTag");
   const name = ref.nameTag.innerHTML;
   const brand = ref.brandTag.innerHTML;
   const price = ref.priceTag.innerHTML;
@@ -112,8 +110,9 @@ const drawProduct = async () => {
   const category = ref.categoryTag.innerHTML;
   const num = productId;
 
-  product.selectSize = size;
-  product.selectColor = color;
+  // FIX] 여기는 처음 로딩할때 실행되고 끝나는 함수라서 여기서 사이즈를 바꿀 수 없음
+  // product.selectSize = size;
+  // product.selectColor = color;
 
   review.forEach((review) => {
     const review_no = review.reviewNo;
@@ -152,6 +151,12 @@ const drawProduct = async () => {
 
 //localStorage 저장하기
 const addCart = (id) => {
+  const size = sizeTag.options[sizeTag.selectedIndex].text;
+  const color = colorTag.options[colorTag.selectedIndex].text;
+
+  product.selectSize = size;
+  product.selectColor = color;
+
   const products = JSON.parse(localStorage.getItem("products")) || [];
   var i = 0;
   for (i; i < products.length; i++) {
