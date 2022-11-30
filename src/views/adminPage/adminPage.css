@@ -1,11 +1,13 @@
 .main {
-  min-height: 100%;
-  /* padding-bottom: 200px; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .section {
   width: 1000px;
   margin: 50px auto;
+  flex: 1;
 }
 
 .section h1 {

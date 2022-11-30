@@ -122,6 +122,9 @@
   width: 987px;
   height: 150px;
   margin: auto;
+
+  text-align: center;
+  line-height: 60px;
 }
 
 .body .category .category_btn {

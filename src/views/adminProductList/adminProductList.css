@@ -1,7 +1,11 @@
 .main {
-  height: auto;
-  min-height: 100%;
-  padding-bottom: 200px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.section {
+  flex: 1;
 }
 
 .order_manage {

@@ -15,75 +15,76 @@
     />
     <link rel="stylesheet" type="text/css" href="mypageOrderList.css" />
     <link rel="stylesheet" type="text/css" href="reset.css" />
-    <link rel="stylesheet" type="text/css" href="HeaderFooter.css" />
+    <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
   </head>
   <body class="body">
-    <!-- Header -->
-    <header class="header">
-      <div class="header_logo">
-        <a href="/"> Ce1ev. </a>
-      </div>
-      <ul class="search">
-        <li>
-          <input
-            type="text"
-            placeholder="검색어를 입력하세요."
-            class="header_search"
-            id="text"
-          />
-          <button type="button" class="searchBtn">
-            <i class="fa fa-magnifying-glass fa-2x"></i>
-          </button>
-        </li>
-      </ul>
-      <ul class="header_right" id="guest">
-        <li id="header_login">
-          <a href="/login"> LOGIN </a>
-        </li>
-        <li id="header_wish">
-          <a href="/register"> REGISTER </a>
-        </li>
-        <li id="header_cart">
-          <a href="/guest"> GUEST </a>
-        </li>
-      </ul>
-      <ul class="header_right hidden" id="user">
-        <li id="header_cart">
-          <a href="/mypage/myPageCart"> CART </a>
-        </li>
-        <li id="header_myPage">
-          <a href="/mypage"> MY PAGE </a>
-        </li>
-        <li id="header_logout">
-          <a href="/#" id="logout2"> LOG OUT </a>
-        </li>
-      </ul>
-      <ul class="header_right hidden" id="admin">
-        <li id="header_addProduct">
-          <a href="/products"> ADD-PRODUCT </a>
-        </li>
-        <li id="header_mypage">
-          <a href="/admin"> ADMIN-PAGE </a>
-        </li>
-        <li id="header_logout">
-          <a href="/#" id="logout1"> LOG OUT </a>
-        </li>
-      </ul>
-    </header>
-
-    <section class="section">
-      <article class="my_shopping">
-        <h1>주문내역 조회</h1>
-        <div class="title">
-          <div class="first">주문 정보</div>
-          <div>주문 금액(수량)</div>
-          <div>주문 상태</div>
+    <div class="main">
+      <!-- Header -->
+      <header class="header">
+        <div class="header_logo">
+          <a href="/"> Ce1ev. </a>
         </div>
-      </article>
-    </section>
+        <ul class="search">
+          <li>
+            <input
+              type="text"
+              placeholder="검색어를 입력하세요."
+              class="header_search"
+              id="text"
+            />
+            <button type="button" class="searchBtn">
+              <i class="fa fa-magnifying-glass fa-2x"></i>
+            </button>
+          </li>
+        </ul>
+        <ul class="header_right" id="guest">
+          <li id="header_login">
+            <a href="/login"> LOGIN </a>
+          </li>
+          <li id="header_wish">
+            <a href="/register"> REGISTER </a>
+          </li>
+          <li id="header_cart">
+            <a href="/guest"> GUEST </a>
+          </li>
+        </ul>
+        <ul class="header_right hidden" id="user">
+          <li id="header_cart">
+            <a href="/mypage/myPageCart"> CART </a>
+          </li>
+          <li id="header_myPage">
+            <a href="/mypage"> MY PAGE </a>
+          </li>
+          <li id="header_logout">
+            <a href="/#" id="logout2"> LOG OUT </a>
+          </li>
+        </ul>
+        <ul class="header_right hidden" id="admin">
+          <li id="header_addProduct">
+            <a href="/products"> ADD-PRODUCT </a>
+          </li>
+          <li id="header_mypage">
+            <a href="/admin"> ADMIN-PAGE </a>
+          </li>
+          <li id="header_logout">
+            <a href="/#" id="logout1"> LOG OUT </a>
+          </li>
+        </ul>
+      </header>
 
-    <!———— footer ————>
+      <section class="section">
+        <article class="my_shopping">
+          <h1>주문내역 조회</h1>
+          <div class="title">
+            <div class="first">주문 정보</div>
+            <div>주문 금액(수량)</div>
+            <div>주문 상태</div>
+          </div>
+        </article>
+      </section>
 
+      <!-- footer -->
+    </div>
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
