@@ -9,25 +9,27 @@ const userEmail = window.location.pathname.split("/")[2];
 insertOrderListElement();
 
 // let userData;
-let orderLists = {}
-async function insertOrderListElement(){
-    // const userData = await Api.get('/api/user');
-    // const {email} = userData;
-    // console.log(email)
-    const res = await fetch(`/api/myOrders/${userEmail}`);
-    orderLists = await res.json();
-    orderLists.forEach((orderList) =>{
-      orderList.products.forEach((productList)=>{
-        const name = productList.name;
-        const img = productList.img;
-        const orderNumber = orderList.orderNumber
-        const num = productList.totalCount;
-        const orderDate = orderList.createdAt.substr(0,10)
-        const price = productList.totalPrice;
-        const status = orderList.status;
-        section.insertAdjacentHTML(
-            "afterend",
-            `<div class="content">
+let orderLists = {};
+async function insertOrderListElement() {
+  // const userData = await Api.get('/api/user');
+  // const {email} = userData;
+  // console.log(email)
+  const res = await fetch(`/api/myOrders/${userEmail}`);
+  orderLists = await res.json();
+  console.log(orderLists)
+  orderLists.forEach((orderList) => {
+    orderList.products.forEach((productList) => {
+      const name = productList.name;
+      const img = productList.img;
+      const orderNumber = orderList.orderNumber;
+      const num = productList.totalCount;
+      const orderDate = orderList.createdAt.substr(0, 10);
+      const price = productList.totalPrice;
+      const status = orderList.status;
+      section.insertAdjacentHTML(
+        "afterend",
+        `<div class="content">
+
             <div class="first">
               <img class="product_img" src="${img}"/>
               <div class="product_script">

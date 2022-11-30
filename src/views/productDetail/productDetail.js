@@ -39,7 +39,9 @@ const ref = {
   categoryTag: document.querySelector(".tag_category"),
   descriptionTag: document.querySelector(".tag_name"),
   priceTag: document.querySelector(".total_price"),
-  reviewListTag: document.querySelector(".bb17")
+  reviewListTag: document.querySelector(".bb17"),
+  productEdit: document.querySelector(".product_edit"),
+  deleteButton: document.querySelector(".product_delete"),
 };
 
 let product = {};
@@ -131,22 +133,8 @@ const drawProduct = async () => {
         </tr>
         <br>
       `
-    )
-  })
-
-  // const data = {
-  //   num,
-  //   name,
-  //   brand,
-  //   price,
-  //   size,
-  //   color,
-  //   category,
-  // };
-  // console.log(data);
-
-  // const result = await Api.post("/api/selectedProducts", data);
-  // console.log(result)
+    );
+  });
 };
 
 //localStorage 저장하기
@@ -173,6 +161,15 @@ const addCart = (id) => {
 };
 ref.cartButtonTag.addEventListener("click", addCart);
 
+//주문 바로하기
+const buyNow = () => {
+  localStorage.removeItem("buyNowProducts");
+  const products = JSON.parse(localStorage.getItem("buyNowProducts")) || [];
+  products.push(product);
+  localStorage.setItem("buyNowProducts", JSON.stringify(products));
+  alert("구매페이지로 이동합니다.");
+};
+ref.buyButttonTag.addEventListener("click", buyNow);
 //함수 실행
 const render = () => {
   drawProduct();
@@ -189,7 +186,10 @@ const initialize = async () => {
 };
 
 initialize().then(() => render());
-ref.buyButttonTag.addEventListener("click", () => (location.href = `/order`));
+ref.buyButttonTag.addEventListener(
+  "click",
+  () => (location.href = `/order_now`)
+);
 
 // Header&Footer
 const body = document.querySelector(".body");
