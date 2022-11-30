@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>notice</title>
-    <link rel="stylesheet" href="css/css.css" />
+    <link rel="stylesheet" href="./postEdit.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
   </head>
   <body class="body">
@@ -78,7 +78,7 @@
             <dl>
                 <dt>제목</dt>
                 <dd>
-                    <input type="text" placeholder="제목 입력" value="글제목이 들어감"/>
+                    <input id = "titleInput" type="text" placeholder="제목 입력"/>
                 </dd>
             </dl>
           </div>
@@ -86,32 +86,27 @@
             <dl>
                 <dt>글쓴이</dt>
                 <dd>
-                    <input type="text" placeholder="글쓴이 입력" value="홍길동"/>
+                    <input id="userInput" type="text" placeholder="글쓴이 입력" />
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호</dt>
                 <dd>
-                    <input type="password" placeholder="비밀번호 입력" value="1234"/>
+                    <input id="passwordInput" type="password" placeholder="비밀번호 입력"/>
                 </dd>
             </dl>
           </div>
           <div class="cont">
-            <textarea placeholder="내용 입력">
-글 내용이 들어감
-글 내용이 들어감
-글 내용이 들어감
-글 내용이 들어감
-글 내용이 들어감
-            </textarea>
+            <textarea id="contentInput" placeholder="내용 입력"></textarea>
           </div>
         </div>
         <div class="bt_wrap">
-          <a href="edit" class="on">수정</a>
-          <a href="/notice" >취소</a>
+          <button id="editBtn" class="on">수정</button>
+          <button href="/notice" >취소</button>
         </div>
       </div>
     </div>
+    <script type="module" src="postEdit.js" defer></script>
     <script src="../mypage/Footer.js"></script>
   </body>
 </html>
