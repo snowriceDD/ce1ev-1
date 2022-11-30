@@ -170,9 +170,6 @@ const addCart = (id) => {
     localStorage.setItem("products", JSON.stringify(products));
     alert("장바구니에 담겼습니다.");
   }
-  console.log("테스트");
-  console.log(size);
-  console.log(color);
 };
 ref.cartButtonTag.addEventListener("click", addCart);
 
