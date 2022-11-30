@@ -44,6 +44,15 @@ viewsRouter.get("/admin/adminProductList", (req, res) => {
     path.join(__dirname, "../views/adminProductList/adminProductList.html")
   );
 });
+
+viewsRouter.get("/admin/adminProductDetail/:productId", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../views/admin_ProductDetail/admin_ProductDetail.html")
+  );
+});
+
+viewsRouter.use("/adminProductDetail/:productId/updateProduct", serveStatic("updateProduct"));
+
 viewsRouter.use("/admin/adminOrder", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/admin_orders/admin_orders.html"));
 });

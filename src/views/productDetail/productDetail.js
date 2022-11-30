@@ -107,8 +107,6 @@ const drawProduct = async () => {
   const name = ref.nameTag.innerHTML;
   const brand = ref.brandTag.innerHTML;
   const price = ref.priceTag.innerHTML;
-  const size = value_size.options[value_size.selectedIndex].text;
-  const color = value_color.options[value_color.selectedIndex].text;
   const category = ref.categoryTag.innerHTML;
   const num = productId;
 
