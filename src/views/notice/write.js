@@ -11,7 +11,6 @@ const submitBtn = document.querySelector('.on');
 // adminOnly();
 insertUser();
 addAllEvents();
-console.log("hi");
 
 function addAllEvents() {
     submitBtn.addEventListener("click", handleSubmit);
