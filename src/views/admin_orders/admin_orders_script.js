@@ -67,12 +67,19 @@ async function insertOrders() {
         <div>${orderNumber}</div>
       </div>
       <div class="column1" id="cost">${addCommas(cost)}</div>
-      <div class="column1" id="delivery">
+      <div class="colmun1 id="status>${status}</div>
+      <div class="column2" id="delivery">
         <div class="selectBox">
           <select name="sB" class="select" id="status-${_id}">
-            <option ${status==="상품 준비중"?"selected":""} value="상품 준비중">상품 준비중</option>
-            <option ${status==="상품 배송중"?"selected":""}value="상품 배송중">상품 배송중</option>
-            <option ${status==="배송 완료"?"selected:":""}value="배송 완료">배송 완료</option>
+            <option
+             class="has-background-danger-light has-text-danger"
+             ${status=== "상품 준비중"?"selected":""} value="상품 준비중">상품 준비중</option>
+            <option
+             class="has-background-primary-light has-text-primary"
+             ${status=== "상품 배송중"?"selected":""}value="상품 배송중">상품 배송중</option>
+            <option
+              class="has-background-grey-light"
+             ${status=== "배송 완료"?"selected:":""}value="배송 완료">배송 완료</option>
           </select>
         </div>
       </div>
@@ -91,19 +98,24 @@ async function insertOrders() {
     const index = statusBox.selectedIndex;
     statusBox.className = statusBox[index].className;
 
+
     statusBox.addEventListener("change", async ()=> {
-      const newStatus = statusBox.value;
-      const data = {status: newStatus};
 
-      const index = statusBox.selectedIndex;
-      statusBox.className = statusBox[index].calssName;
-
-      await Api.patch("/api/orders/status", _id, data);
+      const value = confirm("수정하시겠습니까?")
+      if( value) {
+        const newStatus = statusBox.value;
+        const data = {status: newStatus};
+  
+        const index = statusBox.selectedIndex;
+        statusBox.className = statusBox[index].calssName;
+  
+        await Api.patch("/api/orders/status", _id, data);
+        location.reload();
+      }
     })
 
     deleteBtn.addEventListener("click", async ()=> {
       orderNumDelete = _id;
-      console.log(orderNumDelete);
       openModal();
     });
   }
