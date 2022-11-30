@@ -3,10 +3,11 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+
   height: 150px;
+  width: 100vw;
   background: #f4f4f4;
   gap: 35px;
-  width: 100vw;
   flex-wrap: wrap;
 }
 .header .header_logo a {
@@ -84,12 +85,10 @@
   flex-direction: row;
   align-items: center;
 
-  width: 100vw;
-  height: 200px;
+  width: 100%;
   background: #f4f4f4;
 
-  position: relative;
-  transform: translateY(-100%);
+  padding: 53px 0;
 }
 
 .addressLink {
@@ -136,14 +135,7 @@
 
 /* media Q */
 @media (max-width: 600px) {
-  /* 슬라이드 모바일 환경에선 너무 축소되어 그냥 none 처리 함 */
-  .section {
-    display: none;
-  }
-
-  .footer {
-    display: none;
-  }
+  
 }
 
 @media (max-width: 1200px) {
