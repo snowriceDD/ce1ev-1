@@ -13,9 +13,9 @@
       href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="mypageCart.css" />
-    <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
-    <link rel="stylesheet" type="text/css" href="../home/reset.css" />
+    <link rel="stylesheet" type="text/css" href="guestOrderList.css" />
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="HeaderFooter.css" />
   </head>
   <body class="body">
     <!-- Header -->
@@ -73,29 +73,27 @@
 
     <section class="section">
       <article class="my_shopping">
-        <h1>장바구니</h1>
+        <h1>주문내역 조회</h1>
         <div class="title">
-          <div class="first">상품 정보</div>
-          <div>상품 금액(수량)</div>
-          <div>관리</div>
+          <div class="first">주문 정보</div>
+          <div>주문 금액(수량)</div>
+          <div>주문 상태</div>
         </div>
-        <div class="content_box"></div>
       </article>
     </section>
-    <div class="total_box">
-      <div class="totalPrice_box">
-        <div>총 금액</div>
-        <div class="totalPrice"></div>
-      </div>
-      <div class="totalAmount_box">
-        <div>상품 수</div>
-        <div class="totalAmount"></div>
-      </div>
-      <div class="payNow">pay Now</div>
-    </div>
-    <!-- Footer -->
-    <script src="mypageCart.js"></script>
-    <script src="footer.js"></script>
-    <script src="../mypage/HeaderFooter.js" type="module" defer></script>
+
+    <!———— footer ————>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="guestOrderList.js" type="module" defer></script>
+    <script src="footer.js" type="module" defer></script>
+    <script src="changeHeader.js" type="module" defer></script>
   </body>
 </html>

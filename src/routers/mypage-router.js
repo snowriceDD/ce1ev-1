@@ -15,6 +15,16 @@ mypageRouter.get("/mypage/myPageReview/:orderNo", async (req, res, next) => {
   }
 });
 
+mypageRouter.get("/admin/adminReview-review", async (req, res, next) => {
+  try {
+    const reviews = await reviewService.getReview();
+
+    res.status(200).json(reviews);
+  } catch (err) {
+    next(err);
+  }
+});
+
 mypageRouter.post("/mypage/myPageReview", async (req, res, next) => {
   try {
     const newReview = await reviewService.addReview(req.body);
