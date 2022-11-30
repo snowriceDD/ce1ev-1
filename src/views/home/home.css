@@ -38,6 +38,7 @@
   cursor: pointer;
 }
 
+
 .pd_brd {
   /* position: absolute; */
 
@@ -91,6 +92,21 @@
 
   font-family: "Gothic";
   font-weight: 600;
+}
+
+.tag_like {
+  float: right;
+}
+
+.like_count{
+  color: #999;
+  margin-top: 15px;
+}
+
+.tag_like > img {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
 }
 
 .pd_price {
