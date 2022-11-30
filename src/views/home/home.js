@@ -20,7 +20,7 @@ async function insertProductElement() {
       "beforeend",
       `
     <section class="pd_block" id="${category}">
-    <img src="${img}"class="box" id="${num}"/>
+    <img src="${img}" loading="lazy" class="box" id="${num}"/>
     <article class="pd_text">
       <p class="pd_brd" id="${brand}">${brand}</p>
       <p class="pd_name" id="${name}">${name}</p>
