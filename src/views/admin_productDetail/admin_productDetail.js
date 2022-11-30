@@ -5,13 +5,15 @@ const productId = window.location.pathname.split("/")[3];
 let product = {};
 const ref = {
   sizeBlockTag: document.querySelector(".size_block"),
-  sizeTag: document.querySelector("selectBox"),
+  //sizeTag: document.querySelector("selectBox"),
+  sizeTag: document.querySelector("#sizeTag"),
+  colorTag: document.querySelector("#colorTag"),
   productImageTag: document.querySelector(".bb2"),
   brandTag: document.querySelector(".pd_brd"),
   nameTag: document.querySelector(".pd_name"),
   categoryTag: document.querySelector(".tag_category"),
   descriptionTag: document.querySelector(".tag_name"),
-  priceTag: document.querySelector(".price_li"),
+  priceTag: document.querySelector(".total_price"),
 
   addButtonTag: document.querySelector(".pd_add"),
   updateButtonTag: document.querySelector(".pd_fix"),
@@ -26,13 +28,29 @@ const drawProduct = async () => {
   ref.categoryTag.innerHTML = product.category;
   ref.descriptionTag.innerHTML = product.description;
   ref.priceTag.innerHTML = product.price;
-  // TODO] 사이즈 및 색상 추가 해야됨
+
+  product.size.forEach((size, index) => {
+    ref.sizeTag.insertAdjacentHTML(
+      "beforeend",
+      `
+          <option value="${index}">${size}</option>
+          `
+    );
+  });
+
+  product.color.forEach((color, index) => {
+    ref.colorTag.insertAdjacentHTML(
+      "beforeend",
+      `
+      <option value="${index}">${color}</option>
+      `
+    );
+  });
 
   const name = ref.nameTag.innerHTML;
   const brand = ref.brandTag.innerHTML;
   const price = ref.priceTag.innerHTML;
   const category = ref.categoryTag.innerHTML;
-  // TODO] 사이즈 및 색상 추가 해야됨
 };
 
 function addProduct() {

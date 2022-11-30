@@ -110,10 +110,6 @@ const drawProduct = async () => {
   const category = ref.categoryTag.innerHTML;
   const num = productId;
 
-  // FIX] 여기는 처음 로딩할때 실행되고 끝나는 함수라서 여기서 사이즈를 바꿀 수 없음
-  // product.selectSize = size;
-  // product.selectColor = color;
-
   review.forEach((review) => {
     const review_no = review.reviewNo;
     const review_email = review.userId;
