@@ -30,6 +30,11 @@ export class OrderModel {
     return order;
   }
 
+  async findEmail(email) {
+    const order = await Order.findOne({email});
+    return order;
+  }
+
   async create(orderInfo) {
     const createdNewOrder = await Order.create(orderInfo);
     return createdNewOrder;

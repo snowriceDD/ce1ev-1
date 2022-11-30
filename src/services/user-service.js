@@ -52,7 +52,6 @@ class UserService {
     }
 
     // 이제 이메일은 문제 없는 경우이므로, 비밀번호를 확인함
-
     // 비밀번호 일치 여부 확인
     const correctPasswordHash = user.password; // db에 저장되어 있는 암호화된 비밀번호
 
