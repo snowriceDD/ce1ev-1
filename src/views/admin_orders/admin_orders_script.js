@@ -34,27 +34,27 @@ async function insertOrders() {
     ordersCount: 0,
     prepareCount: 0,
     deliveryCount: 0,
-    completeCount: 0.
+    completeCount: 0,
   };
 
-  for(const order of orders) {
-    const {_id, orderNumber, products, cost, status, createdAt} = order;
+  for (const order of orders) {
+    const { _id, orderNumber, products, cost, status, createdAt } = order;
     const date = createdAt.split("T")[0];
     const names = [];
-    products.forEach((product)=> {
-      names.push(product['name'])
-    })
-    const name = names.toString().split(",").join("   ||   ")
-    console.log(name)
+    products.forEach((product) => {
+      names.push(product["name"]);
+    });
+    const name = names.toString().split(",").join("   ||   ");
+    console.log(name);
     summary.ordersCount += 1;
 
-    if(status === "상품 준비중") {
-      summary.prepareCount +=1;
+    if (status === "상품 준비중") {
+      summary.prepareCount += 1;
     }
-    if(status === "상품 배송중") {
+    if (status === "상품 배송중") {
       summary.deliveryCount += 1;
     }
-    if(status === "배송 완료") {
+    if (status === "배송 완료") {
       summary.completeCount += 1;
     }
 
@@ -73,13 +73,19 @@ async function insertOrders() {
           <select name="sB" class="select" id="status-${_id}">
             <option
              class="has-background-danger-light has-text-danger"
-             ${status=== "상품 준비중"?"selected":""} value="상품 준비중">상품 준비중</option>
+             ${
+               status === "상품 준비중" ? "selected" : ""
+             } value="상품 준비중">상품 준비중</option>
             <option
              class="has-background-primary-light has-text-primary"
-             ${status=== "상품 배송중"?"selected":""}value="상품 배송중">상품 배송중</option>
+             ${
+               status === "상품 배송중" ? "selected" : ""
+             }value="상품 배송중">상품 배송중</option>
             <option
               class="has-background-grey-light"
-             ${status=== "배송 완료"?"selected:":""}value="배송 완료">배송 완료</option>
+             ${
+               status === "배송 완료" ? "selected:" : ""
+             }value="배송 완료">배송 완료</option>
           </select>
         </div>
       </div>
@@ -88,7 +94,7 @@ async function insertOrders() {
           주문 취소
         </button>
       </div>
-    </div>;    
+    </div>  
       `
     );
 
@@ -98,23 +104,21 @@ async function insertOrders() {
     const index = statusBox.selectedIndex;
     statusBox.className = statusBox[index].className;
 
-
-    statusBox.addEventListener("change", async ()=> {
-
-      const value = confirm("수정하시겠습니까?")
-      if( value) {
+    statusBox.addEventListener("change", async () => {
+      const value = confirm("수정하시겠습니까?");
+      if (value) {
         const newStatus = statusBox.value;
-        const data = {status: newStatus};
-  
+        const data = { status: newStatus };
+
         const index = statusBox.selectedIndex;
         statusBox.className = statusBox[index].calssName;
-  
+
         await Api.patch("/api/orders/status", _id, data);
         location.reload();
       }
-    })
+    });
 
-    deleteBtn.addEventListener("click", async ()=> {
+    deleteBtn.addEventListener("click", async () => {
       orderNumDelete = _id;
       openModal();
     });
@@ -135,13 +139,13 @@ async function deleteOrderDate(e) {
 
     alert("주문이 삭제되었습니다.");
 
-    const deleteItem = document.querySelector(`#order-${orderNumDelete}`)
+    const deleteItem = document.querySelector(`#order-${orderNumDelete}`);
     deleteItem.remove();
 
     orderNumDelete = "";
 
     closeModal();
-  } catch(err) {
+  } catch (err) {
     next(`주문 삭제 과정에서 오류가 발생하였습니다: ${err}`);
   }
 }
@@ -151,8 +155,6 @@ function cancelDelete() {
   closeModal();
 }
 
-
-
 //modal용 script
 function closeModal() {
   modal.style.display = "none";
@@ -160,7 +162,6 @@ function closeModal() {
 function openModal() {
   modal.style.display = "flex";
 }
-
 
 /*esc close module*/
 document.addEventListener("keydown", keyDownCloseModal);

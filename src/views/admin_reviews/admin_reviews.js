@@ -1,23 +1,23 @@
 import { checkAdmin } from "../useful-functions.js";
 import * as Api from "/api.js";
 
-const section = document.querySelector('.content')
+const section = document.querySelector(".content");
 
 checkAdmin();
 
-let orderLists = {}
-let reviewLists = {}
-let ref = {}
+let orderLists = {};
+let reviewLists = {};
+let ref = {};
 
 const initialize = async () => {
-  const orders = await Api.get('/api/orderlist/all');
-  const reviews = await Api.get('/api/admin/adminReview-review');
+  const orders = await Api.get("/api/orderlist/all");
+  const reviews = await Api.get("/api/admin/adminReview-review");
 
   orderLists = orders;
   reviewLists = reviews;
 };
 
-async function getReviewList(){
+async function getReviewList() {
   await reviewLists.forEach((reviewList) => {
     const reviewNo = reviewList.reviewNo;
     const orderNo = reviewList.orderNo;
@@ -54,12 +54,14 @@ async function getReviewList(){
           </div>
         </div>
       </div>`
-    )
+    );
 
     ref[deleteBtn] = document.querySelector(`.${deleteBtn}`);
 
-    ref[deleteBtn].addEventListener("click", (event) => deleteReview(event, orderNo, productNo, userId));
-  })
+    ref[deleteBtn].addEventListener("click", (event) =>
+      deleteReview(event, orderNo, productNo, userId)
+    );
+  });
 }
 
 async function deleteReview(e, orderNo, productNo, userId) {
@@ -68,7 +70,7 @@ async function deleteReview(e, orderNo, productNo, userId) {
   try {
     const data = { orderNo: orderNo, productNo: productNo, userId: userId };
 
-    const result = await Api.delete(`/api/mypage/myPageReview`, '', data);
+    const result = await Api.delete(`/api/mypage/myPageReview`, "", data);
 
     if (result) {
       alert(`후기가 성공적으로 삭제되었습니다!`);
@@ -81,7 +83,7 @@ async function deleteReview(e, orderNo, productNo, userId) {
 }
 
 const render = () => {
-  getReviewList()
+  getReviewList();
 };
 
 initialize().then(() => render());

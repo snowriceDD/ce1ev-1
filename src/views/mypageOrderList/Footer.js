@@ -1,7 +1,7 @@
-const body = document.querySelector(".body");
+const main = document.querySelector(".main");
 
 window.onload = () => {
-  body.insertAdjacentHTML(
+  main.insertAdjacentHTML(
     "beforeEnd",
     `
   <footer class="footer">
@@ -46,3 +46,16 @@ window.onload = () => {
   `
   );
 };
+
+const logoutBtn1 = document.querySelector("#logout1");
+const logoutBtn2 = document.querySelector("#logout2");
+
+logoutBtn1.addEventListener("click", () => {
+  sessionStorage.removeItem("token");
+  window.location.href = "/";
+});
+
+logoutBtn2.addEventListener("click", () => {
+  sessionStorage.removeItem("token");
+  window.location.href = "/";
+});
