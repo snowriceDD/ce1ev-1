@@ -8,11 +8,6 @@
   width: 100vw;
   background: #f4f4f4;
   gap: 35px;
-<<<<<<< HEAD
-=======
-  padding: 0 100px;
-  width: 100vw;
->>>>>>> 88fed30ca0731e3407e2ccc6234f4861f1d67b1a
   flex-wrap: wrap;
 }
 .header .header_logo a {
@@ -93,11 +88,8 @@
 
   width: 100%;
   background: #f4f4f4;
-<<<<<<< HEAD
 
   padding: 53px 0;
-=======
->>>>>>> 88fed30ca0731e3407e2ccc6234f4861f1d67b1a
 }
 
 .addressLink {
