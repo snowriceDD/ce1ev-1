@@ -33,11 +33,12 @@ if (token) {
         const orderNumber = Number(
           String(getToday()) + String(Math.random() * 1000000000)
         );
+        const email = emailTag.value;
         const payMethod = payment;
         const products = cart;
-        const cost = parseInt(document.querySelector(".AllPrice").innerHTML);
+        const cost = parseInt(document.querySelector(".AllPrice").innerHTML.replace(/(,|개|원)/g, ""))
         const count = cart.length;
-        const data = { orderNumber, products, cost, count, payMethod };
+        const data = { orderNumber, products, cost, count, payMethod, email };
         const result = await Api.post("/api/orders", data);
         alert(`주문이 완료 되었습니다.`)
         // console.log(result);
@@ -72,13 +73,13 @@ if (token) {
     if (check) {
       try {
         const orderNumber = Number(
-          String(getToday()) + String(Math.random() * 1000000000)
+          String(getToday()) + String(Math.random() * 10000000000)
         );
         const payMethod = payment;
         const products = cart;
-        const cost = parseInt(document.querySelector(".AllPrice").innerHTML);
+        const cost = parseInt(document.querySelector(".AllPrice").innerHTML.replace(/(,|개|원)/g, ""))
         const count = cart.length;
-        const data = { orderNumber, products, cost, count, payMethod };
+        const data = { orderNumber, products, cost, count, payMethod, email };
 
           //user 정보 확인
         const name = inputnameTag.value;
@@ -113,8 +114,8 @@ if (token) {
         
 
         try {
-          const user = {name, email, password, phoneNum, address, role, isMember};
-          await Api.post("/api/register", user);
+          // const user = {name, email, password, phoneNum, address, role, isMember};
+          // await Api.post("/api/register", user);
           
           alert(`guest 주문이 완료 되었습니다. 주문번호(${password})를 꼭 기억하여 password로 입력해주십시오.`)
           localStorage.clear();
@@ -202,6 +203,6 @@ async function insertOrderElement() {
     cost += parseInt(price.replace(/(,|개|원)/g, ""));
   });
   const totalPrice = document.querySelector(".AllPrice");
-  totalPrice.innerHTML = cost;
+  totalPrice.innerHTML = cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   document.querySelector(".totalCount").innerHTML = cart.length;
 }

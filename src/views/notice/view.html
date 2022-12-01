@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>notice</title>
+    <link
+    href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Itim&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
+    rel="stylesheet"
+  />
+    <link rel="stylesheet" href="css/css.css" />
+    <link rel="stylesheet" type="text/css" href="../mypage/HeaderFooter.css" />
+  </head>
+  <body class="body">
+    <!--Header-->
+    <header class="header">
+      <div class="header_logo">
+        <a href="/"> Ce1ev. </a>
+      </div>
+      <ul class="search">
+        <li>
+          <input
+            type="text"
+            placeholder="검색어를 입력하세요."
+            class="header_search"
+            id="text"
+          />
+          <button type="button" class="searchBtn">
+            <i class="fa fa-magnifying-glass fa-2x"></i>
+          </button>
+        </li>
+      </ul>
+      <ul class="header_right" id="guest">
+        <li id="header_login">
+          <a href="/login"> LOGIN </a>
+        </li>
+        <li id="header_wish">
+          <a href="/register"> REGISTER </a>
+        </li>
+        <li id="header_cart">
+          <a href="/guest"> GUEST </a>
+        </li>
+        <li id="header_notice">
+            <a href="/notice"> NOTICE </a>
+          </li>
+      </ul>
+      <ul class="header_right hidden" id="user">
+        <li id="header_cart">
+          <a href="/mypage/myPageCart"> CART </a>
+        </li>
+        <li id="header_myPage">
+          <a href="/mypage"> MY PAGE </a>
+        </li>
+        <li id="header_notice">
+            <a href="/notice"> NOTICE </a>
+          </li>
+        <li id="header_logout">
+          <a href="/#" id="logout2"> LOG OUT </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="admin">
+        <li id="header_addProduct">
+          <a href="/products"> ADD-PRODUCT </a>
+        </li>
+        <li id="header_mypage">
+          <a href="/admin"> ADMIN-PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout1"> LOG OUT </a>
+        </li>
+      </ul>
+    </header>
+    <div class="board_wrap">
+      <div class="board_title">
+        <strong>공지사항</strong>
+        <p>공지사항 게시판 입니다.</p>
+      </div>
+      <div class="board_view_wrap">
+      </div>
+    </div>
+    <!-- modal -->
+    <div id="modal" class="modal-overlay">
+      <div class="modal-window" id="modalBackground">
+        <div class="close-area" id="modalCloseButton">❎</div>
+        <p class="modal_text">해당 게시글을 수정하시겠습니까?</p>
+          <input class="modal_input" type="form" placeholder="password" />
+              <div class="buttons">
+                <button class="button_comp" id="editComplete" aria-label="close">
+                  확인
+                </button>
+                <button class="button_canc" id="editCancelButton" aria-label="close">
+                  취소
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="delete_modal" class="modal-overlay">
+      <div class="modal-window" id="delete_modalBackground">
+        <div class="close-area" id="delete_modalCloseButton">❎</div>
+        <p class="delete_modal_text">해당 게시글을 삭제하시겠습니까?</p>
+          <input class="delete_modal_input" type="form" placeholder="password" />
+              <div class="buttons">
+                <button class="button_comp" id="delete_deleteComplete" aria-label="close">
+                  확인
+                </button>
+                <button class="button_canc" id="delete_deleteCancelButton" aria-label="close">
+                  취소
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="../mypage/Footer.js"></script>
+    <script src="view.js" type="module"></script>
+  </body>
+</html>

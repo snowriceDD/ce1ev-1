@@ -1,9 +1,11 @@
 import * as Api from "/api.js";
 
-const productList = document.querySelector(".section_box");
+const productList = document.querySelector(".section");
 
 // 데이터를 받아 요소를 만든 후, html에 삽입
 insertProductElement();
+
+let ref = {};
 
 async function insertProductElement() {
   const products = await Api.get("/api/products"); //백엔드 url
@@ -18,11 +20,13 @@ async function insertProductElement() {
     const description = product.description;
     const num = product.num;
 
+    const updateProduct = `updateProduct-${num}`;
+
     productList.insertAdjacentHTML(
       "beforeend",
       `
       <section class="pd_block" id="${category}">
-      <img src="${img}"class="box" id="${num}"/>
+      <img src="${img}"class="box ${updateProduct}"/>
       <article class="pd_text">
         <p class="pd_brd" id="${brand}">${brand}</p>
         <p class="pd_name" id="${name}">
@@ -38,5 +42,17 @@ async function insertProductElement() {
     </section>
       `
     );
+
+    ref[updateProduct] = document.querySelector(`.${updateProduct}`);
+
+    ref[updateProduct].addEventListener("click", (event) =>
+      updateProductFunc(event, product)
+    );
   });
+}
+
+async function updateProductFunc(e, product) {
+  e.preventDefault();
+
+  window.location.assign(`/admin/adminProductDetail/${product.num}`);
 }

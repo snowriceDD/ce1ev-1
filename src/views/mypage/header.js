@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
       <ul class="search">
         <li>
           <input type="text" placeholder="검색어를 입력하세요." class="header_search" id="text" />
-          <button type="button">
+          <button type="button" class="searchBtn">
             <i class="fa fa-magnifying-glass fa-2x"></i>
           </button>
         </li>
@@ -72,16 +72,16 @@ window.addEventListener("load", () => {
     </header>
     `
   );
-  const logoutBtn1 = document.querySelector("#logout1")
-  const logoutBtn2 = document.querySelector("#logout2")
+  const logoutBtn1 = document.querySelector("#logout1");
+  const logoutBtn2 = document.querySelector("#logout2");
 
-  logoutBtn1.addEventListener("click", ()=> {
+  logoutBtn1.addEventListener("click", () => {
     sessionStorage.removeItem("token");
     window.location.href = "/";
-  })
+  });
 
-  logoutBtn2.addEventListener("click", ()=> {
+  logoutBtn2.addEventListener("click", () => {
     sessionStorage.removeItem("token");
     window.location.href = "/";
-  })
+  });
 });

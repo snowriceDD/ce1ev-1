@@ -17,14 +17,67 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/admin_productDetail/admin_productDetail.css" />
-    <link rel="stylesheet" href="../mypage/HeaderFooter.css" />
-    <link rel="stylesheet" href="../home/reset.css" />
+    <link rel="stylesheet" href="/admin_productDetail/HeaderFooter.css" />
+    <link rel="stylesheet" href="/admin_productDetail/reset.css" />
     <title>adimnProductDetail</title>
   </head>
-  <!-- Header -->
   <body class="body">
-    
-    <div class="container">
+    <div class="main">
+      
+      <!-- Header -->
+      <header class="header">
+      <div class="header_logo">
+        <a href="/"> Ce1ev. </a>
+      </div>
+      <ul class="search">
+        <li>
+          <input
+            type="text"
+            placeholder="검색어를 입력하세요."
+            class="header_search"
+            id="text"
+          />
+          <button type="button" class="searchBtn">
+            <i class="fa fa-magnifying-glass fa-2x"></i>
+          </button>
+        </li>
+      </ul>
+      <ul class="header_right" id="guest">
+        <li id="header_login">
+          <a href="/login"> LOGIN </a>
+        </li>
+        <li id="header_wish">
+          <a href="/register"> REGISTER </a>
+        </li>
+        <li id="header_cart">
+          <a href="/guest"> GUEST </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="user">
+        <li id="header_cart">
+          <a href="/mypage/myPageCart"> CART </a>
+        </li>
+        <li id="header_myPage">
+          <a href="/mypage"> MY PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout2"> LOG OUT </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="admin">
+        <li id="header_addProduct">
+          <a href="/products"> ADD-PRODUCT </a>
+        </li>
+        <li id="header_mypage">
+          <a href="/admin"> ADMIN-PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout1"> LOG OUT </a>
+        </li>
+      </ul>
+      </header>
+
+      <div class="section">
       <div class="box bb1">🚨여기는 관리자 페이지입니다.</div>
       <img class="box bb2" src=""></img>
       <div class="box bb3">
@@ -33,7 +86,6 @@
         </p>
       </div>
       <div class="box bb4">
-        
         <div class="tag_block">
           <a class="tag_category"></a>
           <a class="tag_name"></a>
@@ -41,10 +93,24 @@
       </div>
       <div class="box bb5">
         <p>사이즈</p>
-        <div class="size_block">
-          <!-- <button id="content_box" class="size" type="button">S</button> -->
+        <div class="sizeSelectBox">
+          <select name="sB" class="select" id="sizeTag"></select>
         </div>
       </div>
+      <div class="box bb6">
+        <p>색상</p>
+        <div class="colorSelectBox">
+          <select name="sB" class="select" id="colorTag"></select>
+        </div>
+      </div>
+      <div class="box bb7">
+        <span class="total_price_title">상품가격</span>
+        <div class="box bb7-1">
+          <span class="total_price"></span>
+          <span class="total_won">원</span>
+        </div>
+      </div>
+      <!--
       <div class="box bb6">
         <span>${color/size}</span>
         <span class="counter">
@@ -58,7 +124,7 @@
       <div class="box bb7">
         <span class="total_price_title">상품가격</span>
         <span class="total_price"></span>
-      </div>
+      </div> -->
       <div class="box bb8">
         <button class="pd_add" type="button">상품 등록</button>
         <button class="pd_fix" type="button">상품 수정</button>
@@ -73,12 +139,12 @@
       <div class="box bb15">리뷰</div>
       <div class="box bb16">리뷰2</div>
       <div class="box bb17">리뷰3</div>
+      </div>
+      <!-- Footer -->
     </div>
-    <!-- Footer -->
-
-    <!-- <script src="indexed-db.js"></script> -->
     <script src="/admin_productDetail/admin_productDetail.js" type="module" defer></script>
-    <!-- <script src="admin_productDetail.html"></script> -->
+    <script src="/admin_productDetail/changeHeader.js" type="module" defer></script>
+    <script src="/admin_productDetail/footer.js" type="module" defer></script>
     <script src="https://kit.fontawesome.com/5c0da6133a.js" crossorigin="anonymous"></script>
   </body>
 </html>
