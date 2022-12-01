@@ -1,6 +1,5 @@
 import * as Api from "../api.js";
-// import {adminOnly} from "../../middlewares/admin-only"
-
+import { checkLogin } from "../useful-functions.js";
 
 const titleInput = document.querySelector('#title');
 const nameInput = document.querySelector('#name');
@@ -8,7 +7,7 @@ const passwordInput = document.querySelector('#password');
 const contentInput = document.querySelector('#content');
 const submitBtn = document.querySelector('.on');
 
-// adminOnly();
+checkLogin();
 insertUser();
 addAllEvents();
 
