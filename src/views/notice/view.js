@@ -47,12 +47,35 @@ async function insertPostElement() {
     const editNoBtn = document.getElementById(`edit_${postNo}`);
     const deleteNoBtn = document.getElementById(`delete${postNo}`);
 
-    editNoBtn.addEventListener("click", moveToEditPost);
-    deleteNoBtn.addEventListener("click", deletePost);
+    // editNoBtn.addEventListener("click", moveToEditPost);
+    editNoBtn.addEventListener("click", openModal);
+    deleteNoBtn.addEventListener("click", openDeleteModal);
 
+    // function moveToEditPost() {
+    //     window.location.assign(`/postEdit/${postNo}`);
+    // }
+
+    /* >> 모달 확인버튼 누르면 edit page 이동 */
+    // y: 비밀번호 검증 어캐 함?
     function moveToEditPost() {
-        window.location.assign(`/postEdit/${postNo}`);
+      window.location.assign(`/postEdit/${postNo}`);
+      closeModal()
     }
+
+    function cancelEdit() {
+    closeModal();
+    }
+
+
+    function moveToDeletePost() {
+      window.location.assign(`/postEdit/${postNo}`);
+      closeDeleteModal()
+    }
+
+    function cancelDelete() {
+    closeDeleteModal();
+    }
+
 
     async function deletePost() {
       const value = confirm("해당 게시글을 삭제하시겠습니까?")
@@ -68,4 +91,62 @@ async function insertPostElement() {
       }
     }
 
+    //modal 수정중 
+
+    const modal = document.querySelector("#modal");
+    const delete_modal = document.querySelector("#delete_modal");
+    const modalBackground = document.querySelector("#modalBackground");
+    const modalCloseButton = document.querySelector("#modalCloseButton");
+
+    const editButton = document.querySelector("#editComplete");
+    const editCancelButton = document.querySelector("#editCancelButton");
+
+    const deleteButton = document.querySelector("#delete_deleteComplete");
+    const deleteCancelButton = document.querySelector("#delete_deleteCancelButton");
+
+    //addEventListner 묶음
+    function addAllEvents() {
+      modalBackground.addEventListener("click", closeModal);
+      modalCloseButton.addEventListener("click", closeModal);
+      document.addEventListener("keydown", keyDownCloseModal);
+
+      editButton.addEventListener("click", moveToEditPost);
+      editCancelButton.addEventListener("click", cancelEdit);
+
+      deleteButton.addEventListener("click", moveToDeletePost);
+      deleteCancelButton.addEventListener("click", cancelDelete);
+    }
+
+    addAllEvents();
+
+
+    //modal용 script
+    function closeModal() {
+      modal.style.display = "none";
+    }
+    function openModal() {
+      modal.style.display = "flex";
+    }
+
+    //delete_modal용 script
+    function closeDeleteModal() {
+      delete_modal.style.display = "none";
+    }
+    function openDeleteModal() {
+      delete_modal.style.display = "flex";
+    }
+
+
+    /*esc close module*/
+    document.addEventListener("keydown", keyDownCloseModal);
+    function keyDownCloseModal(e) {
+      if (e.keyCode === 27) {
+        closeModal();
+        closeDeleteModal();
+      }
+    }
+
 }
+
+
+
