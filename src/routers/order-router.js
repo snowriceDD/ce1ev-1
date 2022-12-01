@@ -102,9 +102,10 @@ orderRouter.patch(
   }
 );
 
-orderRouter.delete("/orders/:orderId", adminOnly, async (req, res, next) => {
+orderRouter.delete("/orders/:orderId", async (req, res, next) => {
   try {
     const orderId = req.params.orderId;
+    console.log(orderId)
     const order = await orderService.deleteOrder(orderId);
 
     res.status(201).json(order);

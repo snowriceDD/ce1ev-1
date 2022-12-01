@@ -161,6 +161,12 @@ ref.cartButtonTag.addEventListener("click", addCart);
 
 //주문 바로하기
 const buyNow = () => {
+  const size = sizeTag.options[sizeTag.selectedIndex].text;
+  const color = colorTag.options[colorTag.selectedIndex].text;
+
+  product.selectSize = size;
+  product.selectColor = color;
+  product.quantity = 1;
   localStorage.removeItem("buyNowProducts");
   const products = JSON.parse(localStorage.getItem("buyNowProducts")) || [];
   products.push(product);

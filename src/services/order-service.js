@@ -82,10 +82,14 @@ class OrderService {
     }
     // 이제 이메일은 문제 없는 경우이므로, 비밀번호를 확인함
     // 비밀번호 일치 여부 확인
-    if (orderNumber != guest.orderNumber) {
-      throw new Error(
-        "주문번호가 일치하지 않습니다. 다시 한 번 확인해 주세요."
-      );
+    for(let i=0; i<guest.length; i++){
+      if(guest[i].orderNumber===orderNumber){
+        return true;
+      }else if (!true) {
+        throw new Error(
+          "주문번호가 일치하지 않습니다. 다시 한 번 확인해 주세요."
+        );
+      }
     }
     return { guest };
   }

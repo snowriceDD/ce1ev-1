@@ -1,10 +1,10 @@
 // import { checkLogin } from "../useful-functions.js";
 import * as Api from "/api.js";
 
-const section = document.querySelector('.title')
-const product = document.querySelector('.product_name')
+const section = document.querySelector(".title");
+const product = document.querySelector(".product_name");
 const userEmail = window.location.pathname.split("/")[2];
-
+let ref = {};
 // checkLogin();
 insertOrderListElement();
 
@@ -16,7 +16,7 @@ async function insertOrderListElement() {
   // console.log(email)
   const res = await fetch(`/api/myOrders/${userEmail}`);
   orderLists = await res.json();
-  console.log(orderLists)
+  console.log(orderLists);
   orderLists.forEach((orderList) => {
     orderList.products.forEach((productList) => {
       const name = productList.name;
@@ -26,6 +26,7 @@ async function insertOrderListElement() {
       const orderDate = orderList.createdAt.substr(0, 10);
       const price = productList.totalPrice;
       const status = orderList.status;
+      const deleteButton = `delete-${orderNumber}`
       section.insertAdjacentHTML(
         "afterend",
         `<div class="content">
@@ -45,8 +46,26 @@ async function insertOrderListElement() {
               (${num}개)
             </div>
             <div>${status}</div>
+            <button class="${deleteButton}">주문취소</button>
           </div>`
-        )
-      })
-    })
-}   
+      );
+      ref[deleteButton] = document.querySelector(`.${deleteButton}`);
+      ref[deleteButton].addEventListener("click",(event)=> deleteOrderList(event, orderNumber));
+    });
+  }); // deleteButton.addEventListner
+}
+async function deleteOrderList(event, orderNumber) {
+  event.preventDefault();
+  const value = confirm("주문 취소 시 관련 상품이 전부 취소됩니다.");
+  if (value === true) {
+    try {
+      await Api.delete(`/api/orders/${orderNumber}`);
+      alert("주문내역이 삭제되었습니다.");
+      window.location.href = `/myPageOrderList/${userEmail}`;
+    } catch {
+      (err) => {
+        console.log(err);
+      };
+    }
+  }
+}
