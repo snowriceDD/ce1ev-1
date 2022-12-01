@@ -46,6 +46,8 @@ async function insertPostElement() {
 
     const editNoBtn = document.getElementById(`edit_${postNo}`);
     const deleteNoBtn = document.getElementById(`delete${postNo}`);
+    const modalInput = document.getElementsByClassName("modal_input")
+    const DeleteModalInput = document.getElementsByClassName("delete_modal_input")
 
     // editNoBtn.addEventListener("click", moveToEditPost);
     editNoBtn.addEventListener("click", openModal);
@@ -57,34 +59,49 @@ async function insertPostElement() {
 
     /* >> 모달 확인버튼 누르면 edit page 이동 */
     // y: 비밀번호 검증 어캐 함?
-    function moveToEditPost() {
-      window.location.assign(`/postEdit/${postNo}`);
-      closeModal()
-    }
+    async function moveToEditPost(e) {
+      e.preventDefault();
+      const data = await Api.get(`/api/posts/${postNo}`);
+      const {password} = data;
 
+      if(modalInput[0].value === password) {
+        
+        window.location.assign(`/postEdit/${postNo}`);
+        closeModal()
+      } else {
+        alert("비밀번호가 틀렸습니다");
+        // closeModal();
+      }
+    }
     function cancelEdit() {
     closeModal();
     }
 
 
-    function moveToDeletePost() {
-      window.location.assign(`/postEdit/${postNo}`);
-      closeDeleteModal()
-    }
+    // function moveToDeletePost() {
+    //   window.location.assign(`/postEdit/${postNo}`);
+    //   closeDeleteModal()
+    // }
 
     function cancelDelete() {
     closeDeleteModal();
     }
 
 
-    async function deletePost() {
-      const value = confirm("해당 게시글을 삭제하시겠습니까?")
-      if(value) {
+    async function moveToDeletePost(e) {
+      e.preventDefault();
+
+      const data = await Api.get(`/api/posts/${postNo}`);
+      const {password} = data;
+
+      if(DeleteModalInput[0].value === password) {
+
         try{
           await Api.delete("/api/posts", postNo);
           alert("게시물이 삭제 되었습니다.");
 
           window.location.href="/notice";
+          closeModal();
         }catch(err) {
           alert(`게시물 삭제 중 오류가 발생하였습니다. ${err}`);
         }
@@ -95,8 +112,9 @@ async function insertPostElement() {
 
     const modal = document.querySelector("#modal");
     const delete_modal = document.querySelector("#delete_modal");
-    const modalBackground = document.querySelector("#modalBackground");
+    // const modalBackground = document.querySelector("#modalBackground");
     const modalCloseButton = document.querySelector("#modalCloseButton");
+    const deleteModalCloseButton = document.querySelector("#delete_modalCloseButton");
 
     const editButton = document.querySelector("#editComplete");
     const editCancelButton = document.querySelector("#editCancelButton");
@@ -106,8 +124,8 @@ async function insertPostElement() {
 
     //addEventListner 묶음
     function addAllEvents() {
-      modalBackground.addEventListener("click", closeModal);
       modalCloseButton.addEventListener("click", closeModal);
+      deleteModalCloseButton.addEventListener("click", closeModal);
       document.addEventListener("keydown", keyDownCloseModal);
 
       editButton.addEventListener("click", moveToEditPost);

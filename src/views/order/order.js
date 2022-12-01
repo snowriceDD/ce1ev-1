@@ -73,7 +73,7 @@ if (token) {
     if (check) {
       try {
         const orderNumber = Number(
-          String(getToday()) + String(Math.random() * 1000000000)
+          String(getToday()) + String(Math.random() * 10000000000)
         );
         const payMethod = payment;
         const products = cart;

@@ -13,9 +13,17 @@
   border: 0.25px solid gray;
 }
 
+.order_manage {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
 .order_moniter {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 5px 0;
 }
 
 .order_moniter dl {
