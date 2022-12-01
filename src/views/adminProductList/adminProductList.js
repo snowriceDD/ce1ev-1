@@ -1,6 +1,6 @@
 import * as Api from "/api.js";
 
-const productList = document.querySelector(".section_box");
+const productList = document.querySelector(".section");
 
 // 데이터를 받아 요소를 만든 후, html에 삽입
 insertProductElement();
@@ -45,7 +45,9 @@ async function insertProductElement() {
 
     ref[updateProduct] = document.querySelector(`.${updateProduct}`);
 
-    ref[updateProduct].addEventListener("click", (event) => updateProductFunc(event, product));
+    ref[updateProduct].addEventListener("click", (event) =>
+      updateProductFunc(event, product)
+    );
   });
 }
 

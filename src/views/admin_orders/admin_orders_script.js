@@ -94,7 +94,7 @@ async function insertOrders() {
           주문 취소
         </button>
       </div>
-    </div>;    
+    </div>  
       `
     );
 

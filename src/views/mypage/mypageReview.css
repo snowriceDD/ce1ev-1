@@ -1,8 +1,14 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .section {
+  flex: 1;
   width: 1000px;
   margin: 110px auto;
 }
-
 .section h1 {
   font-size: 24px;
   font-weight: bold;
@@ -21,6 +27,10 @@
 }
 
 .section .my_shopping {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
   font-size: 14px;
 }
 
@@ -46,19 +56,12 @@
   width: 625px;
 }
 
-.section .my_shopping {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-
 .section .my_shopping .content {
   width: 1000px;
   height: 200px;
   border: 1px solid lightgray;
 
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 
@@ -91,7 +94,7 @@
   gap: 46px;
 }
 
-.section .my_shopping .content .product_price {
+.section .my_shopping .product_price {
   width: 188px;
   height: 202px;
 

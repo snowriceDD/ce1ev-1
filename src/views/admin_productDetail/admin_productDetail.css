@@ -5,6 +5,16 @@
   list-style: none;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.section {
+  flex: 1;
+}
+
 .box {
   /* border: 1px solid #181818; */
   background-color: #ffffff;
@@ -175,7 +185,7 @@
   font-weight: 600;
 }
 
-.container {
+.section {
   display: grid;
   margin-top: 100px;
   margin-left: 25%;
