@@ -57,7 +57,7 @@ async function getReviewList(){
     )
 
     ref[deleteBtn] = document.querySelector(`.${deleteBtn}`);
-
+      
     ref[deleteBtn].addEventListener("click", (event) => deleteReview(event, orderNo, productNo, userId));
   })
 }

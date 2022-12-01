@@ -36,7 +36,7 @@ if (token) {
         const email = emailTag.value;
         const payMethod = payment;
         const products = cart;
-        const cost = parseInt(document.querySelector(".AllPrice").innerHTML);
+        const cost = totalPrice.innerHTML;
         const count = cart.length;
         const data = { orderNumber, products, cost, count, payMethod, email };
         const result = await Api.post("/api/orders", data);

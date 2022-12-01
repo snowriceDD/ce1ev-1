@@ -27,6 +27,12 @@ export class OrderModel {
 
   async findByEmail(email) {
     const order = await Order.find({email});
+    console.log("확인"+order)
+    return order;
+  }
+
+  async findEmail(email) {
+    const order = await Order.findOne({email});
     return order;
   }
 
@@ -43,8 +49,8 @@ export class OrderModel {
     return updateOrder;
   }
 
-  async delete(orderId) {
-    const order = await Order.deleteOne({_id: orderId});
+  async delete(orderNumber) {
+    const order = await Order.deleteOne({orderNumber});
     return order;
   }
 }
