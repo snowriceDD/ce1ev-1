@@ -87,6 +87,44 @@
       <div class="board_view_wrap">
       </div>
     </div>
+    <!-- modal -->
+    <div id="modal" class="modal-overlay">
+      <div class="modal-window" id="modalBackground">
+        <div class="close-area" id="modalCloseButton">❎</div>
+        <p class="modal_text">해당 게시글을 수정하시겠습니까?</p>
+          <input class="modal_input" type="form" placeholder="password" />
+              <div class="buttons">
+                <button class="button_comp" id="editComplete" aria-label="close">
+                  확인
+                </button>
+                <button class="button_canc" id="editCancelButton" aria-label="close">
+                  취소
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="delete_modal" class="modal-overlay">
+      <div class="modal-window" id="delete_modalBackground">
+        <div class="close-area" id="delete_modalCloseButton">❎</div>
+        <p class="delete_modal_text">해당 게시글을 삭제하시겠습니까?</p>
+          <input class="delete_modal_input" type="form" placeholder="password" />
+              <div class="buttons">
+                <button class="button_comp" id="delete_deleteComplete" aria-label="close">
+                  확인
+                </button>
+                <button class="button_canc" id="delete_deleteCancelButton" aria-label="close">
+                  취소
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
     <script src="../mypage/Footer.js"></script>
     <script src="view.js" type="module"></script>
   </body>
