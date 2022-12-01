@@ -26,11 +26,11 @@ async function insertOrderListElement() {
       const orderDate = orderList.createdAt.substr(0, 10);
       const price = productList.totalPrice;
       const status = orderList.status;
-      const deleteButton = `delete-${orderNumber}`
-      section.insertAdjacentHTML(
-        "afterend",
-        `<div class="content">
-
+      const deleteButton = `delete-${orderNumber}`;
+      if (status === "상품 준비중") {
+        section.insertAdjacentHTML(
+          "afterend",
+          `<div class="content">
             <div class="first">
               <img class="product_img" src="${img}"/>
               <div class="product_script">
@@ -45,15 +45,39 @@ async function insertOrderListElement() {
               ${price}원<br />
               (${num}개)
             </div>
-            <div>${status}</div>
+            <div class="${status} statusBtn">${status}
             <button class="${deleteButton}">주문취소</button>
+            </div>
           </div>`
-      );
+        );
+      } else {
+        section.insertAdjacentHTML(
+          "afterend",
+          `<div class="content">
+              <div class="first">
+                <img class="product_img" src="${img}"/>
+                <div class="product_script">
+                  <p class="product_name">
+                    상품명 : ${name}
+                  </p>
+                  <div class="order_number">주문 번호 : ${orderNumber}</div>
+                  <div class="order_date">주문 일자 : ${orderDate}</div>
+                </div>
+              </div>
+              <div class="product_price">
+                ${price}원<br />
+                (${num}개)
+              </div>
+              <div class="${status}">${status}</div>
+            </div>`
+        );
+      }
       ref[deleteButton] = document.querySelector(`.${deleteButton}`);
       ref[deleteButton].addEventListener("click",(event)=> deleteOrderList(event, orderNumber));
     });
   }); // deleteButton.addEventListner
 }
+console.log(ref)
 async function deleteOrderList(event, orderNumber) {
   event.preventDefault();
   const value = confirm("주문 취소 시 관련 상품이 전부 취소됩니다.");
