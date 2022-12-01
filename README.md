@@ -1,192 +1,88 @@
-# 리팩토링 해보아요 - Ce1ev.
+# Ce1ev. :: celebrity picks.
+## 리팩토링 진행 중
+### 기존 URL : http://kdt-sw3-team23.elicecoding.com/
+---
 
-<div>
+# Service
 
-<img alt="쇼핑-데모 로고" src="./src/views/image/celev_logo.PNG">
+<aside>
+💡 셀럽들이 착용했던 의상들을 기준**으로 데이터화하여 소비자에게 착용 정보 제공 및 상품을 판매하는 쇼핑몰 서비스입니다.
 
-</div>
-
-<br />
-
-## 1. 서비스 소개
-
-#### 제품 등록, 장바구니 추가, 주문하기 등 쇼핑몰의 핵심 서비스를 구현합니다. 
-1. 회원가입, 로그인, 회원정보 수정 등 **유저 정보 관련 CRUD** 
-2. **제품 목록**을 조회 및, **제품 상세 정보**를 조회 가능함. 
-3. 장바구니에 제품을 추가할 수 있으며, **장바구니에서 CRUD** 작업이 가능함.
-4. 장바구니는 서버 DB가 아닌, 프론트 단에서 저장 및 관리됨 (localStorage, indexedDB 등)
-5. 장바구니에서 주문을 진행하며, **주문 완료 후 조회 및 삭제**가 가능함.
-6. 카테고리별 필터링
-7. 검색기능 가능
-8. 찜하기
-9. 리뷰작성
-10. Q & A page
-
-<br />
-
-### 1-1. API 문서
-
-### https://documenter.getpostman.com/view/23952739/2s847JrX6f
-
-<br>
-
-### 1-2. 데모 영상
-
-<details><summary>사용자 회원가입, 로그인</summary>
-
-![image](./src/views/image/register.gif)
-
-</details>
-
-<details><summary>카테고리 추가 및 반영</summary>
-
-추후 관련 영상을 삽입하세요 (하기 2가지 방법 가능)
-1. 화면녹화 -> 유튜브 업로드 -> 유튜브 링크 삽입  
-2. 화면움짤녹화 -> 움짤삽입 (https://www.screentogif.com/ 활용가능)
-   
-</details>
-
-<details><summary>제품 추가 및 반영</summary>
-
-추후 관련 영상을 삽입하세요 (하기 2가지 방법 가능)
-1. 화면녹화 -> 유튜브 업로드 -> 유튜브 링크 삽입  
-2. 화면움짤녹화 -> 움짤삽입 (https://www.screentogif.com/ 활용가능)
-
-</details>
-
-<details><summary>장바구니 기능</summary>
-
-추후 관련 영상을 삽입하세요 (하기 2가지 방법 가능)
-1. 화면녹화 -> 유튜브 업로드 -> 유튜브 링크 삽입  
-2. 화면움짤녹화 -> 움짤삽입 (https://www.screentogif.com/ 활용가능)
-
-</details>
-
-<details><summary>주문 기능</summary>
-
-추후 관련 영상을 삽입하세요 (하기 2가지 방법 가능)
-1. 화면녹화 -> 유튜브 업로드 -> 유튜브 링크 삽입  
-2. 화면움짤녹화 -> 움짤삽입 (https://www.screentogif.com/ 활용가능)
-
-</details>
-
-<details><summary>관리자 페이지</summary>
-
-추후 관련 영상을 삽입하세요 (하기 2가지 방법 가능)
-1. 화면녹화 -> 유튜브 업로드 -> 유튜브 링크 삽입  
-2. 화면움짤녹화 -> 움짤삽입 (https://www.screentogif.com/ 활용가능)
-
-</details>
-
-<br />
-
-### 1-3. 페이지 별 화면
-
-|  |  |
-| ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------|
-| ![image](./src/views/image/mainPage.PNG) | ![image](./src/views/image/register.PNG) |
-|    메인 페이지                                |      회원가입 화면                            |
-| ![image](./src/views/image/login.PNG) |                                         |
-|    로그인 페이지                              |     앞으로 추가할 페이지                         |
-
-<br />
-
-
-## 2. 기술 스택
-
-![image](https://i.ibb.co/N34mXzy/image.png)
-
-<br />
-
-### 2-1. 프론트엔드
-
-- **Vanilla javascript**, html, css (**Bulma css**)
-- Font-awesome 
-- Daum 도로명 주소 api 
-- 이외
-
-### 2-2. 백엔드 
-
-- **Express** (nodemon, babel-node로 실행됩니다.)
-- Mongodb, Mongoose
-- cors
-- 이외
-
-
-
-## 3. 인프라 구조
-
-![image](https://i.ibb.co/9tGxmx0/image.png)<br />
-
-### 3-1. 폴더 구조
-- 프론트: `src/views` 폴더 
-- 백: src/views 이외 폴더 전체
-- 실행: **프론트, 백 동시에, express로 실행**
-
-<br />
-
-## 4. 제작자
-
-| 이름 | 담당 업무 |
-| ------ | ------ |
-| 엘리스 | 팀장/개발 |
-
-<br />
-
-## 5. 실행 방법
-
-1. 레포지토리를 클론하고자 하는 디렉토리에서 아래 명령어를 수행
-
-```bash
-git clone <레포지토리 주소>
-```
-
-
-2. 클론한 디렉토리에서 backend 디렉토리로 들어가 아래 명령어를 통해 backend에서 필요한 module 설치
-
-```bash
-npm install
-```
-
-
-3. backend에서 필요한 `.env` 설정
-
-```bash
-MONGODB_URL=<몽고DB URL>
-PORT=5000
-JWT_SECERT_KEY=<랜덤 문자열>
-```
-
-4. express 앱을 실행
-
-```bash
-npm start
-```
-
-<br>
-
-## 6. 버전
-### 1.0.0
-
-<br>
-
-## 7. FAQ
-<details><summary>1. 배포된 페이지는 어디에서 확인할 수 있나요?</summary>
-
-  <p>
-    프로젝트 기본 코드는 따로 배포하지 않았습니다, 레포지토리를 클론하여 직접 실행해보세요.
-  </p>
-
-</details>
-<details><summary>2. env 파일이 보이지 않습니다.</summary>
-
-  <p>
-    해당 파일은 직접 만들어서 코드를 작성해야 합니다, DB를 비롯한 서비스의 계정 정보는 <b>절대로</b> Git에 함부로 공유하면 안되기 때문에 유의 바랍니다.
-  </p>
-
-</details>
+</aside>
 
 ---
 
-본 프로젝트에서 제공하는 모든 코드 등의는 저작권법에 의해 보호받는 ㈜엘리스의 자산이며, 무단 사용 및 도용, 복제 및 배포를 금합니다.
-Copyright 2022 엘리스 Inc. All rights reserved.
+### About Project
+
+소비자들은 셀럽들을 선망하고 그들이 미치는 영향력의 대상이 됩니다. 
+우리는 셀럽의 영향력을 이용하고자 하여 셀럽들의 아이템에 중점을 둔 쇼핑몰을 기획하였습니다.
+
+---
+
+### Summary
+
+- 메인 페이지
+    - 검색 기능을 통한 키워드 검색(상품명, 셀럽명, 셀럽 분류)
+    - 카테고리 필터를 통한 셀럽 분류 별 상품 표시
+    - 무한 스크롤로 끊임없는 상품 소개
+    - 상품 블럭 위치에서 찜 기능 구현
+- 상품 상세 페이지
+    - 제품 사이즈 및 색상 선택과 수량 조절
+    - 바로 구매 & 장바구니 기능 구현
+    - 리뷰 및 문의 기능 구현
+- 마이 페이지
+    - 계정 관리
+    - 주문 관리
+    - 장바구니 관리
+    - 회원 탈퇴
+- 관리자 페이지
+    - 상품 관리
+    - 주문 관리
+    - 회원 관리
+- 비회원 주문
+
+---
+
+### 기술 스택
+
+## 🚀  Stacks
+- HTML
+- CSS
+- JavaScript
+- MongoDB
+
+---
+
+## 🛠  Tools
+- Figma
+- Git
+- Adobe Photoshop
+
+---
+
+## 👥  Collaboration
+- GitHub
+- Notion
+- Discord
+
+---
+
+### 기능 구현
+
+**기능 1**
+
+설계 의도……
+
+---
+
+### API
+
+\
+
+---
+
+### 시스템 구조
+
+….
+
+---
