@@ -49,7 +49,9 @@ async function insertOrderListElement() {
             <button class="${deleteButton}">주문취소</button>
             </div>
           </div>`
-        );
+        )
+        ref[deleteButton] = document.querySelector(`.${deleteButton}`);
+        ref[deleteButton].addEventListener("click",(event)=> deleteOrderList(event, orderNumber));
       } else {
         section.insertAdjacentHTML(
           "afterend",
@@ -72,8 +74,6 @@ async function insertOrderListElement() {
             </div>`
         );
       }
-      ref[deleteButton] = document.querySelector(`.${deleteButton}`);
-      ref[deleteButton].addEventListener("click",(event)=> deleteOrderList(event, orderNumber));
     });
   }); // deleteButton.addEventListner
 }
