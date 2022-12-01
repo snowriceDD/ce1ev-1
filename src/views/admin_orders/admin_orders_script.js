@@ -117,10 +117,8 @@ async function insertOrders() {
         location.reload();
       }
     });
-
-    deleteBtn.addEventListener("click", async () => {
-      orderNumDelete = _id;
-      openModal();
+    deleteBtn.addEventListener("click", async (event) => {
+      deleteOrderDate(event, orderNumber);
     });
   }
 
@@ -131,23 +129,21 @@ async function insertOrders() {
 }
 
 //db에 order 삭제
-async function deleteOrderDate(e) {
-  e.preventDefault();
+async function deleteOrderDate(event, orderNumber) {
+  event.preventDefault();
+  const value = confirm("삭제 하시겠습니까?");
+  if (value === true) {
+    try {
+      await Api.delete(`/api/orders/${orderNumber}`);
+      alert("주문이 삭제되었습니다.");
 
-  try {
-    await Api.delete("/api/orders", orderNumDelete);
-
-    alert("주문이 삭제되었습니다.");
-
-    const deleteItem = document.querySelector(`#order-${orderNumDelete}`);
-    deleteItem.remove();
-
-    orderNumDelete = "";
-
-    closeModal();
-  } catch (err) {
-    next(`주문 삭제 과정에서 오류가 발생하였습니다: ${err}`);
+      const deleteItem = document.querySelector(`#order-${orderNumDelete}`);
+      deleteItem.remove();
+    } catch {(err)=>{
+      console.log(`주문 삭제 과정에서 오류가 발생하였습니다: ${err}`);
+    }}
   }
+  window.location.href = "/admin/adminOrder";
 }
 
 function cancelDelete() {

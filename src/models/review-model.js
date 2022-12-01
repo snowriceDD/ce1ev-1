@@ -28,6 +28,11 @@ export class ReviewModel {
     const deletedReview = await Review.deleteOne(reviewInfo);
     return deletedReview;
   }
+
+  async delete(orderNo) {
+    const deletedReview = await Review.deleteOne({orderNo: orderNo});
+    return deletedReview;
+  }
 }
 
 const reviewModel = new ReviewModel();

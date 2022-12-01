@@ -36,7 +36,7 @@ if (token) {
         const email = emailTag.value;
         const payMethod = payment;
         const products = cart;
-        const cost = parseInt(document.querySelector(".AllPrice").innerHTML);
+        const cost = parseInt(document.querySelector(".AllPrice").innerHTML.replace(/(,|개|원)/g, ""))
         const count = cart.length;
         const data = { orderNumber, products, cost, count, payMethod, email };
         const result = await Api.post("/api/orders", data);
@@ -77,7 +77,7 @@ if (token) {
         );
         const payMethod = payment;
         const products = cart;
-        const cost = totalPrice.innerHTML;
+        const cost = parseInt(document.querySelector(".AllPrice").innerHTML.replace(/(,|개|원)/g, ""))
         const count = cart.length;
         const data = { orderNumber, products, cost, count, payMethod, email };
 
@@ -203,6 +203,6 @@ async function insertOrderElement() {
     cost += parseInt(price.replace(/(,|개|원)/g, ""));
   });
   const totalPrice = document.querySelector(".AllPrice");
-  totalPrice.innerHTML = cost;
+  totalPrice.innerHTML = cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   document.querySelector(".totalCount").innerHTML = cart.length;
 }
