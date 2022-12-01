@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { orderService } from "../services/order-service";
+import { reviewService } from "../services/review-service";
 import { adminOnly, loginRequired } from "../middlewares";
 import is from "@sindresorhus/is";
 
@@ -105,14 +106,16 @@ orderRouter.patch(
 orderRouter.delete("/orders/:orderId", async (req, res, next) => {
   try {
     const orderId = req.params.orderId;
-    console.log(orderId)
+
     const order = await orderService.deleteOrder(orderId);
+    const deletedReview = await reviewService.delete(orderId);
 
     res.status(201).json(order);
   } catch (err) {
     next(err);
   }
 });
+
 orderRouter.post("/guest", async function (req, res, next) {
   try {
     const email = req.body.email;
