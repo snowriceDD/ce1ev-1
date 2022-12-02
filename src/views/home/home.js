@@ -54,9 +54,6 @@ async function insertProductElement() {
       window.location.assign(`/productDetail/${num}`);
     }
     async function toggle(e) {
-      let userData = await Api.get("/api/user");
-      const { likeProduct } = userData;
-      const userId = userData._id;
 
       e.preventDefault();
       console.log(likeBtn.src.split("/")[4]);
@@ -73,6 +70,10 @@ async function insertProductElement() {
       e.preventDefault();
       if (token) {
         checkLogin();
+        let userData = await Api.get("/api/user");
+        const { likeProduct } = userData;
+        const userId = userData._id;
+
         const data = { num, like };
         likeProduct.push(num);
         const newLike = like + 1;
@@ -96,6 +97,9 @@ async function insertProductElement() {
       e.preventDefault();
       if (token) {
         checkLogin();
+        let userData = await Api.get("/api/user");
+        const { likeProduct } = userData;
+        const userId = userData._id;
         const data = { num, like };
         likeProduct.pop(num);
         const newLike = like - 1;
