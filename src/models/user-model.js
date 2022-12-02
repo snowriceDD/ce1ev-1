@@ -28,13 +28,14 @@ export class UserModel {
   async update({ userId, update }) {
     const filter = { _id: userId };
     const option = { returnOriginal: false };
-
+    console.log("userModel", update);
+    console.log("filter", filter);
+    console.log("userId", userId);
     const updatedUser = await User.findOneAndUpdate(filter, update, option);
     return updatedUser;
   }
-
   async delete(userId) {
-    const user = await User.deleteOne({_id: userId});
+    const user = await User.deleteOne({ _id: userId });
     return user;
   }
 }

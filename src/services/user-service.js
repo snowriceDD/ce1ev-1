@@ -27,16 +27,20 @@ class UserService {
     // 우선 비밀번호 해쉬화(암호화)
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUserInfo = { name, email, password: hashedPassword , phoneNum, address, role};
+    const newUserInfo = {
+      name,
+      email,
+      password: hashedPassword,
+      phoneNum,
+      address,
+      role,
+    };
 
     // db에 저장
     const createdNewUser = await this.model.create(newUserInfo);
 
     return createdNewUser;
   }
-
-
-
 
   // 로그인
   async getUserToken(loginInfo) {
@@ -85,8 +89,8 @@ class UserService {
 
   async getUserData(userId) {
     const user = await this.model.findById(userId);
-    if(!user) {
-      throw new Error("가입 내역이 없습니다.")
+    if (!user) {
+      throw new Error("가입 내역이 없습니다.");
     }
     return user;
   }
@@ -147,28 +151,42 @@ class UserService {
     return updatedUser;
   }
 
+  async setLike(userId, likeProduct) {
+    console.log(likeProduct);
+    console.log("userService USerid", userId);
+    const updatedUser = await this.model.update({
+      userId,
+      update: { likeProduct: likeProduct },
+    });
+    console.log("user_service", updatedUser);
+
+    return updatedUser;
+  }
 
   async checkUserPassword(userId, password) {
     const user = await this.model.findById(userId);
 
     const correctPasswordHash = user.password;
-    const isPasswordCorrect = await bcrypt.compare(password, correctPasswordHash);
+    const isPasswordCorrect = await bcrypt.compare(
+      password,
+      correctPasswordHash
+    );
 
-    if(!isPasswordCorrect) {
-      throw new Error("비밀번호가 일치하지 않습니다.")
+    if (!isPasswordCorrect) {
+      throw new Error("비밀번호가 일치하지 않습니다.");
     }
 
     return user;
   }
 
   async deleteUserData(userId) {
-    const {deletedCount} = await this.model.delete(userId);
+    const { deletedCount } = await this.model.delete(userId);
 
-  if(deletedCount === 0) {
-    throw new Error(`${userId} 사용자 데이터의 삭제에 실패`);
-  }
+    if (deletedCount === 0) {
+      throw new Error(`${userId} 사용자 데이터의 삭제에 실패`);
+    }
 
-  return {result: "success"};
+    return { result: "success" };
   }
 }
 

@@ -1,6 +1,10 @@
 import * as Api from "/api.js";
-
+import { checkLogin } from "../useful-functions.js";
 const productList = document.querySelector(".section_box");
+const token = sessionStorage.getItem("token");
+
+// console.log(userId)
+// const email = userData.email;
 
 // 데이터를 받아 요소를 만든 후, html에 삽입
 insertProductElement();
@@ -31,7 +35,7 @@ async function insertProductElement() {
         <a class="tag_category">${category}</a>
         <a class="tag_name" id="${description}">${description}</a>
         <div class="tag_like">
-          <img src="../image/like.png" alt="" width="30px" id="like_${num}">
+          <img class="like_src" src="../image/like.png" alt="" width="30px" id="like_${num}">
         </div>
       </div>
       <p class="like_count" id="likeCount_${num}">${like}</p>
@@ -42,32 +46,73 @@ async function insertProductElement() {
     );
     const productItem = document.getElementById(`${num}`);
     const likeBtn = document.getElementById(`like_${num}`);
-    const likeCount = document.getElementById(`likeCount_${num}`)
+    const likeCount = document.getElementById(`likeCount_${num}`);
 
     productItem.addEventListener("click", moveToProduct);
-    likeBtn.addEventListener("click", countIncrease);
-
+    likeBtn.addEventListener("click", toggle);
     function moveToProduct() {
       window.location.assign(`/productDetail/${num}`);
     }
+    async function toggle(e) {
+      let userData = await Api.get("/api/user");
+      const { likeProduct } = userData;
+      const userId = userData._id;
 
+      e.preventDefault();
+      console.log(likeBtn.src.split("/")[4]);
+      if (likeBtn.src.split("/")[4] === "like.png") {
+        countIncrease(e);
+        console.log("인크리즈");
+      } else {
+        countDecrease(e);
+        console.log(likeBtn.src);
+        console.log("디크리즈");
+      }
+    }
     async function countIncrease(e) {
       e.preventDefault();
-
-      try{
-        const data = {num, like}
-      // console.log(data); {num: 2, like: 0}
-      const newLike = like +1;
-
-      if(like != newLike) {
-        data.like = newLike;
-        console.log(data);
-        await Api.patch("/api/products", num, data);
-        likeCount.innerText = data.like;
-        likeBtn.src = "../image/like_hover.png" //새로고침하면 사라짐
+      if (token) {
+        checkLogin();
+        const data = { num, like };
+        likeProduct.push(num);
+        const newLike = like + 1;
+        console.log("인크리즈", newLike);
+        if (like != newLike) {
+          data.like = newLike;
+          await Api.patch("/api/products", num, data);
+          await Api.patch("/api/usersLike/like", userId, {
+            likeProduct: likeProduct,
+          });
+          console.log(userId);
+          likeCount.innerText = data.like;
+          likeBtn.src = "../image/like_hover.png";
+        }
+      } else {
+        alert("로그인이 필요합니다.");
+        window.location.href = "/login";
       }
-      } catch(err) {
-        alert(`찜하는 중 오류 발생: ${err}`)
+    }
+    async function countDecrease(e) {
+      e.preventDefault();
+      if (token) {
+        checkLogin();
+        const data = { num, like };
+        likeProduct.pop(num);
+        const newLike = like - 1;
+        console.log("디크리즈", newLike);
+        if (like != newLike) {
+          data.like = like;
+          await Api.patch("/api/products", num, data);
+          await Api.patch("/api/usersLike/like", userId, {
+            likeProduct: likeProduct,
+          });
+          console.log(userId);
+          likeCount.innerText = data.like;
+          likeBtn.src = "../image/like.png";
+        }
+      } else {
+        alert("로그인이 필요합니다.");
+        window.location.href = "/login";
       }
     }
   });

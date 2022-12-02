@@ -50,6 +50,10 @@ const ProductSchema = new Schema(
       default: 0,
       min: 0,
     },
+    userEmail: {
+      type: Array,
+      required: false,
+    },
   },
   {
     collection: "products",
