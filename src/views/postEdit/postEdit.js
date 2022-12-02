@@ -59,7 +59,7 @@ async function savePostData(e) {
 
     try{
         const {postNo} = postData;
-        await Api.patch("/api/notice", postNo, data);
+        await Api.patch("/api/posts", postNo, data);
         alert("게시물이 수정되었습니다.")
         window.location.assign("/notice");
     } catch(err) {

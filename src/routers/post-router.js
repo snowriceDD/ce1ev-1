@@ -1,5 +1,6 @@
 import is from "@sindresorhus/is";
 import { Router } from "express";
+import { adminOnly, loginRequired } from "../middlewares";
 import { postService } from "../services/post-service";
 
 
@@ -25,7 +26,7 @@ postRouter.get("/posts/:postNo", async (req,res, next)=> {
     }
 });
 
-postRouter.post("/posts", async (req, res, next)=> {
+postRouter.post("/posts", adminOnly, async (req, res, next)=> {
     try {
         if(is.emptyObject(req.body)) {
             throw new Error(
@@ -49,7 +50,7 @@ postRouter.post("/posts", async (req, res, next)=> {
     }
 });
 
-postRouter.delete("/posts/:postNo", async(req, res, next)=> {
+postRouter.delete("/posts/:postNo", adminOnly, async(req, res, next)=> {
     try {
         const postNo = req.params.postNo;
         const post = await postService.deletePost(postNo);
@@ -61,7 +62,7 @@ postRouter.delete("/posts/:postNo", async(req, res, next)=> {
     }
 })
 
-postRouter.patch("/posts/:postNo", async(req, res, next)=> {
+postRouter.patch("/posts/:postNo",  async(req, res, next)=> {
     try {
         if (is.emptyObject(req.body)) {
             throw new Error(

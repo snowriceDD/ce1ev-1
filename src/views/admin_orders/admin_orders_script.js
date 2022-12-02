@@ -139,8 +139,9 @@ async function deleteOrderDate(event, orderNumber) {
 
       const deleteItem = document.querySelector(`#order-${orderNumDelete}`);
       deleteItem.remove();
+
     } catch {(err)=>{
-      console.log(`주문 삭제 과정에서 오류가 발생하였습니다: ${err}`);
+      alert(`주문 삭제 과정에서 오류가 발생하였습니다: ${err}`);
     }}
   }
   window.location.href = "/admin/adminOrder";
