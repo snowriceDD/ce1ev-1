@@ -1,44 +1,62 @@
-.container {
+.main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  height: 100%;
 }
 
-.container .title {
+.section {
+  flex: 1;
+  margin: 30px auto;
+}
+
+.section .title {
   font-family: Gothic A1;
   font-size: 24px;
   font-weight: 700;
   line-height: 25px;
   letter-spacing: 0em;
-  text-align: left;
+  text-align: center;
+
+  margin-bottom: 30px;
 }
-.container .main {
+
+.left_subtitle,
+.right_subtitle {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.section .main_container {
   display: flex;
-  width: 800px;
-  justify-content: space-between;
+  gap: 100px;
+
+  margin-top: 20px;
 }
-.container .option {
-  width: 830px;
-  height: 50px;
+
+.section .main_container .right_box {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
 }
 
-.container .option .input {
+.section .main_container .left_box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.section .input {
   width: 400px;
   height: 30px;
+  margin-top: 5px;
 }
 
-.container .option .pay {
+.section .pay {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-.container .option .pay .coupon {
+.section .pay .coupon {
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -47,12 +65,13 @@
 .total {
   width: 400px;
   display: flex;
-  flex-direction: column;
-  gap: 15px;
 }
 
 .total .product {
+  width: 100%;
+
   display: flex;
+  justify-content: space-between;
   gap: 10px;
 }
 .total .product .box {
@@ -109,9 +128,17 @@
 }
 
 .totalProductInfo {
-  padding-right: 18px;
+  border-left: 25px solid rgb(184, 211, 227);
 }
+
 .totalProductInfo li {
   display: flex;
   justify-content: space-between;
+}
+
+.payButton {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 5px 0;
 }
