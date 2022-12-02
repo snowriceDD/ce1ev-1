@@ -16,135 +16,124 @@
       href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/admin_productDetail/admin_productDetail.css" />
+    <link
+      rel="stylesheet"
+      href="/admin_productDetail/admin_productDetail.css"
+    />
     <link rel="stylesheet" href="/admin_productDetail/HeaderFooter.css" />
     <link rel="stylesheet" href="/admin_productDetail/reset.css" />
     <title>adimnProductDetail</title>
   </head>
   <body class="body">
     <div class="main">
-      
       <!-- Header -->
       <header class="header">
-      <div class="header_logo">
-        <a href="/"> Ce1ev. </a>
-      </div>
-      <ul class="search">
-        <li>
-          <input
-            type="text"
-            placeholder="검색어를 입력하세요."
-            class="header_search"
-            id="text"
-          />
-          <button type="button" class="searchBtn">
-            <i class="fa fa-magnifying-glass fa-2x"></i>
-          </button>
-        </li>
-      </ul>
-      <ul class="header_right" id="guest">
-        <li id="header_login">
-          <a href="/login"> LOGIN </a>
-        </li>
-        <li id="header_wish">
-          <a href="/register"> REGISTER </a>
-        </li>
-        <li id="header_cart">
-          <a href="/guest"> GUEST </a>
-        </li>
-      </ul>
-      <ul class="header_right hidden" id="user">
-        <li id="header_cart">
-          <a href="/mypage/myPageCart"> CART </a>
-        </li>
-        <li id="header_myPage">
-          <a href="/mypage"> MY PAGE </a>
-        </li>
-        <li id="header_logout">
-          <a href="/#" id="logout2"> LOG OUT </a>
-        </li>
-      </ul>
-      <ul class="header_right hidden" id="admin">
-        <li id="header_addProduct">
-          <a href="/products"> ADD-PRODUCT </a>
-        </li>
-        <li id="header_mypage">
-          <a href="/admin"> ADMIN-PAGE </a>
-        </li>
-        <li id="header_logout">
-          <a href="/#" id="logout1"> LOG OUT </a>
-        </li>
-      </ul>
+        <div class="header_logo">
+          <a href="/"> Ce1ev. </a>
+        </div>
+        <ul class="search">
+          <li>
+            <input
+              type="text"
+              placeholder="검색어를 입력하세요."
+              class="header_search"
+              id="text"
+            />
+            <button type="button" class="searchBtn">
+              <i class="fa fa-magnifying-glass fa-2x"></i>
+            </button>
+          </li>
+        </ul>
+        <ul class="header_right" id="guest">
+          <li id="header_login">
+            <a href="/login"> LOGIN </a>
+          </li>
+          <li id="header_wish">
+            <a href="/register"> REGISTER </a>
+          </li>
+          <li id="header_cart">
+            <a href="/guest"> GUEST </a>
+          </li>
+        </ul>
+        <ul class="header_right hidden" id="user">
+          <li id="header_cart">
+            <a href="/mypage/myPageCart"> CART </a>
+          </li>
+          <li id="header_myPage">
+            <a href="/mypage"> MY PAGE </a>
+          </li>
+          <li id="header_logout">
+            <a href="/#" id="logout2"> LOG OUT </a>
+          </li>
+        </ul>
+        <ul class="header_right hidden" id="admin">
+          <li id="header_addProduct">
+            <a href="/products"> ADD-PRODUCT </a>
+          </li>
+          <li id="header_mypage">
+            <a href="/admin"> ADMIN-PAGE </a>
+          </li>
+          <li id="header_logout">
+            <a href="/#" id="logout1"> LOG OUT </a>
+          </li>
+        </ul>
       </header>
 
       <div class="section">
-      <div class="box bb1">🚨여기는 관리자 페이지입니다.</div>
-      <img class="box bb2" src=""></img>
-      <div class="box bb3">
-        <p class="pd_brd"></p>
-        <p class="pd_name">
-        </p>
-      </div>
-      <div class="box bb4">
-        <div class="tag_block">
-          <a class="tag_category"></a>
-          <a class="tag_name"></a>
+        <div class="box bb1">🚨여기는 관리자 페이지입니다.</div>
+        <img class="box bb2" src="" />
+        <div class="box bb3">
+          <p class="pd_brd"></p>
+          <p class="pd_name"></p>
         </div>
-      </div>
-      <div class="box bb5">
-        <p>사이즈</p>
-        <div class="sizeSelectBox">
-          <select name="sB" class="select" id="sizeTag"></select>
+        <div class="box bb4">
+          <div class="tag_block">
+            <a class="tag_category"></a>
+            <a class="tag_name"></a>
+          </div>
         </div>
-      </div>
-      <div class="box bb6">
-        <p>색상</p>
-        <div class="colorSelectBox">
-          <select name="sB" class="select" id="colorTag"></select>
+        <div class="box bb5">
+          <p>사이즈</p>
+          <div class="sizeSelectBox">
+            <select name="sB" class="select" id="sizeTag"></select>
+          </div>
         </div>
-      </div>
-      <div class="box bb7">
-        <span class="total_price_title">상품가격</span>
-        <div class="box bb7-1">
-          <span class="total_price"></span>
-          <span class="total_won">원</span>
+        <div class="box bb6">
+          <p>색상</p>
+          <div class="colorSelectBox">
+            <select name="sB" class="select" id="colorTag"></select>
+          </div>
         </div>
+        <div class="box bb7">
+          <span class="total_price_title">상품가격</span>
+          <div class="box bb7-1">
+            <span class="total_price"></span>
+            <span class="total_won">원</span>
+          </div>
+        </div>
+        <div class="box bb8">
+          <button class="pd_add" type="button">상품 등록</button>
+          <button class="pd_fix" type="button">상품 수정</button>
+          <button class="pd_delete" type="button">상품 삭제</button>
+        </div>
+
+        <!-- Footer -->
       </div>
-      <!--
-      <div class="box bb6">
-        <span>${color/size}</span>
-        <span class="counter">
-          <button type="button" class="minus">-</button>
-          <span class="count_num">1</span>
-          <button type="button" class="plus">+</button>
-        </span>
-        <span class="price_li">11,111 원</span>
-        <button class="delete">X</button>
-      </div>
-      <div class="box bb7">
-        <span class="total_price_title">상품가격</span>
-        <span class="total_price"></span>
-      </div> -->
-      <div class="box bb8">
-        <button class="pd_add" type="button">상품 등록</button>
-        <button class="pd_fix" type="button">상품 수정</button>
-        <button class="pd_delete" type="button">상품 삭제</button>
-      </div>
-      <div class="box bb9">추천상품 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quae animi corrupti totam sint dolore facere ipsam adipisci voluptate optio, vero repellendus amet alias tempora aspernatur beatae, ut voluptatem autem?</div>
-      <div class="box bb10">추천상품2</div>
-      <div class="box bb11">추천상품3 lo</div>
-      <div class="box bb12">추천상품4</div>
-      <div class="box bb13">상품상세</div>
-      <div class="box bb14">배송및반품</div>
-      <div class="box bb15">리뷰</div>
-      <div class="box bb16">리뷰2</div>
-      <div class="box bb17">리뷰3</div>
-      </div>
-      <!-- Footer -->
     </div>
-    <script src="/admin_productDetail/admin_productDetail.js" type="module" defer></script>
-    <script src="/admin_productDetail/changeHeader.js" type="module" defer></script>
+    <script
+      src="/admin_productDetail/admin_productDetail.js"
+      type="module"
+      defer
+    ></script>
+    <script
+      src="/admin_productDetail/changeHeader.js"
+      type="module"
+      defer
+    ></script>
     <script src="/admin_productDetail/footer.js" type="module" defer></script>
-    <script src="https://kit.fontawesome.com/5c0da6133a.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/5c0da6133a.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
