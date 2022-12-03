@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>notice</title>
+    <link
+    href="https://fonts.googleapis.com/css?family=Imbue&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Itim&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
+    rel="stylesheet"
+  />
+    <link rel="stylesheet" href="./postEdit.css" />
+    <link rel="stylesheet" href="./headerfooter.css" />
+    <script src="../postEdit/footer.js" type = "module" defer></script>
+  </head>
+  <body class="body">
+    <!--Header-->
+    <header class="header">
+      <div class="header_logo">
+        <a href="/"> Ce1ev. </a>
+      </div>
+      <ul class="search">
+        <li>
+          <input
+            type="text"
+            placeholder="검색어를 입력하세요."
+            class="header_search"
+            id="text"
+          />
+          <button type="button" class="searchBtn">
+            <i class="fa fa-magnifying-glass fa-2x"></i>
+          </button>
+        </li>
+      </ul>
+      <ul class="header_right" id="guest">
+        <li id="header_login">
+          <a href="/login"> LOGIN </a>
+        </li>
+        <li id="header_wish">
+          <a href="/register"> REGISTER </a>
+        </li>
+        <li id="header_cart">
+          <a href="/guest"> GUEST </a>
+        </li>
+        <li id="header_notice">
+          <a href="/notice"> NOTICE </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="user">
+        <li id="header_cart">
+          <a href="/mypage/myPageCart"> CART </a>
+        </li>
+        <li id="header_myPage">
+          <a href="/mypage"> MY PAGE </a>
+        </li>
+        <li id="header_notice">
+          <a href="/notice"> NOTICE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout2"> LOG OUT </a>
+        </li>
+      </ul>
+      <ul class="header_right hidden" id="admin">
+        <li id="header_addProduct">
+          <a href="/products"> ADD-PRODUCT </a>
+        </li>
+        <li id="header_mypage">
+          <a href="/admin"> ADMIN-PAGE </a>
+        </li>
+        <li id="header_logout">
+          <a href="/#" id="logout1"> LOG OUT </a>
+        </li>
+      </ul>
+    </header>
+    <div class="board_wrap">
+      <div class="board_title">
+        <strong>공지사항</strong>
+        <p>공지사항 게시판 입니다.</p>
+      </div>
+      <div class="board_write_wrap">
+        <div class="board_write">
+          <div class="title">
+            <dl>
+                <dt>제목</dt>
+                <dd>
+                    <input id = "titleInput" type="text" placeholder="제목 입력"/>
+                </dd>
+            </dl>
+          </div>
+          <div class="info">
+            <dl>
+                <dt>글쓴이</dt>
+                <dd>
+                    <input id="userInput" type="text" placeholder="글쓴이 입력" />
+                </dd>
+            </dl>
+            <dl>
+                <dt>비밀번호</dt>
+                <dd>
+                    <input id="passwordInput" type="password" placeholder="비밀번호 입력"/>
+                </dd>
+            </dl>
+          </div>
+          <div class="cont">
+            <textarea id="contentInput" placeholder="내용 입력"></textarea>
+          </div>
+        </div>
+        <div class="bt_wrap">
+          <button id="editBtn" class="on">수정</button>
+          <button id="cancelBtn">취소</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../postEdit/postEdit.js" defer></script>
+  </body>
+</html>

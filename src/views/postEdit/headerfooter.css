@@ -1,0 +1,174 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+    background: #f4f4f4;
+    gap: 35px;
+    padding: 0 100px;
+    width: 100vw;
+    flex-wrap: wrap;
+  }
+  .header .header_logo a {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    width: 10vw;
+  
+    font-family: "Imbue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 120px;
+    color: #000000;
+  }
+  .search {
+    display: flex;
+    width: 50vw;
+    
+  }
+  .header .search > li {
+    position: relative;
+    width: 100%;
+    text-decoration: none;
+  }
+  .header .search .header_search {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background: rgb(236, 236, 236);
+  
+    border-radius: 20px;
+    overflow: hidden;
+    border: none;
+    font-size: 12px;
+    padding: 10px;
+  }
+  .header .search > li > button {
+    position: absolute;
+    display: flex;
+    right: 10px;
+    top: 16px;
+    border: none;
+    padding: 0;
+    background: rgb(236, 236, 236);
+  }
+  
+  .header .header_right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 100px;
+  
+    height: 52px;
+    gap: 25px;
+  
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+  }
+  
+  .header .header_right li a {
+    color: #8c7b75;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  /*             footer              */
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  
+    width: 100vw;
+    height: 200px;
+    background: #f4f4f4;
+  }
+  
+  .addressLink {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  
+    height: 35px;
+    line-height: 35px;
+  }
+  .addressLink > li > a {
+    color: black;
+    text-decoration: none;
+  }
+  .addressLink #footer_logo {
+    font-family: "Imbue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    letter-spacing: 0em;
+    line-height: 48px;
+    text-align: left;
+  }
+  .addressText {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  .address_right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  
+  /* media Q */
+  @media (max-width: 600px) {
+    /* 슬라이드 모바일 환경에선 너무 축소되어 그냥 none 처리 함 */
+    .section {
+      display: none;
+    }
+  
+    .footer {
+      display: none;
+    }
+  }
+  
+  @media (max-width : 1200px) {
+  
+    /* 헤더 파트 반응형 */
+    .header { 
+      justify-content: center;
+      height: 300px; 
+      padding: 0px 5%;
+      gap: 0px;
+      width: auto;
+    }
+  
+    .header .header_logo a {
+      gap: 0px;
+      width: 100%
+    }
+    
+    .search { width: 100%; }
+  
+    .header .header_right {
+      justify-content: center;
+      align-items: center;
+      padding-right: 0px;
+    }
+  
+    /* 푸터 파트 반응형 */
+  
+  }

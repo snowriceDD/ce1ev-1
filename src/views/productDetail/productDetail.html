@@ -16,140 +16,191 @@
       href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="HeaderFooter.css" />
     <link rel="stylesheet" href="productDetail.css" />
-    <link rel="stylesheet" href="../mypage/HeaderFooter.css" />
-<script src="productDetail.js" type="module" ></script>
     <title>productDetail</title>
   </head>
   <body class="body">
-    <!-- Header -->
-
-    <div class="container">
-      <div class="box bb1"></div>
-      <img class="box bb2" src=""></img>
-      <div class="box bb3">
-<p class="pd_brd">brand</p>
-<p class="pd_name">name
-        </p>
-      </div>
-      <div class="box bb4">
-        <div class="tag_block">
-          <a class="tag_category">tag1</a>
-          <a class="tag_name">tag2</a>
+    <div class="main">
+      <!-- Header -->
+      <header class="header">
+        <div class="header_logo">
+          <a href="/"> Ce1ev. </a>
         </div>
-      </div>
-      <div class="box bb5">
-<p>사이즈</p>
-        <div class="sizeSelectBox">
-          <select name="sB" class="select" id="sizeTag">
-          </select>
+        <ul class="search">
+          <li>
+            <input
+              type="text"
+              placeholder="검색어를 입력하세요."
+              class="header_search"
+              id="text"
+            />
+            <button type="button" class="searchBtn">
+              <i class="fa fa-magnifying-glass fa-2x"></i>
+            </button>
+          </li>
+        </ul>
+        <ul class="header_right" id="guest">
+          <li id="header_login">
+            <a href="/login"> LOGIN </a>
+          </li>
+          <li id="header_wish">
+            <a href="/register"> REGISTER </a>
+          </li>
+          <li id="header_cart">
+            <a href="/guest"> GUEST </a>
+          </li>
+        </ul>
+        <ul class="header_right hidden" id="user">
+          <li id="header_cart">
+            <a href="/mypage/myPageCart"> CART </a>
+          </li>
+          <li id="header_myPage">
+            <a href="/mypage"> MY PAGE </a>
+          </li>
+          <li id="header_logout">
+            <a href="/#" id="logout2"> LOG OUT </a>
+          </li>
+        </ul>
+        <ul class="header_right hidden" id="admin">
+          <li id="header_addProduct">
+            <a href="/products"> ADD-PRODUCT </a>
+          </li>
+          <li id="header_mypage">
+            <a href="/admin"> ADMIN-PAGE </a>
+          </li>
+          <li id="header_logout">
+            <a href="/#" id="logout1"> LOG OUT </a>
+          </li>
+        </ul>
+      </header>
+      
+      <div class="container">
+        <div class="box bb1"></div>
+        <img class="box bb2" src=""></img>
+        <div class="box bb3">
+          <p class="pd_brd">brand</p>
+          <p class="pd_name">name</p>
         </div>
-      </div>
-      <div class="box bb6">
-<p>색상</p>
-<div class="colorSelectBox">
-<select name="sB" class="select" id="colorTag">
-</select>
-</div>
-      </div>
-      <div class="box bb7">
-        <span class="total_price_title">상품가격</span>
-        <div class="box bb7-1">
-          <span class="total_price"></span>
-          <span class="total_won">원</span>
+        <div class="box bb4">
+          <div class="tag_block">
+            <a class="tag_category">tag1</a>
+            <a class="tag_name">tag2</a>
+          </div>
         </div>
-      </div>
-      <div class="box bb8">
-        <button class="button_buy" type="button">BUY NOW</button>
-        <button class="button_cart" type="button">cart</button>
-      </div>
-<div class="box bb9"></div>
-  <div class="box bb10"></div>
-  <div class="box bb11 product_edit hidden">
-    상품 수정
-</div>
-<div class="box bb12 product_delete hidden">
-상품 삭제
-</div>
-
-      <div class="box bb13">
-        <div class="pd_detail_text_group">
-        <span class="pd_detail_text_main">상품상세</span>
-        <span class="pd_detail_text_sub">/</span>
-        <span class="pd_detail_text_sub">배송 및 반품</span>
-        <span class="pd_detail_text_sub">/</span>
-        <span class="pd_detail_text_sub">상품리뷰</span>
-        <div class="img_box">
-          <img src="https://www.giordano.co.kr/_gio_on/2022/05412944.jpg" alt="상품상세"/>
+        <div class="box bb5">
+          <p>사이즈</p>
+          <div class="sizeSelectBox">
+            <select name="sB" class="select" id="sizeTag"></select>
+          </div>
         </div>
-      </div>
-      </div>
-      <div class="box bb14">
-        <div class="pd_detail_text_group">
-          <span class="pd_detail_text_sub">상품상세</span>
+        <div class="box bb6">
+          <p>색상</p>
+          <div class="colorSelectBox">
+            <select name="sB" class="select" id="colorTag"></select>
+          </div>
+        </div>
+        <div class="box bb7">
+          <span class="total_price_title">상품가격</span>
+          <div class="box bb7-1">
+            <span class="total_price"></span>
+            <span class="total_won">원</span>
+          </div>
+        </div>
+        <div class="box bb8">
+          <button class="button_buy" type="button">BUY NOW</button>
+          <button class="button_cart" type="button">cart</button>
+        </div>
+        <div class="box bb9"></div>
+        <div class="box bb10"></div>
+        <div class="box bb11 product_edit hidden">
+          상품 수정
+        </div>
+        <div class="box bb12 product_delete hidden">
+          상품 삭제
+        </div>
+        <div class="box bb13">
+          <div class="pd_detail_text_group">
+          <span class="pd_detail_text_main">상품상세</span>
           <span class="pd_detail_text_sub">/</span>
-          <span class="pd_detail_text_main">배송 및 반품</span>
+          <span class="pd_detail_text_sub">배송 및 반품</span>
           <span class="pd_detail_text_sub">/</span>
           <span class="pd_detail_text_sub">상품리뷰</span>
+          <div class="img_box">
+            <img src="https://www.giordano.co.kr/_gio_on/2022/05412944.jpg" alt="상품상세"/>
+          </div>
         </div>
-        <div class="data_row_wrap custom">
-          <div class="data_row_half">
-              <div class="data_row_half_tl">배송정보</div>
-              <div class="data_row_half_contents">
+        </div>
+        <div class="box bb14">
+          <div class="pd_detail_text_group">
+            <span class="pd_detail_text_sub">상품상세</span>
+            <span class="pd_detail_text_sub">/</span>
+            <span class="pd_detail_text_main">배송 및 반품</span>
+            <span class="pd_detail_text_sub">/</span>
+            <span class="pd_detail_text_sub">상품리뷰</span>
+          </div>
+          <div class="data_row_wrap custom">
+            <div class="data_row_half">
+                <div class="data_row_half_tl">배송정보</div>
+                <div class="data_row_half_contents">
+                    <p>
+                        <ul class="att_text">
+                        <li>배송방식 : 셀레브 물류센터 / CJ대한통운</li>
+                        <li>배송지역 : 전국</li>
+                        <li>배송비 : 30,000원 이상 구매시 무료 배송 (3,000원)</li>
+                        <li>결제일 다음날로 부터 1~3일 이내 발송. 단 토요일, 일요일, 공휴일은 배송 기일에서 제외됩니다.</li>
+                        
+                    </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="data_row_half" style="border-right:1px solid #eee;">
+                <div class="data_row_half_tl">교환/반품 비용 및 기한</div>
+                <div class="data_row_half_contents">
                   <p>
-                      <ul class="att_text">
-                      <li>배송방식 : 셀레브 물류센터 / CJ대한통운</li>
-                      <li>배송지역 : 전국</li>
-                      <li>배송비 : 30,000원 이상 구매시 무료 배송 (3,000원)</li>
-                      <li>결제일 다음날로 부터 1~3일 이내 발송. 단 토요일, 일요일, 공휴일은 배송 기일에서 제외됩니다.</li>
-                      
-                  </ul>
+                    교환/반품비 : 6,000원
+                    <ul class="att_text">
+                    <li>구매자 귀책에 따른 교환/반품비용입니다.</li>
+                    <li>도서산간지역 추가비용은 고객님 부담입니다.</li>
+                    <li>해외 배송 및 반송 관련 비용이 포함된 금액입니다.</li>
+                    <li>판매가에 따라 관부가세가 별도 청구될 수 있습니다.</li>
+                    </ul>
                   </p>
-              </div>
-          </div>
-          <div class="data_row_half" style="border-right:1px solid #eee;">
-              <div class="data_row_half_tl">교환/반품 비용 및 기한</div>
-              <div class="data_row_half_contents">
-                <p>
-                  교환/반품비 : 6,000원
-                  <ul class="att_text">
-                  <li>구매자 귀책에 따른 교환/반품비용입니다.</li>
-                  <li>도서산간지역 추가비용은 고객님 부담입니다.</li>
-                  <li>해외 배송 및 반송 관련 비용이 포함된 금액입니다.</li>
-                  <li>판매가에 따라 관부가세가 별도 청구될 수 있습니다.</li>
-                  </ul>
-                </p>
-              </div>
-          </div>
-          <div class="data_row_half" style="border-right:none">
-              <div class="data_row_half_tl">유의사항</div>
-              <div class="data_row_half_contents">
-                <p>
-                  <ul class="att_text">
-                      <li>쥬얼리, 액세서리, 아이웨어, 수영복, 속옷 등 일부 상품은 포장 훼손시 교환/반품이 거부될 수 있습니다.</li>
-                      <li>교환/반품 비용은 해당 사유가 고객에게 있는 경우에만 발생합니다. (사이즈, 단순 변심 등)</li>
-                      <li>태그 (tag) 를 분리하거나 상품이 훼손된 경우에는 반품/교환이 되지 않습니다.</li>
-                      
-                  </ul>
-                </p>
-              </div>
-          </div>
+                </div>
+            </div>
+            <div class="data_row_half" style="border-right:none">
+                <div class="data_row_half_tl">유의사항</div>
+                <div class="data_row_half_contents">
+                  <p>
+                    <ul class="att_text">
+                        <li>쥬얼리, 액세서리, 아이웨어, 수영복, 속옷 등 일부 상품은 포장 훼손시 교환/반품이 거부될 수 있습니다.</li>
+                        <li>교환/반품 비용은 해당 사유가 고객에게 있는 경우에만 발생합니다. (사이즈, 단순 변심 등)</li>
+                        <li>태그 (tag) 를 분리하거나 상품이 훼손된 경우에는 반품/교환이 되지 않습니다.</li>
+                        
+                    </ul>
+                  </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="box bb15">
+          <div class="pd_detail_text_group">
+          <span class="pd_detail_text_sub">상품상세</span>
+          <span class="pd_detail_text_sub">/</span>
+          <span class="pd_detail_text_sub">배송 및 반품</span>
+          <span class="pd_detail_text_sub">/</span>
+          <span class="pd_detail_text_main">상품리뷰</span>
+        </div>
+        </div>
+        <div class="box bb17"></div>
       </div>
-      </div>
-      <div class="box bb15">
-        <div class="pd_detail_text_group">
-        <span class="pd_detail_text_sub">상품상세</span>
-        <span class="pd_detail_text_sub">/</span>
-        <span class="pd_detail_text_sub">배송 및 반품</span>
-        <span class="pd_detail_text_sub">/</span>
-        <span class="pd_detail_text_main">상품리뷰</span>
-      </div>
-      </div>
-      <div class="box bb16">리뷰2</div>
-      <div class="box bb17">리뷰3</div>
+  
+      <!-- Footer -->
+
     </div>
-    
-    <!-- Footer -->
+    <script src="Footer.js" type="module" defer></script>
+    <script src="./productDetail.js" type="module" defer></script>
+    <script src="./changeHeader.js" type="module" defer></script>
     <script src="https://kit.fontawesome.com/5c0da6133a.js" crossorigin="anonymous"></script>
   </body>
 </html>

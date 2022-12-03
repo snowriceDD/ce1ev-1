@@ -1,0 +1,107 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.section {
+  flex: 1;
+  width: 1000px;
+  margin: 110px auto;
+}
+.section h1 {
+  font-size: 24px;
+  font-weight: bold;
+
+  margin-bottom: 60px;
+}
+
+.section h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.section h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.section .my_shopping {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  font-size: 14px;
+}
+
+.section .my_shopping div {
+  width: 188px;
+}
+
+.section .my_shopping .title {
+  width: 1000px;
+  height: 60px;
+  border: 1px solid lightgray;
+  border-bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  text-align: center;
+}
+
+.section .my_shopping .title .first {
+  width: 625px;
+}
+
+.section .my_shopping .content {
+  width: 1000px;
+  height: 200px;
+  border: 1px solid lightgray;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.section .my_shopping .content .first {
+  width: 545px;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.section .my_shopping .content .product_img {
+  width: 176px;
+  height: 176px;
+  border: 1px solid black;
+}
+
+.section .my_shopping .content .product_script {
+  width: 329px;
+
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+}
+
+.section .my_shopping .product_price {
+  width: 188px;
+  height: 202px;
+
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

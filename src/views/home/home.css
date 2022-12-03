@@ -1,86 +1,7 @@
+/* git 복구 home css */
+
 .hidden {
   display: none !important;
-}
-
-.section input[id*="slide"] {
-  display: none;
-}
-
-.section .slidewrap {
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.section .slidelist {
-  white-space: nowrap;
-  font-size: 0;
-}
-
-.section .slidelist > li {
-  display: inline-block;
-  vertical-align: middle;
-  width: 100%;
-  transition: all 0.5s;
-}
-
-.section .slidelist > li > a {
-  display: block;
-  position: relative;
-}
-
-.section .slidelist > li > a img {
-  width: 100%;
-}
-
-.section .slidelist label {
-  position: absolute;
-  z-index: 10;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 50px;
-  cursor: pointer;
-}
-
-.section .slidelist .left {
-  left: 30px;
-  background: url(image/left.png) center center / 100% no-repeat;
-  opacity: 0.3;
-}
-
-.section .slidelist .right {
-  right: 30px;
-  background: url(image/right.png) center center / 100% no-repeat;
-  opacity: 0.3;
-}
-
-.section [id="slide01"]:checked ~ .slidewrap .slidelist > li {
-  transform: translateX(0%);
-}
-.section [id="slide02"]:checked ~ .slidewrap .slidelist > li {
-  transform: translateX(-100%);
-}
-.section [id="slide03"]:checked ~ .slidewrap .slidelist > li {
-  transform: translateX(-200%);
-}
-.section [id="slide04"]:checked ~ .slidewrap .slidelist > li {
-  transform: translateX(-300%);
-}
-
-.section .slide-control [class*="control"] {
-  display: none;
-}
-.section [id="slide01"]:checked ~ .slide .control01 {
-  display: block;
-}
-.section [id="slide02"]:checked ~ .slide .control02 {
-  display: block;
-}
-.section [id="slide03"]:checked ~ .slide .control03 {
-  display: block;
-}
-.section [id="slide04"]:checked ~ .slide .control04 {
-  display: block;
 }
 
 .body {
@@ -89,12 +10,8 @@
   width: 100vw;
 }
 .body .section_box {
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; */
-
   display: grid;
+  justify-content: space-around;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 40px;
   margin: 0 60px;
@@ -116,14 +33,13 @@
 }
 
 .box {
-  /* position: absolute; */
-  /* width: 300px; */
   height: 300px;
 
   background: #f5f5f5;
   border-radius: 10px;
   cursor: pointer;
 }
+
 
 .pd_brd {
   /* position: absolute; */
@@ -180,6 +96,21 @@
   font-weight: 600;
 }
 
+.tag_like {
+  float: right;
+}
+
+.like_count{
+  color: #999;
+  margin-top: 15px;
+}
+
+.tag_like > img {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
 .pd_price {
   /* position: absolute; */
   font-family: "Gothic";
@@ -197,12 +128,15 @@
 
 .body .category {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
-  width: 987px;
+  width: 100%;
   height: 150px;
   margin: auto;
+
+  text-align: center;
+  line-height: 60px;
 }
 
 .body .category .category_btn {
@@ -226,3 +160,4 @@
 
   color: #000000;
 }
+

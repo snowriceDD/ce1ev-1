@@ -15,7 +15,7 @@ const UserSchema = new Schema(
       required: false,
     },
     address: {
-      type:String,
+      type: String,
       required: true,
     },
     phoneNum: {
@@ -25,11 +25,15 @@ const UserSchema = new Schema(
     role: {
       type: String,
       required: true,
-      default: "일반회원", 
+      default: "일반회원",
     },
     isMember: {
       type: Boolean,
       default: true,
+    },
+    likeProduct: {
+      type: Array,
+      required: false,
     },
   },
   {

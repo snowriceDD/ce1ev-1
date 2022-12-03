@@ -34,27 +34,27 @@ async function insertOrders() {
     ordersCount: 0,
     prepareCount: 0,
     deliveryCount: 0,
-    completeCount: 0.
+    completeCount: 0,
   };
 
-  for(const order of orders) {
-    const {_id, orderNumber, products, cost, status, createdAt} = order;
+  for (const order of orders) {
+    const { _id, orderNumber, products, cost, status, createdAt } = order;
     const date = createdAt.split("T")[0];
     const names = [];
-    products.forEach((product)=> {
-      names.push(product['name'])
-    })
-    const name = names.toString().split(",").join("   ||   ")
-    console.log(name)
+    products.forEach((product) => {
+      names.push(product["name"]);
+    });
+    const name = names.toString().split(",").join("   ||   ");
+    console.log(name);
     summary.ordersCount += 1;
 
-    if(status === "상품 준비중") {
-      summary.prepareCount +=1;
+    if (status === "상품 준비중") {
+      summary.prepareCount += 1;
     }
-    if(status === "상품 배송중") {
+    if (status === "상품 배송중") {
       summary.deliveryCount += 1;
     }
-    if(status === "배송 완료") {
+    if (status === "배송 완료") {
       summary.completeCount += 1;
     }
 
@@ -67,12 +67,25 @@ async function insertOrders() {
         <div>${orderNumber}</div>
       </div>
       <div class="column1" id="cost">${addCommas(cost)}</div>
-      <div class="column1" id="delivery">
+      <div class="colmun1 id="status>${status}</div>
+      <div class="column2" id="delivery">
         <div class="selectBox">
           <select name="sB" class="select" id="status-${_id}">
-            <option ${status==="상품 준비중"?"selected":""} value="상품 준비중">상품 준비중</option>
-            <option ${status==="상품 배송중"?"selected":""}value="상품 배송중">상품 배송중</option>
-            <option ${status==="배송 완료"?"selected:":""}value="배송 완료">배송 완료</option>
+            <option
+             class="has-background-danger-light has-text-danger"
+             ${
+               status === "상품 준비중" ? "selected" : ""
+             } value="상품 준비중">상품 준비중</option>
+            <option
+             class="has-background-primary-light has-text-primary"
+             ${
+               status === "상품 배송중" ? "selected" : ""
+             }value="상품 배송중">상품 배송중</option>
+            <option
+              class="has-background-grey-light"
+             ${
+               status === "배송 완료" ? "selected:" : ""
+             }value="배송 완료">배송 완료</option>
           </select>
         </div>
       </div>
@@ -81,7 +94,7 @@ async function insertOrders() {
           주문 취소
         </button>
       </div>
-    </div>;    
+    </div>  
       `
     );
 
@@ -91,20 +104,21 @@ async function insertOrders() {
     const index = statusBox.selectedIndex;
     statusBox.className = statusBox[index].className;
 
-    statusBox.addEventListener("change", async ()=> {
-      const newStatus = statusBox.value;
-      const data = {status: newStatus};
+    statusBox.addEventListener("change", async () => {
+      const value = confirm("수정하시겠습니까?");
+      if (value) {
+        const newStatus = statusBox.value;
+        const data = { status: newStatus };
 
-      const index = statusBox.selectedIndex;
-      statusBox.className = statusBox[index].calssName;
+        const index = statusBox.selectedIndex;
+        statusBox.className = statusBox[index].calssName;
 
-      await Api.patch("/api/orders/status", _id, data);
-    })
-
-    deleteBtn.addEventListener("click", async ()=> {
-      orderNumDelete = _id;
-      console.log(orderNumDelete);
-      openModal();
+        await Api.patch("/api/orders/status", _id, data);
+        location.reload();
+      }
+    });
+    deleteBtn.addEventListener("click", async (event) => {
+      deleteOrderDate(event, orderNumber);
     });
   }
 
@@ -115,31 +129,28 @@ async function insertOrders() {
 }
 
 //db에 order 삭제
-async function deleteOrderDate(e) {
-  e.preventDefault();
+async function deleteOrderDate(event, orderNumber) {
+  event.preventDefault();
+  const value = confirm("삭제 하시겠습니까?");
+  if (value === true) {
+    try {
+      await Api.delete(`/api/orders/${orderNumber}`);
+      alert("주문이 삭제되었습니다.");
 
-  try {
-    await Api.delete("/api/orders", orderNumDelete);
+      const deleteItem = document.querySelector(`#order-${orderNumDelete}`);
+      deleteItem.remove();
 
-    alert("주문이 삭제되었습니다.");
-
-    const deleteItem = document.querySelector(`#order-${orderNumDelete}`)
-    deleteItem.remove();
-
-    orderNumDelete = "";
-
-    closeModal();
-  } catch(err) {
-    next(`주문 삭제 과정에서 오류가 발생하였습니다: ${err}`);
+    } catch {(err)=>{
+      alert(`주문 삭제 과정에서 오류가 발생하였습니다: ${err}`);
+    }}
   }
+  window.location.href = "/admin/adminOrder";
 }
 
 function cancelDelete() {
   userIdToDelete = "";
   closeModal();
 }
-
-
 
 //modal용 script
 function closeModal() {
@@ -148,7 +159,6 @@ function closeModal() {
 function openModal() {
   modal.style.display = "flex";
 }
-
 
 /*esc close module*/
 document.addEventListener("keydown", keyDownCloseModal);

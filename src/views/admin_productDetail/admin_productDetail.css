@@ -5,6 +5,16 @@
   list-style: none;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.section {
+  flex: 1;
+}
+
 .box {
   /* border: 1px solid #181818; */
   background-color: #ffffff;
@@ -13,6 +23,8 @@
 .pd_brd {
   font-weight: 900;
   text-decoration: underline;
+
+  margin-bottom: 3px;
 }
 
 .size_block {
@@ -175,7 +187,7 @@
   font-weight: 600;
 }
 
-.container {
+.section {
   display: grid;
   margin-top: 100px;
   margin-left: 25%;

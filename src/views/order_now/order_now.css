@@ -1,0 +1,144 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.section {
+  flex: 1;
+  margin: 30px auto;
+}
+
+.section .title {
+  font-family: Gothic A1;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.left_subtitle,
+.right_subtitle {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.section .main_container {
+  display: flex;
+  gap: 100px;
+
+  margin-top: 20px;
+}
+
+.section .main_container .right_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section .main_container .left_box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.section .input {
+  width: 400px;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.section .pay {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.section .pay .coupon {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.total {
+  width: 400px;
+  display: flex;
+}
+
+.total .product {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.total .product .box {
+  width: 100px;
+  height: 100px;
+  background: #d9d9d9;
+  margin-top: 0px;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.productInfo #name {
+  font-family: Gothic A1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.productInfo #color {
+  display: flex;
+  justify-content: space-between;
+  font-family: Gothic A1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.productInfo #size {
+  display: flex;
+  justify-content: space-between;
+  font-family: Gothic A1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.productInfo #count {
+  display: flex;
+  justify-content: space-between;
+  font-family: Gothic A1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.productInfo #price {
+  display: flex;
+  justify-content: space-between;
+  font-family: Gothic A1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.totalProductInfo {
+  border-left: 25px solid rgb(184, 211, 227);
+}
+
+.totalProductInfo li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payButton {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 5px 0;
+}
