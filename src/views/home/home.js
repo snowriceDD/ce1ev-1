@@ -22,7 +22,8 @@ async function insertProductElement() {
     const description = product.description;
     const num = product.num;
     const like = product.like;
-
+   
+    
     productList.insertAdjacentHTML(
       "beforeend",
       `
@@ -44,6 +45,7 @@ async function insertProductElement() {
   </section>
     `
     );
+  
     const productItem = document.getElementById(`${num}`);
     const likeBtn = document.getElementById(`like_${num}`);
     const likeCount = document.getElementById(`likeCount_${num}`);
@@ -120,6 +122,7 @@ async function insertProductElement() {
       }
     }
   });
+
   const logoutBtn1 = document.querySelector("#logout1");
   const logoutBtn2 = document.querySelector("#logout2");
 

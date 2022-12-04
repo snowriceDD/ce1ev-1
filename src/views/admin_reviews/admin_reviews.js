@@ -1,7 +1,7 @@
 import { checkAdmin } from "../useful-functions.js";
 import * as Api from "/api.js";
 
-const section = document.querySelector(".content");
+const section = document.querySelector(".title");
 
 checkAdmin();
 
@@ -38,21 +38,25 @@ async function getReviewList() {
     section.insertAdjacentHTML(
       "afterend",
       `<div class="content">
-        <div id="${orderNo}-${productNo}">
+        <div id="${orderNo}-${productNo}" class="first">
           <img class="product_img" src="${productImg}"/>
           <div class="product_script">
             <p class="product_name">상품 명 : ${productName}</p>
             <p class="product_name">[사이즈 : ${productSize}, 색상 : ${productColor}]</p>
             <p class="product_name">가격 : ${productPrice}</p>
           </div>
-          <div>
+          </div>
+
+          <div class="product_price">
             <p>리뷰 번호: ${reviewNo}</p>
             <p>주문 번호: ${orderNo}</p>
             <p>고객 이메일: ${userId}</p>
-            <p>후기 내용: ${review}</p>
-            <button class="${deleteBtn}">삭제하기</button>
           </div>
-        </div>
+
+          <div class="product_price">
+          <p>후기 내용: ${review}</p>
+          <button class="${deleteBtn}">삭제하기</button>
+          </div>
       </div>`
     );
 

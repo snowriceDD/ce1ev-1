@@ -6,8 +6,6 @@
 
 .section {
   flex: 1;
-}
-.section {
   width: 1000px;
   margin: 110px auto;
 }
@@ -30,6 +28,10 @@
 }
 
 .section .my_shopping {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
   font-size: 14px;
 }
 
@@ -61,7 +63,7 @@
   border: 1px solid lightgray;
 
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 
   text-align: center;
@@ -93,7 +95,7 @@
   gap: 46px;
 }
 
-.section .my_shopping .content .product_price {
+.section .my_shopping .product_price {
   width: 188px;
   height: 202px;
 
@@ -101,8 +103,9 @@
   border-right: 1px solid lightgray;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+
 }
 /*  */
 
