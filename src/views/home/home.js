@@ -12,9 +12,6 @@ insertProductElement();
 async function insertProductElement() {
   const res = await fetch(`api/products`); //백엔드 url
   const products = await res.json();
-  let userData = await Api.get("/api/user");
-  const likeProduct = userData.likeProduct;
-  console.log(likeProduct)
 
   products.forEach((product) => {
     const brand = product.brand;
