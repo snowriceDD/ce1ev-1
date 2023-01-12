@@ -83,3 +83,71 @@
 | 송주혜 [@Zuhye](https://github.com/Zuhye) | 홈, 로그인, 회원가입, 회원정보 수정, 네비바 |
 | 김현아 [@kimakuma](https://github.com/kimakuma) | 마이페이지, 매칭 이력 페이지 |
 | 동하 [@donggram2](https://github.com/donggram2) | 장바구니, 모집글 참여현황 API, 카페정보 API | 
+
+## 🗂 디렉토리 구조
+```
+ce1ev
+└─ src
+   ├─ app.js
+   ├─ middlewares
+   ├─ models
+   │  ├─ SelectedProduct-model.js
+   │  ├─ index.js
+   │  ├─ order-model.js
+   │  ├─ post-model.js
+   │  ├─ product-model.js
+   │  ├─ review-model.js
+   │  ├─ schemas
+   │  │  ├─ SelectedProductSchema.js
+   │  │  ├─ order.js
+   │  │  ├─ post.js
+   │  │  ├─ product.js
+   │  │  ├─ review.js
+   │  │  ├─ shoppingCart.js
+   │  │  └─ user.js
+   │  └─ user-model.js
+   ├─ routers
+   │  ├─ SelectedProduct-model.js
+   │  ├─ index.js
+   │  ├─ mypage-router.js
+   │  ├─ order-router.js
+   │  ├─ post-router.js
+   │  ├─ product-router.js
+   │  ├─ user-router.js
+   │  └─ views-router.js
+   ├─ services
+   │  ├─ index.js
+   │  ├─ order-service.js
+   │  ├─ post-service.js
+   │  ├─ product-service.js
+   │  ├─ review-service.js
+   │  ├─ selectedProduct-service.js
+   │  └─ user-service.js
+   └─ views
+      ├─ addProduct
+      ├─ adminPage
+      ├─ adminProductList
+      ├─ admin_members
+      ├─ admin_orders
+      ├─ admin_productDetail
+      ├─ admin_reviews
+      ├─ api.js
+      ├─ aws-s3.js
+      ├─ guest
+      ├─ guestOrderList
+      ├─ home
+      ├─ image
+      ├─ login
+      ├─ memberOrder
+      ├─ mypage
+      ├─ mypageOrderList
+      ├─ notice
+      ├─ order
+      ├─ order_now
+      ├─ postEdit
+      ├─ productDetail
+      ├─ register
+      ├─ updateProduct
+      └─ useful-functions.js
+
+```
