@@ -4,7 +4,7 @@
 💡 셀럽들이 착용했던 의상들을 기준으로 데이터화하여 소비자에게 착용 정보 제공 및 상품을 판매하는 쇼핑몰 서비스입니다.
 ```
 
-<img src="https://user-images.githubusercontent.com/113027954/211980451-eab4c9e7-c25c-48e6-a71f-34a94ebd8a05.png" width="960" >
+<img width="960" alt="mainpic" src="https://user-images.githubusercontent.com/113027954/212001425-a9a11910-380e-4524-9617-77693f62dfb2.png">
 
 ## ⭐️ About Project
 
