@@ -82,7 +82,7 @@
 | 김윤수 [@snowriceDD](https://github.com/snowriceDD) | 홈, 지도 기능, 프론트 배포, msw |
 | 송주혜 [@Zuhye](https://github.com/Zuhye) | 홈, 로그인, 회원가입, 회원정보 수정, 네비바 |
 | 김현아 [@kimakuma](https://github.com/kimakuma) | 후기관리, 장바구니, 결제 API |
-| 동하 [@donggram2](https://github.com/donggram2) | 장바구니, 제품 상세 , 유저 API | 
+| 동하 [@donggram2](https://github.com/donggram2) | 장바구니, 제품 상세 , 유저 API,  | 
 
 ## 🗂 디렉토리 구조
 ```
