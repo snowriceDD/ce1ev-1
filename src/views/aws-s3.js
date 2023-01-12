@@ -49,7 +49,6 @@ async function addImageToS3(fileInputElement, album) {
     const uploadedFile = await upload.promise();
 
     const fileKey = uploadedFile.Key;
-    console.log(uploadedFile);
     console.log(
       `AWS S3에 정상적으로 사진이 업로드되었습니다.\n파일 위치: ${fileKey}`
     );

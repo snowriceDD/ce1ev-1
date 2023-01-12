@@ -3,14 +3,11 @@ import { checkLogin } from "../useful-functions.js";
 const productList = document.querySelector(".section_box");
 const token = sessionStorage.getItem("token");
 
-// console.log(userId)
-// const email = userData.email;
-
 // 데이터를 받아 요소를 만든 후, html에 삽입
 insertProductElement();
 
 async function insertProductElement() {
-  const res = await fetch(`api/products`); //백엔드 url
+  const res = await fetch(`api/products`);
   const products = await res.json();
 
   products.forEach((product) => {
@@ -58,14 +55,10 @@ async function insertProductElement() {
     async function toggle(e) {
 
       e.preventDefault();
-      console.log(likeBtn.src.split("/")[4]);
       if (likeBtn.src.split("/")[4] === "like.png") {
         countIncrease(e);
-        console.log("인크리즈");
       } else {
         countDecrease(e);
-        console.log(likeBtn.src);
-        console.log("디크리즈");
       }
     }
     async function countIncrease(e) {
@@ -79,14 +72,12 @@ async function insertProductElement() {
         const data = { num, like };
         likeProduct.push(num);
         const newLike = like + 1;
-        console.log("인크리즈", newLike);
         if (like != newLike) {
           data.like = newLike;
           await Api.patch("/api/products", num, data);
           await Api.patch("/api/usersLike/like", userId, {
             likeProduct: likeProduct,
           });
-          console.log(userId);
           likeCount.innerText = data.like;
           likeBtn.src = "../image/like_hover.png";
         }
@@ -105,14 +96,12 @@ async function insertProductElement() {
         const data = { num, like };
         likeProduct.pop(num);
         const newLike = like - 1;
-        console.log("디크리즈", newLike);
         if (like != newLike) {
           data.like = like;
           await Api.patch("/api/products", num, data);
           await Api.patch("/api/usersLike/like", userId, {
             likeProduct: likeProduct,
           });
-          console.log(userId);
           likeCount.innerText = data.like;
           likeBtn.src = "../image/like.png";
         }

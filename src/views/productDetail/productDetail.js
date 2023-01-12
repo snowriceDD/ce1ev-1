@@ -182,7 +182,6 @@ const initialize = async () => {
   product = await res.json();
   review = product.review;
   product = product.data;
-  console.log(product["size"].join());
 };
 
 initialize().then(() => render());

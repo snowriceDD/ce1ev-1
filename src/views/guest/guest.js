@@ -25,7 +25,6 @@ async function handleSubmit(e) {
 
   try {
     const data = { email, orderNumber };
-    console.log(data);
     const result = await Api.post("/api/guest", data);
 
     alert("게스트 로그인이 확인되었습니다.");

@@ -7,8 +7,6 @@ class SelectedProductService {
   async addSelectedProduct(productInfo) {
     const { num, brand, name, price, size, color, category } = productInfo;
 
-    // console.log(newProductInfo)
-
     // db에 저장
     const createdNewProduct = await this.model.create(productInfo);
 

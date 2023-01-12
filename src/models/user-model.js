@@ -11,7 +11,6 @@ export class UserModel {
 
   async findById(userId) {
     const user = await User.findOne({ _id: userId });
-    // console.log(user);
     return user;
   }
 
@@ -28,9 +27,6 @@ export class UserModel {
   async update({ userId, update }) {
     const filter = { _id: userId };
     const option = { returnOriginal: false };
-    console.log("userModel", update);
-    console.log("filter", filter);
-    console.log("userId", userId);
     const updatedUser = await User.findOneAndUpdate(filter, update, option);
     return updatedUser;
   }

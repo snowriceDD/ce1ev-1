@@ -10,7 +10,6 @@ const phoneNumTag = document.querySelector("#phoneNumberInput");
 const token = sessionStorage.getItem("token");
 cart[0].totalPrice=cart[0].price;
 cart[0].totalCount=1;
-console.log(cart)
 if (token) {
   checkLogin();
   insertUserData();
@@ -38,12 +37,10 @@ if (token) {
         const payMethod = payment;
         const products = cart;
         const cost = parseInt(document.querySelector(".AllPrice").innerHTML.replace(/(,|개|원)/g, ""))
-        console.log(cost)
         const count = cart.length;
         const data = { orderNumber, products, cost, count, payMethod, email };
         const result = await Api.post("/api/orders", data);
         alert(`주문이 완료 되었습니다.`)
-        // console.log(result);
         localStorage.clear();
         if (result) {
           window.location.href = "/";
@@ -115,9 +112,6 @@ if (token) {
         
 
         try {
-          // const user = {name, email, password, phoneNum, address, role, isMember};
-          // await Api.post("/api/register", user);
-          
           alert(`guest 주문이 완료 되었습니다. 주문번호(${password})를 꼭 기억하여 주문조회 시 입력해주십시오.`)
           localStorage.clear();
         } catch (err) {

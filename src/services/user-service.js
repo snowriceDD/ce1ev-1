@@ -152,14 +152,10 @@ class UserService {
   }
 
   async setLike(userId, likeProduct) {
-    console.log(likeProduct);
-    console.log("userService USerid", userId);
     const updatedUser = await this.model.update({
       userId,
       update: { likeProduct: likeProduct },
     });
-    console.log("user_service", updatedUser);
-
     return updatedUser;
   }
 

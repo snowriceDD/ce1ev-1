@@ -84,7 +84,6 @@ async function insertUsers() {
 
     deleteBtn.addEventListener("click", async ()=> {
       userIdToDelete = _id;
-      console.log(userIdToDelete);// 뜸
       openModal();
     });
   }

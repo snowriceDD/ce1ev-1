@@ -1,6 +1,5 @@
 import * as Api from "../api.js";
 import { checkLogin, getToday , validateEmail} from "../useful-functions.js";
-// import { addCommas, checkLogin } from "../useful-functions";
 
 let cart = JSON.parse(localStorage.getItem("orderProducts"));
 
@@ -41,7 +40,6 @@ if (token) {
         const data = { orderNumber, products, cost, count, payMethod, email };
         const result = await Api.post("/api/orders", data);
         alert(`주문이 완료 되었습니다.`)
-        // console.log(result);
         localStorage.clear();
         if (result) {
           window.location.href = "/";

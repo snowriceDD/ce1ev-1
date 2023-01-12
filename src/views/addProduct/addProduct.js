@@ -69,7 +69,6 @@ async function handleSubmit(e) {
 
         //경로 재설정 필요함 어디로 보낼지를 정해야됨!
         const result = await Api.post("/api/products", data);
-        console.log(result);
         if (result) {
           alert(`${result.name} 상품이 성공적으로 등록되었습니다!`);
           window.location.href = "/";
