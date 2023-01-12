@@ -83,3 +83,260 @@
 | 송주혜 [@Zuhye](https://github.com/Zuhye) | 홈, 로그인, 회원가입, 회원정보 수정, 네비바 |
 | 김현아 [@kimakuma](https://github.com/kimakuma) | 마이페이지, 매칭 이력 페이지 |
 | 동하 [@donggram2](https://github.com/donggram2) | 장바구니, 모집글 참여현황 API, 카페정보 API |
+
+```
+ce1ev
+├─ .eslintrc.json
+├─ .git
+│  ├─ FETCH_HEAD
+│  ├─ HEAD
+│  ├─ config
+│  ├─ description
+│  ├─ hooks
+│  │  ├─ applypatch-msg.sample
+│  │  ├─ commit-msg.sample
+│  │  ├─ fsmonitor-watchman.sample
+│  │  ├─ post-update.sample
+│  │  ├─ pre-applypatch.sample
+│  │  ├─ pre-commit.sample
+│  │  ├─ pre-merge-commit.sample
+│  │  ├─ pre-push.sample
+│  │  ├─ pre-rebase.sample
+│  │  ├─ pre-receive.sample
+│  │  ├─ prepare-commit-msg.sample
+│  │  ├─ push-to-checkout.sample
+│  │  └─ update.sample
+│  ├─ index
+│  ├─ info
+│  │  └─ exclude
+│  ├─ logs
+│  │  ├─ HEAD
+│  │  └─ refs
+│  │     ├─ heads
+│  │     │  └─ master
+│  │     └─ remotes
+│  │        └─ origin
+│  │           └─ HEAD
+│  ├─ objects
+│  │  ├─ info
+│  │  └─ pack
+│  │     ├─ pack-0dca4643deda9b09e6b2bc00f38a721c5f3bb7c3.idx
+│  │     └─ pack-0dca4643deda9b09e6b2bc00f38a721c5f3bb7c3.pack
+│  ├─ packed-refs
+│  └─ refs
+│     ├─ heads
+│     │  └─ master
+│     ├─ remotes
+│     │  └─ origin
+│     │     └─ HEAD
+│     └─ tags
+├─ .gitignore
+├─ README.md
+├─ adminAccount.json
+├─ babel.config.json
+├─ index.js
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ app.js
+│  ├─ middlewares
+│  │  ├─ admin-only.js
+│  │  ├─ error-handler.js
+│  │  ├─ index.js
+│  │  └─ login-required.js
+│  ├─ models
+│  │  ├─ SelectedProduct-model.js
+│  │  ├─ index.js
+│  │  ├─ order-model.js
+│  │  ├─ post-model.js
+│  │  ├─ product-model.js
+│  │  ├─ review-model.js
+│  │  ├─ schemas
+│  │  │  ├─ SelectedProductSchema.js
+│  │  │  ├─ order.js
+│  │  │  ├─ post.js
+│  │  │  ├─ product.js
+│  │  │  ├─ review.js
+│  │  │  ├─ shoppingCart.js
+│  │  │  └─ user.js
+│  │  └─ user-model.js
+│  ├─ routers
+│  │  ├─ SelectedProduct-model.js
+│  │  ├─ index.js
+│  │  ├─ mypage-router.js
+│  │  ├─ order-router.js
+│  │  ├─ post-router.js
+│  │  ├─ product-router.js
+│  │  ├─ user-router.js
+│  │  └─ views-router.js
+│  ├─ services
+│  │  ├─ index.js
+│  │  ├─ order-service.js
+│  │  ├─ post-service.js
+│  │  ├─ product-service.js
+│  │  ├─ review-service.js
+│  │  ├─ selectedProduct-service.js
+│  │  └─ user-service.js
+│  └─ views
+│     ├─ addProduct
+│     │  ├─ addProduct.css
+│     │  ├─ addProduct.html
+│     │  └─ addProduct.js
+│     ├─ adminPage
+│     │  ├─ adminPage.css
+│     │  ├─ adminPage.html
+│     │  └─ adminPage.js
+│     ├─ adminProductList
+│     │  ├─ adminProductList.css
+│     │  ├─ adminProductList.html
+│     │  └─ adminProductList.js
+│     ├─ admin_members
+│     │  ├─ admin_members.html
+│     │  ├─ admin_members_script.js
+│     │  └─ admin_members_style.css
+│     ├─ admin_orders
+│     │  ├─ admin_orders.html
+│     │  ├─ admin_orders_script.js
+│     │  └─ admin_orders_style.css
+│     ├─ admin_productDetail
+│     │  ├─ Footer.js
+│     │  ├─ HeaderFooter.css
+│     │  ├─ admin_productDetail.css
+│     │  ├─ admin_productDetail.html
+│     │  ├─ admin_productDetail.js
+│     │  ├─ changeHeader.js
+│     │  └─ reset.css
+│     ├─ admin_reviews
+│     │  ├─ admin_reviews.css
+│     │  ├─ admin_reviews.html
+│     │  └─ admin_reviews.js
+│     ├─ api.js
+│     ├─ aws-s3.js
+│     ├─ elice-rabbit-favicon.png
+│     ├─ elice-rabbit.png
+│     ├─ guest
+│     │  ├─ guest.css
+│     │  ├─ guest.html
+│     │  └─ guest.js
+│     ├─ guestOrderList
+│     │  ├─ Footer.js
+│     │  ├─ HeaderFooter.css
+│     │  ├─ changeHeader.js
+│     │  ├─ guestOrderList.css
+│     │  ├─ guestOrderList.html
+│     │  └─ guestOrderList.js
+│     ├─ home
+│     │  ├─ category.js
+│     │  ├─ categoryfilter.js
+│     │  ├─ changeHeader.js
+│     │  ├─ home.css
+│     │  ├─ home.html
+│     │  ├─ home.js
+│     │  ├─ product.js
+│     │  ├─ reset.css
+│     │  ├─ searching.js
+│     │  ├─ slideScript.js
+│     │  └─ slideStyle.css
+│     ├─ image
+│     │  ├─ celev_logo.PNG
+│     │  ├─ left.png
+│     │  ├─ like.png
+│     │  ├─ like_hover.png
+│     │  ├─ login.PNG
+│     │  ├─ mainPage.PNG
+│     │  ├─ profile.png
+│     │  ├─ register.PNG
+│     │  ├─ register.gif
+│     │  ├─ right.png
+│     │  ├─ search_img.png
+│     │  ├─ slide1.png
+│     │  ├─ slide2.png
+│     │  ├─ slide3.png
+│     │  ├─ slide4.png
+│     │  └─ 뉴진스01.jpg
+│     ├─ login
+│     │  ├─ login.css
+│     │  ├─ login.html
+│     │  └─ login.js
+│     ├─ memberOrder
+│     │  ├─ memberOrder.css
+│     │  └─ memberOrder.html
+│     ├─ mypage
+│     │  ├─ Footer.js
+│     │  ├─ HeaderFooter.css
+│     │  ├─ header.js
+│     │  ├─ myAccountUpdate.css
+│     │  ├─ myAccountUpdate.html
+│     │  ├─ myAccountUpdate.js
+│     │  ├─ mypage.css
+│     │  ├─ mypage.html
+│     │  ├─ mypage.js
+│     │  ├─ mypageAccount.css
+│     │  ├─ mypageAccount.html
+│     │  ├─ mypageAccount.js
+│     │  ├─ mypageCart.css
+│     │  ├─ mypageCart.html
+│     │  ├─ mypageCart.js
+│     │  ├─ mypageReview.css
+│     │  ├─ mypageReview.html
+│     │  ├─ mypageReview.js
+│     │  ├─ mypageWithdrawal.css
+│     │  ├─ mypageWithdrawal.html
+│     │  └─ mypageWithdrawal.js
+│     ├─ mypageOrderList
+│     │  ├─ Footer.js
+│     │  ├─ HeaderFooter.css
+│     │  ├─ changeHeader.js
+│     │  ├─ mypageOrderList.css
+│     │  ├─ mypageOrderList.html
+│     │  ├─ mypageOrderList.js
+│     │  └─ reset.css
+│     ├─ notice
+│     │  ├─ css
+│     │  │  ├─ css.css
+│     │  │  ├─ media.css
+│     │  │  ├─ notice.css
+│     │  │  └─ reset.css
+│     │  ├─ notice.html
+│     │  ├─ notice.js
+│     │  ├─ view.html
+│     │  ├─ view.js
+│     │  ├─ write.html
+│     │  └─ write.js
+│     ├─ order
+│     │  ├─ order.css
+│     │  ├─ order.html
+│     │  ├─ order.js
+│     │  ├─ reset.css
+│     │  └─ test.js
+│     ├─ order_now
+│     │  ├─ Footer.js
+│     │  ├─ order_now.css
+│     │  ├─ order_now.html
+│     │  ├─ order_now.js
+│     │  └─ reset.css
+│     ├─ postEdit
+│     │  ├─ footer.js
+│     │  ├─ headerfooter.css
+│     │  ├─ postEdit.css
+│     │  ├─ postEdit.html
+│     │  └─ postEdit.js
+│     ├─ productDetail
+│     │  ├─ Footer.js
+│     │  ├─ HeaderFooter.css
+│     │  ├─ changeHeader.js
+│     │  ├─ productDetail.css
+│     │  ├─ productDetail.html
+│     │  └─ productDetail.js
+│     ├─ register
+│     │  ├─ register.css
+│     │  ├─ register.html
+│     │  └─ register.js
+│     ├─ updateProduct
+│     │  ├─ updateProduct.css
+│     │  ├─ updateProduct.html
+│     │  └─ updateProduct.js
+│     └─ useful-functions.js
+└─ temp.txt
+
+```
