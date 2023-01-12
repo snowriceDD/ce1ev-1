@@ -27,7 +27,6 @@ export class OrderModel {
 
   async findByEmail(email) {
     const order = await Order.find({email});
-    console.log("확인"+order)
     return order;
   }
 

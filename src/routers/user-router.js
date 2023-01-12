@@ -110,7 +110,6 @@ userRouter.get("/userlist", async function (req, res, next) {
 userRouter.get("/user", loginRequired, async (req, res, next) => {
   try {
     const userId = req.currentUserId; //loginRequired에 있음
-    // console.log(userId);
     const currentUserInfo = await userService.getUserData(userId);
 
     res.status(200).json(currentUserInfo);
@@ -224,7 +223,6 @@ userRouter.patch(
 
       // params로부터 id를 가져옴
       const userId = req.params.userId;
-      console.log("userROuter", userId);
       // body data 로부터 업데이트할 사용자 권한 정보를 추출함.
       const likeProduct = req.body.likeProduct;
       // 사용자 정보를 업데이트함.

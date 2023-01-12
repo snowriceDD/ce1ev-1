@@ -76,7 +76,6 @@ class OrderService {
     const guest = await this.model.findByEmail(email);
     if (!guest[0]) {
       throw new Error(
-        // console.log(guest)
         "해당 이메일은 주문내역이 없습니다. 다시 한 번 확인해 주세요."
       );
     }

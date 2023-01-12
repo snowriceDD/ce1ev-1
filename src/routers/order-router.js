@@ -73,8 +73,6 @@ orderRouter.post("/orders", async (req, res, next) => {
       status,
       email,
     });
-    console.log(userId);
-
     res.status(201).json(newOrder);
   } catch (err) {
     next(err);

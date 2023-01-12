@@ -114,12 +114,9 @@ async function decreaseItemQuantity(_id) {
   document.querySelector(`.price-${_id}`).innerHTML = totalPrice
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // this.funcTotalPrice()
   return;
 }
 async function funcTotalPrice() {
-  // const allPrice = document.querySelector('.totalPrice').innerHTML;
-  // console.log(allPrice)
   let totalPrice = 0;
   cart.forEach((product) => {
     const _id = product._id;
@@ -130,7 +127,6 @@ async function funcTotalPrice() {
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-// console.log(Object.)
 async function deleteItem(_id) {
   const btn = document.querySelector(`#delete-${_id}`);
   const deleteForm = btn.parentNode.parentNode;
@@ -144,8 +140,6 @@ async function deleteItem(_id) {
 }
 
 async function moveToOrder() {
-  // const newPrice = document.querySelector(`.product_price-${_id}`).innerHTML;
-  // console.log(newPrice);
   let a = [];
   cart.forEach((item, i) => {
     const id = item._id;
@@ -158,22 +152,13 @@ async function moveToOrder() {
     a.push(item);
 
     localStorage.setItem("orderProducts", JSON.stringify(a));
-    // const newCount = document.querySelector(`#quantityInput-${_id}`).innerHTML;
   });
-  // localStorage.clear();
 
   location.href = "/order";
 }
 
 document.querySelector(".payNow").addEventListener("click", moveToOrder);
-//   product.payPrice = `product_price-${_id}`.innerHTML
-//   product.payQuantity = `quantityInput-${_id}`.innerHTML
-
-// console.log(product.payPrice)
-// products.push(product);
-// localStorage.setItem('products')
 
 async function funcTotalAmount() {
   document.querySelector(".totalAmount").innerHTML = cart.length;
 }
-// 수량 변경박스(-버튼, 입력칸, +버튼) 상태 업데이트

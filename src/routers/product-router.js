@@ -119,7 +119,6 @@ productRouter.post("/products", loginRequired, async (req, res, next) => {
     next(err);
   }
 
-  //console.log(newProduct);//num 안들어감
 });
 
 productRouter.post(

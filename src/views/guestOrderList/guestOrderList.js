@@ -1,23 +1,14 @@
-// import { checkLogin } from "../useful-functions.js";
-import * as Api from "/api.js";
-
 const section = document.querySelector(".title");
 const product = document.querySelector(".product_name");
 const orderNumber = window.location.pathname.split("/")[2];
 const innerStatus = document.querySelector(".status");
-console.log(orderNumber)
-// checkLogin();
 insertOrderListElement();
 
-// let userData;
 let orderLists = {};
 async function insertOrderListElement() {
-  // const userData = await Api.get('/api/user');
-  // const {email} = userData;
-  // console.log(email)
+
   const res = await fetch(`/api/orders/${orderNumber}`);
   orderLists = await res.json();
-  console.log(orderLists)
   const orderList = orderLists.products
   
       orderList.forEach((productList) => {

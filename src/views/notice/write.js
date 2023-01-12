@@ -44,8 +44,6 @@ async function handleSubmit(e) {
         const data = {title, content, user, password};
 
         const result = await Api.post("/api/posts", data);
-        console.log(result);
-
         if(result) {
             alert(`${result.user} 님의 글이 등록되었습니다.`);
             window.location.href="/notice";

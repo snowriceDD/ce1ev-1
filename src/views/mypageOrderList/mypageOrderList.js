@@ -5,18 +5,13 @@ const section = document.querySelector(".title");
 const product = document.querySelector(".product_name");
 const userEmail = window.location.pathname.split("/")[2];
 let ref = {};
-// checkLogin();
 insertOrderListElement();
 
-// let userData;
 let orderLists = {};
 async function insertOrderListElement() {
-  // const userData = await Api.get('/api/user');
-  // const {email} = userData;
-  // console.log(email)
+
   const res = await fetch(`/api/myOrders/${userEmail}`);
   orderLists = await res.json();
-  console.log(orderLists);
   orderLists.forEach((orderList) => {
     orderList.products.forEach((productList) => {
       const name = productList.name;
@@ -75,9 +70,8 @@ async function insertOrderListElement() {
         );
       }
     });
-  }); // deleteButton.addEventListner
+  }); 
 }
-console.log(ref)
 async function deleteOrderList(event, orderNumber) {
   event.preventDefault();
   const value = confirm("주문 취소 시 관련 상품이 전부 취소됩니다.");

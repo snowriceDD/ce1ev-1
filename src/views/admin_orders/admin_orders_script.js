@@ -45,7 +45,6 @@ async function insertOrders() {
       names.push(product["name"]);
     });
     const name = names.toString().split(",").join("   ||   ");
-    console.log(name);
     summary.ordersCount += 1;
 
     if (status === "상품 준비중") {
