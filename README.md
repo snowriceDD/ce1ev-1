@@ -82,4 +82,4 @@
 | 김윤수 [@snowriceDD](https://github.com/snowriceDD) | 홈, 지도 기능, 프론트 배포, msw |
 | 송주혜 [@Zuhye](https://github.com/Zuhye) | 홈, 로그인, 회원가입, 회원정보 수정, 네비바 |
 | 김현아 [@kimakuma](https://github.com/kimakuma) | 마이페이지, 매칭 이력 페이지 |
-| 동하 [@donggram2](https://github.com/donggram2) | 장바구니, 모집글 참여현황 API, 카페정보 API |
+| 동하 [@donggram2](https://github.com/donggram2) | 장바구니, 모집글 참여현황 API, 카페정보 API | 
