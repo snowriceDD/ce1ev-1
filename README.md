@@ -80,7 +80,7 @@
 | --- | --- |
 | 박재훈 [@noorong](https://github.com/noorong) | 전체 UI design 및 개발, 검색, 카테고리 기능 개발, Nginx배포, 로그인, 회원가입 기능 구현 |
 | 김윤수 [@snowriceDD](https://github.com/snowriceDD) | 홈, 캐러셀, 상품 상세, 상품 블럭, UX/UI, 지도 API |
-| 송주혜 [@Zuhye](https://github.com/Zuhye) | 홈, 로그인, 회원가입, 회원정보 수정, 네비바 |
+| 송주혜 [@Zuhye](https://github.com/Zuhye) | 회원정보 API, 상품 API, 찜, 공지사항 |
 | 김현아 [@kimakuma](https://github.com/kimakuma) | 후기관리, 장바구니, 결제 API |
 | 동하 [@donggram2](https://github.com/donggram2) | 장바구니, 제품 상세 , 유저 API,  | 
 
